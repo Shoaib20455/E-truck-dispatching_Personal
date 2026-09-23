@@ -49,10 +49,7 @@ export default function Navbar() {
     const handleClickOutside = (event: MouseEvent) => {
       const target = event.target as Node;
 
-      if (
-        headerRef.current &&
-        !headerRef.current.contains(target)
-      ) {
+      if (headerRef.current && !headerRef.current.contains(target)) {
         closeNavigation();
       }
     };
@@ -63,34 +60,19 @@ export default function Navbar() {
       }
     };
 
-    document.addEventListener(
-      "mousedown",
-      handleClickOutside,
-    );
+    document.addEventListener("mousedown", handleClickOutside);
 
-    document.addEventListener(
-      "keydown",
-      handleEscape,
-    );
+    document.addEventListener("keydown", handleEscape);
 
     return () => {
-      document.removeEventListener(
-        "mousedown",
-        handleClickOutside,
-      );
+      document.removeEventListener("mousedown", handleClickOutside);
 
-      document.removeEventListener(
-        "keydown",
-        handleEscape,
-      );
+      document.removeEventListener("keydown", handleEscape);
     };
   }, []);
 
   return (
-    <header
-      ref={headerRef}
-      className="relative z-[999] w-full"
-    >
+    <header ref={headerRef} className="relative z-[999] w-full">
       {/* =====================================================
           TOP CONTACT BAR
       ====================================================== */}
@@ -191,9 +173,7 @@ export default function Navbar() {
             >
               <LocationIcon />
 
-              <span>
-                4309 Schubert, Colleyville Texas, TX 76034
-              </span>
+              <span>4309 Schubert, Colleyville Texas, TX 76034</span>
             </div>
           </div>
         </div>
@@ -238,7 +218,7 @@ export default function Navbar() {
             "
           >
             <Image
-              src="/logo.png"
+              src="/Home/1_rectangle_40.png"
               alt="Avenue Billing Services"
               width={170}
               height={50}
@@ -386,11 +366,7 @@ export default function Navbar() {
                   transition-all
                   duration-300
 
-                  ${
-                    isMenuOpen
-                      ? "translate-y-2 rotate-45"
-                      : ""
-                  }
+                  ${isMenuOpen ? "translate-y-2 rotate-45" : ""}
                 `}
               />
 
@@ -405,11 +381,7 @@ export default function Navbar() {
                   transition-all
                   duration-200
 
-                  ${
-                    isMenuOpen
-                      ? "opacity-0"
-                      : "opacity-100"
-                  }
+                  ${isMenuOpen ? "opacity-0" : "opacity-100"}
                 `}
               />
 
@@ -424,11 +396,7 @@ export default function Navbar() {
                   transition-all
                   duration-300
 
-                  ${
-                    isMenuOpen
-                      ? "-translate-y-2 -rotate-45"
-                      : ""
-                  }
+                  ${isMenuOpen ? "-translate-y-2 -rotate-45" : ""}
                 `}
               />
             </span>
@@ -507,13 +475,7 @@ function LocationIcon() {
         strokeLinejoin="round"
       />
 
-      <circle
-        cx="12"
-        cy="9"
-        r="2.4"
-        stroke="currentColor"
-        strokeWidth="1.8"
-      />
+      <circle cx="12" cy="9" r="2.4" stroke="currentColor" strokeWidth="1.8" />
     </svg>
   );
 }
