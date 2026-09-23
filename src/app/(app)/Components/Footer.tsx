@@ -52,7 +52,7 @@ export default function Footer() {
   return (
     <footer className="w-full bg-accent/10">
       <div className="mx-auto w-full max-w-[1520px] px-6 py-12 lg:px-8 2xl:px-0">
-        <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-[287px_1fr_1.35fr_1fr] lg:gap-20">
+        <div className="grid grid-cols-1 gap-12 md:grid-cols-2 2xl:grid-cols-[287px_1fr_1.35fr_1fr] 2xl:gap-20">
           <div>
             <Link href="/" className="inline-block">
               <Image
@@ -127,7 +127,7 @@ export default function Footer() {
 
         <div className="my-8 h-0.5 w-full bg-neutral-500/25" />
 
-        <div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-[287px_320px_320px_330px] lg:justify-between">
+        <div className="grid grid-cols-1 gap-10 md:grid-cols-2 2xl:grid-cols-[287px_320px_320px_330px] 2xl:justify-between">
           <div>
             <h2 className="font-inter text-lg font-semibold leading-6 text-heading">
               Subscribe To Review And Update

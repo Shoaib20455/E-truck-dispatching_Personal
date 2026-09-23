@@ -38,9 +38,9 @@ export default function HomeHero({
     >
       <div className="w-full bg-gradient-to-r from-[#0060A8]/80 via-[#04ADF1]/70 to-[#18CA96]/70">
         <div className="mx-auto w-full max-w-[1520px] px-6 py-12 lg:px-8 lg:py-14 2xl:px-0">
-          <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
+          <div className="grid grid-cols-1 items-start gap-12 xl:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] xl:gap-16">
             {/* LEFT */}
-            <div>
+            <div className="min-w-0">
               <div className="font-inter text-base font-black uppercase leading-8 tracking-[3.2px] text-white">
                 {eyebrow}
               </div>
@@ -74,7 +74,7 @@ export default function HomeHero({
                 {stats.map((stat) => (
                   <div
                     key={stat.label}
-                    className="flex items-center gap-4 rounded-[10px] bg-[#EBF3FA]/90 px-5 py-4"
+                    className="min-w-0 flex items-center gap-4 rounded-[10px] bg-[#EBF3FA]/90 px-5 py-4"
                   >
                     <img
                       src={stat.icon}
@@ -82,7 +82,7 @@ export default function HomeHero({
                       className="size-14 shrink-0 object-contain"
                     />
 
-                    <div>
+                    <div className="min-w-0">
                       <div className="font-inter text-4xl font-bold leading-none text-primary-light">
                         {stat.value}
                       </div>
@@ -97,7 +97,7 @@ export default function HomeHero({
             </div>
 
             {/* RIGHT FORM */}
-            <div className="w-full max-w-[654px] overflow-hidden rounded-[32px] bg-[#EBF3FA] px-7 pb-10 pt-8 shadow-[0px_25px_50px_-12px_rgba(0,96,168,0.10)] outline outline-1 outline-offset-[-1px] outline-[#419EFC]/20 backdrop-blur-lg sm:px-10 sm:pb-14 sm:pt-10 lg:ml-auto">
+            <div className="w-full max-w-[654px] overflow-hidden rounded-[32px] bg-[#EBF3FA] px-7 pb-10 pt-8 shadow-[0px_25px_50px_-12px_rgba(0,96,168,0.10)] outline outline-1 outline-offset-[-1px] outline-[#419EFC]/20 backdrop-blur-lg sm:px-10 sm:pb-14 sm:pt-10 xl:ml-auto">
               <h2 className="text-center font-inter text-3xl font-semibold leading-9 text-heading">
                 Talk to an Expert
               </h2>
