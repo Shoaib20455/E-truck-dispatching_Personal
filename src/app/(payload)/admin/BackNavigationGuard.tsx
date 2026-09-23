@@ -18,15 +18,22 @@ export default function BackNavigationGuard() {
 
   const sentinelCountRef = useRef(0)
   const allowingLeaveRef = useRef(false)
+  const sentinelPushedRef = useRef(false)
 
   const prevent = modified
 
   useEffect(() => {
-    if (!prevent) return
+    if (!prevent) {
+      sentinelPushedRef.current = false
+      return
+    }
+
+    if (sentinelPushedRef.current) return
 
     window.history.pushState(SENTINEL_STATE, '', window.location.href)
     sentinelCountRef.current = 1
     allowingLeaveRef.current = false
+    sentinelPushedRef.current = true
 
     const handlePopState = () => {
       if (allowingLeaveRef.current) return
@@ -46,8 +53,9 @@ export default function BackNavigationGuard() {
         // Cleanup must never break navigation.
       }
       sentinelCountRef.current = 0
+      sentinelPushedRef.current = false
     }
-  }, [prevent, openModal])
+  }, [prevent])
 
   const handleConfirmLeave = () => {
     allowingLeaveRef.current = true

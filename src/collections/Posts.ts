@@ -50,8 +50,9 @@ export const Posts: CollectionConfig = {
       },
       hooks: {
         beforeValidate: [
-          ({ data }) => {
-            if (data?.title && !data?.slug) {
+          ({ data, operation }) => {
+            // Only auto-generate slug on create, not on every keystroke during edit
+            if (operation === 'create' && data?.title) {
               return data.title
                 .toLowerCase()
                 .replace(/\s+/g, "-")
@@ -92,6 +93,14 @@ export const Posts: CollectionConfig = {
       name: "content",
       type: "richText",
       label: "Article Content",
+    },
+    {
+      name: "faqHeading",
+      type: "text",
+      label: "FAQ Heading",
+      admin: {
+        description: "Defaults to 'Frequently Asked Questions' when empty.",
+      },
     },
     {
       name: "faqs",

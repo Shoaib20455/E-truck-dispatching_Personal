@@ -30,7 +30,7 @@ export const Categories: CollectionConfig = {
       hooks: {
         beforeValidate: [
           ({ data }) => {
-            if (data?.name && !data?.slug) {
+            if (data?.name) {
               return data.name
                 .toLowerCase()
                 .replace(/\s+/g, "-")

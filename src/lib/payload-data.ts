@@ -76,6 +76,7 @@ async function fetchPostBySlug(slug: string) {
         featureImage: true,
         content: true,
         faqs: true,
+        faqHeading: true,
         metaTitle: true,
         metaDescription: true,
         jsonSchema: true,

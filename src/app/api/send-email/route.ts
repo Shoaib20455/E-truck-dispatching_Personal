@@ -1,8 +1,12 @@
 import { NextRequest, NextResponse } from "next/server";
 import nodemailer from "nodemailer";
+import { getPayload } from "payload";
 
+import configPromise from "@payload-config";
 import { getClientIp } from "@/lib/client-ip";
 import { HONEYPOT_FIELD } from "@/lib/honeypot";
+import { logLine } from "@/lib/log";
+import { hasNewlines } from "@/lib/sanitize";
 
 const RATE_LIMIT_WINDOW_MS = 10 * 60 * 1000;
 const RATE_LIMIT_MAX = 5;
@@ -71,6 +75,67 @@ function formatLabel(key: string): string {
     .trim();
 }
 
+const MAX_PAGE_PATH_LENGTH = 500;
+
+type SubmissionType =
+  | "contact-form"
+  | "lead-capture"
+  | "state-picker"
+  | "service-picker"
+  | "schedule-call";
+
+function deriveSubmissionType(source: string): SubmissionType {
+  const value = source.toLowerCase();
+  if (value === "schedule call") return "schedule-call";
+  if (value === "state coverage request") return "state-picker";
+  if (value === "service picker request") return "service-picker";
+  if (value.endsWith("lead")) return "lead-capture";
+  return "contact-form";
+}
+
+async function persistLead(data: {
+  name: string;
+  email: string;
+  phone?: string;
+  message: string;
+  source: string;
+  pagePath?: string;
+}): Promise<{ ok: boolean; id?: number | string }> {
+  try {
+    const payload = await getPayload({ config: configPromise });
+    const doc = await payload.create({
+      collection: "leads",
+      overrideAccess: true,
+      data: {
+        name: data.name,
+        email: data.email,
+        phone: data.phone || undefined,
+        message: data.message,
+        pagePath: data.pagePath || "",
+        sourcePage: data.source,
+        submissionType: deriveSubmissionType(data.source),
+        status: "new",
+      },
+    });
+    return { ok: true, id: doc.id };
+  } catch (error) {
+    const errorName = error instanceof Error ? error.name : "UnknownError";
+    const safeCode =
+      error && typeof error === "object" && "code" in error
+        ? String((error as { code?: unknown }).code ?? "").trim()
+        : "";
+    logLine({
+      event: "lead-persist-failed",
+      endpoint: "/api/send-email",
+      source: data.source,
+      pagePath: data.pagePath,
+      error: errorName,
+      ...(safeCode ? { code: safeCode } : {}),
+    });
+    return { ok: false };
+  }
+}
+
 export async function POST(request: NextRequest) {
   try {
     const ip = getClientIp(request);
@@ -89,10 +154,21 @@ export async function POST(request: NextRequest) {
     }
 
     const source = String(body.source ?? "Website Inquiry").trim().slice(0, 100);
+    const pagePath =
+      typeof body.pagePath === "string" ? body.pagePath.trim() : "";
+
+    if (hasNewlines(pagePath) || pagePath.length > MAX_PAGE_PATH_LENGTH) {
+      return NextResponse.json(
+        { error: "Invalid characters in submission." },
+        { status: 400 },
+      );
+    }
 
     const fields: Record<string, string> = {};
     for (const [key, value] of Object.entries(body)) {
-      if (key === "source" || key === HONEYPOT_FIELD) continue;
+      if (key === "source" || key === "pagePath" || key === HONEYPOT_FIELD) {
+        continue;
+      }
       const text =
         typeof value === "string" ? value.trim() : String(value ?? "").trim();
       if (text) fields[key] = text;
@@ -101,6 +177,7 @@ export async function POST(request: NextRequest) {
     const email = findField(fields, ["email"]);
     const name = findField(fields, ["name"]);
     const message = findField(fields, ["message", "comment", "inquiry"]);
+    const phone = findField(fields, ["phone", "mobile"]);
 
     if (!name || !email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
       return NextResponse.json(
@@ -109,8 +186,26 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const transporter = getTransporter();
-    const recipient = process.env.CONTACT_EMAIL || "info@boxtruckdispatchservices.us";
+    const persisted = await persistLead({
+      name,
+      email,
+      phone,
+      message,
+      source,
+      pagePath,
+    });
+    if (persisted.ok) {
+      logLine({
+        event: "lead-persisted",
+        endpoint: "/api/send-email",
+        id: persisted.id,
+        source,
+        pagePath,
+      });
+    }
+
+    const recipient =
+      process.env.CONTACT_EMAIL || "info@boxtruckdispatchservices.us";
 
     const rows = Object.entries(fields)
       .filter(([key]) => !["message", "comment", "inquiry"].includes(key))
@@ -125,26 +220,64 @@ export async function POST(request: NextRequest) {
       : "";
 
     const safeSource = source.replace(/[<>\n\r]/g, " ").slice(0, 100);
-    const safeSubject = `${safeSource} — ${name}`.replace(/[<>\n\r]/g, " ").slice(0, 150);
+    const safeSubject = `${safeSource} — ${name}`
+      .replace(/[<>\n\r]/g, " ")
+      .slice(0, 150);
 
-    await transporter.sendMail({
-      from: `"${safeSource}" <${process.env.SMTP_USER}>`,
-      replyTo: email,
-      to: recipient,
-      subject: safeSubject,
-      html: `
+    try {
+      const transporter = getTransporter();
+
+      await transporter.sendMail({
+        from: `"${safeSource}" <${process.env.SMTP_USER}>`,
+        replyTo: email,
+        to: recipient,
+        subject: safeSubject,
+        html: `
         <h2>${escapeHtml(source)}</h2>
         <table style="border-collapse:collapse;width:100%;max-width:600px">
           ${rows}
           ${messageRow}
         </table>
       `,
-    });
+      });
 
-    return NextResponse.json({ success: true });
-  } catch (err) {
-    const errorMessage = err instanceof Error ? err.message : "Unknown error";
-    console.error("send-email error:", errorMessage);
+      return NextResponse.json({ success: true });
+    } catch (error) {
+      const errorName = error instanceof Error ? error.name : "UnknownError";
+      const safeCode =
+        error && typeof error === "object" && "code" in error
+          ? String((error as { code?: unknown }).code ?? "").trim()
+          : "";
+      logLine({
+        event: persisted.ok ? "email-send-failed-lead-saved" : "email-send-failed",
+        endpoint: "/api/send-email",
+        source,
+        pagePath,
+        error: errorName,
+        ...(safeCode ? { code: safeCode } : {}),
+      });
+
+      if (persisted.ok) {
+        return NextResponse.json({ success: true });
+      }
+
+      return NextResponse.json(
+        { error: "Something went wrong while sending your message. Please try again." },
+        { status: 500 },
+      );
+    }
+  } catch (error) {
+    const errorName = error instanceof Error ? error.name : "UnknownError";
+    const safeCode =
+      error && typeof error === "object" && "code" in error
+        ? String((error as { code?: unknown }).code ?? "").trim()
+        : "";
+    logLine({
+      event: "send-email-error",
+      endpoint: "/api/send-email",
+      error: errorName,
+      ...(safeCode ? { code: safeCode } : {}),
+    });
     return NextResponse.json(
       { error: "Failed to send the email. Please try again later." },
       { status: 500 },

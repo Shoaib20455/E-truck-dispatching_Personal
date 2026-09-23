@@ -8,6 +8,7 @@ import { Suspense } from "react";
 import JsonLd from "../../components/JsonLd";
 import { getArticleSchema } from "@/lib/schemas/article";
 import { getFaqSchema } from "@/lib/schemas/faq";
+import { extractAllText } from "@/lib/extract-headings";
 
 import type { Post } from "@/payload-types";
 import HeroSection from "../../components/HeroSection";
@@ -106,7 +107,7 @@ async function BlogDetailContent({ slug }: { slug: string }) {
         .replace(/[^a-z0-9-]/g, "");
       return {
         question: faq.question,
-        answer: extractPlainText(faq.answer),
+        answer: extractAllText(faq.answer),
         id: `faq-${faqId}`,
       };
     });
@@ -197,7 +198,7 @@ async function BlogDetailContent({ slug }: { slug: string }) {
 
       {formattedFaqs.length > 0 && (
         <FAQSection
-          heading="Frequently Asked Questions"
+          heading={post.faqHeading || "Frequently Asked Questions"}
           description="Get answers about trucking bookkeeping, freight invoicing, payroll, IFTA reporting, tax preparation, and financial management."
           image="/Accounting/images/37_rectangle_1441.webp"
           imageAlt="Accounting professional managing trucking financial records"

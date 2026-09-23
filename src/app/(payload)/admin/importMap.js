@@ -26,8 +26,12 @@ import { ItalicFeatureClient as ItalicFeatureClient_e70f5e05f09f93e00b997edb1ef0
 import { MetaTitleField as MetaTitleField_399bc325f7f7fdd7267e835b34bb4a8b } from '@/app/(payload)/admin/MetaFields'
 import { MetaDescriptionField as MetaDescriptionField_399bc325f7f7fdd7267e835b34bb4a8b } from '@/app/(payload)/admin/MetaFields'
 import { default as default_868347411299a33c9f6df39deb5ac027 } from '@/app/(payload)/admin/BackNavigationGuard'
+import { default as default_04dbc0a31146dce7c2b90c52fef79f17 } from '@/app/(payload)/admin/LeadStatusCell'
+import { default as default_a7934bf597d954c6da4ff386631351ed } from '@/app/(payload)/admin/LeadDetailView'
 import { AdminAvatar as AdminAvatar_9c8ff97547c8d60067f664709fc6a5ef } from '@/app/(payload)/admin/Dashboard'
+import { default as default_30537f0a50a315e0e6053949c8264620 } from '@/app/(payload)/admin/QueriesByPageNavLink'
 import { default as default_9c8ff97547c8d60067f664709fc6a5ef } from '@/app/(payload)/admin/Dashboard'
+import { default as default_e7ced14e18fa22f501da91d4ecb3a2bf } from '@/app/(payload)/admin/QueriesByPage'
 import { CollectionCards as CollectionCards_f9c02e79a4aed9a3924487c0cd4cafb1 } from '@payloadcms/next/rsc'
 
 /** @type import('payload').ImportMap */
@@ -60,7 +64,11 @@ export const importMap = {
   "@/app/(payload)/admin/MetaFields#MetaTitleField": MetaTitleField_399bc325f7f7fdd7267e835b34bb4a8b,
   "@/app/(payload)/admin/MetaFields#MetaDescriptionField": MetaDescriptionField_399bc325f7f7fdd7267e835b34bb4a8b,
   "@/app/(payload)/admin/BackNavigationGuard#default": default_868347411299a33c9f6df39deb5ac027,
+  "@/app/(payload)/admin/LeadStatusCell#default": default_04dbc0a31146dce7c2b90c52fef79f17,
+  "@/app/(payload)/admin/LeadDetailView#default": default_a7934bf597d954c6da4ff386631351ed,
   "@/app/(payload)/admin/Dashboard#AdminAvatar": AdminAvatar_9c8ff97547c8d60067f664709fc6a5ef,
+  "@/app/(payload)/admin/QueriesByPageNavLink#default": default_30537f0a50a315e0e6053949c8264620,
   "@/app/(payload)/admin/Dashboard#default": default_9c8ff97547c8d60067f664709fc6a5ef,
+  "@/app/(payload)/admin/QueriesByPage#default": default_e7ced14e18fa22f501da91d4ecb3a2bf,
   "@payloadcms/next/rsc#CollectionCards": CollectionCards_f9c02e79a4aed9a3924487c0cd4cafb1
 }

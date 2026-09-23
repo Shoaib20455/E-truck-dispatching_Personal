@@ -2,7 +2,12 @@ import { withPayload } from "@payloadcms/next/withPayload";
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  reactCompiler: true,
+   reactCompiler:{
+         compilationMode:"annotation"
+   },
+  experimental: {
+    serverActions: { bodySizeLimit: "5mb" },
+  },
   async headers() {
     return [
       {

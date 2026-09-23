@@ -71,6 +71,7 @@ export interface Config {
     media: Media;
     categories: Category;
     posts: Post;
+    leads: Lead;
     'payload-kv': PayloadKv;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
@@ -82,6 +83,7 @@ export interface Config {
     media: MediaSelect<false> | MediaSelect<true>;
     categories: CategoriesSelect<false> | CategoriesSelect<true>;
     posts: PostsSelect<false> | PostsSelect<true>;
+    leads: LeadsSelect<false> | LeadsSelect<true>;
     'payload-kv': PayloadKvSelect<false> | PayloadKvSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
@@ -239,6 +241,10 @@ export interface Post {
     };
     [k: string]: unknown;
   } | null;
+  /**
+   * Defaults to 'Frequently Asked Questions' when empty.
+   */
+  faqHeading?: string | null;
   faqs?:
     | {
         question: string;
@@ -281,6 +287,33 @@ export interface Post {
   createdAt: string;
 }
 /**
+ * Form submissions received from the website. Use Queries by Page to review submissions by their source page.
+ *
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "leads".
+ */
+export interface Lead {
+  id: number;
+  name: string;
+  email: string;
+  phone?: string | null;
+  message?: string | null;
+  /**
+   * The website URL path the submission came from, e.g. /contact.
+   */
+  pagePath?: string | null;
+  /**
+   * Context label sent by the form, e.g. 'Texas CTA Lead'.
+   */
+  sourcePage?: string | null;
+  submissionType?: ('contact-form' | 'lead-capture' | 'state-picker' | 'service-picker' | 'schedule-call') | null;
+  status: 'new' | 'in-progress' | 'done' | 'cancelled';
+  handledBy?: string | null;
+  handledAt?: string | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-kv".
  */
@@ -319,6 +352,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'posts';
         value: number | Post;
+      } | null)
+    | ({
+        relationTo: 'leads';
+        value: number | Lead;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -470,6 +507,7 @@ export interface PostsSelect<T extends boolean = true> {
   category?: T;
   featureImage?: T;
   content?: T;
+  faqHeading?: T;
   faqs?:
     | T
     | {
@@ -483,6 +521,24 @@ export interface PostsSelect<T extends boolean = true> {
   jsonSchema?: T;
   publishedDate?: T;
   status?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "leads_select".
+ */
+export interface LeadsSelect<T extends boolean = true> {
+  name?: T;
+  email?: T;
+  phone?: T;
+  message?: T;
+  pagePath?: T;
+  sourcePage?: T;
+  submissionType?: T;
+  status?: T;
+  handledBy?: T;
+  handledAt?: T;
   updatedAt?: T;
   createdAt?: T;
 }

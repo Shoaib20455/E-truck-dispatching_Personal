@@ -13,6 +13,7 @@ import { Users } from "./collections/Users";
 import { Media } from "./collections/Media";
 import { Categories } from "./collections/Categories";
 import { Posts } from "./collections/Posts";
+import { Leads } from "./collections/Leads";
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
@@ -27,14 +28,22 @@ export default buildConfig({
       baseDir: path.resolve(dirname),
     },
     components: {
+      afterNavLinks: [
+        "@/app/(payload)/admin/QueriesByPageNavLink",
+      ],
       views: {
         dashboard: {
           Component: "@/app/(payload)/admin/Dashboard",
         },
+        queriesByPage: {
+          Component: "@/app/(payload)/admin/QueriesByPage",
+          path: "/queries-by-page",
+          exact: true,
+        },
       },
     },
   },
-  collections: [Users, Media, Categories, Posts],
+  collections: [Users, Media, Categories, Posts, Leads],
   editor: lexicalEditor({
   features: ({ defaultFeatures }) => [
     ...defaultFeatures,

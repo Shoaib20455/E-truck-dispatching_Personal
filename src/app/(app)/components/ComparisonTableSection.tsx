@@ -276,9 +276,13 @@ export default function ComparisonTableSection({
   const otherColumns = columns.slice(1);
 
   /*
-   * Existing sections keep their original mt-6 spacing.
-   * Extra spacing is added only when a description is supplied
-   * and there is no table title between the description and table.
+  |-----------------------------------------------------------------------------|
+  |                                                                             |
+  |  Existing sections keep their original mt-6 spacing.                        |
+  |  Extra spacing is added only when a description is supplied                 |
+  |  and there is no table title between the description and table.             |
+  |                                                                             |
+  |-----------------------------------------------------------------------------|
    */
   const tableSpacing =
     description && !tableTitle ? "mt-12 sm:mt-14" : "mt-6";

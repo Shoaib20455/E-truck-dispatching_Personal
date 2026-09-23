@@ -25,7 +25,11 @@ export function useEmailForm(source: string) {
       const response = await fetch("/api/send-email", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...data, source }),
+        body: JSON.stringify({
+          ...data,
+          source,
+          pagePath: window.location.pathname,
+        }),
       });
 
       if (!response.ok) {
