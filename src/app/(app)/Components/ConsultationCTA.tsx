@@ -1,3 +1,8 @@
+type LogoItem = {
+  image: string;
+  alt: string;
+};
+
 type ConsultationCTAProps = {
   heading: string;
   description: string;
@@ -11,6 +16,8 @@ type ConsultationCTAProps = {
   practicePlaceholder: string;
 
   buttonText: string;
+
+  logos?: LogoItem[];
 };
 
 export default function ConsultationCTA({
@@ -23,9 +30,10 @@ export default function ConsultationCTA({
   emailPlaceholder,
   practicePlaceholder,
   buttonText,
+  logos,
 }: ConsultationCTAProps) {
   return (
-    <section className="w-full bg-cyan-50 py-12 lg:py-16">
+    <section className="w-full bg-cyan-50 py-14 lg:py-20">
       <div className="mx-auto max-w-[1520px] px-6 lg:px-8 2xl:px-0">
         <div
           className="w-full overflow-hidden rounded-[30px] bg-cover bg-center bg-no-repeat"
@@ -33,8 +41,8 @@ export default function ConsultationCTA({
             backgroundImage: `url("${backgroundImage}")`,
           }}
         >
-          <div className="w-full bg-gradient-to-b from-teal-500/90 to-teal-950/95 px-8 py-12 md:px-12 lg:px-20 lg:py-16">
-            <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
+          <div className="w-full bg-teal-500/60 px-8 py-10 md:px-12 lg:px-16 lg:py-14">
+            <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:gap-16">
               
               {/* LEFT CONTENT */}
               <div className="text-white">
@@ -42,45 +50,58 @@ export default function ConsultationCTA({
                   {heading}
                 </h2>
 
-                <p className="max-w-xl font-manrope text-lg font-normal leading-8 md:text-xl lg:text-2xl">
+                <p className="mb-7 font-manrope text-lg font-normal leading-8 md:text-xl lg:text-2xl">
                   {description}
                 </p>
+
+                {logos && logos.length > 0 && (
+                  <div className="flex flex-wrap justify-start gap-5">
+                    {logos.map((logo) => (
+                      <img
+                        key={logo.image}
+                        src={logo.image}
+                        alt={logo.alt}
+                        className="w-56 rounded-[10px] bg-white object-contain"
+                      />
+                    ))}
+                  </div>
+                )}
               </div>
 
               {/* FORM */}
-              <div className="bg-indigo-50/50 p-6 backdrop-blur-[2.5px] md:p-8 lg:p-10">
-                <h3 className="mb-8 text-center font-inter text-2xl font-semibold leading-8 text-heading md:text-3xl">
+              <div className="rounded-[16px] bg-indigo-50/50 p-6 backdrop-blur-[2.5px] md:p-8 lg:p-10">
+                <h3 className="mb-8 text-center font-inter text-2xl font-semibold text-heading md:text-3xl">
                   {formHeading}
                 </h3>
 
                 <form>
-                  <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+                  <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                     <input
                       type="text"
                       name="name"
                       placeholder={namePlaceholder}
-                      className="w-full rounded-[10px] border border-neutral-600 bg-white px-5 py-3 font-manrope text-base font-normal text-neutral-500 outline-none"
+                      className="w-full rounded-[10px] border border-neutral-600 bg-white px-5 py-3 font-manrope text-neutral-500 outline-none"
                     />
 
                     <input
                       type="tel"
                       name="phone"
                       placeholder={phonePlaceholder}
-                      className="w-full rounded-[10px] border border-neutral-600 bg-white px-5 py-3 font-manrope text-base font-normal text-neutral-500 outline-none"
+                      className="w-full rounded-[10px] border border-neutral-600 bg-white px-5 py-3 font-manrope text-neutral-500 outline-none"
                     />
 
                     <input
                       type="email"
                       name="email"
                       placeholder={emailPlaceholder}
-                      className="w-full rounded-[10px] border border-neutral-600 bg-white px-5 py-3 font-manrope text-base font-normal text-neutral-500 outline-none"
+                      className="w-full rounded-[10px] border border-neutral-600 bg-white px-5 py-3 font-manrope text-neutral-500 outline-none"
                     />
 
                     <input
                       type="text"
                       name="practice"
                       placeholder={practicePlaceholder}
-                      className="w-full rounded-[10px] border border-neutral-600 bg-white px-5 py-3 font-manrope text-base font-normal text-neutral-500 outline-none"
+                      className="w-full rounded-[10px] border border-neutral-600 bg-white px-5 py-3 font-manrope text-neutral-500 outline-none"
                     />
                   </div>
 
@@ -92,6 +113,7 @@ export default function ConsultationCTA({
                   </button>
                 </form>
               </div>
+
             </div>
           </div>
         </div>

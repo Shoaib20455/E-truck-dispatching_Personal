@@ -23,6 +23,10 @@ const navItems: NavItem[] = [
     href: "/services",
   },
   {
+    label: "RCM Services",
+    href: "/rcm-services-location",
+  },
+  {
     label: "Specialities",
     href: "/specialities",
   },
