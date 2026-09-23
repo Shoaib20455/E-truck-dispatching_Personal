@@ -1,37 +1,18 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Inter, Outfit, DM_Sans } from "next/font/google";
+import { Inter, Manrope } from "next/font/google";
 import "./globals.css";
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
-import LenisProvider from "./components/LenisProvider";
 import { getOrganizationSchema } from "@/lib/schemas/organization";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["400", "500", "600", "700", "800", "900"],
 });
 
-const outfit = Outfit({
-  variable: "--font-outfit",
+const manrope = Manrope({
+  variable: "--font-manrope",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-});
-
-const dmSans = DM_Sans({
-  variable: "--font-dm-sans",
-  subsets: ["latin"],
-  weight: ["400", "500"],
+  weight: ["400", "500", "600", "700", "800"],
 });
 
 export const metadata: Metadata = {
@@ -83,22 +64,18 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} ${outfit.variable} ${dmSans.variable} h-full antialiased`}
+      className={`${inter.variable} ${manrope.variable} h-full antialiased`}
     >
-      <body suppressHydrationWarning className="min-h-full overflow-x-hidden bg-zinc-900">
-  <script
-    type="application/ld+json"
-    dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }}
-  />
-  <LenisProvider>
-  <div className="relative min-h-full overflow-x-hidden">
-    <Navbar />
-    {children}
-  </div>
-
-  <Footer />
-  </LenisProvider>
-</body>
+      <body
+        suppressHydrationWarning
+        className="min-h-full overflow-x-hidden bg-bg-main text-text"
+      >
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }}
+        />
+        {children}
+      </body>
     </html>
   );
 }
