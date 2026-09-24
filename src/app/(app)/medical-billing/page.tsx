@@ -9,6 +9,7 @@ import EHRPartners from "../Components/EHRPartners";
 import ExpertGuides from "../Components/ExpertGuides";
 import ExpertiseCardGrid from "../Components/ExpertiseCardGrid";
 import FAQSection from "../Components/FAQSection";
+import MedicalBillingWorkflow from "../Components/MedicalBillingWorkflow";
 import RCMSolutions from "../Components/RCMSolutions";
 import RevenueCTA from "../Components/RevenueCTA";
 import RevenueCTAWithTestimonial from "../Components/RevenueCTAWithTestimonial";
@@ -131,6 +132,77 @@ export default function rcmpage() {
       description: "Simple statements + support team.",
     },
   ]}
+/>
+
+<MedicalBillingWorkflow
+  heading="Our Medical Billing Workflow"
+  centerImage="/Medical Billing/4_rectangle_457.png"
+  centerImageAlt="Medical billing workflow"
+  leftSteps={[
+    {
+      label: "Registration",
+      icon: "/Medical Billing/5_rectangle_459.png",
+      iconAlt: "Registration",
+      highlighted: true,
+    },
+    {
+      label: "Documentation",
+      icon: "/Medical Billing/7_rectangle_464.png",
+      iconAlt: "Documentation",
+    },
+    {
+      label: "Charge Entry",
+      icon: "/Medical Billing/6_rectangle_470.png",
+      iconAlt: "Charge Entry",
+    },
+    {
+      label: "Payer Review",
+      icon: "/Medical Billing/8_rectangle_471.png",
+      iconAlt: "Payer Review",
+    },
+    {
+      label: "Payment Posting",
+      icon: "/Medical Billing/12_rectangle_478.png",
+      iconAlt: "Payment Posting",
+    },
+    {
+      label: "Patient Billing",
+      icon: "/Medical Billing/15_rectangle_479.png",
+      iconAlt: "Patient Billing",
+    },
+  ]}
+  rightSteps={[
+    {
+      label: "Eligibility Check",
+      icon: "/Medical Billing/10_rectangle_461.png",
+      iconAlt: "Eligibility Check",
+    },
+    {
+      label: "ICD-10/CPT Coding",
+      icon: "/Medical Billing/13_rectangle_465.png",
+      iconAlt: "ICD-10 CPT Coding",
+    },
+    {
+      label: "Claim Submission",
+      icon: "/Medical Billing/11_rectangle_472.png",
+      iconAlt: "Claim Submission",
+    },
+    {
+      label: "Denial Management",
+      icon: "/Medical Billing/14_rectangle_473.png",
+      iconAlt: "Denial Management",
+    },
+    {
+      label: "AR Follow-Up",
+      icon: "/Medical Billing/9_rectangle_477.png",
+      iconAlt: "AR Follow-Up",
+    },
+  ]}
+  pricingBackgroundImage="/Medical Billing/16_rectangle_456.png"
+  pricingHeading="Simple, Transparent Pricing"
+  pricingDescription={"Most practices pay 4%–8% of monthly collections.\nNo hidden fees. No long contracts."}
+  buttonText="Get a Custom Quote"
+  buttonHref="#"
 />
 
 <FAQSection
