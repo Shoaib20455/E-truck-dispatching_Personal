@@ -318,6 +318,31 @@ export default function rcmpage() {
   mapAlt="Medical billing services across USA map"
 />
 
+<BillingSolutions
+  variant="outsource"
+  heading="Why Outsource Medical Billing?"
+  solutions={[
+    {
+      title: "Lower Cost",
+      description: "No staffing, training, or overhead expenses.",
+      icon: "/Medical Billing/27_rectangle_402.png",
+      iconAlt: "Lower Cost",
+    },
+    {
+      title: "Higher Collections",
+      description: "Better coding + fewer denials = more revenue.",
+      icon: "/Medical Billing/28_rectangle_403.png",
+      iconAlt: "Higher Collections",
+    },
+    {
+      title: "Zero Admin Load",
+      description: "You treat patients. We handle the billing.",
+      icon: "/Medical Billing/29_rectangle_767.png",
+      iconAlt: "Zero Admin Load",
+    },
+  ]}
+/>
+
 <FAQSection
   heading="Frequently Asked Questions About Pediatric Medical Billing Services"
   defaultOpenIndex={0}
