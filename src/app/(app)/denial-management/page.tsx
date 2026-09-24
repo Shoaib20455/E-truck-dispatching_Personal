@@ -354,6 +354,35 @@ export default function denialPage() {
 />
 
 
+<DenialCategories
+  variant="stats"
+  heading="Why Fixing Denials Should Be Your Top Revenue Priority"
+  categories={[
+    {
+      title: "Denials steal\n5–15% of\ntotal practice\nrevenue",
+      highlighted: true,
+    },
+    {
+      title: "65% of denied\nclaims never\nget reworked\n(industry\naverage)",
+    },
+    {
+      title: "Most denials are\npreventable\n(coding,\ndocumentation,\neligibility)",
+    },
+    {
+      title: "Strong denial\nworkflow improves\ncash flow stability.",
+    },
+    {
+      title: "Preventable\ndenials slow\ndown payments\nby 25–40%",
+    },
+    {
+      title: "Clean claim\nimprovement\nreduces overall\nA/R ageing.",
+    },
+    {
+      title: "Faster\nreimbursements\nimprove practice\nliquidity",
+    },
+  ]}
+/>
+
 <RevenueCTA
   heading="Ready to Improve Your South Carolina Practice Revenue?"
   description="Let our billing team optimize your claims, fix denials, and strengthen collections."
