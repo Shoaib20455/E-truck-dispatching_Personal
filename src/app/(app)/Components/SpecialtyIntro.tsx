@@ -41,12 +41,16 @@ export default function SpecialtyIntro({
           </div>
 
           <div className="flex justify-center lg:justify-end">
-            <div className="size-64 rotate-45 overflow-hidden rounded-[42px] border-[8px] border-sky-500 bg-white shadow-[0px_10px_25px_rgba(0,0,0,0.10)] sm:size-72 lg:size-80">
-              <img
-                src={image}
-                alt={imageAlt}
-                className="h-full w-full -rotate-45 scale-[1.42] object-cover"
-              />
+            <div className="rotate-45 rounded-[44px] border-[7px] border-sky-500 p-3 shadow-[0px_12px_30px_rgba(0,159,253,0.18)]">
+              <div className="rounded-[36px] border-2 border-sky-300 p-2">
+                <div className="size-56 overflow-hidden rounded-[30px] bg-white sm:size-64 lg:size-72">
+                  <img
+                    src={image}
+                    alt={imageAlt}
+                    className="h-full w-full -rotate-45 scale-[1.42] object-cover"
+                  />
+                </div>
+              </div>
             </div>
           </div>
         </div>
