@@ -4,6 +4,7 @@ import CertificationCTA from "../Components/CertificationCTA";
 import CitiesCounties from "../Components/CitiesCounties";
 import ComparisonTable from "../Components/ComparisonTable";
 import ConsultationCTA from "../Components/ConsultationCTA";
+import EHRPartners from "../Components/EHRPartners";
 import ExpertiseCardGrid from "../Components/ExpertiseCardGrid";
 import RevenueCTA from "../Components/RevenueCTA";
 import RevenueCTAWithTestimonial from "../Components/RevenueCTAWithTestimonial";
@@ -453,6 +454,39 @@ export default function rcmserviceslocation() {
     quote:
       "Avenue Billing Services understands the billing challenges pediatric practices face. Their attention to claim accuracy, payer requirements, and denial follow-up has improved the consistency of our revenue cycle.",
   }}
+/>
+<EHRPartners
+  heading="We Work With Leading EHR & Practice Management Systems"
+  description="Our billing team works with established medical EHR and practice management platforms so your practice does not need to rebuild its workflow simply to outsource billing."
+  partners={[
+    {
+      logo: "/RCM Services Location/16_rectangle_859.png",
+      alt: "Athenahealth",
+    },
+    {
+      logo: "/RCM Services Location/17_rectangle_850.png",
+      alt: "AdvancedMD",
+    },
+    {
+      logo: "/RCM Services Location/18_rectangle_849.png",
+      alt: "eClinicalWorks",
+    },
+    {
+      logo: "/RCM Services Location/19_rectangle_853.png",
+      alt: "Tebra",
+    },
+    {
+      logo: "/RCM Services Location/20_rectangle_854.png",
+      alt: "NextGen",
+    },
+    {
+      logo: "/RCM Services Location/21_rectangle_1923.png",
+      alt: "Office Ally",
+    },
+  ]}
+  bottomText="If your pediatric practice is using another EHR, talk with our billing team about your current platform and billing audit."
+  buttonText="Talk to an expert"
+  buttonHref="#"
 />
     </main>
   );
