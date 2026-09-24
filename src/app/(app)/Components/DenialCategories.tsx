@@ -35,7 +35,7 @@ export default function DenialCategories({
         >
           <div
             className={`flex h-full w-full items-center justify-center px-7 text-center ${
-              item.highlighted ? "bg-teal-500/10" : "bg-white"
+              item.highlighted ? "bg-teal-100" : "bg-white"
             }`}
             style={{
               clipPath:
