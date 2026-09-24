@@ -270,6 +270,34 @@ export default function rcmpage() {
   ]}
 />
 
+<EHRPartners
+  variant="compact"
+  heading="We Work With All Major EHR & PM Systems"
+  description="Seamless integration with your workflow. No downtime. No extra training required."
+  partners={[
+    {
+      logo: "/Medical Billing/42_rectangle_430.png",
+      alt: "Kareo",
+    },
+    {
+      logo: "/Medical Billing/43_rectangle_842.png",
+      alt: "Claim.MD",
+    },
+    {
+      logo: "/Medical Billing/44_rectangle_843.png",
+      alt: "Apex EDI",
+    },
+    {
+      logo: "/Medical Billing/45_rectangle_846.png",
+      alt: "Osmind",
+    },
+    {
+      logo: "/Medical Billing/46_rectangle_848.png",
+      alt: "IntakeQ",
+    },
+  ]}
+/>
+
 <FAQSection
   heading="Frequently Asked Questions About Pediatric Medical Billing Services"
   defaultOpenIndex={0}
