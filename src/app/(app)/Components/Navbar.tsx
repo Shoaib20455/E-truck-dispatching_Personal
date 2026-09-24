@@ -27,16 +27,16 @@ const navItems: NavItem[] = [
     href: "/rcm-services-location",
   },
   {
-    label: "Specialities",
-    href: "/specialities",
+    label: "RCM",
+    href: "/rcm",
   },
   {
     label: "State We Serve",
     href: "/states",
   },
   {
-    label: "Explore",
-    href: "/explore",
+    label: "Medical Billing",
+    href: "/medical-billing",
   },
 ];
 

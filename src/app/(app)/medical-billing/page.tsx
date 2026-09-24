@@ -9,6 +9,7 @@ import EHRPartners from "../Components/EHRPartners";
 import ExpertGuides from "../Components/ExpertGuides";
 import ExpertiseCardGrid from "../Components/ExpertiseCardGrid";
 import FAQSection from "../Components/FAQSection";
+import RCMSolutions from "../Components/RCMSolutions";
 import RevenueCTA from "../Components/RevenueCTA";
 import RevenueCTAWithTestimonial from "../Components/RevenueCTAWithTestimonial";
 import RevenueLossReasons from "../Components/RevenueLossReasons";
@@ -18,7 +19,7 @@ import StateSupportGrid from "../Components/StateSupportGrid";
 import SuccessNumbers from "../Components/SuccessNumbers";
 import Testimonials from "../Components/Testimonials";
 
-export default function rcmserviceslocation() {
+export default function rcmpage() {
   return (
     <main>
         <ServiceHero
@@ -106,6 +107,10 @@ export default function rcmserviceslocation() {
     },
   ]}
 />
+
+
+
+
 <BillingSolutions
   heading="Pediatric Billing Solutions"
   solutions={[
@@ -137,6 +142,61 @@ export default function rcmserviceslocation() {
         "Unworked denials and pending claims quickly move into older A/R buckets. Structured follow-up keeps claims from sitting unpaid while filing and appeal deadlines approach.",
       icon: "/RCM Services Location/7_rectangle_8365.png",
       iconAlt: "Aging Pediatric A/R",
+    },
+  ]}
+/>
+
+
+<RCMSolutions
+  heading="Complete RCM and Billing Solution"
+  services={[
+    {
+      title: "Medical Billing",
+      description: "Clean claims engineered for fast approval",
+      icon: "/Home/55_rectangle_255.png",
+      iconAlt: "Medical Billing",
+    },
+    {
+      title: "Medical Billing Analysis",
+      description: "Uncover hidden billing revenue gaps",
+      icon: "/Home/57_rectangle_255.png",
+      iconAlt: "Medical Billing Analysis",
+    },
+    {
+      title: "Medical Coding",
+      description: "Certified ICD-10/CPT/HCPCS accuracy",
+      icon: "/Home/59_rectangle_255.png",
+      iconAlt: "Medical Coding",
+    },
+    {
+      title: "Denial Management",
+      description: "Root-cause correction + appeals",
+      icon: "/Home/61_rectangle_255.png",
+      iconAlt: "Denial Management",
+    },
+    {
+      title: "A/R Management",
+      description: "Aggressive recovery of unpaid claims",
+      icon: "/Home/56_rectangle_255.png",
+      iconAlt: "A/R Management",
+    },
+    {
+      title: "State Licensing Support",
+      description: "Hassle-free license filing",
+      icon: "/Home/58_rectangle_255.png",
+      iconAlt: "State Licensing Support",
+    },
+    {
+      title: "Credentialing & Enrollment",
+      description: "Fast payer setup",
+      icon: "/Home/60_rectangle_255.png",
+      iconAlt: "Credentialing and Enrollment",
+    },
+    {
+      title: "EHR/EMR Support",
+      description: "Smooth workflows inside your EHR",
+      icon: "/Home/62_rectangle_255.png",
+      iconAlt: "EHR EMR Support",
     },
   ]}
 />
@@ -193,14 +253,17 @@ export default function rcmserviceslocation() {
     },
   ]}
 />
-<RevenueCTA
-  heading="Ready to Improve Your South Carolina Practice Revenue?"
-  description="Let our billing team optimize your claims, fix denials, and strengthen collections."
-  backgroundImage="/RCM Services Location/13_1.png"
-  primaryButtonText="Get Free Billing Audit"
-  primaryButtonHref="#"
-  secondaryButtonText="Get Pricing"
-  secondaryButtonHref="#"
+
+<ConsultationCTA
+  heading="No More Billing Challenges with ABS"
+  description="Reduce denials, speed up payments, and simplify your medical billing operations with Avenue Billing Services."
+  backgroundImage="/Home/12_1.png"
+  formHeading="Claim Your Free Consultation"
+  namePlaceholder="Name"
+  phonePlaceholder="Phone Number"
+  emailPlaceholder="Email"
+  practicePlaceholder="Practice Name"
+  buttonText="Request a Free Quote"
 />
 <BillingProcess
   heading="How Our Billing Process Works"
@@ -276,19 +339,6 @@ export default function rcmserviceslocation() {
     },
   ]}
 />
-<BillingIntelligence
-  heading="Massachusetts Focused Billing Intelligence"
-  description="Massachusetts billing requires payer-aligned workflows, strong documentation accuracy and experience with MassHealth and regional commercial plans"
-  items={[
-    "Experienced with BCBS MA, MassHealth, Tufts and Harvard Pilgrim",
-    "Accurate coding for outpatient and high-volume specialties",
-    "Dedicated billing support tailored to Massachusetts practices",
-    "Eligibility verification for ConnectorCare and plan variations",
-    "Faster resolution for Medicare Advantage claim issues",
-    "Precise denial analysis to prevent repeat errors",
-  ]}
-/>
-
 <CitiesCounties
   heading="Cities & Counties We Serve"
   leftList={{
@@ -334,77 +384,6 @@ export default function rcmserviceslocation() {
   ]}
   buttonText="View More"
   buttonHref="#"
-/>
-<ConsultationCTA
-  variant="plain"
-  heading="What Supports Efficient Pediatric Billing in Our Process?"
-  description="At Avenue Billing Services, our pediatric billing process follows each claim from eligibility verification through final payment. We review coding, payer requirements, immunization details, Medicaid or CHIP rules, and claim accuracy before submission. After submission, our team tracks payments, resolves denials, posts EOBs, and follows aging A/R to keep pediatric revenue moving efficiently."
-  formHeading="Get Your Free Pediatric Billing Audit"
-  namePlaceholder="Name"
-  phonePlaceholder="Phone Number"
-  emailPlaceholder="Email"
-  practicePlaceholder="Practice Name"
-  buttonText="Get Your Free Billing Audit"
-/>
-<ExpertiseCardGrid
-  heading="Our Expertise in Pediatric CPT Codes & ICD-10 Cases"
-  cards={[
-    {
-      title: "Well-Child Visit Coding",
-      code: "CPT 99381–99385 & 99391–99395",
-      description:
-        "Accurate preventive visit coding based on patient age and new or established status. These codes cover routine pediatric preventive examinations and well-child services.",
-      highlighted: true,
-    },
-    {
-      title: "Sick & Problem Visit Coding",
-      code: "CPT 99202–99205 & 99211–99215",
-      description:
-        "Office E/M codes are selected for acute illnesses, chronic conditions, and other problem-focused pediatric encounters based on current documentation and E/M requirements.",
-    },
-    {
-      title: "Immunization Administration Coding",
-      code: "CPT 90460–90461",
-      description:
-        "These codes apply to pediatric vaccine administration when required counseling criteria are met for patients through age 18. Vaccine product codes are reported separately when applicable.",
-    },
-    {
-      title: "Developmental & Behavioral Screening",
-      code: "CPT 96110 & 96127",
-      description:
-        "Code 96110 supports standardized developmental screening, while 96127 covers brief emotional or behavioral assessments such as ADHD or depression screening.",
-    },
-    {
-      title: "Pediatric Health Risk Assessments",
-      code: "CPT 96160–96161",
-      description:
-        "These codes support standardized health-risk assessments involving pediatric patients or caregivers when documentation and payer requirements are satisfied.",
-    },
-    {
-      title: "Newborn Care Coding",
-      code: "CPT 99460–99463",
-      description:
-        "Newborn coding covers initial, subsequent, and qualifying normal newborn care across hospital, birthing center, home, and office settings.",
-    },
-    {
-      title: "Pediatric ICD-10-CM Mapping",
-      code: "Z00.121, Z00.129, Z23 & Z13.42",
-      description:
-        "Common pediatric diagnosis coding includes routine child examinations, immunization encounters, and developmental screening. Diagnosis selection must match the documented reason for each encounter.",
-    },
-    {
-      title: "Pediatric Modifier Application",
-      code: "Modifier 25 & EP",
-      description:
-        "Appropriate modifiers distinguish separately reportable services and support payer-specific pediatric requirements, including certain Medicaid and EPSDT procedures. Their use depends on documentation and individual payer policy.",
-    },
-    {
-      title: "Pediatric Vision & Hearing Screening",
-      code: "CPT 99173 & 92551",
-      description:
-        "These codes support quantitative visual-acuity and pure-tone hearing screenings commonly performed during pediatric preventive visits. Proper documentation and diagnosis linkage help support separate reimbursement when allowed by payer policy.",
-    },
-  ]}
 />
 <CertificationCTA
   heading="OUR CERTIFICATIONS & COMPLIANCE"
@@ -465,6 +444,8 @@ export default function rcmserviceslocation() {
     },
   ]}
 />
+
+
 <RevenueCTAWithTestimonial
   heading="Get More From Your Pediatric Practice Revenue"
   description="Your focus should stay on children and families, not on unpaid claims and billing delays. Avenue Billing Services manages pediatric billing with greater consistency and accuracy."
@@ -648,6 +629,6 @@ export default function rcmserviceslocation() {
   ]}
 />
 
-    </main>
+  </main>
   );
 }
