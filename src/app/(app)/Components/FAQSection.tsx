@@ -44,8 +44,8 @@ export default function FAQSection({
             return (
               <div
                 key={faq.question}
-                className={`rounded-[20px] bg-white px-6 md:px-8 ${
-                  isOpen ? "py-6" : "py-5"
+                className={`bg-white px-7 md:px-10 ${
+                  isOpen ? "rounded-[30px] py-7" : "rounded-[20px] py-5"
                 }`}
               >
                 <div
@@ -61,7 +61,7 @@ export default function FAQSection({
                       aria-expanded={isOpen}
                     >
                       <h3
-                        className={`font-inter text-lg font-semibold leading-7 text-heading md:text-xl ${
+                        className={`font-inter text-xl font-semibold leading-6 text-heading ${
                           isOpen ? "mb-4" : ""
                         }`}
                       >
@@ -70,7 +70,7 @@ export default function FAQSection({
                     </button>
 
                     {isOpen && (
-                      <p className="font-manrope text-base font-normal leading-7 text-neutral-500 md:text-lg">
+                      <p className="font-inter text-lg font-normal leading-6 text-neutral-500">
                         {faq.answer}
                       </p>
                     )}
