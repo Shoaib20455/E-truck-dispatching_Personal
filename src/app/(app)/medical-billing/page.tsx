@@ -91,6 +91,48 @@ export default function rcmpage() {
 
 
 
+<ServiceGridWithImage
+  variant="compact"
+  heading="Complete Medical Billing Services"
+  image="/Medical Billing/2_rectangle_767.png"
+  imageAlt="Complete medical billing services"
+  services={[
+    {
+      title: "Eligibility Verification",
+      description: "Coverage, copay, deductible, prior auth.",
+      highlighted: true,
+    },
+    {
+      title: "ICD-10 & CPT Coding",
+      description: "Certified coding accuracy, CMS compliant.",
+    },
+    {
+      title: "Charge Entry",
+      description: "Correct units, modifiers, NCCI edits.",
+    },
+    {
+      title: "Claim Submission",
+      description: "837P/837I, clearinghouse, payer edits.",
+    },
+    {
+      title: "Denial Management",
+      description: "Fix errors, appeal, track status.",
+    },
+    {
+      title: "ERA/EOB Payment Posting",
+      description: "Faster posting, detect underpayments.",
+    },
+    {
+      title: "AR & Follow-Up",
+      description: "Reduce aging. Recover unpaid claims.",
+    },
+    {
+      title: "Patient Billing",
+      description: "Simple statements + support team.",
+    },
+  ]}
+/>
+
 <FAQSection
   heading="Frequently Asked Questions About Pediatric Medical Billing Services"
   defaultOpenIndex={0}
