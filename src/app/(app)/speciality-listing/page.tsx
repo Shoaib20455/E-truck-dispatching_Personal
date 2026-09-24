@@ -42,7 +42,7 @@ export default function SpecialityListingPage() {
         specialties={[
           {
             title: "Cardiology",
-            icon: "/Speciality Listing/3_rectangle_297.png",
+            icon: "/Speciality Listing/36_rectangle_8413.png",
             iconAlt: "Cardiology",
             highlighted: true,
           },
@@ -72,175 +72,175 @@ export default function SpecialityListingPage() {
           },
           {
             title: "Dermatology",
-            icon: "/Speciality Listing/8_rectangle_300.png",
+            icon: "/Speciality Listing/3_rectangle_297.png",
             iconAlt: "Dermatology",
             
           },
           {
             title: "Plastic Surgery",
-            icon: "/Speciality Listing/9_rectangle_301.png",
+            icon: "/Speciality Listing/26_rectangle_319.png",
             iconAlt: "Plastic Surgery",
             
           },
           {
             title: "Emergency Medicine",
-            icon: "/Speciality Listing/10_rectangle_302.png",
+            icon: "/Speciality Listing/8_rectangle_300.png",
             iconAlt: "Emergency Medicine",
             
           },
           {
             title: "Geriatrics",
-            icon: "/Speciality Listing/11_rectangle_305.png",
+            icon: "/Speciality Listing/34_rectangle_303.png",
             iconAlt: "Geriatrics",
             
           },
           {
             title: "Hematology",
-            icon: "/Speciality Listing/12_rectangle_310.png",
+            icon: "/Speciality Listing/35_rectangle_304.png",
             iconAlt: "Hematology",
             
           },
           {
             title: "Infectious Disease",
-            icon: "/Speciality Listing/13_rectangle_315.png",
+            icon: "/Speciality Listing/11_rectangle_305.png",
             iconAlt: "Infectious Disease",
             
           },
           {
             title: "General Surgery",
-            icon: "/Speciality Listing/14_rectangle_320.png",
+            icon: "/Speciality Listing/10_rectangle_302.png",
             iconAlt: "General Surgery",
             
           },
           {
             title: "Radiology",
-            icon: "/Speciality Listing/15_rectangle_321.png",
+            icon: "/Speciality Listing/31_rectangle_307.png",
             iconAlt: "Radiology",
             
           },
           {
             title: "Rheumatology",
-            icon: "/Speciality Listing/16_rectangle_322.png",
+            icon: "/Speciality Listing/32_rectangle_308.png",
             iconAlt: "Rheumatology",
             
           },
           {
             title: "Vascular Surgery",
-            icon: "/Speciality Listing/17_rectangle_323.png",
+            icon: "/Speciality Listing/33_rectangle_309.png",
             iconAlt: "Vascular Surgery",
             
           },
           {
             title: "Nephrology",
-            icon: "/Speciality Listing/18_rectangle_324.png",
+            icon: "/Speciality Listing/12_rectangle_310.png",
             iconAlt: "Nephrology",
             
           },
           {
             title: "Neurology",
-            icon: "/Speciality Listing/19_rectangle_325.png",
+            icon: "/Speciality Listing/15_rectangle_321.png",
             iconAlt: "Neurology",
             
           },
           {
             title: "Obstetrics & Gynecology",
-            icon: "/Speciality Listing/20_rectangle_326.png",
+            icon: "/Speciality Listing/27_rectangle_311.png",
             iconAlt: "Obstetrics & Gynecology",
             
           },
           {
             title: "Oncology",
-            icon: "/Speciality Listing/21_rectangle_323.png",
+            icon: "/Speciality Listing/28_rectangle_313.png",
             iconAlt: "Oncology",
             
           },
           {
             title: "Ophthalmology",
-            icon: "/Speciality Listing/22_rectangle_323.png",
+            icon: "/Speciality Listing/20_rectangle_326.png",
             iconAlt: "Ophthalmology",
             
           },
           {
             title: "Orthopedics",
-            icon: "/Speciality Listing/23_rectangle_316.png",
+            icon: "/Speciality Listing/13_rectangle_315.png",
             iconAlt: "Orthopedics",
             
           },
           {
             title: "Otolaryngology (ENT)",
-            icon: "/Speciality Listing/24_rectangle_317.png",
+            icon: "/Speciality Listing/23_rectangle_316.png",
             iconAlt: "Otolaryngology (ENT)",
             
           },
           {
             title: "Pediatrics",
-            icon: "/Speciality Listing/25_rectangle_318.png",
+            icon: "/Speciality Listing/24_rectangle_317.png",
             iconAlt: "Pediatrics",
             
           },
           {
             title: "Physical Medicine & Rehabilitation",
-            icon: "/Speciality Listing/26_rectangle_319.png",
+            icon: "/Speciality Listing/25_rectangle_318.png",
             iconAlt: "Physical Medicine & Rehabilitation",
             
           },
           {
             title: "Gastroenterology",
-            icon: "/Speciality Listing/27_rectangle_311.png",
+            icon: "/Speciality Listing/9_rectangle_301.png",
             iconAlt: "Gastroenterology",
             
           },
           {
             title: "Podiatry",
-            icon: "/Speciality Listing/28_rectangle_313.png",
+            icon: "/Speciality Listing/14_rectangle_320.png",
             iconAlt: "Podiatry",
             
           },
           {
             title: "Psychiatry",
-            icon: "/Speciality Listing/29_rectangle_314.png",
+            icon: "/Speciality Listing/30_rectangle_312.png",
             iconAlt: "Psychiatry",
             
           },
           {
             title: "Pulmonology",
-            icon: "/Speciality Listing/30_rectangle_312.png",
+            icon: "/Speciality Listing/16_rectangle_322.png",
             iconAlt: "Pulmonology",
             
           },
           {
             title: "Durable Medical Equipment",
-            icon: "/Speciality Listing/31_rectangle_307.png",
+            icon: "/Speciality Listing/17_rectangle_323.png",
             iconAlt: "Durable Medical Equipment",
             
           },
           {
             title: "Allergy & Immunology",
-            icon: "/Speciality Listing/32_rectangle_308.png",
+            icon: "/Speciality Listing/18_rectangle_324.png",
             iconAlt: "Allergy & Immunology",
             
           },
           {
             title: "Anesthesiology",
-            icon: "/Speciality Listing/33_rectangle_309.png",
+            icon: "/Speciality Listing/19_rectangle_325.png",
             iconAlt: "Anesthesiology",
             
           },
           {
             title: "Optometry",
-            icon: "/Speciality Listing/34_rectangle_303.png",
+            icon: "/Speciality Listing/29_rectangle_314.png",
             iconAlt: "Optometry",
             
           },
           {
             title: "Endocrinology",
-            icon: "/Speciality Listing/35_rectangle_304.png",
+            icon: "/Speciality Listing/21_rectangle_323.png",
             iconAlt: "Endocrinology",
             
           },
           {
             title: "Audiology",
-            icon: "/Speciality Listing/36_rectangle_8413.png",
+            icon: "/Speciality Listing/22_rectangle_323.png",
             iconAlt: "Audiology",
             
           }
