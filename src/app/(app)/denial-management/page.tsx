@@ -387,27 +387,27 @@ export default function denialPage() {
     },
     {
       question: "Why do claims get denied?",
-      answer: "",
+      answer: "Claims are often denied because of coding errors, missing documentation, eligibility issues, authorization problems, or payer-specific requirements.",
     },
     {
       question: "How fast can you fix existing denials?",
-      answer: "",
+      answer: "Resolution time depends on the denial reason and payer response, but our team begins review and correction as soon as the denied claims are received.",
     },
     {
       question: "Do you handle appeals?",
-      answer: "",
+      answer: "Yes. We prepare, submit, and track payer appeals with the required supporting documentation and follow-up.",
     },
     {
       question: "Can you work inside our EHR or PM system?",
-      answer: "",
+      answer: "Yes. Our team can work within your existing EHR, EMR, practice management, or clearinghouse workflow whenever access and system requirements allow.",
     },
     {
       question: "What denial types do you specialize in?",
-      answer: "",
+      answer: "We handle coding, documentation, eligibility, medical necessity, timely filing, duplicate claim, billing, and charge-related denials.",
     },
     {
       question: "Do you recover old A/R + denied claims?",
-      answer: "",
+      answer: "Yes. We review aging A/R and older denied claims, identify recoverable balances, and follow up based on payer deadlines and claim status.",
     },
   ]}
 />
