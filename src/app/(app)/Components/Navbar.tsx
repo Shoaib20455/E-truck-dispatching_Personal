@@ -74,6 +74,10 @@ const navItems: NavItem[] = [
     label: "Speciality State",
     href: "/speciality-state",
   },
+   {
+    label: "Speciality City Location",
+    href: "/speciality-city-location",
+  },
 ];
 
 export default function Navbar() {
