@@ -58,6 +58,10 @@ const navItems: NavItem[] = [
     label: "EHR/EMR Partners",
     href: "/ehr-emr-support",
   },
+   {
+    label: "Services Location",
+    href: "/services-location",
+  },
 ];
 
 export default function Navbar() {
