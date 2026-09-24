@@ -31,8 +31,8 @@ const navItems: NavItem[] = [
     href: "/rcm",
   },
   {
-    label: "State We Serve",
-    href: "/states",
+    label: "Denial Management",
+    href: "/denial-management",
   },
   {
     label: "Medical Billing",
