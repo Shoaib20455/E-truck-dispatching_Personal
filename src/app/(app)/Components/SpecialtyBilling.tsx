@@ -2,6 +2,7 @@ type SpecialtyItem = {
   title: string;
   icon: string;
   iconAlt: string;
+  highlighted?: boolean;
 };
 
 type SpecialtyBillingProps = {
@@ -9,6 +10,8 @@ type SpecialtyBillingProps = {
   description: string;
   buttonText: string;
   buttonHref: string;
+  secondaryButtonText?: string;
+  secondaryButtonHref?: string;
   specialties: SpecialtyItem[];
 };
 
@@ -17,6 +20,8 @@ export default function SpecialtyBilling({
   description,
   buttonText,
   buttonHref,
+  secondaryButtonText,
+  secondaryButtonHref,
   specialties,
 }: SpecialtyBillingProps) {
   return (
@@ -29,16 +34,27 @@ export default function SpecialtyBilling({
               {heading}
             </h2>
 
-            <p className="mb-8 font-manrope text-lg font-normal leading-8 text-neutral-500">
+            <p className="mb-7 whitespace-pre-line font-manrope text-lg font-normal leading-8 text-zinc-700">
               {description}
             </p>
 
-            <a
-              href={buttonHref}
-              className="inline-flex rounded-[58px] bg-sky-500 px-7 py-2.5 font-manrope text-lg font-normal leading-8 text-white"
-            >
-              {buttonText}
-            </a>
+            <div className="flex flex-col gap-4 sm:flex-row">
+              <a
+                href={buttonHref}
+                className="inline-flex justify-center rounded-[58px] bg-sky-500 px-7 py-2.5 font-manrope text-lg font-normal text-white"
+              >
+                {buttonText}
+              </a>
+
+              {secondaryButtonText && secondaryButtonHref && (
+                <a
+                  href={secondaryButtonHref}
+                  className="inline-flex justify-center rounded-[34px] bg-white px-7 py-2.5 font-manrope text-lg font-normal text-neutral-600"
+                >
+                  {secondaryButtonText}
+                </a>
+              )}
+            </div>
           </div>
 
           {/* SPECIALTIES */}
@@ -47,12 +63,14 @@ export default function SpecialtyBilling({
               {specialties.map((specialty) => (
                 <div
                   key={specialty.title}
-                  className="flex flex-col items-center rounded-[20px] bg-teal-500/10 px-5 py-5 text-center shadow"
+                  className={`flex flex-col items-center p-4 text-center shadow-sm ${
+                    specialty.highlighted ? "bg-teal-100" : "bg-white"
+                  }`}
                 >
                   <img
                     src={specialty.icon}
                     alt={specialty.iconAlt}
-                    className="mb-3 size-9 object-contain"
+                    className="mx-auto mb-2 size-9 object-contain"
                   />
 
                   <span className="font-inter text-sm font-semibold leading-5 text-heading">
