@@ -99,35 +99,7 @@ export default function SpecialityDetailPage() {
         ]}
       />
 
-      <SuccessNumbers
-        heading="Our Success Numbers"
-        columns={[
-          {
-            items: [
-              { label: "Pediatric Clean Claim", value: "98.5%" },
-              { label: "Lower Billing Costs", value: "Up to 50%" },
-            ],
-          },
-          {
-            items: [
-              { label: "Collection Ratio", value: "96%" },
-              { label: "Pediatric Billing Coverage", value: "100%" },
-            ],
-          },
-          {
-            items: [
-              { label: "Average A/R Cycle", value: "24 Days" },
-              { label: "Medicaid, CHIP & Commercial", value: "3+ Payer Types" },
-            ],
-          },
-          {
-            items: [
-              { label: "Aging A/R Reduction", value: "35%" },
-              { label: "End-to-End Billing Support", value: "6+ RCM Functions" },
-            ],
-          },
-        ]}
-      />
+      
 
       <BillingSolutions
         heading="Pediatric Billing Solutions"
@@ -220,7 +192,35 @@ export default function SpecialityDetailPage() {
           },
         ]}
       />
-
+<SuccessNumbers
+        heading="Our Success Numbers"
+        columns={[
+          {
+            items: [
+              { label: "Pediatric Clean Claim", value: "98.5%" },
+              { label: "Lower Billing Costs", value: "Up to 50%" },
+            ],
+          },
+          {
+            items: [
+              { label: "Collection Ratio", value: "96%" },
+              { label: "Pediatric Billing Coverage", value: "100%" },
+            ],
+          },
+          {
+            items: [
+              { label: "Average A/R Cycle", value: "24 Days" },
+              { label: "Medicaid, CHIP & Commercial", value: "3+ Payer Types" },
+            ],
+          },
+          {
+            items: [
+              { label: "Aging A/R Reduction", value: "35%" },
+              { label: "End-to-End Billing Support", value: "6+ RCM Functions" },
+            ],
+          },
+        ]}
+      />
       <ConsultationCTA
         heading="Pediatric Practices Across the US Trust Us"
         description="Pediatric practitioners and organizations across the U.S. trust Avenue Billing Services for specialized pediatric billing support. Our pediatric billing experts cover well-child visits, immunizations, developmental screenings, and newborn care across Medicaid, CHIP, and commercial payers."
@@ -281,7 +281,15 @@ export default function SpecialityDetailPage() {
         practicePlaceholder="Practice Name"
         buttonText="Get Your Free Billing Audit"
       />
-
+<CertificationCTA
+        heading="OUR CERTIFICATIONS & COMPLIANCE"
+        description="Avenue Billing Services strengthens its pediatric billing process through HIPAA compliance, ISO 27001 information security standards, and AAPC-certified coding expertise."
+        backgroundImage="/RCM Services Location/66_1.png"
+        certificationImage="/RCM Services Location/67_rectangle_8374.png"
+        certificationImageAlt="HIPAA ISO and AAPC certifications"
+        buttonText="Talk to Our Certified Pediatric Billing Experts"
+        buttonHref="#"
+      />
       <ExpertiseCardGrid
         heading="Our Expertise in Pediatric CPT Codes & ICD-10 Cases"
         cards={[
@@ -343,15 +351,7 @@ export default function SpecialityDetailPage() {
         ]}
       />
 
-      <CertificationCTA
-        heading="OUR CERTIFICATIONS & COMPLIANCE"
-        description="Avenue Billing Services strengthens its pediatric billing process through HIPAA compliance, ISO 27001 information security standards, and AAPC-certified coding expertise."
-        backgroundImage="/RCM Services Location/66_1.png"
-        certificationImage="/RCM Services Location/67_rectangle_8374.png"
-        certificationImageAlt="HIPAA ISO and AAPC certifications"
-        buttonText="Talk to Our Certified Pediatric Billing Experts"
-        buttonHref="#"
-      />
+      
 
       <RCMSolutions
         variant="procedure"
