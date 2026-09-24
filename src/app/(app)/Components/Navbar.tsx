@@ -19,8 +19,8 @@ const navItems: NavItem[] = [
     href: "/about-us",
   },
   {
-    label: "Services",
-    href: "/services",
+    label: "Medical Billing Analysis",
+    href: "/medical-billing-analysis",
   },
   {
     label: "RCM Services",
