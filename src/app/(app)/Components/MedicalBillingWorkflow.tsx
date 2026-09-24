@@ -9,6 +9,8 @@ type MedicalBillingWorkflowProps = {
   heading: string;
   centerImage: string;
   centerImageAlt: string;
+  ringImage?: string;
+  ringImageAlt?: string;
   leftSteps: WorkflowStep[];
   rightSteps: WorkflowStep[];
   pricingBackgroundImage: string;
@@ -22,6 +24,8 @@ export default function MedicalBillingWorkflow({
   heading,
   centerImage,
   centerImageAlt,
+  ringImage,
+  ringImageAlt = "",
   leftSteps,
   rightSteps,
   pricingBackgroundImage,
@@ -41,7 +45,7 @@ export default function MedicalBillingWorkflow({
       <img
         src={step.icon}
         alt={step.iconAlt}
-        className="size-12 object-contain"
+        className="size-12 shrink-0 object-contain"
       />
 
       <span className="font-manrope text-lg text-sky-500">
@@ -49,6 +53,23 @@ export default function MedicalBillingWorkflow({
       </span>
     </div>
   );
+
+  const leftOffsets = [
+    "lg:translate-x-24",
+    "lg:translate-x-10",
+    "lg:-translate-x-4",
+    "lg:translate-x-10",
+    "lg:translate-x-24",
+    "lg:translate-x-10",
+  ];
+
+  const rightOffsets = [
+    "lg:-translate-x-24",
+    "lg:-translate-x-10",
+    "lg:translate-x-4",
+    "lg:-translate-x-10",
+    "lg:-translate-x-24",
+  ];
 
   return (
     <section className="w-full bg-cyan-50 py-14 lg:py-20">
@@ -59,28 +80,51 @@ export default function MedicalBillingWorkflow({
           </h2>
         </div>
 
-        <div className="mb-12 grid grid-cols-1 items-center gap-8 lg:grid-cols-[0.8fr_1.2fr_0.8fr]">
-          <div className="space-y-5">
-            {leftSteps.map((step) => (
-              <StepCard key={step.label} step={step} />
+        {/* WORKFLOW */}
+        <div className="mb-12 grid grid-cols-1 items-center gap-8 lg:grid-cols-[0.9fr_1.2fr_0.9fr] lg:gap-0">
+          {/* LEFT STEPS */}
+          <div className="space-y-5 lg:relative lg:z-20">
+            {leftSteps.map((step, index) => (
+              <div
+                key={step.label}
+                className={`transition-transform ${leftOffsets[index] ?? ""}`}
+              >
+                <StepCard step={step} />
+              </div>
             ))}
           </div>
 
-          <div className="flex justify-center">
+          {/* CENTER IMAGE + RING */}
+          <div className="relative flex min-h-[520px] items-end justify-center lg:min-h-[620px]">
+            {ringImage && (
+              <img
+                src={ringImage}
+                alt={ringImageAlt}
+                className="pointer-events-none absolute left-1/2 top-8 z-0 w-[82%] max-w-[560px] -translate-x-1/2 object-contain lg:top-10"
+              />
+            )}
+
             <img
               src={centerImage}
               alt={centerImageAlt}
-              className="w-full max-w-[655px] object-contain"
+              className="relative z-10 w-full max-w-[560px] object-contain"
             />
           </div>
 
-          <div className="space-y-5">
-            {rightSteps.map((step) => (
-              <StepCard key={step.label} step={step} />
+          {/* RIGHT STEPS */}
+          <div className="space-y-5 lg:relative lg:z-20">
+            {rightSteps.map((step, index) => (
+              <div
+                key={step.label}
+                className={`transition-transform ${rightOffsets[index] ?? ""}`}
+              >
+                <StepCard step={step} />
+              </div>
             ))}
           </div>
         </div>
 
+        {/* PRICING CTA */}
         <div
           className="w-full overflow-hidden rounded-[20px] bg-cover bg-center bg-no-repeat"
           style={{
