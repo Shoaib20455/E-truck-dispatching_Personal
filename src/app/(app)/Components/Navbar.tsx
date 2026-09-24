@@ -50,6 +50,10 @@ const navItems: NavItem[] = [
     label: "Medical Coding",
     href: "/medical-coding",
   },
+   {
+    label: "State Licensing",
+    href: "/state-licensing",
+  },
 ];
 
 export default function Navbar() {
