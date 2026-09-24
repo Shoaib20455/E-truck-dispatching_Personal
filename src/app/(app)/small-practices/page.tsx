@@ -1,4 +1,3 @@
-import BillingIntelligence from "../Components/BillingIntelligence";
 import BillingProcess from "../Components/BillingProcess";
 import BillingSolutions from "../Components/BillingSolutions";
 import CertificationCTA from "../Components/CertificationCTA";
@@ -16,6 +15,7 @@ import ServiceHero from "../Components/ServiceHero";
 import StateSupportGrid from "../Components/StateSupportGrid";
 import SuccessNumbers from "../Components/SuccessNumbers";
 import Testimonials from "../Components/Testimonials";
+import TextFeatureGrid from "../Components/TextFeatureGrid";
 
 export default function SmallPracticesPage() {
   return (
@@ -219,16 +219,31 @@ export default function SmallPracticesPage() {
         ]}
       />
 
-      <BillingIntelligence
+      <TextFeatureGrid
         heading="Pediatric Billing Solutions"
-        description="A focused billing process helps pediatric practices reduce avoidable errors, maintain cleaner claims, and improve reimbursement consistency."
         items={[
-          "Eligibility verification before pediatric services",
-          "Payer-specific coding and modifier review",
-          "Vaccine and VFC billing checks",
-          "Preventive and sick visit billing review",
-          "Denial follow-up and appeal management",
-          "Aging A/R tracking and recovery",
+          {
+            title: "Strengthen Claim Scrubbing Before Submission",
+            description:
+              "Pediatric claims should be reviewed before they reach the payer. Missing information, coding conflicts, duplicate services, eligibility issues, and billing edits should be corrected early. A strong pre-submission review process reduces preventable rejections and keeps claims moving toward payment.",
+            highlighted: true,
+          },
+          {
+            title: "Fix Denials at the Root Cause",
+            description:
+              "Denied claims should not be resubmitted without understanding why they failed. Each denial should be traced back to its coding, documentation, eligibility, authorization, or payer-rule issue. Correcting the root cause and tracking appeal deadlines prevents the same problems from repeating.",
+          },
+          {
+            title: "Build Pediatric-Specific Billing Systems",
+            description:
+              "Pediatric billing works better when processes reflect the services children actually receive. Well-child exams, immunizations, screenings, newborn care, acute visits, and chronic conditions require accurate coding and payer-specific handling. Standardizing these workflows reduces errors across high-volume pediatric encounters.",
+          },
+          {
+            title: "Improve Revenue Visibility",
+            description:
+              "Practices need a clear view of what has been submitted, paid, denied, appealed, or left outstanding. Regular reporting should highlight aging claims, denial trends, underpayments, and collection gaps. Better visibility makes it easier to identify revenue problems before they grow.",
+            highlighted: true,
+          },
         ]}
       />
 
@@ -316,55 +331,69 @@ export default function SmallPracticesPage() {
       />
 
       <RCMSolutions
-        heading="Our Pediatric Billing Solutions for Practices"
+        variant="procedure"
+        heading="Our Pediatric Billing Solutions for Procedure-Focused Services"
         services={[
           {
-            title: "Medical Billing",
-            description: "Clean claims engineered for fast approval",
+            title: "Well-Child Checkups",
             icon: "/Small Practices/57_rectangle_297.png",
-            iconAlt: "Medical billing",
+            iconAlt: "Well-child checkups",
+            highlighted: true,
           },
           {
-            title: "Medical Billing Analysis",
-            description: "Uncover hidden billing revenue gaps",
+            title: "Pediatric Vaccinations",
             icon: "/Small Practices/58_rectangle_324.png",
-            iconAlt: "Medical billing analysis",
+            iconAlt: "Pediatric vaccinations",
           },
           {
-            title: "Medical Coding",
-            description: "Certified ICD-10/CPT/HCPCS accuracy",
+            title: "Newborn Circumcision",
             icon: "/Small Practices/59_rectangle_325.png",
-            iconAlt: "Medical coding",
+            iconAlt: "Newborn circumcision",
           },
           {
-            title: "Denial Management",
-            description: "Root-cause correction and appeals",
+            title: "Cardiac Catheterization",
             icon: "/Small Practices/60_rectangle_326.png",
-            iconAlt: "Denial management",
+            iconAlt: "Cardiac catheterization",
           },
           {
-            title: "A/R Management",
-            description: "Aggressive recovery of unpaid claims",
+            title: "Kidney Biopsy",
             icon: "/Small Practices/61_rectangle_790.png",
-            iconAlt: "Accounts receivable management",
+            iconAlt: "Kidney biopsy",
           },
           {
-            title: "Credentialing & Enrollment",
-            description: "Fast payer setup",
+            title: "Nasal Endoscopy",
             icon: "/Small Practices/62_rectangle_299.png",
-            iconAlt: "Credentialing and enrollment",
+            iconAlt: "Nasal endoscopy",
           },
           {
-            title: "EHR/EMR Support",
-            description: "Smooth workflows inside your EHR",
+            title: "Inguinal Hernia Repair",
             icon: "/Small Practices/63_rectangle_300.png",
-            iconAlt: "EHR EMR support",
+            iconAlt: "Inguinal hernia repair",
           },
           {
-            title: "Pediatric Revenue Support",
-            description: "Specialty-focused billing support",
+            title: "Umbilical Hernia Repair",
             icon: "/Small Practices/64_rectangle_302.png",
-            iconAlt: "Pediatric revenue support",
+            iconAlt: "Umbilical hernia repair",
+          },
+          {
+            title: "Pediatric Laparoscopy",
+            icon: "/Small Practices/65_rectangle_305.png",
+            iconAlt: "Pediatric laparoscopy",
+          },
+          {
+            title: "Bone Marrow Aspiration & Biopsy",
+            icon: "/Small Practices/66_rectangle_319.png",
+            iconAlt: "Bone marrow aspiration and biopsy",
+          },
+          {
+            title: "G-Tube / GJ-Tube Exchange",
+            icon: "/Small Practices/67_rectangle_303.png",
+            iconAlt: "G-Tube and GJ-Tube exchange",
+          },
+          {
+            title: "Newborn Screening Tests",
+            icon: "/Small Practices/68_rectangle_304.png",
+            iconAlt: "Newborn screening tests",
           },
         ]}
       />
