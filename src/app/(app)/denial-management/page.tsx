@@ -27,21 +27,21 @@ export default function denialPage() {
     <main>
         <ServiceHero
   variant="compact"
-  heading="Medical Billing Services That Help You Get Paid Faster"
-  description="We manage your billing, coding, claims and AR follow-up, and integrate smoothly with your complete RCM workflow."
+  heading="Stop Losing Money, Get Denials Fixed Fast & Recover Revenue You Didn’t Know You Lost"
+  description="Our denial management team identifies the root cause, fixes coding and documentation errors, and gets your claims approved fast."
   backgroundImage="/Medical Billing/2_rectangle_767.png"
   highlights={[
     {
       text: "HIPAA Compliant",
     },
     {
-      text: "Certified Coders",
+      text: "Full A/R + Denial Support",
     },
     {
-      text: "98% Clean Claim Rate",
+      text: "30–50% Denial Reduction",
     },
     {
-      text: "30+ Specialties Supported",
+      text: "Specialty-Focused Expertise",
     },
   ]}
   formHeading="Ready to Improve Your Medical Billing Revenue?"
@@ -52,7 +52,7 @@ export default function denialPage() {
   buttonText="Submit"
 />
 <RevenueLossReasons
-  heading="Why Does a Pediatric Practice Lose Revenue?"
+  heading="Why Clinics Choose Our Denial Management Specialists"
   descriptionOne="Pediatric practices handle a high volume of preventive and problem-oriented care during the same patient encounter. Each service carries its own documentation, coding, and payer requirements. So, attention to all these parameters while billing is important for smooth pediatric billing."
   descriptionTwo="Revenue starts leaking when eligibility is not verified before providing pediatric services. Incorrect vaccine coding and missed modifiers also trigger denials and underpayments. Medicaid requirements add another layer, especially when payer rules are overlooked. Denied claims create more pressure when they remain unresolved in aging A/R."
   image="/RCM Services Location/3_rectangle_8361.png"
@@ -96,42 +96,42 @@ export default function denialPage() {
 
 <ServiceGridWithImage
   variant="compact"
-  heading="Complete Medical Billing Services"
+  heading="Denial Management Services"
   image="/Denial Management/2_rectangle_767.png"
-  imageAlt="Complete medical billing services"
+  imageAlt="Denial management services"
   services={[
     {
-      title: "Eligibility Verification",
-      description: "Coverage, copay, deductible, prior auth.",
+      title: "Denial Identification",
+      description: "CO, PR, OA codes reviewed by payer.",
       highlighted: true,
     },
     {
-      title: "ICD-10 & CPT Coding",
-      description: "Certified coding accuracy, CMS compliant.",
+      title: "Documentation & Coding Review",
+      description: "ICD-10, CPT, modifiers, necessity verified.",
     },
     {
-      title: "Charge Entry",
-      description: "Correct units, modifiers, NCCI edits.",
+      title: "Root-Cause Diagnostic Audit",
+      description: "Denial patterns and payer rules analyzed.",
     },
     {
-      title: "Claim Submission",
-      description: "837P/837I, clearinghouse, payer edits.",
+      title: "Claim Correction",
+      description: "Coding, modifiers, and eligibility corrected.",
     },
     {
-      title: "Denial Management",
-      description: "Fix errors, appeal, track status.",
+      title: "Appeal Management",
+      description: "Policy-supported appeals prepared and submitted.",
     },
     {
-      title: "ERA/EOB Payment Posting",
-      description: "Faster posting, detect underpayments.",
+      title: "Payer Follow-Up",
+      description: "30/60/90/120+ day claims followed up",
     },
     {
-      title: "AR & Follow-Up",
-      description: "Reduce aging. Recover unpaid claims.",
+      title: "Denial Prevention",
+      description: "Workflows implemented to stop repeat denials.",
     },
     {
-      title: "Patient Billing",
-      description: "Simple statements + support team.",
+      title: "Denial Reporting",
+      description: "Real-time trends and financial impact visibility.",
     },
   ]}
 />
@@ -171,81 +171,66 @@ export default function denialPage() {
   ]}
 />
 <MedicalBillingWorkflow
-  heading="Our Medical Billing Workflow"
+  heading="How Our Denial Resolution Process Works"
   centerImage="/Denial Management/4_rectangle_457.png"
-  centerImageAlt="Medical billing workflow"
-  ringImage="/Medical Billing/3_rectangle_776.png"
+  centerImageAlt="Denial resolution process"
+  ringImage="/Denial Management/3_rectangle_776.png"
   ringImageAlt=""
   leftSteps={[
     {
-      label: "Registration",
+      label: "Eligibility Check",
       icon: "/Denial Management/5_rectangle_459.png",
-      iconAlt: "Registration",
+      iconAlt: "Eligibility Check",
       highlighted: true,
     },
     {
-      label: "Documentation",
-      icon: "/Medical Billing/7_rectangle_464.png",
-      iconAlt: "Documentation",
+      label: "Documentation & Coding Review",
+      icon: "/Denial Management/7_rectangle_464.png",
+      iconAlt: "Documentation and Coding Review",
     },
     {
-      label: "Charge Entry",
-      icon: "/Medical Billing/6_rectangle_470.png",
-      iconAlt: "Charge Entry",
+      label: "Payer Appeal/Resubmission",
+      icon: "/Denial Management/6_rectangle_470.png",
+      iconAlt: "Payer Appeal or Resubmission",
     },
     {
-      label: "Payer Review",
-      icon: "/Medical Billing/8_rectangle_471.png",
-      iconAlt: "Payer Review",
-    },
-    {
-      label: "Payment Posting",
-      icon: "/Medical Billing/12_rectangle_478.png",
-      iconAlt: "Payment Posting",
-    },
-    {
-      label: "Patient Billing",
-      icon: "/Medical Billing/15_rectangle_479.png",
-      iconAlt: "Patient Billing",
+      label: "Clean Claim Confirmation",
+      icon: "/Denial Management/8_rectangle_471.png",
+      iconAlt: "Clean Claim Confirmation",
     },
   ]}
   rightSteps={[
     {
-      label: "Eligibility Check",
-      icon: "/Medical Billing/10_rectangle_461.png",
-      iconAlt: "Eligibility Check",
+      label: "Error Root Cause Analysis",
+      icon: "/Denial Management/9_rectangle_461.png",
+      iconAlt: "Error Root Cause Analysis",
     },
     {
-      label: "ICD-10/CPT Coding",
-      icon: "/Medical Billing/13_rectangle_465.png",
-      iconAlt: "ICD-10 CPT Coding",
+      label: "Claim Correction",
+      icon: "/Denial Management/11_rectangle_465.png",
+      iconAlt: "Claim Correction",
     },
     {
-      label: "Claim Submission",
-      icon: "/Medical Billing/11_rectangle_472.png",
-      iconAlt: "Claim Submission",
+      label: "Continuous Payer Follow-Up",
+      icon: "/Denial Management/10_rectangle_472.png",
+      iconAlt: "Continuous Payer Follow-Up",
     },
     {
-      label: "Denial Management",
-      icon: "/Medical Billing/14_rectangle_473.png",
-      iconAlt: "Denial Management",
-    },
-    {
-      label: "AR Follow-Up",
-      icon: "/Medical Billing/9_rectangle_477.png",
-      iconAlt: "AR Follow-Up",
+      label: "Prevention Plan Creation",
+      icon: "/Denial Management/12_rectangle_473.png",
+      iconAlt: "Prevention Plan Creation",
     },
   ]}
-  pricingBackgroundImage="/Medical Billing/16_rectangle_456.png"
+  pricingBackgroundImage="/Denial Management/13_rectangle_456.png"
   pricingHeading="Simple, Transparent Pricing"
-  pricingDescription={"Most practices pay 4%–8% of monthly collections.\nNo hidden fees. No long contracts."}
+  pricingDescription={"Most practices pay 3%–6% of collected revenue for denial + A/R recovery support.\nZero hidden fees. Cancel anytime."}
   buttonText="Get a Custom Quote"
   buttonHref="#"
 />
 
 <SpecialtyBilling
-  heading="Specialty-Focused Billing Expertise"
-  description={"Billing for every specialty is different.\nWe handle specialty-specific coding, payer rules, documentation needs, and claims workflows, so your clinic gets paid correctly the first time."}
+  heading="Specialty-Focused Denial Management"
+  description={"Every specialty has unique coding and denial patterns — our team understands the rules, documentation needs, and payer challenges across 40+ specialties."}
   buttonText="View All Specialties"
   buttonHref="#"
   secondaryButtonText="Talk To An Expert"
@@ -307,8 +292,8 @@ export default function denialPage() {
 
 <EHRPartners
   variant="compact"
-  heading="We Work With All Major EHR & PM Systems"
-  description="Seamless integration with your workflow. No downtime. No extra training required."
+  heading="Works With Every Major EHR, EMR, PM & Clearinghouse"
+  description="Our denial experts work directly inside your existing software — no training, no disruption, no added workload."
   partners={[
     {
       logo: "/Medical Billing/42_rectangle_430.png",
@@ -335,7 +320,7 @@ export default function denialPage() {
 
 <StateSupportGrid
   variant="map"
-  heading="Medical Billing Services Across the USA"
+  heading="Denial Management Services Across the USA"
   states={[
     "New York",
     "North Carolina",
@@ -384,53 +369,45 @@ export default function denialPage() {
 />
 
 <RevenueCTA
-  heading="Ready to Improve Your South Carolina Practice Revenue?"
-  description="Let our billing team optimize your claims, fix denials, and strengthen collections."
+  heading="Stop Losing Money to Preventable Denials"
+  description="Get a free denial trend report and see how much revenue you can recover in the next 30 days."
   backgroundImage="/RCM Services Location/13_1.png"
-  primaryButtonText="Get Free Billing Audit"
+  primaryButtonText="Fix My Denials Now"
   primaryButtonHref="#"
-  secondaryButtonText="Get Pricing"
+  secondaryButtonText="Get a FREE Denial Trend Report"
   secondaryButtonHref="#"
 />
 <FAQSection
-  heading="Frequently Asked Questions About Pediatric Medical Billing Services"
+  heading="Frequently Asked Questions"
   defaultOpenIndex={0}
   faqs={[
     {
-      question:
-        "Why are well-child visits denied when a sick condition is treated during the same appointment?",
-      answer:
-        "A preventive visit and a problem focused service require separate coding and documentation when both are performed. Incorrect modifier use or weak documentation often causes one service to be bundled or denied. Current AAP guidance addresses modifier 25 for qualifying separately identifiable E/M services.",
+      question: "What is denial management in medical billing?",
+      answer: "Identifying, correcting, appealing, and preventing claim denials to protect your revenue.",
     },
     {
-      question:
-        "Why do pediatric practices face billing problems with vaccines and VFC claims?",
-      answer:
-        "Add the answer for this FAQ here.",
+      question: "Why do claims get denied?",
+      answer: "",
     },
     {
-      question:
-        "Why are developmental and behavioral screenings sometimes denied or underpaid?",
-      answer:
-        "Add the answer for this FAQ here.",
+      question: "How fast can you fix existing denials?",
+      answer: "",
     },
     {
-      question:
-        "How do Medicaid and CHIP requirements affect pediatric billing?",
-      answer:
-        "Add the answer for this FAQ here.",
+      question: "Do you handle appeals?",
+      answer: "",
     },
     {
-      question:
-        "Why do newborn claims get rejected even when the baby has Medicaid coverage?",
-      answer:
-        "Add the answer for this FAQ here.",
+      question: "Can you work inside our EHR or PM system?",
+      answer: "",
     },
     {
-      question:
-        "Why does pediatric A/R continue growing despite a high patient volume?",
-      answer:
-        "Add the answer for this FAQ here.",
+      question: "What denial types do you specialize in?",
+      answer: "",
+    },
+    {
+      question: "Do you recover old A/R + denied claims?",
+      answer: "",
     },
   ]}
 />
