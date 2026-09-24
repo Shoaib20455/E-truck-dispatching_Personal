@@ -1,0 +1,23 @@
+type StateTrustItem = { title: string; description: string; highlighted?: boolean };
+type StateTrustGridProps = { heading: string; description: string; items: StateTrustItem[] };
+
+export default function StateTrustGrid({ heading, description, items }: StateTrustGridProps) {
+  return (
+    <section className="w-full bg-cyan-50 py-14 lg:py-20">
+      <div className="mx-auto max-w-[1520px] px-6 lg:px-8 2xl:px-0">
+        <div className="mx-auto mb-12 max-w-5xl text-center">
+          <h2 className="mb-5 font-inter text-3xl font-semibold leading-tight text-heading md:text-4xl lg:text-5xl">{heading}</h2>
+          <p className="font-manrope text-lg leading-8 text-neutral-500">{description}</p>
+        </div>
+        <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
+          {items.map((item) => (
+            <div key={item.title} className={`rounded-[20px] p-7 ${item.highlighted ? "border border-teal-500 bg-teal-500/10 shadow-[0px_10px_20px_rgba(0,0,0,0.07)]" : "bg-white"}`}>
+              <h3 className="mb-5 font-inter text-2xl font-semibold leading-tight text-heading md:text-3xl">{item.title}</h3>
+              <p className="font-manrope text-lg leading-8 text-neutral-500">{item.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
