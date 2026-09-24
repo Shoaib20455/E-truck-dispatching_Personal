@@ -336,63 +336,63 @@ export default function SmallPracticesPage() {
         services={[
           {
             title: "Well-Child Checkups",
-            icon: "/Small Practices/57_rectangle_297.png",
+            icon: "/Small Practices/58_rectangle_324.png",
             iconAlt: "Well-child checkups",
             highlighted: true,
           },
           {
             title: "Pediatric Vaccinations",
-            icon: "/Small Practices/58_rectangle_324.png",
+            icon: "/Small Practices/59_rectangle_325.png",
             iconAlt: "Pediatric vaccinations",
           },
           {
             title: "Newborn Circumcision",
-            icon: "/Small Practices/59_rectangle_325.png",
+            icon: "/Small Practices/60_rectangle_326.png",
             iconAlt: "Newborn circumcision",
           },
           {
             title: "Cardiac Catheterization",
-            icon: "/Small Practices/60_rectangle_326.png",
+            icon: "/Small Practices/61_rectangle_790.png",
             iconAlt: "Cardiac catheterization",
           },
           {
             title: "Kidney Biopsy",
-            icon: "/Small Practices/61_rectangle_790.png",
+            icon: "/Small Practices/62_rectangle_299.png",
             iconAlt: "Kidney biopsy",
           },
           {
             title: "Nasal Endoscopy",
-            icon: "/Small Practices/62_rectangle_299.png",
+            icon: "/Small Practices/57_rectangle_297.png",
             iconAlt: "Nasal endoscopy",
           },
           {
             title: "Inguinal Hernia Repair",
-            icon: "/Small Practices/63_rectangle_300.png",
+            icon: "/Small Practices/66_rectangle_319.png",
             iconAlt: "Inguinal hernia repair",
           },
           {
             title: "Umbilical Hernia Repair",
-            icon: "/Small Practices/64_rectangle_302.png",
+            icon: "/Small Practices/63_rectangle_300.png",
             iconAlt: "Umbilical hernia repair",
           },
           {
             title: "Pediatric Laparoscopy",
-            icon: "/Small Practices/65_rectangle_305.png",
+            icon: "/Small Practices/67_rectangle_303.png",
             iconAlt: "Pediatric laparoscopy",
           },
           {
             title: "Bone Marrow Aspiration & Biopsy",
-            icon: "/Small Practices/66_rectangle_319.png",
+            icon: "/Small Practices/68_rectangle_304.png",
             iconAlt: "Bone marrow aspiration and biopsy",
           },
           {
             title: "G-Tube / GJ-Tube Exchange",
-            icon: "/Small Practices/67_rectangle_303.png",
+            icon: "/Small Practices/65_rectangle_305.png",
             iconAlt: "G-Tube and GJ-Tube exchange",
           },
           {
             title: "Newborn Screening Tests",
-            icon: "/Small Practices/68_rectangle_304.png",
+            icon: "/Small Practices/64_rectangle_302.png",
             iconAlt: "Newborn screening tests",
           },
         ]}
