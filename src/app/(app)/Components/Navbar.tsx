@@ -42,6 +42,10 @@ const navItems: NavItem[] = [
     label: "Small Practices",
     href: "/small-practices",
   },
+  {
+    label: "AR Follow-Up",
+    href: "/ar-followup",
+  },
 ];
 
 export default function Navbar() {
