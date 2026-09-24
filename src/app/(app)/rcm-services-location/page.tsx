@@ -2,9 +2,11 @@ import BillingIntelligence from "../Components/BillingIntelligence";
 import BillingSolutions from "../Components/BillingSolutions";
 import CertificationCTA from "../Components/CertificationCTA";
 import CitiesCounties from "../Components/CitiesCounties";
+import ComparisonTable from "../Components/ComparisonTable";
 import ConsultationCTA from "../Components/ConsultationCTA";
 import ExpertiseCardGrid from "../Components/ExpertiseCardGrid";
 import RevenueCTA from "../Components/RevenueCTA";
+import RevenueCTAWithTestimonial from "../Components/RevenueCTAWithTestimonial";
 import RevenueLossReasons from "../Components/RevenueLossReasons";
 import ServiceGridWithImage from "../Components/ServiceGridWithImage";
 import ServiceHero from "../Components/ServiceHero";
@@ -382,6 +384,75 @@ export default function rcmserviceslocation() {
   certificationImageAlt="HIPAA ISO and AAPC certifications"
   buttonText="Talk to Our Certified Pediatric Billing Experts"
   buttonHref="#"
+/>
+<ComparisonTable
+  heading="Why Pediatric Practices Prefer Avenue Billing Services?"
+  featureHeading="Feature / Benefit"
+  avenueHeading="Avenue Billing Services"
+  comparisonHeading="Typical In-House / General Billing"
+  rows={[
+    {
+      feature: "Pediatric Billing Knowledge",
+      avenue:
+        "Our process is built around pediatric preventive care, vaccines, screening, Medicaid, and sick-visit billing",
+      comparison:
+        "General billing knowledge without dedicated pediatric focus",
+    },
+    {
+      feature: "Claim Quality",
+      avenue:
+        "Claims reviewed before submission for coding, payer, demographic, and billing issues",
+      comparison:
+        "Errors often discovered after rejection or denial",
+    },
+    {
+      feature: "Denial Management",
+      avenue:
+        "Root-cause analysis, correction, appeal tracking, and payer follow-up",
+      comparison:
+        "Denials are often handled reactively.",
+    },
+    {
+      feature: "A/R Management",
+      avenue:
+        "Structured follow-up by payer, balance, age, denial status, and deadline",
+      comparison:
+        "Follow-up competes with front-office responsibilities.",
+    },
+    {
+      feature: "Reporting",
+      avenue:
+        "Regular visibility into collections, A/R, denials, and payer trends",
+      comparison:
+        "Reporting depends on internal staff capacity",
+    },
+    {
+      feature: "Staffing",
+      avenue:
+        "Dedicated billing resources without maintaining a full internal billing department",
+      comparison:
+        "Recruiting, salaries, training, turnover, and supervision remain with the practice",
+    },
+  ]}
+/>
+<RevenueCTAWithTestimonial
+  heading="Get More From Your Pediatric Practice Revenue"
+  description="Your focus should stay on children and families, not on unpaid claims and billing delays. Avenue Billing Services manages pediatric billing with greater consistency and accuracy."
+  backgroundImage="/RCM Services Location/66_1.png"
+  primaryButtonText="Request a Free Consultation"
+  primaryButtonHref="#"
+  secondaryButtonText="Talk to a Pediatric Billing Expert"
+  secondaryButtonHref="#"
+  testimonial={{
+    image: "/RCM Services Location/15_ellipse_293.png",
+    imageAlt: "Dr. Michael R.",
+    name: "Dr. Michael R.",
+    role: "Physician at PEDCARE",
+    ratingImage: "/RCM Services Location/33_rectangle_187.png",
+    ratingAlt: "5 star rating",
+    quote:
+      "Avenue Billing Services understands the billing challenges pediatric practices face. Their attention to claim accuracy, payer requirements, and denial follow-up has improved the consistency of our revenue cycle.",
+  }}
 />
     </main>
   );
