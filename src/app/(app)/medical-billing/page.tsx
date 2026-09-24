@@ -23,46 +23,25 @@ export default function rcmpage() {
   return (
     <main>
         <ServiceHero
-  heading="Pediatric Medical Billing Services Built for Revenue Stability of Pediatric Practices"
-  description="Pediatric billing involves far more than submitting routine office claims. It includes well-child visits, vaccines, developmental screenings, Medicaid requirements, and newborn services. All these factors affect your pediatric medical billing process and revenue. Here is how Avenue Billing Services manages your complete pediatric revenue cycle:"
-  backgroundImage="/RCM Services Location/2_rectangle_1893.png"
+  variant="compact"
+  heading="Medical Billing Services That Help You Get Paid Faster"
+  description="We manage your billing, coding, claims and AR follow-up, and integrate smoothly with your complete RCM workflow."
+  backgroundImage="/Medical Billing/2_rectangle_767.png"
   highlights={[
     {
-      text:
-        "Complete Pediatric RCM: From eligibility verification and coding to claim submission and denial follow-up, we manage the full billing cycle.",
+      text: "HIPAA Compliant",
     },
     {
-      text:
-        "98.5% Clean Claim Rate: Our detailed claim reviews and payer-specific processes reduce errors and prevent denials.",
+      text: "Certified Coders",
     },
     {
-      text:
-        "Pediatric-Focused Revenue Support: We handle well-child visits, immunizations, screenings, and newborn care, so your team can focus more on patient care.",
+      text: "98% Clean Claim Rate",
+    },
+    {
+      text: "30+ Specialties Supported",
     },
   ]}
-  reviews={[
-    {
-      logo: "/RCM Services Location/61_rectangle_1897.png",
-      alt: "Clutch",
-      rating: "★★★★★",
-    },
-    {
-      logo: "/RCM Services Location/41_rectangle_1899.png",
-      alt: "Review platform",
-      rating: "★★★★★",
-    },
-    {
-      logo: "/RCM Services Location/47_rectangle_1901.png",
-      alt: "Testimonial",
-      rating: "★★★★★",
-    },
-    {
-      logo: "/RCM Services Location/34_rectangle_1897.png",
-      alt: "Trustpilot",
-      rating: "★★★★★",
-    },
-  ]}
-  formHeading="Ready to Improve Your Pediatric Billing Workflow?"
+  formHeading="Ready to Improve Your Medical Billing Revenue?"
   namePlaceholder="Name"
   phonePlaceholder="Phone Number"
   emailPlaceholder="Email"
