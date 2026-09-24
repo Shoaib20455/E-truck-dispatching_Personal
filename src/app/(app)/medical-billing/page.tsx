@@ -138,6 +138,8 @@ export default function rcmpage() {
   heading="Our Medical Billing Workflow"
   centerImage="/Medical Billing/4_rectangle_457.png"
   centerImageAlt="Medical billing workflow"
+  ringImage="/Medical Billing/3_rectangle_776.png"
+  ringImageAlt=""
   leftSteps={[
     {
       label: "Registration",
