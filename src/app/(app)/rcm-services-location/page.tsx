@@ -13,6 +13,7 @@ import ServiceGridWithImage from "../Components/ServiceGridWithImage";
 import ServiceHero from "../Components/ServiceHero";
 import StateSupportGrid from "../Components/StateSupportGrid";
 import SuccessNumbers from "../Components/SuccessNumbers";
+import Testimonials from "../Components/Testimonials";
 
 export default function rcmserviceslocation() {
   return (
@@ -487,6 +488,41 @@ export default function rcmserviceslocation() {
   bottomText="If your pediatric practice is using another EHR, talk with our billing team about your current platform and billing audit."
   buttonText="Talk to an expert"
   buttonHref="#"
+/>
+<Testimonials
+  heading="What Healthcare Practices Say About Us"
+  testimonials={[
+    {
+      name: "Dr. Emily Carter",
+      role: "Pediatrician | BrightCare Pediatrics",
+      image: "/RCM Services Location/29_ellipse_291.png",
+      imageAlt: "Dr. Emily Carter",
+      ratingImage: "/RCM Services Location/33_rectangle_187.png",
+      ratingAlt: "5 star rating",
+      quote:
+        "Avenue Billing Services has made our pediatric billing process much more organized. Their team understands well-child visits, immunizations, payer requirements, and denial follow-up. We now have better visibility into our claims and outstanding revenue.",
+    },
+    {
+      name: "Jessica Reynold",
+      role: "Practice Manager | Little Steps Pediatric Clinic",
+      image: "/RCM Services Location/32_ellipse_292.png",
+      imageAlt: "Jessica Reynold",
+      ratingImage: "/RCM Services Location/33_rectangle_187.png",
+      ratingAlt: "5 star rating",
+      quote:
+        "The biggest improvement has been consistency. Claims are reviewed carefully, denials are followed up on, and aging balances no longer sit untouched. Our team spends less time tracking billing issues and more time supporting patients and families.",
+    },
+    {
+      name: "Dr. Daniel Mitchell",
+      role: "Medical Director | Growing Kids Pediatrics",
+      image: "/RCM Services Location/31_ellipse_293.png",
+      imageAlt: "Dr. Daniel Mitchell",
+      ratingImage: "/RCM Services Location/33_rectangle_187.png",
+      ratingAlt: "5 star rating",
+      quote:
+        "Pediatric billing comes with its own challenges, especially with Medicaid, preventive services, and vaccinations. Avenue Billing Services has given us a clearer and more structured revenue cycle while reducing avoidable billing delays.",
+    },
+  ]}
 />
     </main>
   );
