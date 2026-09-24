@@ -46,6 +46,10 @@ const navItems: NavItem[] = [
     label: "AR Follow-Up",
     href: "/ar-followup",
   },
+   {
+    label: "Medical Coding",
+    href: "/medical-coding",
+  },
 ];
 
 export default function Navbar() {
