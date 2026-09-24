@@ -62,6 +62,10 @@ const navItems: NavItem[] = [
     label: "Services Location",
     href: "/services-location",
   },
+  {
+    label: "Speciality Listing",
+    href: "/speciality-listing",
+  },
 ];
 
 export default function Navbar() {
