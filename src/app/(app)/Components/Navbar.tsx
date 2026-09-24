@@ -15,8 +15,8 @@ const navItems: NavItem[] = [
     href: "/",
   },
   {
-    label: "About Us",
-    href: "/about-us",
+    label: "Credentials & Enrollment",
+    href: "/credentials-and-enrollment",
   },
   {
     label: "Medical Billing Analysis",
