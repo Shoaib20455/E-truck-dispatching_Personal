@@ -298,6 +298,26 @@ export default function rcmpage() {
   ]}
 />
 
+<StateSupportGrid
+  variant="map"
+  heading="Medical Billing Services Across the USA"
+  states={[
+    "New York",
+    "North Carolina",
+    "Florida",
+    "South Carolina",
+    "Massachusetts",
+    "Alabama",
+    "New Jersey",
+    "California",
+  ]}
+  highlightedState="New York"
+  buttonText="View Location Pages"
+  buttonHref="#"
+  mapImage="/Medical Billing/33_rectangle_135.png"
+  mapAlt="Medical billing services across USA map"
+/>
+
 <FAQSection
   heading="Frequently Asked Questions About Pediatric Medical Billing Services"
   defaultOpenIndex={0}
