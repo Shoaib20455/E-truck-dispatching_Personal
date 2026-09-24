@@ -1,7 +1,9 @@
 import BillingIntelligence from "../Components/BillingIntelligence";
 import BillingSolutions from "../Components/BillingSolutions";
+import CertificationCTA from "../Components/CertificationCTA";
 import CitiesCounties from "../Components/CitiesCounties";
 import ConsultationCTA from "../Components/ConsultationCTA";
+import ExpertiseCardGrid from "../Components/ExpertiseCardGrid";
 import RevenueCTA from "../Components/RevenueCTA";
 import RevenueLossReasons from "../Components/RevenueLossReasons";
 import ServiceGridWithImage from "../Components/ServiceGridWithImage";
@@ -301,9 +303,86 @@ export default function rcmserviceslocation() {
   buttonText="View More"
   buttonHref="#"
 />
-
-
-
+<ConsultationCTA
+  variant="plain"
+  heading="What Supports Efficient Pediatric Billing in Our Process?"
+  description="At Avenue Billing Services, our pediatric billing process follows each claim from eligibility verification through final payment. We review coding, payer requirements, immunization details, Medicaid or CHIP rules, and claim accuracy before submission. After submission, our team tracks payments, resolves denials, posts EOBs, and follows aging A/R to keep pediatric revenue moving efficiently."
+  formHeading="Get Your Free Pediatric Billing Audit"
+  namePlaceholder="Name"
+  phonePlaceholder="Phone Number"
+  emailPlaceholder="Email"
+  practicePlaceholder="Practice Name"
+  buttonText="Get Your Free Billing Audit"
+/>
+<ExpertiseCardGrid
+  heading="Our Expertise in Pediatric CPT Codes & ICD-10 Cases"
+  cards={[
+    {
+      title: "Well-Child Visit Coding",
+      code: "CPT 99381–99385 & 99391–99395",
+      description:
+        "Accurate preventive visit coding based on patient age and new or established status. These codes cover routine pediatric preventive examinations and well-child services.",
+      highlighted: true,
+    },
+    {
+      title: "Sick & Problem Visit Coding",
+      code: "CPT 99202–99205 & 99211–99215",
+      description:
+        "Office E/M codes are selected for acute illnesses, chronic conditions, and other problem-focused pediatric encounters based on current documentation and E/M requirements.",
+    },
+    {
+      title: "Immunization Administration Coding",
+      code: "CPT 90460–90461",
+      description:
+        "These codes apply to pediatric vaccine administration when required counseling criteria are met for patients through age 18. Vaccine product codes are reported separately when applicable.",
+    },
+    {
+      title: "Developmental & Behavioral Screening",
+      code: "CPT 96110 & 96127",
+      description:
+        "Code 96110 supports standardized developmental screening, while 96127 covers brief emotional or behavioral assessments such as ADHD or depression screening.",
+    },
+    {
+      title: "Pediatric Health Risk Assessments",
+      code: "CPT 96160–96161",
+      description:
+        "These codes support standardized health-risk assessments involving pediatric patients or caregivers when documentation and payer requirements are satisfied.",
+    },
+    {
+      title: "Newborn Care Coding",
+      code: "CPT 99460–99463",
+      description:
+        "Newborn coding covers initial, subsequent, and qualifying normal newborn care across hospital, birthing center, home, and office settings.",
+    },
+    {
+      title: "Pediatric ICD-10-CM Mapping",
+      code: "Z00.121, Z00.129, Z23 & Z13.42",
+      description:
+        "Common pediatric diagnosis coding includes routine child examinations, immunization encounters, and developmental screening. Diagnosis selection must match the documented reason for each encounter.",
+    },
+    {
+      title: "Pediatric Modifier Application",
+      code: "Modifier 25 & EP",
+      description:
+        "Appropriate modifiers distinguish separately reportable services and support payer-specific pediatric requirements, including certain Medicaid and EPSDT procedures. Their use depends on documentation and individual payer policy.",
+    },
+    {
+      title: "Pediatric Vision & Hearing Screening",
+      code: "CPT 99173 & 92551",
+      description:
+        "These codes support quantitative visual-acuity and pure-tone hearing screenings commonly performed during pediatric preventive visits. Proper documentation and diagnosis linkage help support separate reimbursement when allowed by payer policy.",
+    },
+  ]}
+/>
+<CertificationCTA
+  heading="OUR CERTIFICATIONS & COMPLIANCE"
+  description="Avenue Billing Services strengthens its pediatric billing process through HIPAA compliance, ISO 27001 information security standards, and AAPC-certified coding expertise. These standards support secure handling of patient data, accurate pediatric coding, and a consistent billing process."
+  backgroundImage="/RCM Services Location/66_1.png"
+  certificationImage="/RCM Services Location/67_rectangle_8374.png"
+  certificationImageAlt="HIPAA ISO and AAPC certifications"
+  buttonText="Talk to Our Certified Pediatric Billing Experts"
+  buttonHref="#"
+/>
     </main>
   );
 }
