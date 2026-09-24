@@ -83,7 +83,7 @@ export default function MedicalBillingWorkflow({
         {/* WORKFLOW */}
         <div className="mb-12 grid grid-cols-1 items-center gap-8 lg:grid-cols-[0.9fr_1.2fr_0.9fr] lg:gap-0">
           {/* LEFT STEPS */}
-          <div className="space-y-5 lg:relative lg:z-20">
+          <div className="space-y-8 lg:relative lg:z-20">
             {leftSteps.map((step, index) => (
               <div
                 key={step.label}
@@ -112,7 +112,7 @@ export default function MedicalBillingWorkflow({
           </div>
 
           {/* RIGHT STEPS */}
-          <div className="space-y-5 lg:relative lg:z-20">
+          <div className="space-y-8 lg:relative lg:z-20">
             {rightSteps.map((step, index) => (
               <div
                 key={step.label}
