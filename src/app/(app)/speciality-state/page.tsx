@@ -35,7 +35,7 @@ export default function SpecialityStatePage() {
       <StateRegions
         heading="Major Florida Regions Covered by Avenue Billing Services"
         description="Serving healthcare providers across Florida with specialized medical billing, coding, and revenue cycle management solutions."
-        image="/speciality state/31_best_medical_billing_company_in_florida.png"
+        image="/speciality state/7_rectangle_1955.png"
         imageAlt="Florida medical billing specialists"
         regions={[
           {
@@ -139,7 +139,7 @@ export default function SpecialityStatePage() {
 
       <BillingProcess
         heading="Our Pediatric Billing Process For Your Success"
-        image="/speciality state/7_rectangle_1955.png"
+        image="/RCM Services Location/12_rectangle_1923.png"
         imageAlt="Pediatric billing process"
         steps={[
           {
