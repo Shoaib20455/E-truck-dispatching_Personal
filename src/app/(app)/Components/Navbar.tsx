@@ -54,6 +54,10 @@ const navItems: NavItem[] = [
     label: "State Licensing",
     href: "/state-licensing",
   },
+    {
+    label: "EHR/EMR Partners",
+    href: "/ehr-emr-support",
+  },
 ];
 
 export default function Navbar() {
