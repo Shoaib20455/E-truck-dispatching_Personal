@@ -38,6 +38,10 @@ const navItems: NavItem[] = [
     label: "Medical Billing",
     href: "/medical-billing",
   },
+  {
+    label: "Small Practices",
+    href: "/small-practices",
+  },
 ];
 
 export default function Navbar() {
