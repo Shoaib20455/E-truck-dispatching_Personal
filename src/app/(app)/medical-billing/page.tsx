@@ -342,7 +342,15 @@ export default function rcmpage() {
     },
   ]}
 />
-
+<RevenueCTA
+  heading="Ready to Improve Your South Carolina Practice Revenue?"
+  description="Let our billing team optimize your claims, fix denials, and strengthen collections."
+  backgroundImage="/RCM Services Location/13_1.png"
+  primaryButtonText="Get Free Billing Audit"
+  primaryButtonHref="#"
+  secondaryButtonText="Get Pricing"
+  secondaryButtonHref="#"
+/>
 <FAQSection
   heading="Frequently Asked Questions About Pediatric Medical Billing Services"
   defaultOpenIndex={0}
