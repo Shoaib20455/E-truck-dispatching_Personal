@@ -17,7 +17,7 @@ type ServiceHeroProps = {
 
   highlights: HighlightItem[];
 
-  reviews: ReviewItem[];
+  reviews?: ReviewItem[];
 
   formHeading: string;
   namePlaceholder: string;
@@ -25,6 +25,8 @@ type ServiceHeroProps = {
   emailPlaceholder: string;
   organizationPlaceholder: string;
   buttonText: string;
+
+  variant?: "default" | "compact";
 };
 
 export default function ServiceHero({
@@ -32,14 +34,17 @@ export default function ServiceHero({
   description,
   backgroundImage,
   highlights,
-  reviews,
+  reviews = [],
   formHeading,
   namePlaceholder,
   phonePlaceholder,
   emailPlaceholder,
   organizationPlaceholder,
   buttonText,
+  variant = "default",
 }: ServiceHeroProps) {
+  const isCompact = variant === "compact";
+
   return (
     <section
       className="w-full bg-cover bg-center bg-no-repeat"
@@ -47,106 +52,141 @@ export default function ServiceHero({
         backgroundImage: `url("${backgroundImage}")`,
       }}
     >
-      <div className="w-full bg-gradient-to-r from-sky-500/80 via-cyan-500/70 to-teal-500/70 backdrop-blur-[2px]">
+      <div
+        className={
+          isCompact
+            ? "w-full bg-gradient-to-r from-sky-500/75 to-teal-500/75 backdrop-blur-[2px]"
+            : "w-full bg-gradient-to-r from-sky-500/80 via-cyan-500/70 to-teal-500/70 backdrop-blur-[2px]"
+        }
+      >
         <div className="mx-auto max-w-[1520px] px-6 py-12 lg:px-8 lg:py-16 2xl:px-0">
-          <div className="grid grid-cols-1 items-start gap-10 lg:grid-cols-[1.5fr_0.75fr] lg:gap-16">
-            
+          <div
+            className={`grid grid-cols-1 gap-10 lg:gap-16 ${
+              isCompact
+                ? "items-center lg:grid-cols-[1.05fr_0.95fr]"
+                : "items-start lg:grid-cols-[1.5fr_0.75fr]"
+            }`}
+          >
             {/* LEFT CONTENT */}
             <div className="text-white">
-              <h1 className="mb-6 font-inter text-4xl font-semibold leading-tight md:text-5xl lg:text-6xl">
+              <h1
+                className={`mb-6 font-inter font-semibold leading-tight ${
+                  isCompact
+                    ? "text-4xl md:text-5xl lg:text-6xl"
+                    : "text-4xl md:text-5xl lg:text-6xl"
+                }`}
+              >
                 {heading}
               </h1>
 
-              <p className="mb-3 font-manrope text-lg font-medium leading-8 md:text-xl">
+              <p
+                className={`font-manrope text-lg font-medium leading-8 ${
+                  isCompact ? "mb-7" : "mb-3 md:text-xl"
+                }`}
+              >
                 {description}
               </p>
 
-              <ul className="mb-8 space-y-4 font-manrope text-lg font-medium leading-8 md:text-xl">
+              <div
+                className={
+                  isCompact
+                    ? "grid grid-cols-1 gap-x-10 gap-y-4 font-manrope text-lg font-medium text-zinc-100 sm:grid-cols-2"
+                    : "mb-8 space-y-4 font-manrope text-lg font-medium leading-8 text-white md:text-xl"
+                }
+              >
                 {highlights.map((item, index) => (
-                  <li
-                    key={index}
-                    className="flex items-start gap-3"
-                  >
-                    <span>•</span>
-
+                  <div key={index} className="flex items-start gap-3">
+                    <span>{isCompact ? "✓" : "•"}</span>
                     <span>{item.text}</span>
-                  </li>
-                ))}
-              </ul>
-
-              {/* REVIEW LOGOS */}
-              <div className="grid grid-cols-2 items-end gap-6 sm:grid-cols-4">
-                {reviews.map((review, index) => (
-                  <div
-                    key={index}
-                    className="flex flex-col items-center"
-                  >
-                    {review.logo ? (
-                      <img
-                        src={review.logo}
-                        alt={review.alt || ""}
-                        className="mb-1 max-h-10 object-contain"
-                      />
-                    ) : (
-                      <div className="mb-1 font-inter text-2xl font-semibold text-zinc-800">
-                        {review.label}
-                      </div>
-                    )}
-
-                    {review.rating && (
-                      <div className="text-xl tracking-tight text-amber-400">
-                        {review.rating}
-                      </div>
-                    )}
                   </div>
                 ))}
               </div>
+
+              {reviews.length > 0 && (
+                <div className="mt-8 grid grid-cols-2 items-end gap-6 sm:grid-cols-4">
+                  {reviews.map((review, index) => (
+                    <div
+                      key={index}
+                      className="flex flex-col items-center"
+                    >
+                      {review.logo ? (
+                        <img
+                          src={review.logo}
+                          alt={review.alt || ""}
+                          className="mb-1 max-h-10 object-contain"
+                        />
+                      ) : (
+                        <div className="mb-1 font-inter text-2xl font-semibold text-zinc-800">
+                          {review.label}
+                        </div>
+                      )}
+
+                      {review.rating && (
+                        <div className="text-xl tracking-tight text-amber-400">
+                          {review.rating}
+                        </div>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              )}
             </div>
 
             {/* RIGHT FORM */}
             <div className="rounded-[14px] border border-sky-500 bg-indigo-50/50 p-7 backdrop-blur-[2.5px] md:p-8">
-              <h2 className="mb-7 font-inter text-2xl font-semibold leading-tight text-heading md:text-3xl">
+              <h2
+                className={`mb-7 font-inter text-2xl font-semibold leading-tight text-heading md:text-3xl ${
+                  isCompact ? "text-center" : ""
+                }`}
+              >
                 {formHeading}
               </h2>
 
-              <form className="space-y-5">
-                <input
-                  type="text"
-                  name="name"
-                  placeholder={namePlaceholder}
-                  className="w-full rounded-[10px] border border-sky-500 bg-white px-5 py-3 font-manrope text-base text-neutral-500 outline-none"
-                />
+              <form>
+                <div
+                  className={
+                    isCompact
+                      ? "grid grid-cols-1 gap-4 sm:grid-cols-2"
+                      : "space-y-5"
+                  }
+                >
+                  <input
+                    type="text"
+                    name="name"
+                    placeholder={namePlaceholder}
+                    className="w-full rounded-[10px] border border-sky-500 bg-white px-5 py-3 font-manrope text-base text-neutral-500 outline-none"
+                  />
 
-                <input
-                  type="tel"
-                  name="phone"
-                  placeholder={phonePlaceholder}
-                  className="w-full rounded-[10px] border border-sky-500 bg-white px-5 py-3 font-manrope text-base text-neutral-500 outline-none"
-                />
+                  <input
+                    type="tel"
+                    name="phone"
+                    placeholder={phonePlaceholder}
+                    className="w-full rounded-[10px] border border-sky-500 bg-white px-5 py-3 font-manrope text-base text-neutral-500 outline-none"
+                  />
 
-                <input
-                  type="email"
-                  name="email"
-                  placeholder={emailPlaceholder}
-                  className="w-full rounded-[10px] border border-sky-500 bg-white px-5 py-3 font-manrope text-base text-neutral-500 outline-none"
-                />
+                  <input
+                    type="email"
+                    name="email"
+                    placeholder={emailPlaceholder}
+                    className="w-full rounded-[10px] border border-sky-500 bg-white px-5 py-3 font-manrope text-base text-neutral-500 outline-none"
+                  />
 
-                <input
-                  type="text"
-                  name="organization"
-                  placeholder={organizationPlaceholder}
-                  className="w-full rounded-[10px] border border-sky-500 bg-white px-5 py-3 font-manrope text-base text-neutral-500 outline-none"
-                />
+                  <input
+                    type="text"
+                    name="organization"
+                    placeholder={organizationPlaceholder}
+                    className="w-full rounded-[10px] border border-sky-500 bg-white px-5 py-3 font-manrope text-base text-neutral-500 outline-none"
+                  />
+                </div>
 
                 <button
                   type="submit"
-                  className="w-full rounded-[58px] bg-sky-500 px-7 py-3 font-manrope text-lg font-normal text-white"
+                  className={`${isCompact ? "mt-5" : "mt-5"} w-full rounded-[58px] bg-sky-500 px-7 py-3 font-manrope text-lg font-normal text-white`}
                 >
                   {buttonText}
                 </button>
               </form>
             </div>
-
           </div>
         </div>
       </div>
