@@ -16,6 +16,7 @@ import RevenueCTAWithTestimonial from "../Components/RevenueCTAWithTestimonial";
 import RevenueLossReasons from "../Components/RevenueLossReasons";
 import ServiceGridWithImage from "../Components/ServiceGridWithImage";
 import ServiceHero from "../Components/ServiceHero";
+import SpecialtyBilling from "../Components/SpecialtyBilling";
 import StateSupportGrid from "../Components/StateSupportGrid";
 import SuccessNumbers from "../Components/SuccessNumbers";
 import Testimonials from "../Components/Testimonials";
@@ -205,6 +206,68 @@ export default function rcmpage() {
   pricingDescription={"Most practices pay 4%–8% of monthly collections.\nNo hidden fees. No long contracts."}
   buttonText="Get a Custom Quote"
   buttonHref="#"
+/>
+
+<SpecialtyBilling
+  heading="Specialty-Focused Billing Expertise"
+  description={"Billing for every specialty is different.\nWe handle specialty-specific coding, payer rules, documentation needs, and claims workflows, so your clinic gets paid correctly the first time."}
+  buttonText="View All Specialties"
+  buttonHref="#"
+  secondaryButtonText="Talk To An Expert"
+  secondaryButtonHref="#"
+  specialties={[
+    {
+      title: "Cardiology Billing",
+      icon: "/Medical Billing/17_rectangle_295.png",
+      iconAlt: "Cardiology Billing",
+      highlighted: true,
+    },
+    {
+      title: "Dermatology Billing",
+      icon: "/Medical Billing/18_rectangle_299.png",
+      iconAlt: "Dermatology Billing",
+    },
+    {
+      title: "Internal Medicine",
+      icon: "/Medical Billing/19_rectangle_324.png",
+      iconAlt: "Internal Medicine",
+    },
+    {
+      title: "Behavioral Health",
+      icon: "/Medical Billing/20_rectangle_297.png",
+      iconAlt: "Behavioral Health",
+    },
+    {
+      title: "Urgent Care",
+      icon: "/Medical Billing/21_rectangle_299.png",
+      iconAlt: "Urgent Care",
+    },
+    {
+      title: "Orthopedic",
+      icon: "/Medical Billing/22_rectangle_300.png",
+      iconAlt: "Orthopedic",
+    },
+    {
+      title: "Pain Management",
+      icon: "/Medical Billing/23_rectangle_301.png",
+      iconAlt: "Pain Management",
+    },
+    {
+      title: "Pediatrics",
+      icon: "/Medical Billing/24_rectangle_302.png",
+      iconAlt: "Pediatrics",
+    },
+    {
+      title: "Neurology",
+      icon: "/Medical Billing/25_rectangle_303.png",
+      iconAlt: "Neurology",
+    },
+    {
+      title: "Radiology",
+      icon: "/Medical Billing/26_rectangle_304.png",
+      iconAlt: "Radiology",
+    },
+  ]}
 />
 
 <FAQSection
