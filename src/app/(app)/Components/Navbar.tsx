@@ -94,6 +94,10 @@ const navItems: NavItem[] = [
     label: "Blog",
     href: "/blog",
   },
+  {
+    label: "Commercial Blog",
+    href: "/commercial-blog",
+  },
 ];
 
 export default function Navbar() {
