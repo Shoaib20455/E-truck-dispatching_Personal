@@ -331,7 +331,7 @@ export default function SpecialityStatePage() {
             title: "How to Bill Physical Therapy for Group Therapy Sessions",
             description:
               "Do you run group physical therapy sessions? Are you billing them correctly every time? Group therapy...",
-            image: "/Home/96_rectangle_206.png",
+            image: "speciality state/28_rectangle_200.png",
             imageAlt: "Healthcare billing case study",
           },
         ]}
