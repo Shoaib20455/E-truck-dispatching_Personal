@@ -4,7 +4,7 @@ import CommercialBlogLayout, {
 } from "../Components/CommercialBlogLayout";
 import ExpertGuides from "../Components/ExpertGuides";
 
-const specialties = [
+const specialtyLabels = [
   "OB/GYN",
   "Podiatry",
   "Orthopedics",
@@ -220,7 +220,7 @@ export default function CommercialBlogPage() {
         title="15 Top Medical Billing Companies in USA 2026"
         featuredImage="/blog detail( basically slug)/2_rectangle_1022.png"
         featuredImageAlt="Anatomical heart model held by a healthcare professional"
-        specialties={specialties}
+        specialties={specialtyLabels.map((label) => ({ label, href: "#" }))}
         summary="“The best medical billing companies in the USA include Transcure, which helps practices with their AI Agents for RCM. They automate the task with their AI agents, specially made for each step of medical billing. Other top USA medical billing companies, including CBS Medical Billing, Med USA, and more, are also discussed in this article.”"
         introParagraphs={[
           "Every day, healthcare providers in the United States manage millions of patient encounters that require proper medical claim processing and submission. However, the process of handling billing within the organization proves difficult because of ongoing federal and state regulatory changes. Moreover, payer policy adaptations and biannual coding updates create new problems for medical billers.",
@@ -266,10 +266,54 @@ export default function CommercialBlogPage() {
           ],
         }}
         articleSections={articleSections}
-        recentPosts={Array.from(
-          { length: 5 },
-          () => "Athenahealth vs Epic: Which EHR Fits Your Practice in 2026?",
-        )}
+        recentPosts={Array.from({ length: 5 }, () => ({
+          title: "Athenahealth vs Epic: Which EHR Fits Your Practice in 2026?",
+          href: "#",
+        }))}
+        labels={{
+          summaryLabel: "Summary",
+          companyTableHeaders: ["Company", "Rating", "Best For"],
+          featuredCtaTitle: "Simplify Billing. Strengthen Compliance. Get Paid Faster",
+          featuredCtaButtonLabel: "Book a Free Consultation",
+          featuredCtaHref: "#consultation",
+          detailHeaders: {
+            category: "Category",
+            details: "Details",
+            experience: "Experience",
+            services: "Services",
+            location: "Location",
+          },
+          topChoiceHeading: "Why Are They a Top Choice?",
+          specialtiesHeading: "Specialties",
+          tableOfContentsLabel: "Table of Content",
+          recentPostsHeading: "Recent Posts",
+        }}
+        consultation={{
+          id: "consultation",
+          heading: "Schedule a Free Consultation",
+          specialties: specialtyLabels.slice(0, 12),
+          monthlyCollections: [
+            "Under $25,000",
+            "$25,000 - $50,000",
+            "$50,000 - $100,000",
+            "$100,000+",
+          ],
+          copy: {
+            practiceNameLabel: "Practice Name *",
+            practiceNamePlaceholder: "Full Name",
+            specialtyLabel: "Select Your Specialty *",
+            specialtyPlaceholder: "Select Specialty",
+            nameLabel: "Name *",
+            namePlaceholder: "Enter Full Name",
+            phoneLabel: "Phone Number *",
+            phonePlaceholder: "(000) 000-0000",
+            emailLabel: "Email Address *",
+            emailPlaceholder: "Your Email Address",
+            monthlyCollectionLabel: "Monthly Collection *",
+            monthlyCollectionPlaceholder: "Monthly Collection",
+          },
+          buttonText: "Book Consultation",
+        }}
         author={{
           name: "Danish Gujjar",
           role: "Seo sapecialits",
@@ -277,6 +321,15 @@ export default function CommercialBlogPage() {
           imageAlt: "Danish Gujjar",
           published: "January 3, 2026",
           updated: "April 28, 2026",
+          publishedLabel: "Published",
+          updatedLabel: "Updated",
+          socialLinks: [
+            { label: "LinkedIn", mark: "in", href: "#" },
+            { label: "Facebook", mark: "f", href: "#" },
+            { label: "Instagram", mark: "◎", href: "#" },
+            { label: "X", mark: "𝕏", href: "#" },
+            { label: "YouTube", mark: "▶", href: "#" },
+          ],
         }}
       />
 
