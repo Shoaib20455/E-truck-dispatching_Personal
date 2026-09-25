@@ -1,11 +1,11 @@
-import AboutOverviewSection from "../Components/AboutUs/AboutOverviewSection";
-import AboutUsCTASection from "../Components/AboutUs/AboutUsCTASection";
-import ComplianceCommitmentSection from "../Components/AboutUs/ComplianceCommitmentSection";
-import CoreValuesSection from "../Components/AboutUs/CoreValuesSection";
-import LeadershipExpertiseSection from "../Components/AboutUs/LeadershipExpertiseSection";
-import OurApproachSection from "../Components/AboutUs/OurApproachSection";
-import WhyChooseUsSection from "../Components/AboutUs/WhyChooseUsSection";
-import WhyWorkWithUsSection from "../Components/AboutUs/WhyWorkWithUsSection";
+import AboutOverviewSection from "../Components/AboutOverviewSection";
+import AboutUsCTASection from "../Components/AboutUsCTASection";
+import ComplianceCommitmentSection from "../Components/ComplianceCommitmentSection";
+import CoreValuesSection from "../Components/CoreValuesSection";
+import LeadershipExpertiseSection from "../Components/LeadershipExpertiseSection";
+import OurApproachSection from "../Components/OurApproachSection";
+import WhyChooseUsSection from "../Components/WhyChooseUsSection";
+import WhyWorkWithUsSection from "../Components/WhyWorkWithUsSection";
 import ServiceHero from "../Components/ServiceHero";
 
 export default function AboutUsPage() {
