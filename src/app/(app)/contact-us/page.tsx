@@ -18,7 +18,62 @@ export default function ContactUsPage() {
         buttonText="Submit"
       />
 
-      <ContactDetailsSection />
+      <ContactDetailsSection
+        heading={"We will contact you within\none business day"}
+        information={{
+          heading: "Contact Us For Further Information",
+          description:
+            "Have questions or need more details? Reach out to us for personalized assistance and additional information. We’re here to help you with all your medical billing needs and provide expert support.",
+          cards: [
+            {
+              title: "Address",
+              lines: ["4309 Schubert,", "Colleyville", "Texas, TX 76034"],
+              icon: "location",
+            },
+            {
+              title: "Phone Number",
+              lines: ["(737) 787 2147"],
+              icon: "phone",
+            },
+            {
+              title: "Business Hours",
+              lines: ["Monday – Friday:", "08.00 – 17.00", "Saturday: 09.00 –", "12.00"],
+              icon: "clock",
+            },
+          ],
+          socialLinks: [
+            { label: "LinkedIn", mark: "in", href: "#" },
+            { label: "Facebook", mark: "f", href: "#" },
+            { label: "X", mark: "𝕏", href: "#" },
+            { label: "Instagram", mark: "◎", href: "#" },
+            { label: "YouTube", mark: "▶", href: "#" },
+          ],
+        }}
+        form={{
+          heading: "Schedule a Free Consultation",
+          specialties: [
+            "Cardiology",
+            "Dermatology",
+            "Pediatrics",
+            "Primary Care",
+            "Neurology",
+            "Orthopedics",
+          ],
+          states: [
+            "Texas",
+            "Florida",
+            "California",
+            "New York",
+            "Georgia",
+            "Washington",
+          ],
+          privacyLabel:
+            "I agree that Avenue Billing Services may contact me and use my information as described in its",
+          privacyLinkLabel: "Privacy Policy",
+          privacyHref: "#",
+          buttonText: "Book Consultation",
+        }}
+      />
     </main>
   );
 }
