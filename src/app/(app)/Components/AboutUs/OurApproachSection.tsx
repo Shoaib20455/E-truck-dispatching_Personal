@@ -1,0 +1,46 @@
+import SectionHeading from "./SectionHeading";
+
+const approachItems = [
+  {
+    title: "Understand Your Practice Needs",
+    description:
+      "We study your specialty, workflow, payer mix, denial trends, and claim patterns.",
+  },
+  {
+    title: "Build a Custom Billing Strategy",
+    description:
+      "A dedicated biller + coder team manages your claims, coding accuracy, and follow-ups.",
+  },
+  {
+    title: "Optimize & Improve Continuously",
+    description:
+      "You receive monthly reporting, revenue insights, denial root-cause analysis, and constant performance refinement.",
+  },
+];
+
+export default function OurApproachSection() {
+  return (
+    <section className="w-full bg-cyan-50 py-16 lg:py-20">
+      <div className="mx-auto w-full max-w-[1520px] px-6 lg:px-8 2xl:px-0">
+        <SectionHeading title="Our Approach" />
+
+        <div className="mt-12 grid grid-cols-1 gap-7 lg:grid-cols-3">
+          {approachItems.map((item) => (
+            <article
+              key={item.title}
+              className="rounded-[30px] border border-dashed border-primary-light bg-indigo-50 px-10 py-14 text-center"
+            >
+              <h3 className="font-inter text-2xl font-semibold leading-9 text-heading md:text-3xl md:leading-10">
+                {item.title}
+              </h3>
+
+              <p className="mx-auto mt-5 max-w-sm font-manrope text-base font-normal leading-8 text-neutral-500 md:text-lg">
+                {item.description}
+              </p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
