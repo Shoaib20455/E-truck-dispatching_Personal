@@ -78,6 +78,10 @@ const navItems: NavItem[] = [
     label: "Speciality City Location",
     href: "/speciality-city-location",
   },
+   {
+    label: "Speciality Country Location",
+    href: "/speciality-country-location",
+  },
 ];
 
 export default function Navbar() {
