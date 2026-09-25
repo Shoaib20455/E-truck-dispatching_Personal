@@ -91,8 +91,8 @@ const navItems: NavItem[] = [
     href: "/state-detail",
   },
   {
-    label: "Blog Listing",
-    href: "/blog-listing",
+    label: "Blog",
+    href: "/blog",
   },
 ];
 
