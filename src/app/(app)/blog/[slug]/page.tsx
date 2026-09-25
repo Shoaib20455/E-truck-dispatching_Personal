@@ -195,6 +195,32 @@ export default function BlogSlugPage() {
         featuredImage="/blog detail( basically slug)/2_rectangle_1022.png"
         featuredImageAlt="Anatomical heart model held by a healthcare professional"
         sections={articleSections}
+        tableOfContentsLabel="Table of Content"
+        consultation={{
+          heading: "Schedule a Free Consultation",
+          specialties: ["Cardiology", "Dermatology", "Pediatrics", "Primary Care"],
+          monthlyCollections: [
+            "Under $25,000",
+            "$25,000 - $50,000",
+            "$50,000 - $100,000",
+            "$100,000+",
+          ],
+          copy: {
+            practiceNameLabel: "Practice Name *",
+            practiceNamePlaceholder: "Full Name",
+            specialtyLabel: "Select Your Specialty *",
+            specialtyPlaceholder: "Select Specialty",
+            nameLabel: "Name *",
+            namePlaceholder: "Enter Full Name",
+            phoneLabel: "Phone Number *",
+            phonePlaceholder: "(000) 000-0000",
+            emailLabel: "Email Address *",
+            emailPlaceholder: "Your Email Address",
+            monthlyCollectionLabel: "Monthly Collection *",
+            monthlyCollectionPlaceholder: "Monthly Collection",
+          },
+          buttonText: "Book Consultation",
+        }}
         author={{
           name: "Danish Gujjar",
           role: "Seo sapecialits",
@@ -202,6 +228,15 @@ export default function BlogSlugPage() {
           imageAlt: "Danish Gujjar",
           published: "January 3, 2026",
           updated: "April 28, 2026",
+          publishedLabel: "Published",
+          updatedLabel: "Updated",
+          socialLinks: [
+            { label: "LinkedIn", mark: "in", href: "#" },
+            { label: "Facebook", mark: "f", href: "#" },
+            { label: "Instagram", mark: "◎", href: "#" },
+            { label: "X", mark: "𝕏", href: "#" },
+            { label: "YouTube", mark: "▶", href: "#" },
+          ],
         }}
       />
 
