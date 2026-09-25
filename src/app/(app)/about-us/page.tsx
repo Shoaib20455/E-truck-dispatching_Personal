@@ -1,4 +1,11 @@
-import AboutUsContent from "../Components/AboutUsContent";
+import AboutOverviewSection from "../Components/AboutUs/AboutOverviewSection";
+import AboutUsCTASection from "../Components/AboutUs/AboutUsCTASection";
+import ComplianceCommitmentSection from "../Components/AboutUs/ComplianceCommitmentSection";
+import CoreValuesSection from "../Components/AboutUs/CoreValuesSection";
+import LeadershipExpertiseSection from "../Components/AboutUs/LeadershipExpertiseSection";
+import OurApproachSection from "../Components/AboutUs/OurApproachSection";
+import WhyChooseUsSection from "../Components/AboutUs/WhyChooseUsSection";
+import WhyWorkWithUsSection from "../Components/AboutUs/WhyWorkWithUsSection";
 import ServiceHero from "../Components/ServiceHero";
 
 export default function AboutUsPage() {
@@ -18,7 +25,14 @@ export default function AboutUsPage() {
         buttonText="Submit"
       />
 
-      <AboutUsContent />
+      <AboutOverviewSection />
+      <CoreValuesSection />
+      <LeadershipExpertiseSection />
+      <ComplianceCommitmentSection />
+      <OurApproachSection />
+      <WhyChooseUsSection />
+      <WhyWorkWithUsSection />
+      <AboutUsCTASection />
     </main>
   );
 }
