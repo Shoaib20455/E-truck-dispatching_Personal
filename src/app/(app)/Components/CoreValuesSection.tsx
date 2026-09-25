@@ -18,14 +18,20 @@ export default function CoreValuesSection() {
         </h2>
 
         <div className="mt-12 grid grid-cols-1 items-center gap-12 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.2fr)] lg:gap-20">
-          <div className="flex items-center justify-center">
-            <Image
-              src="/about us/4_rectangle_422.png"
-              alt="Healthcare billing professional"
-              width={561}
-              height={500}
-              className="h-auto w-full max-w-[560px] object-contain"
-            />
+          <div className="flex items-center justify-center py-8">
+            <div className="relative size-[270px] rotate-45 rounded-[42px] border-[8px] border-primary-light bg-sky-100 sm:size-[320px] lg:size-[350px]">
+              <div className="absolute inset-[16px] overflow-hidden rounded-[32px] bg-sky-100">
+                <div className="absolute left-1/2 top-1/2 size-[430px] -translate-x-1/2 -translate-y-1/2 -rotate-45">
+                  <Image
+                    src="/about us/4_rectangle_422.png"
+                    alt="Healthcare billing professional"
+                    fill
+                    sizes="430px"
+                    className="object-cover object-center"
+                  />
+                </div>
+              </div>
+            </div>
           </div>
 
           <div className="space-y-3">
