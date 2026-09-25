@@ -1,10 +1,13 @@
 import AuthorCard, { type AuthorCardProps } from "./AuthorCard";
 import ConsultationCard, { type ConsultationCardProps } from "./ConsultationCard";
-import type { GlossarySection } from "../glossary/GlossaryData";
+export type GlossarySectionData = {
+  letter: string;
+  terms: { term: string; definition: string }[];
+};
 
 type GlossaryLayoutProps = {
   title: string;
-  sections: GlossarySection[];
+  sections: GlossarySectionData[];
   alphabetAriaLabel: string;
   tableOfContentsLabel: string;
   consultation: ConsultationCardProps;
