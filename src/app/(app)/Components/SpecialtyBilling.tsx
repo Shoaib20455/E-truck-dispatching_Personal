@@ -67,44 +67,50 @@ export default function SpecialtyBilling({
           </div>
 
           <div className="flex justify-center lg:justify-end">
-            <div className="flex w-full max-w-[620px] flex-col items-center justify-center py-2">
+            <div className="hidden w-full max-w-[620px] flex-col items-center justify-center lg:flex">
               {rows.map((row, rowIndex) => (
                 <div
                   key={rowIndex}
-                  className={`flex items-center justify-center gap-1.5 sm:gap-2 ${rowIndex > 0 ? "-mt-4 sm:-mt-5" : ""}`}
+                  className={`flex items-center justify-center gap-2.5 ${rowIndex > 0 ? "-mt-3" : ""}`}
                 >
                   {row.map((specialty) => (
                     <div
                       key={specialty.title}
-                      className="relative aspect-[1.12/1] w-[20vw] min-w-[68px] max-w-[118px] drop-shadow-[0_8px_12px_rgba(0,0,0,0.10)]"
+                      className="flex h-[92px] w-[106px] flex-col items-center justify-center bg-teal-500/10 px-2 text-center drop-shadow-[0_8px_12px_rgba(0,0,0,0.10)] xl:h-[100px] xl:w-[116px]"
+                      style={{
+                        clipPath:
+                          "polygon(50% 0%, 100% 24%, 100% 76%, 50% 100%, 0% 76%, 0% 24%)",
+                      }}
                     >
-                      <div
-                        className={`absolute inset-0 ${specialty.highlighted ? "bg-teal-400" : "bg-sky-200"}`}
-                        style={{
-                          clipPath:
-                            "polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)",
-                        }}
+                      <img
+                        src={specialty.icon}
+                        alt={specialty.iconAlt}
+                        className="mb-1.5 size-9 object-contain"
                       />
 
-                      <div
-                        className={`absolute inset-[1px] flex flex-col items-center justify-center px-2 text-center ${specialty.highlighted ? "bg-teal-100" : "bg-white"}`}
-                        style={{
-                          clipPath:
-                            "polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)",
-                        }}
-                      >
-                        <img
-                          src={specialty.icon}
-                          alt={specialty.iconAlt}
-                          className="mb-1.5 h-[clamp(20px,4vw,36px)] w-[clamp(20px,4vw,36px)] object-contain"
-                        />
-
-                        <span className="max-w-[90%] font-inter text-[clamp(8px,1.6vw,12px)] font-semibold leading-tight text-heading">
-                          {specialty.title}
-                        </span>
-                      </div>
+                      <span className="max-w-[90%] font-inter text-[11px] font-semibold leading-[14px] text-heading xl:text-xs xl:leading-4">
+                        {specialty.title}
+                      </span>
                     </div>
                   ))}
+                </div>
+              ))}
+            </div>
+
+            <div className="grid w-full max-w-[520px] grid-cols-2 gap-4 sm:grid-cols-3 lg:hidden">
+              {specialties.map((specialty) => (
+                <div
+                  key={specialty.title}
+                  className="flex min-h-[110px] flex-col items-center justify-center bg-teal-500/10 px-4 py-4 text-center shadow-sm"
+                >
+                  <img
+                    src={specialty.icon}
+                    alt={specialty.iconAlt}
+                    className="mb-2 size-9 object-contain"
+                  />
+                  <span className="font-inter text-sm font-semibold leading-5 text-heading">
+                    {specialty.title}
+                  </span>
                 </div>
               ))}
             </div>
