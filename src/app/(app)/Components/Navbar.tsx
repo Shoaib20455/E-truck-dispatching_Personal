@@ -90,6 +90,10 @@ const navItems: NavItem[] = [
     label: "State Detail",
     href: "/state-detail",
   },
+  {
+    label: "Blog Listing",
+    href: "/blog-listing",
+  },
 ];
 
 export default function Navbar() {
