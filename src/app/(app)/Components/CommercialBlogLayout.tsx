@@ -1,4 +1,6 @@
 import Image from "next/image";
+import AuthorCard, { type AuthorCardProps } from "./AuthorCard";
+import ConsultationCard, { type ConsultationCardProps } from "./ConsultationCard";
 
 export type CommercialCompany = {
   name: string;
@@ -14,13 +16,14 @@ export type CommercialArticleSection = {
   closingParagraphs?: string[];
 };
 
-type CommercialAuthor = {
-  name: string;
-  role: string;
-  image: string;
-  imageAlt: string;
-  published: string;
-  updated: string;
+export type CommercialSpecialtyLink = {
+  label: string;
+  href: string;
+};
+
+export type CommercialRecentPost = {
+  title: string;
+  href: string;
 };
 
 type FeaturedCompany = {
@@ -39,18 +42,39 @@ type FeaturedCompany = {
   }[];
 };
 
+type CommercialBlogLabels = {
+  summaryLabel: string;
+  companyTableHeaders: [string, string, string];
+  featuredCtaTitle: string;
+  featuredCtaButtonLabel: string;
+  featuredCtaHref: string;
+  detailHeaders: {
+    category: string;
+    details: string;
+    experience: string;
+    services: string;
+    location: string;
+  };
+  topChoiceHeading: string;
+  specialtiesHeading: string;
+  tableOfContentsLabel: string;
+  recentPostsHeading: string;
+};
+
 type CommercialBlogLayoutProps = {
   title: string;
   featuredImage: string;
   featuredImageAlt: string;
-  specialties: string[];
+  specialties: CommercialSpecialtyLink[];
   summary: string;
   introParagraphs: string[];
   companies: CommercialCompany[];
   featuredCompany: FeaturedCompany;
   articleSections: CommercialArticleSection[];
-  recentPosts: string[];
-  author: CommercialAuthor;
+  recentPosts: CommercialRecentPost[];
+  labels: CommercialBlogLabels;
+  consultation: ConsultationCardProps;
+  author: AuthorCardProps;
 };
 
 function sectionId(title: string) {
@@ -71,6 +95,8 @@ export default function CommercialBlogLayout({
   featuredCompany,
   articleSections,
   recentPosts,
+  labels,
+  consultation,
   author,
 }: CommercialBlogLayoutProps) {
   return (
@@ -97,17 +123,14 @@ export default function CommercialBlogLayout({
 
             <div className="mt-10 rounded-lg border-l-[5px] border-accent bg-accent/10 p-5">
               <p className="font-manrope text-base leading-7 text-neutral-500 md:text-lg">
-                <strong className="text-primary-light">Summary:</strong>{" "}
+                <strong className="text-primary-light">{labels.summaryLabel}:</strong>{" "}
                 {summary}
               </p>
             </div>
 
             <div className="mt-8 space-y-5">
               {introParagraphs.map((paragraph) => (
-                <p
-                  key={paragraph}
-                  className="font-manrope text-base font-normal leading-7 text-neutral-500 md:text-lg"
-                >
+                <p key={paragraph} className="font-manrope text-base font-normal leading-7 text-neutral-500 md:text-lg">
                   {paragraph}
                 </p>
               ))}
@@ -117,15 +140,19 @@ export default function CommercialBlogLayout({
               <table className="w-full min-w-[760px] border-collapse border border-slate-300 bg-cyan-50">
                 <thead>
                   <tr>
-                    <th className="w-[32%] border-b-2 border-r border-slate-300 px-4 py-4 text-left font-inter text-xl font-semibold text-primary-light">
-                      Company
-                    </th>
-                    <th className="w-[18%] border-b-2 border-r border-slate-300 px-4 py-4 text-left font-inter text-xl font-semibold text-primary-light">
-                      Rating
-                    </th>
-                    <th className="border-b-2 border-slate-300 px-4 py-4 text-left font-inter text-xl font-semibold text-primary-light">
-                      Best For
-                    </th>
+                    {labels.companyTableHeaders.map((header, index) => (
+                      <th
+                        key={header}
+                        className={
+                          (index === 0 ? "w-[32%] " : index === 1 ? "w-[18%] " : "") +
+                          "border-b-2 " +
+                          (index < 2 ? "border-r " : "") +
+                          "border-slate-300 px-4 py-4 text-left font-inter text-xl font-semibold text-primary-light"
+                        }
+                      >
+                        {header}
+                      </th>
+                    ))}
                   </tr>
                 </thead>
                 <tbody>
@@ -157,7 +184,7 @@ export default function CommercialBlogLayout({
               </table>
             </div>
 
-            <section id="transcure" className="mt-14">
+            <section id="featured-company" className="mt-14">
               <h2 className="font-inter text-2xl font-semibold leading-10 text-primary-light md:text-3xl">
                 1. {featuredCompany.name}
               </h2>
@@ -180,13 +207,13 @@ export default function CommercialBlogLayout({
 
               <div className="mt-6 rounded-[10px] bg-gradient-to-b from-teal-500 to-teal-950 p-5">
                 <h3 className="font-inter text-2xl font-semibold leading-tight text-white md:text-3xl">
-                  Simplify Billing. Strengthen Compliance. Get Paid Faster
+                  {labels.featuredCtaTitle}
                 </h3>
                 <a
-                  href="#consultation"
+                  href={labels.featuredCtaHref}
                   className="mt-4 inline-flex rounded-3xl bg-primary-light px-6 py-2 font-inter text-sm font-semibold leading-8 text-white"
                 >
-                  Book a Free Consultation
+                  {labels.featuredCtaButtonLabel}
                 </a>
               </div>
 
@@ -201,33 +228,30 @@ export default function CommercialBlogLayout({
               <div className="mt-7 overflow-hidden border border-slate-300">
                 <div className="grid grid-cols-[minmax(150px,1fr)_minmax(0,2.05fr)]">
                   <div className="bg-accent px-4 py-3 font-inter text-xl font-semibold text-white">
-                    Category
+                    {labels.detailHeaders.category}
                   </div>
                   <div className="border-l border-slate-300 bg-accent px-4 py-3 font-inter text-xl font-semibold text-white">
-                    Details
+                    {labels.detailHeaders.details}
                   </div>
 
-                  <DetailLabel>Experience</DetailLabel>
+                  <DetailLabel>{labels.detailHeaders.experience}</DetailLabel>
                   <DetailValue>{featuredCompany.experience}</DetailValue>
 
-                  <DetailLabel>Services</DetailLabel>
+                  <DetailLabel>{labels.detailHeaders.services}</DetailLabel>
                   <DetailValue>{featuredCompany.services}</DetailValue>
 
-                  <DetailLabel>Location</DetailLabel>
+                  <DetailLabel>{labels.detailHeaders.location}</DetailLabel>
                   <DetailValue>{featuredCompany.location}</DetailValue>
                 </div>
               </div>
 
               <h3 className="mt-10 font-inter text-2xl font-semibold leading-8 text-heading md:text-3xl">
-                Why Are They a Top Choice?
+                {labels.topChoiceHeading}
               </h3>
 
               <div className="mt-5 space-y-5">
                 {featuredCompany.reasons.map((reason) => (
-                  <p
-                    key={reason.title}
-                    className="font-manrope text-base leading-8 text-neutral-500 md:text-lg"
-                  >
+                  <p key={reason.title} className="font-manrope text-base leading-8 text-neutral-500 md:text-lg">
                     <strong>{reason.title}:</strong> {reason.description}
                   </p>
                 ))}
@@ -242,27 +266,19 @@ export default function CommercialBlogLayout({
                   </h2>
 
                   {section.paragraphs?.map((paragraph) => (
-                    <p
-                      key={paragraph}
-                      className="mt-4 whitespace-pre-line font-manrope text-base font-normal leading-8 text-neutral-500 md:text-lg"
-                    >
+                    <p key={paragraph} className="mt-4 whitespace-pre-line font-manrope text-base font-normal leading-8 text-neutral-500 md:text-lg">
                       {paragraph}
                     </p>
                   ))}
 
                   {section.bullets && section.bullets.length > 0 && (
                     <ul className="mt-3 list-disc space-y-1 pl-6 font-manrope text-base font-normal leading-8 text-neutral-500 md:text-lg">
-                      {section.bullets.map((item) => (
-                        <li key={item}>{item}</li>
-                      ))}
+                      {section.bullets.map((item) => <li key={item}>{item}</li>)}
                     </ul>
                   )}
 
                   {section.closingParagraphs?.map((paragraph) => (
-                    <p
-                      key={paragraph}
-                      className="mt-4 whitespace-pre-line font-manrope text-base font-normal leading-8 text-neutral-500 md:text-lg"
-                    >
+                    <p key={paragraph} className="mt-4 whitespace-pre-line font-manrope text-base font-normal leading-8 text-neutral-500 md:text-lg">
                       {paragraph}
                     </p>
                   ))}
@@ -274,49 +290,53 @@ export default function CommercialBlogLayout({
           <aside className="self-start">
             <section>
               <h2 className="font-inter text-2xl font-semibold leading-10 text-heading md:text-3xl">
-                Specialties
+                {labels.specialtiesHeading}
               </h2>
               <div className="mt-5 flex flex-wrap gap-2.5">
                 {specialties.map((specialty) => (
                   <a
-                    key={specialty}
-                    href="#"
+                    key={specialty.label}
+                    href={specialty.href}
                     className="rounded-3xl bg-accent/10 px-3 py-1.5 font-inter text-sm font-medium leading-6 text-primary-light outline outline-[3px] outline-offset-[-3px] outline-accent/10"
                   >
-                    {specialty}
+                    {specialty.label}
                   </a>
                 ))}
               </div>
             </section>
 
             <a
-              href="#transcure"
+              href="#featured-company"
               className="mt-8 flex min-h-12 w-full items-center justify-center rounded-[60px] bg-primary-light px-7 py-2.5 text-center font-manrope text-sm font-medium leading-8 text-white"
             >
-              Table of Content
+              {labels.tableOfContentsLabel}
             </a>
 
             <section className="mt-8 rounded-[20px] bg-accent/10 p-7">
               <h2 className="font-inter text-2xl font-semibold leading-10 text-neutral-600 md:text-3xl">
-                Recent Posts
+                {labels.recentPostsHeading}
               </h2>
               <div className="mt-5 space-y-5">
-                {recentPosts.map((post, index) => (
+                {recentPosts.map((post) => (
                   <a
-                    key={post + index}
-                    href="#"
+                    key={post.title}
+                    href={post.href}
                     className="flex items-start gap-3 font-inter text-base font-medium leading-6 text-neutral-600 md:text-lg"
                   >
                     <span className="text-xl font-black text-primary-light">›</span>
-                    <span>{post}</span>
+                    <span>{post.title}</span>
                   </a>
                 ))}
               </div>
             </section>
 
-            <AuthorCard author={author} />
+            <div className="mt-8">
+              <AuthorCard {...author} />
+            </div>
 
-            <ConsultationCard specialties={specialties} />
+            <div className="mt-8">
+              <ConsultationCard {...consultation} />
+            </div>
           </aside>
         </div>
       </section>
@@ -348,10 +368,7 @@ function StarRating({ rating }: { rating: string }) {
     <div>
       <div className="flex gap-0.5 text-xl leading-5">
         {Array.from({ length: 5 }, (_, index) => (
-          <span
-            key={index}
-            className={index < filled ? "text-yellow-500" : "text-slate-300"}
-          >
+          <span key={index} className={index < filled ? "text-yellow-500" : "text-slate-300"}>
             ★
           </span>
         ))}
@@ -360,144 +377,5 @@ function StarRating({ rating }: { rating: string }) {
         {rating}
       </div>
     </div>
-  );
-}
-
-function AuthorCard({ author }: { author: CommercialAuthor }) {
-  return (
-    <section className="mt-8 rounded-[20px] bg-accent/10 p-7">
-      <div className="flex items-center gap-5">
-        <Image
-          src={author.image}
-          alt={author.imageAlt}
-          width={70}
-          height={70}
-          className="size-[70px] rounded-full object-cover"
-        />
-
-        <div>
-          <h2 className="font-inter text-2xl font-semibold leading-8 text-neutral-600 md:text-3xl">
-            {author.name}
-          </h2>
-          <p className="mt-1 font-manrope text-xs font-medium leading-8 text-neutral-600">
-            {author.role}
-          </p>
-        </div>
-      </div>
-
-      <div className="mt-5 space-y-1 font-manrope text-xs font-medium leading-6 text-neutral-500">
-        <p>Published: {author.published}</p>
-        <p>Updated: {author.updated}</p>
-      </div>
-
-      <div className="mt-5 flex min-h-9 max-w-72 items-center justify-center gap-5 rounded-[10px] bg-primary-light px-4 text-white">
-        <a href="#" aria-label="LinkedIn" className="text-xs font-bold">in</a>
-        <a href="#" aria-label="Facebook" className="text-xs font-bold">f</a>
-        <a href="#" aria-label="Instagram" className="text-xs font-bold">◎</a>
-        <a href="#" aria-label="X" className="text-xs font-bold">𝕏</a>
-        <a href="#" aria-label="YouTube" className="text-xs font-bold">▶</a>
-      </div>
-    </section>
-  );
-}
-
-function ConsultationCard({ specialties }: { specialties: string[] }) {
-  return (
-    <section id="consultation" className="mt-8 rounded-[20px] bg-accent/10 px-7 py-8">
-      <h2 className="text-center font-inter text-2xl font-semibold leading-8 text-neutral-600 md:text-3xl">
-        Schedule a Free Consultation
-      </h2>
-
-      <form className="mt-6 space-y-4">
-        <Field label="Practice Name *">
-          <input
-            type="text"
-            name="practiceName"
-            placeholder="Full Name"
-            className="h-11 w-full rounded-[10px] bg-white px-3 font-manrope text-xs font-light text-neutral-500 outline-none"
-          />
-        </Field>
-
-        <Field label="Select Your Specialty *">
-          <select
-            name="specialty"
-            defaultValue=""
-            className="h-11 w-full rounded-[10px] bg-white px-3 font-manrope text-xs font-light text-neutral-500 outline-none"
-          >
-            <option value="" disabled>Select Specialty</option>
-            {specialties.slice(0, 12).map((specialty) => (
-              <option key={specialty}>{specialty}</option>
-            ))}
-          </select>
-        </Field>
-
-        <Field label="Name *">
-          <input
-            type="text"
-            name="name"
-            placeholder="Enter Full Name"
-            className="h-11 w-full rounded-[10px] bg-white px-3 font-manrope text-xs font-light text-neutral-500 outline-none"
-          />
-        </Field>
-
-        <Field label="Phone Number *">
-          <input
-            type="tel"
-            name="phone"
-            placeholder="(000) 000-0000"
-            className="h-11 w-full rounded-[10px] bg-white px-3 font-manrope text-xs font-medium text-neutral-500 outline-none"
-          />
-        </Field>
-
-        <Field label="Email Address *">
-          <input
-            type="email"
-            name="email"
-            placeholder="Your Email Address"
-            className="h-11 w-full rounded-[10px] bg-white px-3 font-manrope text-xs font-light text-neutral-500 outline-none"
-          />
-        </Field>
-
-        <Field label="Monthly Collection *">
-          <select
-            name="monthlyCollection"
-            defaultValue=""
-            className="h-11 w-full rounded-[10px] bg-white px-3 font-manrope text-xs font-light text-neutral-500 outline-none"
-          >
-            <option value="" disabled>Monthly Collection</option>
-            <option>Under $25,000</option>
-            <option>$25,000 - $50,000</option>
-            <option>$50,000 - $100,000</option>
-            <option>$100,000+</option>
-          </select>
-        </Field>
-
-        <div className="pt-2 text-center">
-          <button
-            type="submit"
-            className="rounded-[60px] bg-primary-light px-7 py-2.5 font-manrope text-sm font-medium leading-8 text-white"
-          >
-            Book Consultation
-          </button>
-        </div>
-      </form>
-    </section>
-  );
-}
-
-function Field({
-  label,
-  children,
-}: {
-  label: string;
-  children: React.ReactNode;
-}) {
-  return (
-    <label className="block">
-      <span className="mb-1 block font-manrope text-xs font-medium leading-6 text-neutral-600">
-        {label}
-      </span>
-      {children}
-    </label>
   );
 }
