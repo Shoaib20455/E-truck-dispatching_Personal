@@ -1,4 +1,4 @@
-import ContactConsultationForm from "./ContactConsultationForm";
+import ContactConsultationForm, { type ContactFormCopy } from "./ContactConsultationForm";
 import ContactInformationPanel, { type ContactCard, type SocialLinkItem } from "./ContactInformationPanel";
 
 type ContactDetailsSectionProps = {
@@ -13,6 +13,8 @@ type ContactDetailsSectionProps = {
     heading: string;
     specialties: string[];
     states: string[];
+    monthlyCollections: string[];
+    copy: ContactFormCopy;
     privacyLabel: string;
     privacyLinkLabel: string;
     privacyHref: string;
