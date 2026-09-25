@@ -110,6 +110,10 @@ const navItems: NavItem[] = [
     label: "Contact Us",
     href: "/contact-us",
   },
+    {
+    label: "Privacy Policy",
+    href: "/privacy-policy",
+  },
 ];
 
 export default function Navbar() {
