@@ -122,6 +122,10 @@ const navItems: NavItem[] = [
     label: "Carrier",
     href: "/carrier",
   },
+   {
+    label: "Author",
+    href: "/author",
+  },
 ];
 
 export default function Navbar() {
