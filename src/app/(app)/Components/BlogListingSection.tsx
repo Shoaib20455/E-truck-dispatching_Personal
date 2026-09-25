@@ -17,22 +17,22 @@ type BlogListingSectionProps = {
   heading: string;
   categories: CategoryItem[];
   posts: BlogPostItem[];
-  currentPage?: number;
-  totalPages?: number;
-  categoriesAriaLabel?: string;
-  paginationAriaLabel?: string;
-  nextLabel?: string;
+  currentPage: number;
+  totalPages: number;
+  categoriesAriaLabel: string;
+  paginationAriaLabel: string;
+  nextLabel: string;
 };
 
 export default function BlogListingSection({
   heading,
   categories,
   posts,
-  currentPage = 1,
-  totalPages = 9,
-  categoriesAriaLabel = "Categories",
-  paginationAriaLabel = "Pagination",
-  nextLabel = "Next",
+  currentPage,
+  totalPages,
+  categoriesAriaLabel,
+  paginationAriaLabel,
+  nextLabel,
 }: BlogListingSectionProps) {
   const pages = Array.from({ length: totalPages }, (_, index) => index + 1);
 
