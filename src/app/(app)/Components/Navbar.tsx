@@ -114,6 +114,10 @@ const navItems: NavItem[] = [
     label: "Privacy Policy",
     href: "/privacy-policy",
   },
+   {
+    label: "Case Study Listing",
+    href: "/case-study-listing",
+  },
 ];
 
 export default function Navbar() {
