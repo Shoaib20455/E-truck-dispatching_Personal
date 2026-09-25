@@ -118,6 +118,10 @@ const navItems: NavItem[] = [
     label: "Case Study Listing",
     href: "/case-study-listing",
   },
+   {
+    label: "Carrier",
+    href: "/carrier",
+  },
 ];
 
 export default function Navbar() {
