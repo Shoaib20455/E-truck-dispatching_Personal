@@ -9,23 +9,35 @@ type GuideItem = {
 type ExpertGuidesProps = {
   heading: string;
   guides: GuideItem[];
+  headingAlign?: "left" | "center";
+  background?: "default" | "soft";
 };
 
 export default function ExpertGuides({
   heading,
   guides,
+  headingAlign = "center",
+  background = "default",
 }: ExpertGuidesProps) {
   return (
-    <section className="w-full bg-cyan-50 py-14 lg:py-20">
+    <section
+      className={`w-full py-14 lg:py-20 ${
+        background === "soft" ? "bg-accent/10" : "bg-cyan-50"
+      }`}
+    >
       <div className="mx-auto max-w-[1520px] px-6 lg:px-8 2xl:px-0">
-        {/* HEADING */}
-        <div className="mx-auto mb-12 max-w-4xl text-center">
+        <div
+          className={`mb-12 ${
+            headingAlign === "center"
+              ? "mx-auto max-w-4xl text-center"
+              : "max-w-none text-left"
+          }`}
+        >
           <h2 className="font-inter text-3xl font-semibold leading-tight text-heading md:text-4xl lg:text-5xl">
             {heading}
           </h2>
         </div>
 
-        {/* BLOG GRID */}
         <div className="grid grid-cols-1 gap-7 md:grid-cols-2 lg:grid-cols-3">
           {guides.map((guide) => (
             <article
