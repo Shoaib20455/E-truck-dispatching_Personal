@@ -19,6 +19,9 @@ type BlogListingSectionProps = {
   posts: BlogPostItem[];
   currentPage?: number;
   totalPages?: number;
+  categoriesAriaLabel?: string;
+  paginationAriaLabel?: string;
+  nextLabel?: string;
 };
 
 export default function BlogListingSection({
@@ -27,6 +30,9 @@ export default function BlogListingSection({
   posts,
   currentPage = 1,
   totalPages = 9,
+  categoriesAriaLabel = "Categories",
+  paginationAriaLabel = "Pagination",
+  nextLabel = "Next",
 }: BlogListingSectionProps) {
   const pages = Array.from({ length: totalPages }, (_, index) => index + 1);
 
@@ -39,7 +45,7 @@ export default function BlogListingSection({
           </h2>
 
           <nav
-            aria-label="Blog categories"
+            aria-label={categoriesAriaLabel}
             className="mt-5 flex flex-wrap items-center gap-3"
           >
             {categories.map((category) => (
@@ -103,7 +109,7 @@ export default function BlogListingSection({
         </div>
 
         <nav
-          aria-label="Blog pagination"
+          aria-label={paginationAriaLabel}
           className="mt-14 flex flex-wrap items-center justify-center gap-x-4 gap-y-3 font-inter text-2xl font-semibold leading-9 text-heading md:text-3xl"
         >
           {pages.map((page) =>
@@ -130,7 +136,7 @@ export default function BlogListingSection({
             href="#"
             className="ml-1 inline-flex items-center gap-2 transition-colors hover:text-primary-light"
           >
-            <span>Next</span>
+            <span>{nextLabel}</span>
             <svg
               viewBox="0 0 24 24"
               fill="none"
