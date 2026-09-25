@@ -102,6 +102,10 @@ const navItems: NavItem[] = [
     label: "Glossary",
     href: "/glossary",
   },
+  {
+    label: "About Us",
+    href: "/about-us",
+  },
 ];
 
 export default function Navbar() {
