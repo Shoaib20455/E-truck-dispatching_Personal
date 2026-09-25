@@ -82,6 +82,10 @@ const navItems: NavItem[] = [
     label: "Speciality Country Location",
     href: "/speciality-country-location",
   },
+   {
+    label: "State We Serve",
+    href: "/state-we-serve",
+  },
 ];
 
 export default function Navbar() {
