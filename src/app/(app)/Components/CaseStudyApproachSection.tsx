@@ -1,39 +1,32 @@
-const priorities = [
-  {
-    title: "Clean claims before submission.",
-    description:
-      "Every claim was checked for patient details, eligibility, CPT codes, ICD-10 codes, modifiers, provider information, and payer-specific rules.",
-  },
-  {
-    title: "Work denials faster.",
-    description:
-      "Denials were sorted by reason code, payer, dollar value, and appeal deadline. No more waiting for monthly cleanup.",
-  },
-  {
-    title: "Turn A/R into action.",
-    description:
-      "Old balances were separated into clear work queues: payer follow-up, corrected claim, appeal, patient balance, underpayment review, or adjustment.",
-  },
-];
+export type CaseStudyApproachItem = {
+  title: string;
+  description: string;
+};
 
-export default function CaseStudyApproachSection() {
+type CaseStudyApproachSectionProps = {
+  heading: string;
+  introLines: string[];
+  items: CaseStudyApproachItem[];
+};
+
+export default function CaseStudyApproachSection({
+  heading,
+  introLines,
+  items,
+}: CaseStudyApproachSectionProps) {
   return (
     <section className="w-full bg-cyan-50 py-16 lg:py-20">
       <div className="mx-auto w-full max-w-[1520px] px-6 lg:px-8 2xl:px-0">
         <h2 className="text-center font-inter text-4xl font-semibold leading-tight text-heading md:text-5xl">
-          Avenue Billing Services’ Approach
+          {heading}
         </h2>
 
-        <p className="mx-auto mt-6 max-w-[1255px] text-center font-manrope text-base leading-8 text-neutral-500 md:text-lg">
-          Avenue started with a complete billing audit. The goal was simple: find where money was stuck, fix old claims, and stop the same issues from repeating.
-          <br />
-          The team reviewed the practice’s claim history, payer rules, denial patterns, aging reports, and payment posting workflow.
-          <br />
-          Then Avenue built a cleaner billing process around three priorities:
-        </p>
+        <div className="mx-auto mt-6 max-w-[1255px] space-y-1 text-center font-manrope text-base leading-8 text-neutral-500 md:text-lg">
+          {introLines.map((line) => <p key={line}>{line}</p>)}
+        </div>
 
         <div className="mt-12 grid grid-cols-1 gap-7 lg:grid-cols-3">
-          {priorities.map((item) => (
+          {items.map((item) => (
             <article
               key={item.title}
               className="rounded-[30px] border border-primary-light bg-white px-9 py-12 text-center"
