@@ -39,6 +39,9 @@ export default function BlogListingPage() {
         posts={blogPosts}
         currentPage={1}
         totalPages={9}
+        categoriesAriaLabel="Content categories"
+        paginationAriaLabel="Listing pagination"
+        nextLabel="Next"
       />
     </main>
   );
