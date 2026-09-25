@@ -5,7 +5,7 @@ type ComparisonRow = {
 };
 
 type ComparisonTableProps = {
-  heading: string;
+  heading?: string;
 
   featureHeading: string;
   avenueHeading: string;
@@ -25,11 +25,13 @@ export default function ComparisonTable({
     <section className="w-full bg-cyan-50 py-14 lg:py-20">
       <div className="mx-auto max-w-[1520px] px-6 lg:px-8 2xl:px-0">
         {/* HEADING */}
-        <div className="mx-auto mb-10 max-w-4xl text-center">
-          <h2 className="font-inter text-3xl font-semibold leading-tight text-heading md:text-4xl lg:text-5xl">
-            {heading}
-          </h2>
-        </div>
+        {heading && (
+          <div className="mx-auto mb-10 max-w-4xl text-center">
+            <h2 className="font-inter text-3xl font-semibold leading-tight text-heading md:text-4xl lg:text-5xl">
+              {heading}
+            </h2>
+          </div>
+        )}
 
         {/* TABLE */}
         <div className="overflow-x-auto">
