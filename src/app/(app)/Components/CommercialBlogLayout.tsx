@@ -350,7 +350,7 @@ function DetailLabel({ children }: { children: React.ReactNode }) {
   return (
     <AnimatedDiv preset="fade-up" className="border-t border-slate-300 bg-white px-4 py-3 font-inter text-lg font-bold text-primary-light md:text-xl">
       {children}
-    </div>
+    </AnimatedDiv>
   );
 }
 
