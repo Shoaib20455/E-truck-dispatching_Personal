@@ -1,3 +1,4 @@
+import Image from "next/image";
 import AppLink from "./navigation/AppLink";
 import { AnimatedSection } from "./animation/MotionElements";
 
@@ -61,11 +62,7 @@ export default function StateSupportGrid({
 
             <div className="flex justify-center">
               {mapImage && (
-                <img
-                  src={mapImage}
-                  alt={mapAlt}
-                  className="w-full max-w-[900px] object-contain"
-                />
+                <Image src={mapImage} alt={mapAlt} width={1000} height={700} sizes="(min-width: 1024px) 65vw, 100vw" className="h-auto w-full max-w-[900px] object-contain" />
               )}
             </div>
           </div>
