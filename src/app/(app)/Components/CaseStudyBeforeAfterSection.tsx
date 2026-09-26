@@ -1,3 +1,5 @@
+import { AnimatedSection } from "./animation/MotionElements";
+
 export type BeforeAfterRow = {
   area: string;
   before: string;
@@ -16,7 +18,7 @@ export default function CaseStudyBeforeAfterSection({
   rows,
 }: CaseStudyBeforeAfterSectionProps) {
   return (
-    <section className="w-full bg-cyan-50 py-10 lg:py-16">
+    <AnimatedSection preset="fade-up" className="w-full bg-cyan-50 py-10 lg:py-16">
       <div className="mx-auto w-full max-w-[1520px] px-6 lg:px-8 2xl:px-0">
         <h2 className="text-center font-inter text-4xl font-semibold leading-tight text-heading md:text-5xl">
           {heading}
@@ -45,6 +47,6 @@ export default function CaseStudyBeforeAfterSection({
           </table>
         </div>
       </div>
-    </section>
+    </AnimatedSection>
   );
 }
