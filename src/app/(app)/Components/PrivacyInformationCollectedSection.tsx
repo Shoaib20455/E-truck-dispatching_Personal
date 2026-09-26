@@ -1,3 +1,5 @@
+import { AnimatedDiv } from "./animation/MotionElements";
+
 export type InformationGroup = {
   heading: string;
   items: string[];
@@ -17,7 +19,7 @@ export default function PrivacyInformationCollectedSection({
   footerText,
 }: PrivacyInformationCollectedSectionProps) {
   return (
-    <div>
+    <AnimatedDiv preset="fade">
       <h2 className="font-inter text-4xl font-semibold leading-tight text-heading md:text-5xl">{heading}</h2>
       <div className="mt-5 font-manrope text-base font-normal leading-8 text-neutral-500 md:text-lg">
         <p>{intro}</p>
@@ -29,6 +31,6 @@ export default function PrivacyInformationCollectedSection({
         ))}
         {footerText && <p className="mt-1 font-semibold text-heading">{footerText}</p>}
       </div>
-    </div>
+    </AnimatedDiv>
   );
 }
