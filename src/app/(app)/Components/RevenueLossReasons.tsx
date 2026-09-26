@@ -1,4 +1,4 @@
-import { AnimatedSection } from "./animation/MotionElements";
+import { AnimatedDiv, AnimatedHeading, AnimatedSection, ImageReveal, StaggerGroup, StaggerItem } from "./animation/MotionElements";
 
 type RevenueLossCard = {
   title: string;
@@ -32,10 +32,11 @@ export default function RevenueLossReasons({
       <div className="mx-auto max-w-[1520px] px-6 lg:px-8 2xl:px-0">
         {/* TOP CONTENT */}
         <div className="mb-12 grid grid-cols-1 items-center gap-10 lg:grid-cols-[1.2fr_0.8fr] lg:gap-16">
-          <div>
-            <h2 className="mb-6 font-inter text-3xl font-semibold leading-tight text-heading md:text-4xl lg:text-5xl">
-              {heading}
-            </h2>
+          <AnimatedDiv preset="slide-left">
+            <AnimatedHeading
+              text={heading}
+              className="mb-6 font-inter text-3xl font-semibold leading-tight text-heading md:text-4xl lg:text-5xl"
+            />
 
             <p className="mb-5 font-manrope text-lg font-normal leading-8 text-neutral-500">
               {descriptionOne}
@@ -44,22 +45,24 @@ export default function RevenueLossReasons({
             <p className="font-manrope text-lg font-normal leading-8 text-neutral-500">
               {descriptionTwo}
             </p>
-          </div>
+          </AnimatedDiv>
 
-          <div className="flex justify-center lg:justify-end">
+          <ImageReveal className="flex justify-center lg:justify-end">
             <img
               src={image}
               alt={imageAlt}
               className="w-full max-w-[472px] object-contain"
             />
-          </div>
+          </ImageReveal>
         </div>
 
         {/* CARDS */}
-        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <StaggerGroup stagger={0.075} className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {cards.map((card) => (
-            <div
+            <StaggerItem
               key={card.title}
+              preset="card"
+              hover="premium"
               className={`rounded-[30px] p-7 ${
                 card.highlighted
                   ? "border border-teal-500 bg-teal-500/10 shadow-[0px_10px_20px_rgba(0,0,0,0.07)]"
@@ -81,9 +84,9 @@ export default function RevenueLossReasons({
               <p className="font-manrope text-lg font-normal leading-8 text-neutral-500">
                 {card.description}
               </p>
-            </div>
+            </StaggerItem>
           ))}
-        </div>
+        </StaggerGroup>
       </div>
     </AnimatedSection>
   );
