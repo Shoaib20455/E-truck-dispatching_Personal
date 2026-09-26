@@ -1,3 +1,5 @@
+import { AnimatedSection } from "./animation/MotionElements";
+
 type StateChallenge = {
   title: string;
   description: string;
@@ -18,7 +20,7 @@ export default function StateChallenges({
   challenges,
 }: StateChallengesProps) {
   return (
-    <section className="w-full bg-cyan-50 py-14 lg:py-20">
+    <AnimatedSection preset="fade-up" className="w-full bg-cyan-50 py-14 lg:py-20">
       <div className="mx-auto max-w-[1520px] px-6 lg:px-8 2xl:px-0">
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
           <div className="lg:row-span-2">
@@ -54,6 +56,6 @@ export default function StateChallenges({
           ))}
         </div>
       </div>
-    </section>
+    </AnimatedSection>
   );
 }
