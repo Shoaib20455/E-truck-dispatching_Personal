@@ -1,3 +1,11 @@
+import { createPageMetadata } from "@/lib/seo";
+
+export const metadata = createPageMetadata({
+  title: "Medical Billing by Specialty",
+  description: "Explore specialty-focused medical billing services for healthcare providers across a wide range of clinical specialties.",
+  path: "/speciality-listing",
+});
+
 import CertificationCTA from "../Components/CertificationCTA";
 import EHRPartners from "../Components/EHRPartners";
 import FAQSection from "../Components/FAQSection";
