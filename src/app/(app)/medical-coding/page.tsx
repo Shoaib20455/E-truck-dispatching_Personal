@@ -1,3 +1,11 @@
+import { createPageMetadata } from "@/lib/seo";
+
+export const metadata = createPageMetadata({
+  title: "Medical Coding Services",
+  description: "Professional medical coding support for accurate CPT, ICD-10, HCPCS, modifier, and payer-aligned claim submission.",
+  path: "/medical-coding",
+});
+
 import BillingChallenges from "../Components/BillingChallenges";
 import BillingProcess from "../Components/BillingProcess";
 import BillingSolutions from "../Components/BillingSolutions";
