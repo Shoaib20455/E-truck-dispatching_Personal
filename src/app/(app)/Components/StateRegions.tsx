@@ -1,3 +1,5 @@
+import { AnimatedSection } from "./animation/MotionElements";
+
 type RegionItem = { title: string; description: string };
 type StateRegionsProps = {
   heading: string;
@@ -9,7 +11,7 @@ type StateRegionsProps = {
 
 export default function StateRegions({ heading, description, image, imageAlt, regions }: StateRegionsProps) {
   return (
-    <section className="w-full bg-cyan-50 py-14 lg:py-20">
+    <AnimatedSection preset="fade-up" className="w-full bg-cyan-50 py-14 lg:py-20">
       <div className="mx-auto max-w-[1520px] px-6 lg:px-8 2xl:px-0">
         <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:gap-14">
           <img src={image} alt={imageAlt} className="w-full rounded-[20px] object-cover shadow-[0px_10px_20px_rgba(0,0,0,0.08)]" />
@@ -27,6 +29,6 @@ export default function StateRegions({ heading, description, image, imageAlt, re
           </div>
         </div>
       </div>
-    </section>
+    </AnimatedSection>
   );
 }
