@@ -34,3 +34,5 @@ jobs:
           git add src/payload-types.ts
           git commit -m "Regenerate Payload types for SoftwarePartners"
           git push origin HEAD:main
+
+# sync-v2
