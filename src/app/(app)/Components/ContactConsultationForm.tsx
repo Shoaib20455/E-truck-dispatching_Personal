@@ -1,3 +1,4 @@
+import AppLink from "./navigation/AppLink";
 import { AnimatedDiv } from "./animation/MotionElements";
 
 export type ContactFormCopy = {
