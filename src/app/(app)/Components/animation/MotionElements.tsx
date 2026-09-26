@@ -216,6 +216,30 @@ export function AnimatedDiv({
   );
 }
 
+export function AnimatedArticle({
+  children,
+  className,
+  style,
+  id,
+  preset = "fade-up",
+  delay = 0,
+  trigger = "view",
+  amount = defaultViewport.amount,
+}: BaseProps) {
+  return (
+    <motion.article
+      className={className}
+      style={style}
+      id={id}
+      variants={variantsFor(preset, delay)}
+      initial="hidden"
+      {...triggerProps(trigger, amount)}
+    >
+      {children}
+    </motion.article>
+  );
+}
+
 type AnimatedHeadingProps = {
   text: string;
   className?: string;
