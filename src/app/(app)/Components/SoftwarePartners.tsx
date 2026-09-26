@@ -1,3 +1,5 @@
+import { AnimatedSection } from "./animation/MotionElements";
+
 import Image from "next/image";
 
 const softwarePartners = [
@@ -47,7 +49,7 @@ const softwarePartners = [
 
 export default function SoftwarePartners() {
   return (
-    <section className="w-full bg-cyan-50">
+    <AnimatedSection preset="fade-up" className="w-full bg-cyan-50">
       <div className="mx-auto max-w-[1520px] px-6 py-10 lg:px-0">
         <div className="flex flex-wrap items-center justify-center gap-3">
           {softwarePartners.map((partner) => (
@@ -66,6 +68,6 @@ export default function SoftwarePartners() {
           ))}
         </div>
       </div>
-    </section>
+    </AnimatedSection>
   );
 }
