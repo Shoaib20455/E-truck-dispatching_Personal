@@ -156,6 +156,7 @@ type BaseProps = RevealOptions & {
   children: ReactNode;
   className?: string;
   style?: CSSProperties;
+  id?: string;
 };
 
 function triggerProps(trigger: Trigger, amount: number) {
@@ -171,6 +172,7 @@ export function AnimatedSection({
   children,
   className,
   style,
+  id,
   preset = "fade-up",
   delay = 0,
   trigger = "view",
@@ -180,6 +182,7 @@ export function AnimatedSection({
     <motion.section
       className={className}
       style={style}
+      id={id}
       variants={variantsFor(preset, delay)}
       initial="hidden"
       {...triggerProps(trigger, amount)}
@@ -193,6 +196,7 @@ export function AnimatedDiv({
   children,
   className,
   style,
+  id,
   preset = "fade-up",
   delay = 0,
   trigger = "view",
@@ -202,6 +206,7 @@ export function AnimatedDiv({
     <motion.div
       className={className}
       style={style}
+      id={id}
       variants={variantsFor(preset, delay)}
       initial="hidden"
       {...triggerProps(trigger, amount)}
