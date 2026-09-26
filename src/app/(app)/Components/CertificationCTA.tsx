@@ -1,6 +1,6 @@
 import Image from "next/image";
 import AppLink from "./navigation/AppLink";
-import { AnimatedSection } from "./animation/MotionElements";
+import { AnimatedDiv, AnimatedHeading, AnimatedSection, ImageReveal } from "./animation/MotionElements";
 
 type CertificationCTAProps = {
   heading: string;
@@ -37,10 +37,11 @@ export default function CertificationCTA({
             <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-[1.2fr_0.8fr]">
 
               {/* LEFT */}
-              <div className="text-white">
-                <h2 className="mb-6 font-inter text-3xl font-semibold leading-tight md:text-4xl lg:text-5xl">
-                  {heading}
-                </h2>
+              <AnimatedDiv preset="slide-left" className="text-white">
+                <AnimatedHeading
+                  text={heading}
+                  className="mb-6 font-inter text-3xl font-semibold leading-tight md:text-4xl lg:text-5xl"
+                />
 
                 <p className="mb-7 font-manrope text-lg font-normal leading-8 md:text-xl lg:text-2xl">
                   {description}
@@ -52,12 +53,12 @@ export default function CertificationCTA({
                 >
                   {buttonText}
                 </AppLink>
-              </div>
+              </AnimatedDiv>
 
               {/* RIGHT */}
-              <div className="flex justify-center lg:justify-end">
+              <ImageReveal className="flex justify-center lg:justify-end">
                 <Image src={certificationImage} alt={certificationImageAlt} width={900} height={650} sizes="(min-width: 1024px) 40vw, 100vw" className="h-auto w-full max-w-[603px] object-contain" />
-              </div>
+              </ImageReveal>
 
             </div>
           </div>
