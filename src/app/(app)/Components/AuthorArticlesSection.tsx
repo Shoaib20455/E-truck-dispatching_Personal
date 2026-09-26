@@ -1,4 +1,4 @@
-import { AnimatedSection } from "./animation/MotionElements";
+import { AnimatedHeading, AnimatedSection, StaggerGroup, StaggerArticle } from "./animation/MotionElements";
 
 import Image from "next/image";
 
@@ -22,14 +22,17 @@ export default function AuthorArticlesSection({
   return (
     <AnimatedSection preset="fade-up" className="w-full bg-cyan-50 pb-20 pt-16 lg:pb-24">
       <div className="mx-auto w-full max-w-[1520px] px-6 lg:px-8 2xl:px-0">
-        <h2 className="text-center font-inter text-4xl font-semibold leading-tight text-heading md:text-5xl">
-          {heading}
-        </h2>
+        <AnimatedHeading
+          text={heading}
+          className="text-center font-inter text-4xl font-semibold leading-tight text-heading md:text-5xl"
+        />
 
-        <div className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <StaggerGroup stagger={0.08} className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
           {articles.map((article, index) => (
-            <article
+            <StaggerArticle
               key={article.title + index}
+              preset="card"
+              hover="premium"
               className="overflow-hidden rounded-[30px] bg-white shadow-[0px_10px_20px_rgba(0,0,0,0.08)]"
             >
               {article.href ? (
@@ -70,9 +73,9 @@ export default function AuthorArticlesSection({
                   {article.description}
                 </p>
               </div>
-            </article>
+            </StaggerArticle>
           ))}
-        </div>
+        </StaggerGroup>
       </div>
     </AnimatedSection>
   );
