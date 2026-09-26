@@ -57,7 +57,7 @@ export default function StateConsultationCTA({
 
           <div className="relative z-10 px-8 py-10 md:px-12 md:py-12 lg:px-16 lg:py-14">
             <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:gap-16">
-              <AnimatedDiv preset="slide-left" className="text-white">
+              <AnimatedDiv preset="panel-left" className="text-white">
                 <AnimatedHeading
                   text={heading}
                   className="mb-5 max-w-[650px] font-inter text-3xl font-semibold leading-tight md:text-4xl lg:text-5xl"
@@ -95,7 +95,7 @@ export default function StateConsultationCTA({
 
               <ParallaxDiv distance={14}>
                 <AnimatedDiv
-                  preset="slide-right"
+                  preset="panel-right"
                   className="rounded-[16px] bg-indigo-50/50 p-6 shadow-[0px_10px_30px_rgba(0,0,0,0.06)] backdrop-blur-[2.5px] md:p-8 lg:p-10"
                 >
                   <h3 className="mb-7 text-center font-inter text-2xl font-semibold leading-tight text-heading md:text-3xl">
