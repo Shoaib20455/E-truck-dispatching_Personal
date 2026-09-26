@@ -295,7 +295,7 @@ export interface Post {
 export interface Page {
   id: number;
   /**
-   * Internal label. Also used for the H1 when no hero block is placed first.
+   * Internal page label and fallback SEO title.
    */
   title: string;
   /**
@@ -424,6 +424,303 @@ export interface Page {
             id?: string | null;
             blockName?: string | null;
             blockType: 'revenueCTA';
+          }
+        | {
+            heading: string;
+            /**
+             * Shown in the tinted panel next to the heading. Line breaks are preserved.
+             */
+            intro: string;
+            image: number | Media;
+            /**
+             * Falls back to the alt text of the selected media file.
+             */
+            imageAlt?: string | null;
+            /**
+             * Short statements listed beside the image.
+             */
+            points: {
+              text: string;
+              id?: string | null;
+            }[];
+            /**
+             * Long-form column on the right.
+             */
+            story: string;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'aboutOverview';
+          }
+        | {
+            heading: string;
+            description: string;
+            /**
+             * Sits behind the teal panel. Landscape works best.
+             */
+            backgroundImage: number | Media;
+            /**
+             * Cut-out portrait shown overlapping the bottom right corner. A person with a transparent background works best.
+             */
+            doctorImage: number | Media;
+            /**
+             * Falls back to the alt text of the selected media file.
+             */
+            doctorImageAlt?: string | null;
+            buttons: {
+              label: string;
+              href: string;
+              variant?: ('primary' | 'secondary') | null;
+              id?: string | null;
+            }[];
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'aboutUsCTA';
+          }
+        | {
+            /**
+             * Image and text alternate sides automatically based on order.
+             */
+            items: {
+              title: string;
+              description: string;
+              image: number | Media;
+              /**
+               * Falls back to the alt text of the selected media file.
+               */
+              imageAlt?: string | null;
+              bullets?:
+                | {
+                    text: string;
+                    id?: string | null;
+                  }[]
+                | null;
+              /**
+               * Optional closing line under the bullets.
+               */
+              footerText?: string | null;
+              id?: string | null;
+            }[];
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'alternatingServices';
+          }
+        | {
+            heading: string;
+            challenges: {
+              title: string;
+              description: string;
+              /**
+               * Square icon, ideally a transparent PNG or SVG.
+               */
+              icon: number | Media;
+              iconAlt?: string | null;
+              id?: string | null;
+            }[];
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'billingChallenges';
+          }
+        | {
+            heading: string;
+            image: number | Media;
+            /**
+             * Falls back to the alt text of the selected media file.
+             */
+            imageAlt?: string | null;
+            steps: {
+              /**
+               * Displayed large beside the step, e.g. 01.
+               */
+              number: string;
+              title: string;
+              description: string;
+              id?: string | null;
+            }[];
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'billingProcess';
+          }
+        | {
+            /**
+             * Optional. The table is shown on its own when empty.
+             */
+            heading?: string | null;
+            featureHeading: string;
+            avenueHeading: string;
+            comparisonHeading: string;
+            rows: {
+              feature: string;
+              avenue: string;
+              comparison: string;
+              id?: string | null;
+            }[];
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'comparisonTable';
+          }
+        | {
+            heading: string;
+            /**
+             * Optional line under the heading.
+             */
+            subtitle?: string | null;
+            /**
+             * Displayed in diamond cards, four per row.
+             */
+            items: {
+              text: string;
+              id?: string | null;
+            }[];
+            /**
+             * Optional bold line under the cards.
+             */
+            footerText?: string | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'complianceCommitment';
+          }
+        | {
+            heading: string;
+            image: number | Media;
+            /**
+             * Falls back to the alt text of the selected media file.
+             */
+            imageAlt?: string | null;
+            /**
+             * The first value is expanded by default.
+             */
+            values: {
+              title: string;
+              /**
+               * Only shown for the expanded value.
+               */
+              description?: string | null;
+              id?: string | null;
+            }[];
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'coreValues';
+          }
+        | {
+            heading: string;
+            /**
+             * Optional line under the heading.
+             */
+            description?: string | null;
+            /**
+             * Up to seven. The first four fill the top row, the rest the second row.
+             */
+            categories: {
+              title: string;
+              description?: string | null;
+              highlighted?: boolean | null;
+              id?: string | null;
+            }[];
+            variant?: ('default' | 'stats') | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'denialCategories';
+          }
+        | {
+            heading: string;
+            description: string;
+            partners: {
+              /**
+               * Wide logo, ideally on a transparent background.
+               */
+              logo: number | Media;
+              alt?: string | null;
+              id?: string | null;
+            }[];
+            /**
+             * Optional line under the logos.
+             */
+            bottomText?: string | null;
+            buttonText?: string | null;
+            buttonHref?: string | null;
+            variant?: ('default' | 'compact') | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'ehrPartners';
+          }
+        | {
+            heading: string;
+            cards: {
+              title: string;
+              /**
+               * Short reference shown under the title, e.g. A/R or CPT.
+               */
+              code: string;
+              description: string;
+              highlighted?: boolean | null;
+              id?: string | null;
+            }[];
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'expertiseCards';
+          }
+        | {
+            heading: string;
+            testimonials: {
+              name: string;
+              /**
+               * Shown under the name, e.g. Practice Manager.
+               */
+              role: string;
+              image: number | Media;
+              /**
+               * Falls back to the alt text of the selected media file.
+               */
+              imageAlt?: string | null;
+              /**
+               * Wide star rating graphic, shown small under the role.
+               */
+              ratingImage: number | Media;
+              /**
+               * e.g. Rated 5 out of 5.
+               */
+              ratingAlt?: string | null;
+              /**
+               * Displayed with surrounding quotation marks.
+               */
+              quote: string;
+              id?: string | null;
+            }[];
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'testimonials';
+          }
+        | {
+            heading: string;
+            /**
+             * Up to four columns. Each column holds a group of label and value pairs.
+             */
+            columns: {
+              items: {
+                label: string;
+                /**
+                 * Highlighted figure, e.g. 98% or $4.2M.
+                 */
+                value: string;
+                id?: string | null;
+              }[];
+              id?: string | null;
+            }[];
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'successNumbers';
+          }
+        | {
+            heading: string;
+            items: {
+              title: string;
+              description: string;
+              highlighted?: boolean | null;
+              id?: string | null;
+            }[];
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'textFeatureGrid';
           }
       )[]
     | null;
@@ -771,6 +1068,251 @@ export interface PagesSelect<T extends boolean = true> {
               primaryButtonHref?: T;
               secondaryButtonText?: T;
               secondaryButtonHref?: T;
+              id?: T;
+              blockName?: T;
+            };
+        aboutOverview?:
+          | T
+          | {
+              heading?: T;
+              intro?: T;
+              image?: T;
+              imageAlt?: T;
+              points?:
+                | T
+                | {
+                    text?: T;
+                    id?: T;
+                  };
+              story?: T;
+              id?: T;
+              blockName?: T;
+            };
+        aboutUsCTA?:
+          | T
+          | {
+              heading?: T;
+              description?: T;
+              backgroundImage?: T;
+              doctorImage?: T;
+              doctorImageAlt?: T;
+              buttons?:
+                | T
+                | {
+                    label?: T;
+                    href?: T;
+                    variant?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        alternatingServices?:
+          | T
+          | {
+              items?:
+                | T
+                | {
+                    title?: T;
+                    description?: T;
+                    image?: T;
+                    imageAlt?: T;
+                    bullets?:
+                      | T
+                      | {
+                          text?: T;
+                          id?: T;
+                        };
+                    footerText?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        billingChallenges?:
+          | T
+          | {
+              heading?: T;
+              challenges?:
+                | T
+                | {
+                    title?: T;
+                    description?: T;
+                    icon?: T;
+                    iconAlt?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        billingProcess?:
+          | T
+          | {
+              heading?: T;
+              image?: T;
+              imageAlt?: T;
+              steps?:
+                | T
+                | {
+                    number?: T;
+                    title?: T;
+                    description?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        comparisonTable?:
+          | T
+          | {
+              heading?: T;
+              featureHeading?: T;
+              avenueHeading?: T;
+              comparisonHeading?: T;
+              rows?:
+                | T
+                | {
+                    feature?: T;
+                    avenue?: T;
+                    comparison?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        complianceCommitment?:
+          | T
+          | {
+              heading?: T;
+              subtitle?: T;
+              items?:
+                | T
+                | {
+                    text?: T;
+                    id?: T;
+                  };
+              footerText?: T;
+              id?: T;
+              blockName?: T;
+            };
+        coreValues?:
+          | T
+          | {
+              heading?: T;
+              image?: T;
+              imageAlt?: T;
+              values?:
+                | T
+                | {
+                    title?: T;
+                    description?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        denialCategories?:
+          | T
+          | {
+              heading?: T;
+              description?: T;
+              categories?:
+                | T
+                | {
+                    title?: T;
+                    description?: T;
+                    highlighted?: T;
+                    id?: T;
+                  };
+              variant?: T;
+              id?: T;
+              blockName?: T;
+            };
+        ehrPartners?:
+          | T
+          | {
+              heading?: T;
+              description?: T;
+              partners?:
+                | T
+                | {
+                    logo?: T;
+                    alt?: T;
+                    id?: T;
+                  };
+              bottomText?: T;
+              buttonText?: T;
+              buttonHref?: T;
+              variant?: T;
+              id?: T;
+              blockName?: T;
+            };
+        expertiseCards?:
+          | T
+          | {
+              heading?: T;
+              cards?:
+                | T
+                | {
+                    title?: T;
+                    code?: T;
+                    description?: T;
+                    highlighted?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        testimonials?:
+          | T
+          | {
+              heading?: T;
+              testimonials?:
+                | T
+                | {
+                    name?: T;
+                    role?: T;
+                    image?: T;
+                    imageAlt?: T;
+                    ratingImage?: T;
+                    ratingAlt?: T;
+                    quote?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        successNumbers?:
+          | T
+          | {
+              heading?: T;
+              columns?:
+                | T
+                | {
+                    items?:
+                      | T
+                      | {
+                          label?: T;
+                          value?: T;
+                          id?: T;
+                        };
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        textFeatureGrid?:
+          | T
+          | {
+              heading?: T;
+              items?:
+                | T
+                | {
+                    title?: T;
+                    description?: T;
+                    highlighted?: T;
+                    id?: T;
+                  };
               id?: T;
               blockName?: T;
             };
