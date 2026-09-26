@@ -1,0 +1,29 @@
+name: SoftwarePartners generate and verify
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20.20.2
+          cache: npm
+      - run: npm ci
+      - run: npm run generate:types
+      - uses: actions/upload-artifact@v4
+        with:
+          name: generated-payload-types
+          path: src/payload-types.ts
+      - run: npx tsc --noEmit
+      - run: npx eslint "src/app/(app)/Components/SoftwarePartners.tsx" src/blocks/SoftwarePartners.ts src/blocks/index.ts src/lib/page-blocks/registry.tsx
+      - run: npm run build
+        env:
+          PAYLOAD_SECRET: software-partners-verification
