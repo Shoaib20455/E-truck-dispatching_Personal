@@ -1,3 +1,11 @@
+import { createPageMetadata } from "@/lib/seo";
+
+export const metadata = createPageMetadata({
+  title: "Medical Billing Services by Location",
+  description: "Explore Avenue Billing Services coverage for healthcare practices across U.S. locations and medical billing service areas.",
+  path: "/services-location",
+});
+
 import BillingIntelligence from "../Components/BillingIntelligence";
 import BillingProcess from "../Components/BillingProcess";
 import BillingSolutions from "../Components/BillingSolutions";
