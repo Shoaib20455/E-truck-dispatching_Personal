@@ -78,10 +78,10 @@ export default function SpecialtyBilling({
                   stagger={0.055}
                   className={`flex items-center justify-center gap-2.5 ${rowIndex > 0 ? "-mt-3" : ""}`}
                 >
-                  {row.map((specialty) => (
+                  {row.map((specialty, specialtyIndex) => (
                     <StaggerItem
                       key={specialty.title}
-                      preset="card"
+                      preset={(rowIndex + specialtyIndex) % 2 === 0 ? "hex-left" : "hex-right"}
                       hover="premium"
                       className="flex h-[92px] w-[106px] flex-col items-center justify-center bg-teal-500/10 px-2 text-center drop-shadow-[0_8px_12px_rgba(0,0,0,0.10)] xl:h-[100px] xl:w-[116px]"
                       style={{
@@ -105,8 +105,8 @@ export default function SpecialtyBilling({
             </div>
 
             <StaggerGroup stagger={0.06} className="grid w-full max-w-[520px] grid-cols-2 gap-4 sm:grid-cols-3 lg:hidden">
-              {specialties.map((specialty) => (
-                <StaggerItem key={specialty.title} preset="card" hover="premium" className="flex min-h-[110px] flex-col items-center justify-center bg-teal-500/10 px-4 py-4 text-center shadow-sm">
+              {specialties.map((specialty, index) => (
+                <StaggerItem key={specialty.title} preset={index % 2 === 0 ? "tile-left" : "tile-right"} hover="premium" className="flex min-h-[110px] flex-col items-center justify-center bg-teal-500/10 px-4 py-4 text-center shadow-sm">
                   <img
                     src={specialty.icon}
                     alt={specialty.iconAlt}
