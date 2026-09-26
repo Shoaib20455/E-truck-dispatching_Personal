@@ -1,3 +1,5 @@
+import { AnimatedDiv } from "./animation/MotionElements";
+
 import type { ReactNode } from "react";
 
 export default function SectionHeading({
@@ -8,7 +10,7 @@ export default function SectionHeading({
   subtitle?: ReactNode;
 }) {
   return (
-    <div className="text-center">
+    <AnimatedDiv preset="fade-up" className="text-center">
       <h2 className="font-inter text-4xl font-semibold leading-tight text-heading md:text-5xl">
         {title}
       </h2>
@@ -18,6 +20,6 @@ export default function SectionHeading({
           {subtitle}
         </div>
       )}
-    </div>
+    </AnimatedDiv>
   );
 }
