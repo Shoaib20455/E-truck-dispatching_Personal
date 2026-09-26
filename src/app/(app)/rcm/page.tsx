@@ -1,3 +1,11 @@
+import { createPageMetadata } from "@/lib/seo";
+
+export const metadata = createPageMetadata({
+  title: "Revenue Cycle Management Services",
+  description: "Revenue cycle management services covering billing, coding, denials, A/R, payment workflows, and financial performance for healthcare practices.",
+  path: "/rcm",
+});
+
 import BillingIntelligence from "../Components/BillingIntelligence";
 import BillingProcess from "../Components/BillingProcess";
 import BillingSolutions from "../Components/BillingSolutions";
