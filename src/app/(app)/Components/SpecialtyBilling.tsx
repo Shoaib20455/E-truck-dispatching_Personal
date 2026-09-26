@@ -1,4 +1,4 @@
-import { AnimatedSection } from "./animation/MotionElements";
+import { AnimatedDiv, AnimatedHeading, AnimatedSection, StaggerGroup, StaggerItem } from "./animation/MotionElements";
 
 type SpecialtyItem = {
   title: string;
@@ -40,10 +40,11 @@ export default function SpecialtyBilling({
     <AnimatedSection preset="fade-up" className="w-full bg-cyan-50 py-14 lg:py-20">
       <div className="mx-auto max-w-[1520px] px-6 lg:px-8 2xl:px-0">
         <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
-          <div>
-            <h2 className="mb-6 font-inter text-3xl font-semibold leading-tight text-heading md:text-4xl lg:text-5xl">
-              {heading}
-            </h2>
+          <AnimatedDiv preset="slide-left">
+            <AnimatedHeading
+              text={heading}
+              className="mb-6 font-inter text-3xl font-semibold leading-tight text-heading md:text-4xl lg:text-5xl"
+            />
 
             <p className="mb-7 whitespace-pre-line font-manrope text-lg font-normal leading-8 text-zinc-700">
               {description}
@@ -66,18 +67,21 @@ export default function SpecialtyBilling({
                 </a>
               )}
             </div>
-          </div>
+          </AnimatedDiv>
 
-          <div className="flex justify-center lg:justify-end">
+          <AnimatedDiv preset="slide-right" className="flex justify-center lg:justify-end">
             <div className="hidden w-full max-w-[620px] flex-col items-center justify-center lg:flex">
               {rows.map((row, rowIndex) => (
-                <div
+                <StaggerGroup
                   key={rowIndex}
+                  stagger={0.055}
                   className={`flex items-center justify-center gap-2.5 ${rowIndex > 0 ? "-mt-3" : ""}`}
                 >
                   {row.map((specialty) => (
-                    <div
+                    <StaggerItem
                       key={specialty.title}
+                      preset="card"
+                      hover="premium"
                       className="flex h-[92px] w-[106px] flex-col items-center justify-center bg-teal-500/10 px-2 text-center drop-shadow-[0_8px_12px_rgba(0,0,0,0.10)] xl:h-[100px] xl:w-[116px]"
                       style={{
                         clipPath:
@@ -93,18 +97,15 @@ export default function SpecialtyBilling({
                       <span className="max-w-[90%] font-inter text-[11px] font-semibold leading-[14px] text-heading xl:text-xs xl:leading-4">
                         {specialty.title}
                       </span>
-                    </div>
+                    </StaggerItem>
                   ))}
-                </div>
+                </StaggerGroup>
               ))}
             </div>
 
-            <div className="grid w-full max-w-[520px] grid-cols-2 gap-4 sm:grid-cols-3 lg:hidden">
+            <StaggerGroup stagger={0.06} className="grid w-full max-w-[520px] grid-cols-2 gap-4 sm:grid-cols-3 lg:hidden">
               {specialties.map((specialty) => (
-                <div
-                  key={specialty.title}
-                  className="flex min-h-[110px] flex-col items-center justify-center bg-teal-500/10 px-4 py-4 text-center shadow-sm"
-                >
+                <StaggerItem key={specialty.title} preset="card" hover="premium" className="flex min-h-[110px] flex-col items-center justify-center bg-teal-500/10 px-4 py-4 text-center shadow-sm">
                   <img
                     src={specialty.icon}
                     alt={specialty.iconAlt}
@@ -113,10 +114,10 @@ export default function SpecialtyBilling({
                   <span className="font-inter text-sm font-semibold leading-5 text-heading">
                     {specialty.title}
                   </span>
-                </div>
+                </StaggerItem>
               ))}
-            </div>
-          </div>
+            </StaggerGroup>
+          </AnimatedDiv>
         </div>
       </div>
     </AnimatedSection>
