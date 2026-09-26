@@ -1,3 +1,5 @@
+import { AnimatedSection } from "./animation/MotionElements";
+
 type ServiceItem = {
   title: string;
   description?: string;
@@ -20,7 +22,7 @@ export default function RCMSolutions({
   const isProcedure = variant === "procedure";
 
   return (
-    <section className="w-full bg-cyan-50 py-16 lg:py-20">
+    <AnimatedSection preset="fade-up" className="w-full bg-cyan-50 py-16 lg:py-20">
       <div className="mx-auto max-w-[1520px] px-6 lg:px-8 2xl:px-0">
         <div className="mx-auto mb-12 max-w-4xl text-center">
           <h2 className="font-inter text-3xl font-semibold leading-tight text-heading md:text-4xl lg:text-5xl">
@@ -74,6 +76,6 @@ export default function RCMSolutions({
           ))}
         </div>
       </div>
-    </section>
+    </AnimatedSection>
   );
 }
