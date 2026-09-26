@@ -1,3 +1,4 @@
+import Image from "next/image";
 import AppLink from "./navigation/AppLink";
 import { AnimatedSection } from "./animation/MotionElements";
 
@@ -55,11 +56,7 @@ export default function CertificationCTA({
 
               {/* RIGHT */}
               <div className="flex justify-center lg:justify-end">
-                <img
-                  src={certificationImage}
-                  alt={certificationImageAlt}
-                  className="w-full max-w-[603px] object-contain"
-                />
+                <Image src={certificationImage} alt={certificationImageAlt} width={900} height={650} sizes="(min-width: 1024px) 40vw, 100vw" className="h-auto w-full max-w-[603px] object-contain" />
               </div>
 
             </div>
