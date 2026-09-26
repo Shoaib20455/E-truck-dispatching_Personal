@@ -1,4 +1,4 @@
-import { AnimatedSection } from "./animation/MotionElements";
+import { AnimatedHeading, AnimatedSection, HoverIcon, StaggerGroup, StaggerArticle } from "./animation/MotionElements";
 
 import Image from "next/image";
 
@@ -20,17 +20,17 @@ export default function AuthorExpertiseSection({
   return (
     <AnimatedSection preset="fade-up" className="w-full bg-cyan-50 py-8 lg:py-12">
       <div className="mx-auto w-full max-w-[1520px] px-6 lg:px-8 2xl:px-0">
-        <h2 className="text-center font-inter text-4xl font-semibold leading-tight text-black md:text-5xl">
-          {heading}
-        </h2>
+        <AnimatedHeading
+          text={heading}
+          className="text-center font-inter text-4xl font-semibold leading-tight text-black md:text-5xl"
+        />
 
-        <div className="mt-12 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <StaggerGroup stagger={0.075} className="mt-12 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {items.map((item) => (
-            <article
-              key={item.title}
+            <StaggerArticle key={item.title} preset="card" hover="premium"
               className="flex min-h-[240px] flex-col items-center justify-center rounded-[20px] bg-teal-500/20 px-6 py-8 text-center"
             >
-              <div className="flex size-24 items-center justify-center rounded-full bg-sky-500">
+              <HoverIcon className="flex size-24 items-center justify-center rounded-full bg-sky-500">
                 <Image
                   src={item.icon}
                   alt={item.iconAlt}
@@ -38,14 +38,14 @@ export default function AuthorExpertiseSection({
                   height={64}
                   className="size-16 object-contain"
                 />
-              </div>
+              </HoverIcon>
 
-              <h3 className="mt-7 max-w-[240px] font-inter text-xl font-semibold leading-8 text-heading">
+              <h3> className="mt-7 max-w-[240px] font-inter text-xl font-semibold leading-8 text-heading">
                 {item.title}
               </h3>
-            </article>
+            </StaggerArticle>
           ))}
-        </div>
+        </StaggerGroup>
       </div>
     </AnimatedSection>
   );
