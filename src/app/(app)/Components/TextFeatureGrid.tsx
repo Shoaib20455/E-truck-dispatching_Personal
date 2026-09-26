@@ -29,7 +29,7 @@ export default function TextFeatureGrid({
           {items.map((item, index) => (
             <StaggerItem
               key={item.title}
-              preset="card"
+              preset={index % 2 === 0 ? "tile-left" : "tile-right"}
               hover="lift"
               className={
                 "p-7 md:p-10 lg:p-12 " +
