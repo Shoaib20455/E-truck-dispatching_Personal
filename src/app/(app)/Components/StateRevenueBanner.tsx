@@ -1,3 +1,4 @@
+import AppLink from "./navigation/AppLink";
 import { AnimatedSection } from "./animation/MotionElements";
 
 type StateRevenueBannerProps = {
@@ -41,19 +42,19 @@ export default function StateRevenueBanner({
               </p>
 
               <div className="flex flex-col gap-4 sm:flex-row">
-                <a
+                <AppLink
                   href={primaryButtonHref}
                   className="rounded-[44px] bg-white px-7 py-2.5 text-center font-manrope text-base text-zinc-700"
                 >
                   {primaryButtonText}
-                </a>
+                </AppLink>
 
-                <a
+                <AppLink
                   href={secondaryButtonHref}
                   className="rounded-[44px] bg-sky-500 px-7 py-2.5 text-center font-manrope text-base text-white"
                 >
                   {secondaryButtonText}
-                </a>
+                </AppLink>
               </div>
             </div>
 
