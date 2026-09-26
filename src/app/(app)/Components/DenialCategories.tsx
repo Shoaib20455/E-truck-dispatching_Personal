@@ -96,7 +96,7 @@ export default function DenialCategories({
             <HexCard key={item.title} item={item} />
           ))}
         </div>
-      </AnimatedDiv>
+      </div>
     </section>
   );
 }
