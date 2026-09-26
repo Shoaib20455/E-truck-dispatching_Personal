@@ -116,7 +116,7 @@ export default function MedicalBillingWorkflow({
           {/* RIGHT STEPS */}
           <StaggerGroup stagger={0.07} className="space-y-8 lg:relative lg:z-20">
             {rightSteps.map((step, index) => (
-              <StaggerItem key={step.label} preset="step-right" hover="soft" className={`transition-transform ${rightOffsets[index] ?? ""}`}>
+              <StaggerItem key={step.label} preset="step-right" hover="premium" className={`transition-transform ${rightOffsets[index] ?? ""}`}>
                 <StepCard step={step} />
               </StaggerItem>
             ))}
