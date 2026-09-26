@@ -37,7 +37,7 @@ export default function CertificationCTA({
             <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-[1.2fr_0.8fr]">
 
               {/* LEFT */}
-              <AnimatedDiv preset="slide-left" className="text-white">
+              <AnimatedDiv preset="panel-left" className="text-white">
                 <AnimatedHeading
                   text={heading}
                   className="mb-6 font-inter text-3xl font-semibold leading-tight md:text-4xl lg:text-5xl"
@@ -56,9 +56,9 @@ export default function CertificationCTA({
               </AnimatedDiv>
 
               {/* RIGHT */}
-              <ImageReveal className="flex justify-center lg:justify-end">
+              <AnimatedDiv preset="map-pop" className="flex justify-center lg:justify-end">
                 <Image src={certificationImage} alt={certificationImageAlt} width={900} height={650} sizes="(min-width: 1024px) 40vw, 100vw" className="h-auto w-full max-w-[603px] object-contain" />
-              </ImageReveal>
+              </AnimatedDiv>
 
             </div>
           </div>
