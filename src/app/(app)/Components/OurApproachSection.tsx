@@ -22,8 +22,8 @@ export default function OurApproachSection({
         <SectionHeading title={heading} />
 
         <StaggerGroup stagger={0.08} className="mt-12 grid grid-cols-1 gap-7 lg:grid-cols-3">
-          {items.map((item) => (
-            <StaggerArticle key={item.title} preset="card" hover="premium"
+          {items.map((item, index) => (
+            <StaggerArticle key={item.title} preset={index % 2 === 0 ? "tile-left" : "tile-right"} hover="premium"
               className="rounded-[30px] border border-dashed border-primary-light bg-indigo-50 px-10 py-14 text-center"
             >
               <h3 className="font-inter text-2xl font-semibold leading-9 text-heading md:text-3xl md:leading-10">
