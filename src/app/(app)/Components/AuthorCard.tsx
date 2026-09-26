@@ -1,3 +1,5 @@
+import { AnimatedSection } from "./animation/MotionElements";
+
 import Image from "next/image";
 
 export type AuthorSocialLink = {
@@ -30,7 +32,7 @@ export default function AuthorCard({
   socialLinks,
 }: AuthorCardProps) {
   return (
-    <section className="rounded-[20px] bg-accent/10 p-7">
+    <AnimatedSection preset="fade-up" className="rounded-[20px] bg-accent/10 p-7">
       <div className="flex items-center gap-5">
         <Image
           src={image}
@@ -62,6 +64,6 @@ export default function AuthorCard({
           </a>
         ))}
       </div>
-    </section>
+    </AnimatedSection>
   );
 }
