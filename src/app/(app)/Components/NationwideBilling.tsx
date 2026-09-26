@@ -1,3 +1,5 @@
+import { AnimatedSection } from "./animation/MotionElements";
+
 type StateItem = {
   name: string;
   image: string;
@@ -17,7 +19,7 @@ export default function NationwideBilling({
   states,
 }: NationwideBillingProps) {
   return (
-    <section className="w-full bg-cyan-50 py-14 lg:py-20">
+    <AnimatedSection preset="fade-up" className="w-full bg-cyan-50 py-14 lg:py-20">
       <div className="mx-auto max-w-[1520px] px-6 lg:px-8 2xl:px-0">
         {/* TOP CONTENT */}
         <div className="mb-12 grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-16">
@@ -58,6 +60,6 @@ export default function NationwideBilling({
           ))}
         </div>
       </div>
-    </section>
+    </AnimatedSection>
   );
 }
