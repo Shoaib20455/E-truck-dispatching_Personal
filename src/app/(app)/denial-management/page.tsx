@@ -1,3 +1,11 @@
+import { createPageMetadata } from "@/lib/seo";
+
+export const metadata = createPageMetadata({
+  title: "Denial Management Services",
+  description: "Medical billing denial management and appeals support focused on root-cause correction, payer follow-up, and revenue recovery.",
+  path: "/denial-management",
+});
+
 import BillingIntelligence from "../Components/BillingIntelligence";
 import BillingProcess from "../Components/BillingProcess";
 import BillingSolutions from "../Components/BillingSolutions";
