@@ -1,3 +1,5 @@
+import { AnimatedSection } from "./animation/MotionElements";
+
 import type { ReactNode } from "react";
 import SectionHeading from "./SectionHeading";
 
@@ -15,7 +17,7 @@ export default function ComplianceCommitmentSection({
   footerText,
 }: ComplianceCommitmentSectionProps) {
   return (
-    <section className="w-full bg-cyan-50 pb-12 pt-8 lg:pb-16 lg:pt-10">
+    <AnimatedSection preset="fade-up" className="w-full bg-cyan-50 pb-12 pt-8 lg:pb-16 lg:pt-10">
       <div className="mx-auto w-full max-w-[1520px] px-6 lg:px-8 2xl:px-0">
         <SectionHeading title={heading} subtitle={subtitle} />
 
@@ -40,6 +42,6 @@ export default function ComplianceCommitmentSection({
           </p>
         )}
       </div>
-    </section>
+    </AnimatedSection>
   );
 }
