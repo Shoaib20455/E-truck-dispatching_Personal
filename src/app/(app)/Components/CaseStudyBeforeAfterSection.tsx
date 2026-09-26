@@ -1,4 +1,4 @@
-import { AnimatedSection } from "./animation/MotionElements";
+import { AnimatedDiv, AnimatedHeading, AnimatedSection } from "./animation/MotionElements";
 
 export type BeforeAfterRow = {
   area: string;
@@ -20,11 +20,12 @@ export default function CaseStudyBeforeAfterSection({
   return (
     <AnimatedSection preset="fade-up" className="w-full bg-cyan-50 py-10 lg:py-16">
       <div className="mx-auto w-full max-w-[1520px] px-6 lg:px-8 2xl:px-0">
-        <h2 className="text-center font-inter text-4xl font-semibold leading-tight text-heading md:text-5xl">
-          {heading}
-        </h2>
+        <AnimatedHeading
+          text={heading}
+          className="text-center font-inter text-4xl font-semibold leading-tight text-heading md:text-5xl"
+        />
 
-        <div className="mt-10 overflow-x-auto rounded-[20px] border border-zinc-400">
+        <AnimatedDiv preset="scale" className="mt-10 overflow-x-auto rounded-[20px] border border-zinc-400">
           <table className="w-full min-w-[900px] border-collapse">
             <thead>
               <tr className="bg-primary-light text-white">
@@ -45,7 +46,7 @@ export default function CaseStudyBeforeAfterSection({
               ))}
             </tbody>
           </table>
-        </div>
+        </AnimatedDiv>
       </div>
     </AnimatedSection>
   );
