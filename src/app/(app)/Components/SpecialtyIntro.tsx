@@ -1,3 +1,5 @@
+import { AnimatedSection } from "./animation/MotionElements";
+
 type SpecialtyIntroProps = {
   heading: string;
   description: string;
@@ -14,7 +16,7 @@ export default function SpecialtyIntro({
   imageAlt,
 }: SpecialtyIntroProps) {
   return (
-    <section className="w-full bg-cyan-50 py-14 lg:py-20">
+    <AnimatedSection preset="fade-up" className="w-full bg-cyan-50 py-14 lg:py-20">
       <div className="mx-auto max-w-[1520px] px-6 lg:px-8 2xl:px-0">
         <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-[1fr_0.85fr] lg:gap-20">
           <div>
@@ -55,6 +57,6 @@ export default function SpecialtyIntro({
           </div>
         </div>
       </div>
-    </section>
+    </AnimatedSection>
   );
 }
