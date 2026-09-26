@@ -1,4 +1,11 @@
-import { AnimatedDiv, AnimatedHeading, AnimatedSection, ParallaxDiv, StaggerGroup, StaggerItem } from "./animation/MotionElements";
+import {
+  AnimatedDiv,
+  AnimatedHeading,
+  AnimatedSection,
+  ParallaxDiv,
+  StaggerGroup,
+  StaggerItem,
+} from "./animation/MotionElements";
 
 type LogoItem = {
   image: string;
@@ -9,16 +16,12 @@ type ConsultationCTAProps = {
   heading: string;
   description: string;
   backgroundImage?: string;
-
   formHeading: string;
-
   namePlaceholder: string;
   phonePlaceholder: string;
   emailPlaceholder: string;
   practicePlaceholder: string;
-
   buttonText: string;
-
   logos?: LogoItem[];
   variant?: "background" | "plain";
 };
@@ -37,6 +40,13 @@ export default function ConsultationCTA({
   variant = "background",
 }: ConsultationCTAProps) {
   const isPlain = variant === "plain";
+
+  const fields = [
+    { type: "text", name: "name", placeholder: namePlaceholder },
+    { type: "tel", name: "phone", placeholder: phonePlaceholder },
+    { type: "email", name: "email", placeholder: emailPlaceholder },
+    { type: "text", name: "practice", placeholder: practicePlaceholder },
+  ];
 
   return (
     <AnimatedSection preset="cta" className="w-full bg-cyan-50 py-14 lg:py-20">
@@ -61,13 +71,14 @@ export default function ConsultationCTA({
             }
           >
             <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:gap-16">
-              {/* LEFT CONTENT */}
-              <AnimatedDiv preset="slide-left" className={isPlain ? "text-black" : "text-white"}>
+              <AnimatedDiv
+                preset="slide-left"
+                className={isPlain ? "text-black" : "text-white"}
+              >
                 <AnimatedHeading
                   text={heading}
                   className="mb-6 font-inter text-3xl font-semibold leading-tight md:text-4xl lg:text-5xl"
                 />
-                    </StaggerItem>
 
                 <p
                   className={
@@ -80,77 +91,73 @@ export default function ConsultationCTA({
                 </p>
 
                 {logos && logos.length > 0 && (
-                  <StaggerGroup stagger={0.06} className="flex flex-wrap justify-start gap-5">
+                  <StaggerGroup
+                    stagger={0.06}
+                    className="flex flex-wrap justify-start gap-5"
+                  >
                     {logos.map((logo) => (
-                      <StaggerItem key={logo.image} preset="logo" hover="soft">
-                      <img
-                        src={logo.image}
-                        alt={logo.alt}
-                        className="w-56 rounded-[10px] bg-white object-contain"
-                      />
-                    </StaggerItem>
+                      <StaggerItem
+                        key={logo.image}
+                        preset="logo"
+                        hover="soft"
+                      >
+                        <img
+                          src={logo.image}
+                          alt={logo.alt}
+                          className="w-56 rounded-[10px] bg-white object-contain"
+                        />
                       </StaggerItem>
                     ))}
                   </StaggerGroup>
                 )}
               </AnimatedDiv>
 
-              {/* FORM */}
               <ParallaxDiv distance={14}>
-              <AnimatedDiv preset="slide-right"
-                className={
-                  isPlain
-                    ? "rounded-[20px] bg-teal-500/10 p-7 backdrop-blur-[2.5px] md:p-10"
-                    : "rounded-[16px] bg-indigo-50/50 p-6 backdrop-blur-[2.5px] md:p-8 lg:p-10"
-                }
-              >
-                <h3 className="mb-8 text-center font-inter text-2xl font-semibold text-heading md:text-3xl">
-                  {formHeading}
-                </h3>
+                <AnimatedDiv
+                  preset="slide-right"
+                  className={
+                    isPlain
+                      ? "rounded-[20px] bg-teal-500/10 p-7 backdrop-blur-[2.5px] md:p-10"
+                      : "rounded-[16px] bg-indigo-50/50 p-6 backdrop-blur-[2.5px] md:p-8 lg:p-10"
+                  }
+                >
+                  <h3 className="mb-8 text-center font-inter text-2xl font-semibold text-heading md:text-3xl">
+                    {formHeading}
+                  </h3>
 
-                <form>
-                  <StaggerGroup stagger={0.06} className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-                    <StaggerItem preset="fade-up"><input
-                      type="text"
-                      name="name"
-                      placeholder={namePlaceholder}
-                      className="w-full rounded-[10px] border border-neutral-600 bg-white px-5 py-3 font-manrope text-neutral-500 outline-none"
-                    />
-                    </StaggerItem>
+                  <form>
+                    <StaggerGroup
+                      stagger={0.06}
+                      className="grid grid-cols-1 gap-4 sm:grid-cols-2"
+                    >
+                      {fields.map((field) => (
+                        <StaggerItem key={field.name} preset="fade-up">
+                          <input
+                            type={field.type}
+                            name={field.name}
+                            placeholder={field.placeholder}
+                            className="w-full rounded-[10px] border border-neutral-600 bg-white px-5 py-3 font-manrope text-neutral-500 outline-none"
+                          />
+                        </StaggerItem>
+                      ))}
+                    </StaggerGroup>
 
-                    <StaggerItem preset="fade-up"><input
-                      type="tel"
-                      name="phone"
-                      placeholder={phonePlaceholder}
-                      className="w-full rounded-[10px] border border-neutral-600 bg-white px-5 py-3 font-manrope text-neutral-500 outline-none"
-                    />
-                    </StaggerItem>
-
-                    <StaggerItem preset="fade-up"><input
-                      type="email"
-                      name="email"
-                      placeholder={emailPlaceholder}
-                      className="w-full rounded-[10px] border border-neutral-600 bg-white px-5 py-3 font-manrope text-neutral-500 outline-none"
-                    />
-
-                    <StaggerItem preset="fade-up"><input
-                      type="text"
-                      name="practice"
-                      placeholder={practicePlaceholder}
-                      className="w-full rounded-[10px] border border-neutral-600 bg-white px-5 py-3 font-manrope text-neutral-500 outline-none"
-                    />
-                  </StaggerGroup>
-
-                  <StaggerItem preset="fade-up" hover="soft">
-                  <button
-                    type="submit"
-                    className={`${isPlain ? "mt-8" : "mt-5"} w-full rounded-[36px] bg-sky-500 px-7 py-3 font-manrope text-base font-normal text-white`}
-                  >
-                    {buttonText}
-                  </button>
-                  </StaggerItem>
-                </form>
-              </AnimatedDiv>
+                    <StaggerGroup
+                      stagger={0}
+                      delayChildren={0.28}
+                      className="w-full"
+                    >
+                      <StaggerItem preset="fade-up" hover="soft">
+                        <button
+                          type="submit"
+                          className={`${isPlain ? "mt-8" : "mt-5"} w-full rounded-[36px] bg-sky-500 px-7 py-3 font-manrope text-base font-normal text-white`}
+                        >
+                          {buttonText}
+                        </button>
+                      </StaggerItem>
+                    </StaggerGroup>
+                  </form>
+                </AnimatedDiv>
               </ParallaxDiv>
             </div>
           </div>
