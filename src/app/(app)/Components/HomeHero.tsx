@@ -1,4 +1,4 @@
-import { AnimatedDiv, AnimatedSection, StaggerGroup, StaggerItem } from "./animation/MotionElements";
+import { AnimatedDiv, AnimatedHeading, AnimatedSection, ImageReveal, ParallaxDiv, StaggerGroup, StaggerItem } from "./animation/MotionElements";
 
 type StatItem = {
   value: string;
@@ -49,9 +49,14 @@ export default function HomeHero({
                 {eyebrow}
               </div>
 
-              <h1 className="mt-3 max-w-[733px] font-inter text-4xl font-semibold leading-[1.02] text-white sm:text-5xl lg:text-6xl">
-                {heading}
-              </h1>
+              <AnimatedHeading
+                text={heading}
+                level={1}
+                trigger="mount"
+                delay={0.08}
+                stagger={0.035}
+                className="mt-3 max-w-[733px] font-inter text-4xl font-semibold leading-[1.02] text-white sm:text-5xl lg:text-6xl"
+              />
 
               <p className="mt-8 max-w-[632px] font-manrope text-base font-medium leading-8 text-white lg:text-lg">
                 {description}
@@ -73,7 +78,7 @@ export default function HomeHero({
               {/* STATS */}
               <StaggerGroup trigger="mount" stagger={0.09} delayChildren={0.28} className="mt-7 grid max-w-[820px] grid-cols-1 gap-3 sm:grid-cols-3">
                 {stats.map((stat) => (
-                  <StaggerItem key={stat.label} preset="stat" hover="lift" className="min-w-0 flex items-center gap-4 rounded-[10px] bg-[#EBF3FA]/90 px-5 py-4">
+                  <StaggerItem key={stat.label} preset="stat" hover="premium" className="min-w-0 flex items-center gap-4 rounded-[10px] bg-[#EBF3FA]/90 px-5 py-4">
                     <img
                       src={stat.icon}
                       alt={stat.iconAlt}
@@ -95,7 +100,7 @@ export default function HomeHero({
             </AnimatedDiv>
 
             {/* RIGHT FORM */}
-            <AnimatedDiv preset="hero-right" delay={0.12} trigger="mount" className="w-full max-w-[654px] overflow-hidden rounded-[32px] bg-[#EBF3FA] px-7 pb-10 pt-8 shadow-[0px_25px_50px_-12px_rgba(0,96,168,0.10)] outline outline-1 outline-offset-[-1px] outline-[#419EFC]/20 backdrop-blur-lg sm:px-10 sm:pb-14 sm:pt-10 xl:ml-auto">
+            <ParallaxDiv distance={18} className="w-full max-w-[654px] ">\n            <AnimatedDiv preset="hero-right" delay={0.16} trigger="mount" className="w-full overflow-hidden rounded-[32px] bg-[#EBF3FA] px-7 pb-10 pt-8 shadow-[0px_25px_50px_-12px_rgba(0,96,168,0.10)] outline outline-1 outline-offset-[-1px] outline-[#419EFC]/20 backdrop-blur-lg sm:px-10 sm:pb-14 sm:pt-10 xl:ml-auto">
               <h2 className="text-center font-inter text-3xl font-semibold leading-9 text-heading">
                 Talk to an Expert
               </h2>
@@ -132,8 +137,7 @@ export default function HomeHero({
                   </span>
                 </button>
               </form>
-            </AnimatedDiv>
-          </div>
+            </AnimatedDiv>\n            </ParallaxDiv>\n          </div>
         </div>
       </div>
     </AnimatedSection>
