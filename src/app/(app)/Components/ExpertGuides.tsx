@@ -1,3 +1,5 @@
+import { AnimatedSection } from "./animation/MotionElements";
+
 type GuideItem = {
   title: string;
   description: string;
@@ -20,7 +22,7 @@ export default function ExpertGuides({
   background = "default",
 }: ExpertGuidesProps) {
   return (
-    <section
+    <AnimatedSection preset="fade-up"
       className={`w-full py-14 lg:py-20 ${
         background === "soft" ? "bg-accent/10" : "bg-cyan-50"
       }`}
@@ -67,6 +69,6 @@ export default function ExpertGuides({
           ))}
         </div>
       </div>
-    </section>
+    </AnimatedSection>
   );
 }
