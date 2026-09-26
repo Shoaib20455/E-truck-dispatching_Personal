@@ -1,4 +1,4 @@
-import { AnimatedDiv, AnimatedSection, StaggerGroup, StaggerItem } from "./animation/MotionElements";
+import { AnimatedDiv, AnimatedHeading, AnimatedSection, ParallaxDiv, StaggerGroup, StaggerItem } from "./animation/MotionElements";
 
 type HighlightItem = {
   text: string;
@@ -73,15 +73,14 @@ export default function ServiceHero({
           >
             {/* LEFT CONTENT */}
             <AnimatedDiv preset="hero-left" trigger="mount" className="text-white">
-              <h1
-                className={`mb-6 font-inter font-semibold leading-tight ${
-                  isCompact
-                    ? "text-4xl md:text-5xl lg:text-6xl"
-                    : "text-4xl md:text-5xl lg:text-6xl"
-                }`}
-              >
-                {heading}
-              </h1>
+              <AnimatedHeading
+                text={heading}
+                level={1}
+                trigger="mount"
+                delay={0.06}
+                stagger={0.035}
+                className="mb-6 font-inter text-4xl font-semibold leading-tight text-white md:text-5xl lg:text-6xl"
+              />
 
               <p
                 className={`font-manrope text-lg font-medium leading-8 ${
@@ -102,7 +101,7 @@ export default function ServiceHero({
                 }
               >
                 {highlights.map((item, index) => (
-                  <StaggerItem key={index} preset="step-left" className="flex items-start gap-3">
+                  <StaggerItem key={index} preset="step-left" hover="soft" className="flex items-start gap-3">
                     <span>{isCompact ? "✓" : "•"}</span>
                     <span>{item.text}</span>
                   </StaggerItem>
@@ -140,7 +139,7 @@ export default function ServiceHero({
             </AnimatedDiv>
 
             {/* RIGHT FORM */}
-            <AnimatedDiv preset="hero-right" delay={0.12} trigger="mount" className="rounded-[14px] border border-sky-500 bg-indigo-50/50 p-7 backdrop-blur-[2.5px] md:p-8">
+            <ParallaxDiv distance={16}>\n            <AnimatedDiv preset="hero-right" delay={0.16} trigger="mount" className="rounded-[14px] border border-sky-500 bg-indigo-50/50 p-7 backdrop-blur-[2.5px] md:p-8">
               <h2
                 className={`mb-7 font-inter text-2xl font-semibold leading-tight text-heading md:text-3xl ${
                   isCompact ? "text-center" : ""
@@ -193,8 +192,7 @@ export default function ServiceHero({
                   {buttonText}
                 </button>
               </form>
-            </AnimatedDiv>
-          </div>
+            </AnimatedDiv>\n            </ParallaxDiv>\n          </div>
         </div>
       </div>
     </AnimatedSection>
