@@ -1,4 +1,4 @@
-import { AnimatedSection, StaggerGroup, StaggerItem } from "./animation/MotionElements";
+import { AnimatedHeading, AnimatedSection, StaggerGroup, StaggerItem } from "./animation/MotionElements";
 
 type ChallengeItem = {
   title: string;
@@ -21,9 +21,10 @@ export default function BillingChallenges({
       <div className="mx-auto max-w-[1520px] px-6 lg:px-8 2xl:px-0">
         {/* HEADING */}
         <div className="mx-auto mb-12 max-w-4xl text-center lg:mb-16">
-          <h2 className="font-inter text-3xl font-semibold leading-tight text-heading md:text-4xl lg:text-5xl">
-            {heading}
-          </h2>
+          <AnimatedHeading
+            text={heading}
+            className="font-inter text-3xl font-semibold leading-tight text-heading md:text-4xl lg:text-5xl"
+          />
         </div>
 
         {/* CHALLENGES */}
@@ -31,7 +32,7 @@ export default function BillingChallenges({
           {challenges.map((challenge, index) => (
             <StaggerItem
               key={challenge.title}
-              preset="card"
+              preset={index % 2 === 0 ? "tile-left" : "tile-right"}
               hover="lift"
               className={`flex flex-col items-center px-8 py-10 text-center ${
                 index % 2 === 0 ? "bg-teal-500/10" : "bg-white"
