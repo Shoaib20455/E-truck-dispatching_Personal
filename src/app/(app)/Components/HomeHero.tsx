@@ -47,8 +47,7 @@ export default function HomeHero({
         sizes="100vw"
         className="-z-10 object-cover"
         aria-hidden="true"
-      /
-    >
+      />
       <div className="relative z-10 w-full bg-gradient-to-r from-[#0060A8]/80 via-[#04ADF1]/70 to-[#18CA96]/70">
         <div className="mx-auto w-full max-w-[1520px] px-6 py-12 lg:px-8 lg:py-14 2xl:px-0">
           <div className="grid grid-cols-1 items-start gap-12 xl:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] xl:gap-16">
