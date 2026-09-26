@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { AnimatedDiv, AnimatedSection, StaggerGroup, StaggerItem } from "./animation/MotionElements";
 
 type AlternatingServiceItem = {
@@ -25,11 +26,7 @@ export default function AlternatingServiceSections({
           return (
             <AnimatedDiv key={item.title} preset={imageFirst ? "slide-left" : "slide-right"} className="grid grid-cols-1 items-center gap-8 lg:grid-cols-2 lg:gap-16">
               <div className={imageFirst ? "lg:order-1" : "lg:order-2"}>
-                <img
-                  src={item.image}
-                  alt={item.imageAlt}
-                  className="w-full rounded-[20px] object-cover shadow-[0px_10px_20px_rgba(0,0,0,0.10)]"
-                />
+                <Image src={item.image} alt={item.imageAlt} width={900} height={650} sizes="(min-width: 1024px) 50vw, 100vw" className="h-auto w-full rounded-[20px] object-cover shadow-[0px_10px_20px_rgba(0,0,0,0.10)]" />
               </div>
 
               <div className={imageFirst ? "lg:order-2" : "lg:order-1"}>
