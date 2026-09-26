@@ -4,6 +4,7 @@ import "./globals.css";
 import { getOrganizationSchema } from "@/lib/schemas/organization";
 import Navbar from "./Components/Navbar";
 import Footer from "./Components/Footer";
+import MotionProvider from "./Components/animation/MotionProvider";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -76,9 +77,11 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }}
         />
-        <Navbar />
-        {children}
-        <Footer />
+        <MotionProvider>
+          <Navbar />
+          {children}
+          <Footer />
+        </MotionProvider>
       </body>
     </html>
   );
