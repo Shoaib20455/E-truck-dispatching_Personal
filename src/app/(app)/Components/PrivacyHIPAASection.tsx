@@ -1,3 +1,5 @@
+import { AnimatedDiv } from "./animation/MotionElements";
+
 type Measure = { label: string; text: string };
 
 type PrivacyHIPAASectionProps = {
@@ -14,7 +16,7 @@ export default function PrivacyHIPAASection({
   measures,
 }: PrivacyHIPAASectionProps) {
   return (
-    <div>
+    <AnimatedDiv preset="fade">
       <h2 className="font-inter text-4xl font-semibold leading-tight text-heading md:text-5xl">{heading}</h2>
       <div className="mt-5 space-y-1 font-manrope text-base font-normal leading-8 text-neutral-500 md:text-lg">
         <p>{intro}</p>
@@ -23,6 +25,6 @@ export default function PrivacyHIPAASection({
           <p key={item.label}><strong>{item.label}:</strong> {item.text}</p>
         ))}
       </div>
-    </div>
+    </AnimatedDiv>
   );
 }
