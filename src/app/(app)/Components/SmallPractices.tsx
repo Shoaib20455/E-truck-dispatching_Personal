@@ -1,3 +1,4 @@
+import AppLink from "./navigation/AppLink";
 import { AnimatedSection } from "./animation/MotionElements";
 
 type SmallPracticesProps = {
@@ -73,13 +74,13 @@ export default function SmallPractices({
                 {cardDescription}
               </p>
 
-              <a
+              <AppLink
                 href={cardLinkHref}
                 className="inline-flex items-center gap-2 font-inter text-base font-bold leading-6 text-sky-700"
               >
                 {cardLinkText}
                 <span className="text-xl">→</span>
-              </a>
+              </AppLink>
             </div>
 
             {/* IMAGE */}
