@@ -62,6 +62,7 @@ export const pageBlocks: Block[] = [
   StateConsultationCTABlock,
   RevenueCTAWithTestimonialBlock,
   SmallPracticesBlock,
+  SoftwarePartnersBlock,
   RCMSolutionsBlock,
   RevenueLossReasonsBlock,
   BillingSolutionsBlock,
