@@ -1,3 +1,5 @@
+import { AnimatedSection } from "./animation/MotionElements";
+
 type ChallengeItem = {
   title: string;
   description: string;
@@ -15,7 +17,7 @@ export default function BillingChallenges({
   challenges,
 }: BillingChallengesProps) {
   return (
-    <section className="w-full bg-cyan-50 py-16 lg:py-24">
+    <AnimatedSection preset="fade-up" className="w-full bg-cyan-50 py-16 lg:py-24">
       <div className="mx-auto max-w-[1520px] px-6 lg:px-8 2xl:px-0">
         {/* HEADING */}
         <div className="mx-auto mb-12 max-w-4xl text-center lg:mb-16">
@@ -52,6 +54,6 @@ export default function BillingChallenges({
           ))}
         </div>
       </div>
-    </section>
+    </AnimatedSection>
   );
 }
