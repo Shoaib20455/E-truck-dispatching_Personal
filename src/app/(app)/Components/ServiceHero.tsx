@@ -139,7 +139,8 @@ export default function ServiceHero({
             </AnimatedDiv>
 
             {/* RIGHT FORM */}
-            <ParallaxDiv distance={16}>\n            <AnimatedDiv preset="hero-right" delay={0.16} trigger="mount" className="rounded-[14px] border border-sky-500 bg-indigo-50/50 p-7 backdrop-blur-[2.5px] md:p-8">
+            <ParallaxDiv distance={16}>
+            <AnimatedDiv preset="hero-right" delay={0.16} trigger="mount" className="rounded-[14px] border border-sky-500 bg-indigo-50/50 p-7 backdrop-blur-[2.5px] md:p-8">
               <h2
                 className={`mb-7 font-inter text-2xl font-semibold leading-tight text-heading md:text-3xl ${
                   isCompact ? "text-center" : ""
@@ -192,7 +193,9 @@ export default function ServiceHero({
                   {buttonText}
                 </button>
               </form>
-            </AnimatedDiv>\n            </ParallaxDiv>\n          </div>
+            </AnimatedDiv>
+            </ParallaxDiv>
+          </div>
         </div>
       </div>
     </AnimatedSection>
