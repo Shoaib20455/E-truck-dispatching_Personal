@@ -1,4 +1,4 @@
-import { AnimatedSection } from "./animation/MotionElements";
+import { AnimatedSection, StaggerGroup, StaggerArticle } from "./animation/MotionElements";
 
 type GuideItem = {
   title: string;
@@ -40,12 +40,9 @@ export default function ExpertGuides({
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 gap-7 md:grid-cols-2 lg:grid-cols-3">
+        <StaggerGroup stagger={0.08} className="grid grid-cols-1 gap-7 md:grid-cols-2 lg:grid-cols-3">
           {guides.map((guide) => (
-            <article
-              key={`${guide.title}-${guide.image}`}
-              className="overflow-hidden rounded-[30px] bg-white shadow-[0px_10px_20px_rgba(0,0,0,0.08)]"
-            >
+            <StaggerArticle key={`${guide.title}-${guide.image}`} preset="card" hover="lift" className="overflow-hidden rounded-[30px] bg-white shadow-[0px_10px_20px_rgba(0,0,0,0.08)]">
               <img
                 src={guide.image}
                 alt={guide.imageAlt}
@@ -65,9 +62,9 @@ export default function ExpertGuides({
                   {guide.description}
                 </p>
               </div>
-            </article>
+            </StaggerArticle>
           ))}
-        </div>
+        </StaggerGroup>
       </div>
     </AnimatedSection>
   );
