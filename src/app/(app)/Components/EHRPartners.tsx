@@ -1,5 +1,5 @@
 import AppLink from "./navigation/AppLink";
-import { AnimatedSection, StaggerGroup, StaggerItem } from "./animation/MotionElements";
+import { AnimatedHeading, AnimatedSection, StaggerGroup, StaggerItem } from "./animation/MotionElements";
 
 type EHRPartner = {
   logo: string;
@@ -32,9 +32,10 @@ export default function EHRPartners({
       <div className="mx-auto max-w-[1520px] px-6 lg:px-8 2xl:px-0">
         {/* TOP */}
         <div className="mx-auto mb-12 max-w-4xl text-center">
-          <h2 className="mb-5 font-inter text-3xl font-semibold leading-tight text-heading md:text-4xl lg:text-5xl">
-            {heading}
-          </h2>
+          <AnimatedHeading
+            text={heading}
+            className="mb-5 font-inter text-3xl font-semibold leading-tight text-heading md:text-4xl lg:text-5xl"
+          />
 
           <p className="font-manrope text-lg font-normal leading-8 text-zinc-700">
             {description}
