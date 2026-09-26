@@ -1,3 +1,5 @@
+import { AnimatedDiv, AnimatedSection, StaggerGroup, StaggerItem } from "./animation/MotionElements";
+
 type AlternatingServiceItem = {
   title: string;
   description: string;
@@ -15,16 +17,13 @@ export default function AlternatingServiceSections({
   items,
 }: AlternatingServiceSectionsProps) {
   return (
-    <section className="w-full bg-cyan-50 py-14 lg:py-20">
+    <AnimatedSection preset="fade-up" className="w-full bg-cyan-50 py-14 lg:py-20">
       <div className="mx-auto max-w-[1520px] space-y-14 px-6 lg:space-y-20 lg:px-8 2xl:px-0">
         {items.map((item, index) => {
           const imageFirst = index % 2 === 0;
 
           return (
-            <div
-              key={item.title}
-              className="grid grid-cols-1 items-center gap-8 lg:grid-cols-2 lg:gap-16"
-            >
+            <AnimatedDiv key={item.title} preset={imageFirst ? "slide-left" : "slide-right"} className="grid grid-cols-1 items-center gap-8 lg:grid-cols-2 lg:gap-16">
               <div className={imageFirst ? "lg:order-1" : "lg:order-2"}>
                 <img
                   src={item.image}
@@ -42,17 +41,14 @@ export default function AlternatingServiceSections({
                   {item.description}
                 </p>
 
-                <div className="grid grid-cols-1 gap-x-8 gap-y-3 sm:grid-cols-2">
+                <StaggerGroup stagger={0.06} className="grid grid-cols-1 gap-x-8 gap-y-3 sm:grid-cols-2">
                   {item.bullets.map((bullet) => (
-                    <div
-                      key={bullet}
-                      className="flex items-start gap-3 font-manrope text-base font-semibold leading-7 text-heading"
-                    >
+                    <StaggerItem key={bullet} preset="step-left" className="flex items-start gap-3 font-manrope text-base font-semibold leading-7 text-heading">
                       <span className="mt-2 size-2 shrink-0 rounded-full bg-sky-500" />
                       <span>{bullet}</span>
-                    </div>
+                    </StaggerItem>
                   ))}
-                </div>
+                </StaggerGroup>
 
                 {item.footerText && (
                   <p className="mt-6 font-manrope text-lg leading-8 text-zinc-700">
@@ -60,10 +56,10 @@ export default function AlternatingServiceSections({
                   </p>
                 )}
               </div>
-            </div>
+            </AnimatedDiv>
           );
         })}
       </div>
-    </section>
+    </AnimatedSection>
   );
 }
