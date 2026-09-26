@@ -1,3 +1,5 @@
+import { AnimatedDiv } from "./animation/MotionElements";
+
 type DenialCategoryItem = {
   title: string;
   description?: string;
@@ -25,7 +27,7 @@ export default function DenialCategories({
     const borderColor = item.highlighted ? "bg-teal-500" : "bg-sky-300";
 
     return (
-      <div className="drop-shadow-[0_10px_20px_rgba(0,0,0,0.08)]">
+      <AnimatedDiv preset="fade-up" className="drop-shadow-[0_10px_20px_rgba(0,0,0,0.08)]">
         <div
           className={`aspect-square p-px ${borderColor}`}
           style={{
@@ -94,7 +96,7 @@ export default function DenialCategories({
             <HexCard key={item.title} item={item} />
           ))}
         </div>
-      </div>
+      </AnimatedDiv>
     </section>
   );
 }
