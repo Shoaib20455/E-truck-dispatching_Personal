@@ -1,6 +1,6 @@
 import Image from "next/image";
 import AppLink from "./navigation/AppLink";
-import { AnimatedSection } from "./animation/MotionElements";
+import { AnimatedHeading, AnimatedSection, StaggerGroup, StaggerArticle } from "./animation/MotionElements";
 
 type ArticleItem = {
   date: string;
@@ -27,15 +27,16 @@ export default function CaseStudyArticles({
       <div className="mx-auto max-w-[1520px] px-6 lg:px-8 2xl:px-0">
         {/* HEADING */}
         <div className="mx-auto mb-12 max-w-4xl text-center">
-          <h2 className="font-inter text-3xl font-semibold leading-tight text-heading md:text-4xl lg:text-5xl">
-            {heading}
-          </h2>
+          <AnimatedHeading
+            text={heading}
+            className="font-inter text-3xl font-semibold leading-tight text-heading md:text-4xl lg:text-5xl"
+          />
         </div>
 
         {/* ARTICLES */}
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
           {/* FEATURED ARTICLE */}
-          <article className="overflow-hidden rounded-[20px] bg-white shadow-[0px_10px_20px_rgba(0,0,0,0.08)]">
+          <StaggerArticle preset="card" hover="premium" className="overflow-hidden rounded-[20px] bg-white shadow-[0px_10px_20px_rgba(0,0,0,0.08)]">
             <Image src={featuredArticle.image} alt={featuredArticle.imageAlt} width={900} height={394} sizes="(min-width: 1024px) 50vw, 100vw" className="aspect-[16/7] w-full object-cover" />
 
             <div className="p-6 md:p-8">
@@ -55,13 +56,12 @@ export default function CaseStudyArticles({
                 {featuredArticle.description}
               </p>
             </div>
-          </article>
+          </StaggerArticle>
 
           {/* SIDE ARTICLES */}
-          <div className="space-y-8">
+          <StaggerGroup stagger={0.08} className="space-y-8">
             {sideArticles.map((article) => (
-              <article
-                key={`${article.date}-${article.title}`}
+              <StaggerArticle key={`${article.date}-${article.title}`} preset="card" hover="premium"
                 className="grid grid-cols-1 overflow-hidden rounded-[20px] bg-white shadow-[0px_10px_20px_rgba(0,0,0,0.08)] sm:grid-cols-[0.7fr_1.3fr]"
               >
                 <Image src={article.image} alt={article.imageAlt} width={500} height={360} sizes="(min-width: 1024px) 25vw, (min-width: 640px) 35vw, 100vw" className="h-full min-h-52 w-full object-cover" />
@@ -83,9 +83,9 @@ export default function CaseStudyArticles({
                     {article.description}
                   </p>
                 </div>
-              </article>
+              </StaggerArticle>
             ))}
-          </div>
+          </StaggerGroup>
         </div>
       </div>
     </AnimatedSection>
