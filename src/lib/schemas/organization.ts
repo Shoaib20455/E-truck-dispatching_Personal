@@ -1,28 +1,29 @@
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://boxtruckdispatchservices.us";
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL || "https://avenuebillingservices.com";
 
 export function getOrganizationSchema() {
   return {
     "@context": "https://schema.org",
     "@type": "Organization",
-    name: "Box Truck Dispatching",
-    url: siteUrl || undefined,
-    logo: siteUrl ? `${siteUrl}/logo.png` : undefined,
+    name: "Avenue Billing Services",
+    url: siteUrl,
+    logo: `${siteUrl}/Home/1_rectangle_40.png`,
     description:
-      "Box truck dispatch services for owner operators and fleets, including load booking, rate negotiation, paperwork support, and route planning.",
+      "Medical billing, coding, denial management, A/R management, credentialing, state licensing, and revenue cycle management services for healthcare practices across the United States.",
     contactPoint: {
       "@type": "ContactPoint",
-      telephone: "+1 (443) 251-4244",
-      email: "info@boxtruckdispatchservices.us",
+      telephone: "+1-737-787-2147",
+      email: "info@imedclaims.com",
       contactType: "customer support",
       areaServed: "US",
       availableLanguage: "en",
     },
     address: {
       "@type": "PostalAddress",
-      streetAddress: "1250 Logistics Parkway, Suite 400",
-      addressLocality: "Columbus",
-      addressRegion: "OH",
-      postalCode: "43215",
+      streetAddress: "4309 Schubert",
+      addressLocality: "Colleyville",
+      addressRegion: "TX",
+      postalCode: "76034",
       addressCountry: "US",
     },
     areaServed: {
