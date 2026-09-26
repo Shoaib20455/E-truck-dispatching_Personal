@@ -1,4 +1,4 @@
-import { AnimatedHeading, AnimatedSection, ImageReveal, StaggerGroup, StaggerArticle } from "./animation/MotionElements";
+import { AnimatedArticle, AnimatedHeading, AnimatedSection, ImageReveal } from "./animation/MotionElements";
 
 type StateChallenge = {
   title: string;
@@ -40,12 +40,11 @@ export default function StateChallenges({
             />
           </div>
 
-          <StaggerGroup stagger={0.08} className="contents">
-          {challenges.map((challenge) => (
-            <StaggerArticle
+          {challenges.map((challenge, index) => (
+            <AnimatedArticle
               key={challenge.title}
               preset="card"
-              hover="premium"
+              delay={index * 0.06}
               className={
                 challenge.highlighted
                   ? "rounded-[20px] border border-teal-500 bg-teal-500/10 p-7"
@@ -58,9 +57,8 @@ export default function StateChallenges({
               <p className="font-manrope text-lg leading-8 text-neutral-500">
                 {challenge.description}
               </p>
-            </StaggerArticle>
+            </AnimatedArticle>
           ))}
-          </StaggerGroup>
         </div>
       </div>
     </AnimatedSection>
