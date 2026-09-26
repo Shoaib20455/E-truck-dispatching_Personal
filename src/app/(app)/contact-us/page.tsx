@@ -1,3 +1,11 @@
+import { createPageMetadata } from "@/lib/seo";
+
+export const metadata = createPageMetadata({
+  title: "Contact Avenue Billing Services",
+  description: "Contact Avenue Billing Services to discuss medical billing, coding, denial management, credentialing, and revenue cycle support for your practice.",
+  path: "/contact-us",
+});
+
 import ContactDetailsSection from "../Components/ContactDetailsSection";
 import ServiceHero from "../Components/ServiceHero";
 
