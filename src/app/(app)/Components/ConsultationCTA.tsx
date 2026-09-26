@@ -1,3 +1,5 @@
+import { AnimatedSection } from "./animation/MotionElements";
+
 type LogoItem = {
   image: string;
   alt: string;
@@ -37,7 +39,7 @@ export default function ConsultationCTA({
   const isPlain = variant === "plain";
 
   return (
-    <section className="w-full bg-cyan-50 py-14 lg:py-20">
+    <AnimatedSection preset="cta" className="w-full bg-cyan-50 py-14 lg:py-20">
       <div className="mx-auto max-w-[1520px] px-6 lg:px-8 2xl:px-0">
         <div
           className={
@@ -144,6 +146,6 @@ export default function ConsultationCTA({
           </div>
         </div>
       </div>
-    </section>
+    </AnimatedSection>
   );
 }
