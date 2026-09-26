@@ -1,4 +1,4 @@
-import { AnimatedSection } from "./animation/MotionElements";
+import { AnimatedHeading, AnimatedSection, StaggerGroup, StaggerItem } from "./animation/MotionElements";
 
 type ComparisonRow = {
   feature: string;
@@ -29,9 +29,10 @@ export default function ComparisonTable({
         {/* HEADING */}
         {heading && (
           <div className="mx-auto mb-10 max-w-4xl text-center">
-            <h2 className="font-inter text-3xl font-semibold leading-tight text-heading md:text-4xl lg:text-5xl">
-              {heading}
-            </h2>
+            <AnimatedHeading
+              text={heading}
+              className="font-inter text-3xl font-semibold leading-tight text-heading md:text-4xl lg:text-5xl"
+            />
           </div>
         )}
 
@@ -55,11 +56,9 @@ export default function ComparisonTable({
             </div>
 
             {/* ROWS */}
+            <StaggerGroup stagger={0.055} className="contents">
             {rows.map((row) => (
-              <div
-                key={row.feature}
-                className="grid grid-cols-3 border-t border-zinc-300"
-              >
+              <StaggerItem key={row.feature} preset="fade-up" className="grid grid-cols-3 border-t border-zinc-300">
                 <div className="bg-teal-500/10 px-8 py-4 font-manrope text-lg font-semibold text-heading">
                   {row.feature}
                 </div>
@@ -71,8 +70,9 @@ export default function ComparisonTable({
                 <div className="border-l border-zinc-300 bg-white px-8 py-4 font-manrope text-base font-normal leading-7 text-neutral-500">
                   {row.comparison}
                 </div>
-              </div>
+              </StaggerItem>
             ))}
+            </StaggerGroup>
           </div>
         </div>
       </div>
