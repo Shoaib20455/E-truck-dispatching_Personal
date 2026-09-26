@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { AnimatedSection } from "./animation/MotionElements";
 
 type ReviewItem = { label: string; rating: string };
@@ -15,8 +16,18 @@ export default function StateServiceHero({
   eyebrow, heading, description, servedText, backgroundImage, formHeading, reviews,
 }: StateServiceHeroProps) {
   return (
-    <AnimatedSection preset="fade-up" trigger="mount" className="w-full bg-cover bg-center bg-no-repeat" style={{ backgroundImage: `url("${backgroundImage}")` }}>
-      <div className="w-full bg-gradient-to-r from-sky-500/80 via-cyan-500/70 to-teal-500/70 backdrop-blur-[2px]">
+    <AnimatedSection preset="fade-up" trigger="mount" className="relative isolate w-full overflow-hidden">
+      <Image
+        src={backgroundImage}
+        alt=""
+        fill
+        priority
+        fetchPriority="high"
+        sizes="100vw"
+        className="-z-10 object-cover"
+        aria-hidden="true"
+      />
+      <div className="relative z-10 w-full bg-gradient-to-r from-sky-500/80 via-cyan-500/70 to-teal-500/70 backdrop-blur-[2px]">
         <div className="mx-auto max-w-[1520px] px-6 py-12 lg:px-8 lg:py-16 2xl:px-0">
           <div className="grid grid-cols-1 items-start gap-10 lg:grid-cols-[1.05fr_0.8fr] lg:gap-16">
             <div className="text-white">
