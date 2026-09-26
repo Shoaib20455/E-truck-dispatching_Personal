@@ -1,3 +1,11 @@
+import { createPageMetadata } from "@/lib/seo";
+
+export const metadata = createPageMetadata({
+  title: "Revenue Cycle Management Services by Location",
+  description: "Explore revenue cycle management and medical billing support available to healthcare practices across U.S. service locations.",
+  path: "/rcm-services-location",
+});
+
 import BillingIntelligence from "../Components/BillingIntelligence";
 import BillingProcess from "../Components/BillingProcess";
 import BillingSolutions from "../Components/BillingSolutions";
