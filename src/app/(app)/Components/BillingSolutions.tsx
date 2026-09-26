@@ -1,3 +1,5 @@
+import { AnimatedSection } from "./animation/MotionElements";
+
 type BillingSolutionItem = {
   title: string;
   description: string;
@@ -20,7 +22,7 @@ export default function BillingSolutions({
   const isOutsource = variant === "outsource";
 
   return (
-    <section
+    <AnimatedSection preset="fade-up"
       className={`w-full py-14 lg:py-20 ${
         isOutsource ? "bg-cyan-50" : "bg-teal-500/10"
       }`}
@@ -89,6 +91,6 @@ export default function BillingSolutions({
           ))}
         </div>
       </div>
-    </section>
+    </AnimatedSection>
   );
 }
