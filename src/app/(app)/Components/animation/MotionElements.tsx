@@ -34,7 +34,16 @@ export type RevealPreset =
   | "logo"
   | "stat"
   | "step-left"
-  | "step-right";
+  | "step-right"
+  | "hex-left"
+  | "hex-right"
+  | "pill-left"
+  | "pill-right"
+  | "panel-left"
+  | "panel-right"
+  | "tile-left"
+  | "tile-right"
+  | "map-pop";
 
 type PresetDefinition = {
   hidden: Record<string, number | string>;
@@ -115,6 +124,60 @@ const presets: Record<RevealPreset, PresetDefinition> = {
     hidden: { opacity: 0, x: 36, y: 12, filter: "blur(5px)" },
     visible: { opacity: 1, x: 0, y: 0, filter: "blur(0px)" },
     duration: 0.6,
+    spring: true,
+  },
+  "hex-left": {
+    hidden: { opacity: 0, x: -34, y: 18, scale: 0.86, rotate: -5, filter: "blur(7px)" },
+    visible: { opacity: 1, x: 0, y: 0, scale: 1, rotate: 0, filter: "blur(0px)" },
+    duration: 0.72,
+    spring: true,
+  },
+  "hex-right": {
+    hidden: { opacity: 0, x: 34, y: 18, scale: 0.86, rotate: 5, filter: "blur(7px)" },
+    visible: { opacity: 1, x: 0, y: 0, scale: 1, rotate: 0, filter: "blur(0px)" },
+    duration: 0.72,
+    spring: true,
+  },
+  "pill-left": {
+    hidden: { opacity: 0, x: -74, scale: 0.94, filter: "blur(7px)" },
+    visible: { opacity: 1, x: 0, scale: 1, filter: "blur(0px)" },
+    duration: 0.68,
+    spring: true,
+  },
+  "pill-right": {
+    hidden: { opacity: 0, x: 74, scale: 0.94, filter: "blur(7px)" },
+    visible: { opacity: 1, x: 0, scale: 1, filter: "blur(0px)" },
+    duration: 0.68,
+    spring: true,
+  },
+  "panel-left": {
+    hidden: { opacity: 0, x: -56, y: 20, scale: 0.975, filter: "blur(8px)" },
+    visible: { opacity: 1, x: 0, y: 0, scale: 1, filter: "blur(0px)" },
+    duration: 0.8,
+    spring: true,
+  },
+  "panel-right": {
+    hidden: { opacity: 0, x: 56, y: 20, scale: 0.975, filter: "blur(8px)" },
+    visible: { opacity: 1, x: 0, y: 0, scale: 1, filter: "blur(0px)" },
+    duration: 0.8,
+    spring: true,
+  },
+  "tile-left": {
+    hidden: { opacity: 0, x: -24, y: 30, scale: 0.955, rotateY: -7, filter: "blur(6px)" },
+    visible: { opacity: 1, x: 0, y: 0, scale: 1, rotateY: 0, filter: "blur(0px)" },
+    duration: 0.7,
+    spring: true,
+  },
+  "tile-right": {
+    hidden: { opacity: 0, x: 24, y: 30, scale: 0.955, rotateY: 7, filter: "blur(6px)" },
+    visible: { opacity: 1, x: 0, y: 0, scale: 1, rotateY: 0, filter: "blur(0px)" },
+    duration: 0.7,
+    spring: true,
+  },
+  "map-pop": {
+    hidden: { opacity: 0, y: 28, scale: 0.86, rotate: -3, filter: "blur(8px)" },
+    visible: { opacity: 1, y: 0, scale: 1, rotate: 0, filter: "blur(0px)" },
+    duration: 0.82,
     spring: true,
   },
 };
