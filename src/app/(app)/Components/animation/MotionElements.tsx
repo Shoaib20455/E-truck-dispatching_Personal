@@ -258,7 +258,7 @@ export function AnimatedHeading({
   };
 
   const content = words.map((item, index) => (
-    <span key={`${item}-${index}`}>
+    <span key={`${item}-${index}`} aria-hidden="true">
       <span className="inline-block overflow-hidden align-bottom">
         <motion.span
           className="inline-block origin-bottom will-change-transform"
@@ -273,6 +273,7 @@ export function AnimatedHeading({
 
   const props = {
     className,
+    "aria-label": text,
     variants: container,
     initial: "hidden" as const,
     ...triggerProps(trigger, 0.15),
