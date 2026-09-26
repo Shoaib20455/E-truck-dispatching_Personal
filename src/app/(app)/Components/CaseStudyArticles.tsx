@@ -1,3 +1,5 @@
+import { AnimatedSection } from "./animation/MotionElements";
+
 type ArticleItem = {
   date: string;
   title: string;
@@ -19,7 +21,7 @@ export default function CaseStudyArticles({
   sideArticles,
 }: CaseStudyArticlesProps) {
   return (
-    <section className="w-full bg-cyan-50 py-14 lg:py-20">
+    <AnimatedSection preset="fade-up" className="w-full bg-cyan-50 py-14 lg:py-20">
       <div className="mx-auto max-w-[1520px] px-6 lg:px-8 2xl:px-0">
         {/* HEADING */}
         <div className="mx-auto mb-12 max-w-4xl text-center">
@@ -96,6 +98,6 @@ export default function CaseStudyArticles({
           </div>
         </div>
       </div>
-    </section>
+    </AnimatedSection>
   );
 }
