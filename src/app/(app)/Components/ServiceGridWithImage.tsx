@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { AnimatedSection } from "./animation/MotionElements";
+import { AnimatedDiv, AnimatedHeading, AnimatedSection, ImageReveal, StaggerGroup, StaggerItem } from "./animation/MotionElements";
 
 type ServiceCard = {
   title: string;
@@ -35,23 +35,25 @@ export default function ServiceGridWithImage({
           }`}
         >
           {/* LEFT SIDE */}
-          <div>
-            <h2 className="mb-8 font-inter text-3xl font-semibold leading-tight text-heading md:text-4xl lg:text-5xl">
-              {heading}
-            </h2>
+          <AnimatedDiv preset="slide-left">
+            <AnimatedHeading
+              text={heading}
+              className="mb-8 font-inter text-3xl font-semibold leading-tight text-heading md:text-4xl lg:text-5xl"
+            />
 
-            <Image
+            <ImageReveal><Image
               src={image}
               alt={imageAlt}
               width={900}
               height={700}
               sizes="(min-width: 1024px) 45vw, 100vw"
               className={`h-auto w-full rounded-[20px] object-cover ${isCompact ? "shadow-[0px_10px_20px_rgba(0,0,0,0.10)]" : ""}`}
-            />
-          </div>
+            /></ImageReveal>
+          </AnimatedDiv>
 
           {/* RIGHT SIDE */}
-          <div
+          <StaggerGroup
+            stagger={0.075}
             className={`grid grid-cols-1 gap-5 ${
               isCompact
                 ? "grid-cols-2 md:grid-cols-4"
@@ -59,8 +61,10 @@ export default function ServiceGridWithImage({
             }`}
           >
             {services.map((service) => (
-              <div
+              <StaggerItem
                 key={service.title}
+                preset="card"
+                hover="premium"
                 className={`rounded-[20px] ${
                   isCompact ? "p-5 text-center" : "p-7 md:p-8"
                 } ${
@@ -90,9 +94,9 @@ export default function ServiceGridWithImage({
                 >
                   {service.description}
                 </p>
-              </div>
+              </StaggerItem>
             ))}
-          </div>
+          </StaggerGroup>
         </div>
       </div>
     </AnimatedSection>
