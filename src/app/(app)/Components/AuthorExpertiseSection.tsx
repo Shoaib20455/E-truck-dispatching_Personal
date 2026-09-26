@@ -40,7 +40,7 @@ export default function AuthorExpertiseSection({
                 />
               </HoverIcon>
 
-              <h3> className="mt-7 max-w-[240px] font-inter text-xl font-semibold leading-8 text-heading">
+              <h3 className="mt-7 max-w-[240px] font-inter text-xl font-semibold leading-8 text-heading">
                 {item.title}
               </h3>
             </StaggerArticle>
