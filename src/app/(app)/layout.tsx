@@ -5,6 +5,7 @@ import { getOrganizationSchema } from "@/lib/schemas/organization";
 import Navbar from "./Components/Navbar";
 import Footer from "./Components/Footer";
 import MotionProvider from "./Components/animation/MotionProvider";
+import LenisProvider from "./Components/animation/LenisProvider";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -78,9 +79,11 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }}
         />
         <MotionProvider>
-          <Navbar />
-          {children}
-          <Footer />
+          <LenisProvider>
+            <Navbar />
+            {children}
+            <Footer />
+          </LenisProvider>
         </MotionProvider>
       </body>
     </html>
