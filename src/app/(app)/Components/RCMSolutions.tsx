@@ -1,4 +1,4 @@
-import { AnimatedSection } from "./animation/MotionElements";
+import { AnimatedSection, StaggerGroup, StaggerItem } from "./animation/MotionElements";
 
 type ServiceItem = {
   title: string;
@@ -30,10 +30,12 @@ export default function RCMSolutions({
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <StaggerGroup stagger={0.07} className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {services.map((service) => (
-            <div
+            <StaggerItem
               key={service.title}
+              preset="card"
+              hover="lift"
               className={
                 isProcedure
                   ? "flex min-h-40 flex-col items-center justify-center rounded-[10px] bg-white px-5 py-6 text-center shadow-[0px_10px_20px_rgba(0,0,0,0.08)] " +
@@ -72,9 +74,9 @@ export default function RCMSolutions({
                   {service.description}
                 </p>
               )}
-            </div>
+            </StaggerItem>
           ))}
-        </div>
+        </StaggerGroup>
       </div>
     </AnimatedSection>
   );
