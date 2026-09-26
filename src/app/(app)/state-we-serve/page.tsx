@@ -1,3 +1,11 @@
+import { createPageMetadata } from "@/lib/seo";
+
+export const metadata = createPageMetadata({
+  title: "Medical Billing Services Across U.S. States",
+  description: "Explore medical billing and revenue-cycle support from Avenue Billing Services across U.S. states.",
+  path: "/state-we-serve",
+});
+
 import FAQSection from "../Components/FAQSection";
 import ServiceHero from "../Components/ServiceHero";
 import SpecialtyIntro from "../Components/SpecialtyIntro";
