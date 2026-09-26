@@ -1,5 +1,5 @@
 import AppLink from "./navigation/AppLink";
-import { AnimatedDiv } from "./animation/MotionElements";
+import { AnimatedDiv, AnimatedHeading, StaggerGroup, StaggerArticle, StaggerItem } from "./animation/MotionElements";
 
 export type ContactCard = {
   title: string;
@@ -28,18 +28,18 @@ export default function ContactInformationPanel({
 }: ContactInformationPanelProps) {
   return (
     <AnimatedDiv preset="fade-up" className="min-w-0">
-      <h2 className="font-inter text-3xl font-semibold leading-10 text-heading md:text-4xl">
-        {heading}
-      </h2>
+      <AnimatedHeading
+        text={heading}
+        className="font-inter text-3xl font-semibold leading-10 text-heading md:text-4xl"
+      />
 
       <p className="mt-6 max-w-[510px] font-manrope text-base font-normal leading-8 text-neutral-500 md:text-lg">
         {description}
       </p>
 
-      <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-3">
+      <StaggerGroup stagger={0.075} className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-3">
         {cards.map((card) => (
-          <article
-            key={card.title}
+          <StaggerArticle key={card.title} preset="card" hover="premium"
             className="flex min-h-[145px] flex-col items-center rounded-[20px] bg-primary-light px-4 py-4 text-center text-white shadow-[0px_10px_20px_rgba(0,0,0,0.10)]"
           >
             <span className="flex size-8 items-center justify-center">
@@ -55,22 +55,23 @@ export default function ContactInformationPanel({
                 <div key={line}>{line}</div>
               ))}
             </div>
-          </article>
+          </StaggerArticle>
         ))}
-      </div>
+      </StaggerGroup>
 
-      <div className="mt-7 flex min-h-20 items-center justify-around rounded-[10px] bg-primary-light px-6">
+      <StaggerGroup stagger={0.06} className="mt-7 flex min-h-20 items-center justify-around rounded-[10px] bg-primary-light px-6">
         {socialLinks.map((item) => (
+          <StaggerItem key={item.label} preset="logo" hover="soft">
           <AppLink
-            key={item.label}
             href={item.href}
             aria-label={item.label}
             className="flex size-11 items-center justify-center rounded-sm bg-white font-inter text-xl font-bold text-primary-light"
           >
             {item.mark}
           </AppLink>
+          </StaggerItem>
         ))}
-      </div>
+      </StaggerGroup>
     </AnimatedDiv>
   );
 }
