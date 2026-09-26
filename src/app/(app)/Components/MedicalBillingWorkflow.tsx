@@ -1,4 +1,4 @@
-import { AnimatedDiv, AnimatedHeading, AnimatedSection, ImageReveal, ParallaxDiv, StaggerGroup, StaggerItem } from "./animation/MotionElements";
+import { AnimatedDiv, AnimatedHeading, AnimatedSection, ImageReveal, ParallaxDiv, ScrollRotateDiv, StaggerGroup, StaggerItem } from "./animation/MotionElements";
 
 type WorkflowStep = {
   label: string;
@@ -98,11 +98,16 @@ export default function MedicalBillingWorkflow({
           <ParallaxDiv distance={26} className="relative flex min-h-[520px] items-end justify-center lg:min-h-[620px]">
             <ImageReveal className="relative flex h-full w-full items-end justify-center">
             {ringImage && (
-              <img
-                src={ringImage}
-                alt={ringImageAlt}
-                className="pointer-events-none absolute left-1/2 top-8 z-0 w-[82%] max-w-[560px] -translate-x-1/2 object-contain lg:top-10"
-              />
+              <ScrollRotateDiv
+                degrees={8}
+                className="pointer-events-none absolute left-1/2 top-8 z-0 w-[82%] max-w-[560px] -translate-x-1/2 lg:top-10"
+              >
+                <img
+                  src={ringImage}
+                  alt={ringImageAlt}
+                  className="w-full object-contain"
+                />
+              </ScrollRotateDiv>
             )}
 
             <img
