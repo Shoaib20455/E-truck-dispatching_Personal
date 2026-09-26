@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { AnimatedDiv, AnimatedHeading, AnimatedSection, ImageReveal, ParallaxDiv, StaggerGroup, StaggerItem } from "./animation/MotionElements";
 
 type ProcessStep = {
@@ -28,11 +29,7 @@ export default function BillingProcess({
             {/* LEFT IMAGE */}
             <ParallaxDiv distance={20}>
               <ImageReveal className="h-full">
-                <img
-                  src={image}
-                  alt={imageAlt}
-                  className="h-full w-full object-cover"
-                />
+                <Image src={image} alt={imageAlt} width={900} height={900} sizes="(min-width: 1024px) 45vw, 100vw" className="h-full w-full object-cover" />
               </ImageReveal>
             </ParallaxDiv>
 
