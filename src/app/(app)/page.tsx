@@ -1,3 +1,11 @@
+import { createPageMetadata } from "@/lib/seo";
+
+export const metadata = createPageMetadata({
+  title: "Medical Billing Services & RCM Solutions",
+  description: "Medical billing, coding, denial management, A/R management, credentialing, and revenue cycle management services for U.S. healthcare practices.",
+  path: "/",
+});
+
 import BillingChallenges from "./Components/BillingChallenges";
 import BillingProcess from "./Components/BillingProcess";
 import CaseStudyArticles from "./Components/CaseStudyArticles";
