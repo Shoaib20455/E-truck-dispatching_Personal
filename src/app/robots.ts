@@ -2,10 +2,7 @@ import type { MetadataRoute } from "next";
 
 function getSiteUrl() {
   return (
-    process.env.NEXT_PUBLIC_SITE_URL ??
-    (process.env.VERCEL_PROJECT_PRODUCTION_URL
-      ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
-      : "http://localhost:3000")
+    process.env.NEXT_PUBLIC_SITE_URL || "https://avenuebillingservices.com"
   ).replace(/\/$/, "");
 }
 
@@ -16,7 +13,7 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: "*",
       allow: "/",
-      disallow: ["/admin/", "/api/", "/my-route/"],
+      disallow: ["/admin/", "/api/"],
     },
     sitemap: `${siteUrl}/sitemap.xml`,
     host: siteUrl,
