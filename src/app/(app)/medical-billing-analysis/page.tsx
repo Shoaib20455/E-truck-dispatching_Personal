@@ -1,3 +1,11 @@
+import { createPageMetadata } from "@/lib/seo";
+
+export const metadata = createPageMetadata({
+  title: "Medical Billing Analysis Services",
+  description: "Medical billing analysis services to identify denial patterns, A/R issues, workflow gaps, underpayments, and revenue leakage.",
+  path: "/medical-billing-analysis",
+});
+
 import BillingSolutions from "../Components/BillingSolutions";
 import DenialCategories from "../Components/DenialCategories";
 import EHRPartners from "../Components/EHRPartners";
