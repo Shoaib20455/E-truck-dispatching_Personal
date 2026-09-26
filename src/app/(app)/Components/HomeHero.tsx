@@ -101,7 +101,7 @@ export default function HomeHero({
 
             {/* RIGHT FORM */}
             <ParallaxDiv distance={18} className="w-full max-w-[654px] xl:ml-auto">
-            <AnimatedDiv preset="hero-right" delay={0.16} trigger="mount" className="w-full overflow-hidden rounded-[32px] bg-[#EBF3FA] px-7 pb-10 pt-8 shadow-[0px_25px_50px_-12px_rgba(0,96,168,0.10)] outline outline-1 outline-offset-[-1px] outline-[#419EFC]/20 backdrop-blur-lg sm:px-10 sm:pb-14 sm:pt-10 xl:ml-auto">
+              <AnimatedDiv preset="hero-right" delay={0.16} trigger="mount" className="w-full overflow-hidden rounded-[32px] bg-[#EBF3FA] px-7 pb-10 pt-8 shadow-[0px_25px_50px_-12px_rgba(0,96,168,0.10)] outline outline-1 outline-offset-[-1px] outline-[#419EFC]/20 backdrop-blur-lg sm:px-10 sm:pb-14 sm:pt-10 xl:ml-auto">
               <h2 className="text-center font-inter text-3xl font-semibold leading-9 text-heading">
                 Talk to an Expert
               </h2>
@@ -153,7 +153,7 @@ export default function HomeHero({
                   </StaggerItem>
                 </StaggerGroup>
               </form>
-            </AnimatedDiv>
+              </AnimatedDiv>
             </ParallaxDiv>
           </div>
         </div>
