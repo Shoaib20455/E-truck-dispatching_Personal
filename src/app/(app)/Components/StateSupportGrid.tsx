@@ -1,3 +1,5 @@
+import { AnimatedSection } from "./animation/MotionElements";
+
 type StateSupportGridProps = {
   heading: string;
   description?: string;
@@ -24,7 +26,7 @@ export default function StateSupportGrid({
   const isMap = variant === "map";
 
   return (
-    <section className="w-full bg-cyan-50 py-14 lg:py-20">
+    <AnimatedSection preset="fade-up" className="w-full bg-cyan-50 py-14 lg:py-20">
       <div className="mx-auto max-w-[1520px] px-6 lg:px-8 2xl:px-0">
         {isMap ? (
           <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-[0.7fr_1.3fr] lg:gap-14">
@@ -100,6 +102,6 @@ export default function StateSupportGrid({
           </>
         )}
       </div>
-    </section>
+    </AnimatedSection>
   );
 }
