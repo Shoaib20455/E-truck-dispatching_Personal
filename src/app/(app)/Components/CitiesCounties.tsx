@@ -1,3 +1,5 @@
+import { AnimatedSection } from "./animation/MotionElements";
+
 type LocationList = {
   title: string;
   icon: string;
@@ -23,7 +25,7 @@ export default function CitiesCounties({
   mapAlt,
 }: CitiesCountiesProps) {
   return (
-    <section className="w-full bg-cyan-50 py-14 lg:py-20">
+    <AnimatedSection preset="fade-up" className="w-full bg-cyan-50 py-14 lg:py-20">
       <div className="mx-auto max-w-[1520px] px-6 lg:px-8 2xl:px-0">
         {/* HEADING */}
         <div className="mx-auto mb-12 max-w-3xl text-center">
@@ -51,7 +53,7 @@ export default function CitiesCounties({
           <LocationCard {...rightList} bordered />
         </div>
       </div>
-    </section>
+    </AnimatedSection>
   );
 }
 
