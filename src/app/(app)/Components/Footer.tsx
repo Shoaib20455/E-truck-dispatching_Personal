@@ -1,3 +1,5 @@
+import { AnimatedDiv } from "./animation/MotionElements";
+
 import Image from "next/image";
 import Link from "next/link";
 
@@ -50,7 +52,7 @@ const news = [
 
 export default function Footer() {
   return (
-    <footer className="w-full bg-accent/10">
+    <AnimatedDiv preset="fade" className="w-full bg-accent/10">
       <div className="mx-auto w-full max-w-[1520px] px-6 py-12 lg:px-8 2xl:px-0">
         <div className="grid grid-cols-1 gap-12 md:grid-cols-2 2xl:grid-cols-[287px_1fr_1.35fr_1fr] 2xl:gap-20">
           <div>
@@ -207,7 +209,7 @@ export default function Footer() {
           © 2025 I-Medical Billing. | All Rights Reserved
         </div>
       </div>
-    </footer>
+    </AnimatedDiv>
   );
 }
 
