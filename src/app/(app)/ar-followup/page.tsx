@@ -1,3 +1,11 @@
+import { createPageMetadata } from "@/lib/seo";
+
+export const metadata = createPageMetadata({
+  title: "Medical Billing A/R Follow-Up Services",
+  description: "Accounts receivable follow-up services for unpaid medical claims, aging balances, payer follow-up, and revenue recovery.",
+  path: "/ar-followup",
+});
+
 import BillingChallenges from "../Components/BillingChallenges";
 import BillingProcess from "../Components/BillingProcess";
 import BillingSolutions from "../Components/BillingSolutions";
