@@ -1,4 +1,4 @@
-import { AnimatedSection } from "./animation/MotionElements";
+import { AnimatedSection, StaggerGroup, StaggerArticle } from "./animation/MotionElements";
 
 import SectionHeading from "./SectionHeading";
 
@@ -21,10 +21,9 @@ export default function OurApproachSection({
       <div className="mx-auto w-full max-w-[1520px] px-6 lg:px-8 2xl:px-0">
         <SectionHeading title={heading} />
 
-        <div className="mt-12 grid grid-cols-1 gap-7 lg:grid-cols-3">
+        <StaggerGroup stagger={0.08} className="mt-12 grid grid-cols-1 gap-7 lg:grid-cols-3">
           {items.map((item) => (
-            <article
-              key={item.title}
+            <StaggerArticle key={item.title} preset="card" hover="premium"
               className="rounded-[30px] border border-dashed border-primary-light bg-indigo-50 px-10 py-14 text-center"
             >
               <h3 className="font-inter text-2xl font-semibold leading-9 text-heading md:text-3xl md:leading-10">
@@ -33,9 +32,9 @@ export default function OurApproachSection({
               <p className="mx-auto mt-5 max-w-sm font-manrope text-base font-normal leading-8 text-neutral-500 md:text-lg">
                 {item.description}
               </p>
-            </article>
+            </StaggerArticle>
           ))}
-        </div>
+        </StaggerGroup>
       </div>
     </AnimatedSection>
   );
