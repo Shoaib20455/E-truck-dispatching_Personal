@@ -43,8 +43,8 @@ export default function WhyTrustABS({
           </StaggerItem>
 
           {/* OTHER CARDS */}
-          {cards.map((card) => (
-            <StaggerItem key={card.title} preset="card" hover="premium" className="rounded-[20px] bg-white p-8">
+          {cards.map((card, index) => (
+            <StaggerItem key={card.title} preset={index % 2 === 0 ? "tile-left" : "tile-right"} hover="premium" className="rounded-[20px] bg-white p-8">
               <h3 className="mb-5 font-inter text-2xl font-semibold leading-tight text-heading md:text-3xl">
                 {card.title}
               </h3>
