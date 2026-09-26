@@ -61,7 +61,7 @@ export default function ContactInformationPanel({
 
       <div className="mt-7 flex min-h-20 items-center justify-around rounded-[10px] bg-primary-light px-6">
         {socialLinks.map((item) => (
-          <a
+          <AppLink
             key={item.label}
             href={item.href}
             aria-label={item.label}
