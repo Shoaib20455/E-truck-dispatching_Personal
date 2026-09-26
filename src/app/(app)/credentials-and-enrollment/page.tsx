@@ -1,3 +1,11 @@
+import { createPageMetadata } from "@/lib/seo";
+
+export const metadata = createPageMetadata({
+  title: "Provider Credentialing & Enrollment",
+  description: "Provider credentialing, payer enrollment, revalidation, and enrollment support for healthcare practices and medical providers.",
+  path: "/credentials-and-enrollment",
+});
+
 import AlternatingServiceSections from "../Components/AlternatingServiceSections";
 import BillingSolutions from "../Components/BillingSolutions";
 import EHRPartners from "../Components/EHRPartners";
