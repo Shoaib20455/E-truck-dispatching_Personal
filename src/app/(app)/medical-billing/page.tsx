@@ -1,3 +1,11 @@
+import { createPageMetadata } from "@/lib/seo";
+
+export const metadata = createPageMetadata({
+  title: "Medical Billing Services",
+  description: "End-to-end medical billing services designed to improve claim accuracy, reduce denials, and strengthen healthcare practice cash flow.",
+  path: "/medical-billing",
+});
+
 import BillingIntelligence from "../Components/BillingIntelligence";
 import BillingProcess from "../Components/BillingProcess";
 import BillingSolutions from "../Components/BillingSolutions";
