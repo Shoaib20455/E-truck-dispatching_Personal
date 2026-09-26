@@ -1,3 +1,5 @@
+import { AnimatedSection } from "./animation/MotionElements";
+
 import Image from "next/image";
 
 export type CoreValueItem = {
@@ -21,7 +23,7 @@ export default function CoreValuesSection({
   openIndex = 0,
 }: CoreValuesSectionProps) {
   return (
-    <section className="w-full bg-accent/10 py-16 lg:py-20">
+    <AnimatedSection preset="fade-up" className="w-full bg-accent/10 py-16 lg:py-20">
       <div className="mx-auto w-full max-w-[1520px] px-6 lg:px-8 2xl:px-0">
         <h2 className="text-center font-inter text-4xl font-semibold leading-tight text-heading md:text-5xl">
           {heading}
@@ -66,6 +68,6 @@ export default function CoreValuesSection({
           </div>
         </div>
       </div>
-    </section>
+    </AnimatedSection>
   );
 }
