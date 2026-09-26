@@ -29,8 +29,8 @@ export default function CaseStudyApproachSection({
         </div>
 
         <StaggerGroup stagger={0.08} className="mt-12 grid grid-cols-1 gap-7 lg:grid-cols-3">
-          {items.map((item) => (
-            <StaggerArticle key={item.title} preset="card" hover="premium"
+          {items.map((item, index) => (
+            <StaggerArticle key={item.title} preset={index % 2 === 0 ? "tile-left" : "tile-right"} hover="premium"
               className="rounded-[30px] border border-primary-light bg-white px-9 py-12 text-center"
             >
               <h3 className="font-inter text-2xl font-semibold leading-10 text-heading md:text-3xl">
