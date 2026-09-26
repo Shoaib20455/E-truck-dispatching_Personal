@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
-import { AnimatedSection, StaggerGroup, StaggerItem } from "./animation/MotionElements";
+import { AnimatedHeading, AnimatedSection, StaggerGroup, StaggerItem } from "./animation/MotionElements";
 
 type FAQItem = {
   question: string;
@@ -33,9 +33,10 @@ export default function FAQSection({
       <div className="mx-auto max-w-[1520px] px-6 lg:px-8 2xl:px-0">
         {/* HEADING */}
         <div className="mx-auto mb-12 max-w-5xl text-center">
-          <h2 className="font-inter text-3xl font-semibold leading-tight text-heading md:text-4xl lg:text-5xl">
-            {heading}
-          </h2>
+          <AnimatedHeading
+            text={heading}
+            className="font-inter text-3xl font-semibold leading-tight text-heading md:text-4xl lg:text-5xl"
+          />
         </div>
 
         {/* FAQ LIST */}
@@ -47,6 +48,8 @@ export default function FAQSection({
               <StaggerItem
                 key={faq.question}
                 preset="card"
+                hover="soft"
+                layout
                 className={`bg-white px-7 md:px-10 ${
                   isOpen ? "rounded-[30px] py-7" : "rounded-[20px] py-5"
                 }`}
@@ -75,9 +78,9 @@ export default function FAQSection({
                     <AnimatePresence initial={false}>
                       {isOpen && (
                         <motion.div
-                          initial={{ height: 0, opacity: 0 }}
-                          animate={{ height: "auto", opacity: 1 }}
-                          exit={{ height: 0, opacity: 0 }}
+                          initial={{ height: 0, opacity: 0, filter: "blur(6px)" }}
+                          animate={{ height: "auto", opacity: 1, filter: "blur(0px)" }}
+                          exit={{ height: 0, opacity: 0, filter: "blur(4px)" }}
                           transition={{
                             height: { duration: 0.32, ease: [0.22, 1, 0.36, 1] },
                             opacity: { duration: 0.22 },
