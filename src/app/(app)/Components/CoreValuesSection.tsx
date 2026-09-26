@@ -1,4 +1,4 @@
-import { AnimatedSection } from "./animation/MotionElements";
+import { AnimatedHeading, AnimatedSection, ScrollRotateDiv, StaggerGroup, StaggerItem } from "./animation/MotionElements";
 
 import Image from "next/image";
 
@@ -25,12 +25,13 @@ export default function CoreValuesSection({
   return (
     <AnimatedSection preset="fade-up" className="w-full bg-accent/10 py-16 lg:py-20">
       <div className="mx-auto w-full max-w-[1520px] px-6 lg:px-8 2xl:px-0">
-        <h2 className="text-center font-inter text-4xl font-semibold leading-tight text-heading md:text-5xl">
-          {heading}
-        </h2>
+        <AnimatedHeading
+          text={heading}
+          className="text-center font-inter text-4xl font-semibold leading-tight text-heading md:text-5xl"
+        />
 
         <div className="mt-12 grid grid-cols-1 items-center gap-12 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.2fr)] lg:gap-20">
-          <div className="flex items-center justify-center py-8">
+          <ScrollRotateDiv degrees={3} className="flex items-center justify-center py-8">
             <div className="relative size-[270px] rotate-45 rounded-[42px] border-[8px] border-primary-light bg-sky-100 sm:size-[320px] lg:size-[350px]">
               <div className="absolute inset-[16px] overflow-hidden rounded-[32px] bg-sky-100">
                 <div className="absolute left-1/2 top-1/2 size-[430px] -translate-x-1/2 -translate-y-1/2 -rotate-45">
@@ -44,11 +45,11 @@ export default function CoreValuesSection({
                 </div>
               </div>
             </div>
-          </div>
+          </ScrollRotateDiv>
 
-          <div className="space-y-3">
+          <StaggerGroup stagger={0.07} className="space-y-3">
             {values.map((value, index) => (
-              <div key={value.title} className="rounded-2xl bg-white px-5 py-4">
+              <StaggerItem key={value.title} preset="card" hover="lift" className="rounded-2xl bg-white px-5 py-4">
                 <div className="flex items-center justify-between gap-5">
                   <h3 className="font-inter text-xl font-semibold leading-8 text-heading md:text-2xl">
                     {value.title}
@@ -63,9 +64,9 @@ export default function CoreValuesSection({
                     {value.description}
                   </p>
                 )}
-              </div>
+              </StaggerItem>
             ))}
-          </div>
+          </StaggerGroup>
         </div>
       </div>
     </AnimatedSection>
