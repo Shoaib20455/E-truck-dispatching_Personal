@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { AnimatedDiv, AnimatedHeading, AnimatedSection, ParallaxDiv, StaggerGroup, StaggerItem } from "./animation/MotionElements";
 
 type HighlightItem = {
@@ -51,16 +52,24 @@ export default function ServiceHero({
     <AnimatedSection
       preset="fade"
       trigger="mount"
-      className="w-full bg-cover bg-center bg-no-repeat"
-      style={{
-        backgroundImage: `url("${backgroundImage}")`,
-      }}
+      className="relative isolate w-full overflow-hidden"
+    >
+      <Image
+        src={backgroundImage}
+        alt=""
+        fill
+        priority
+        fetchPriority="high"
+        sizes="100vw"
+        className="-z-10 object-cover"
+        aria-hidden="true"
+      /
     >
       <div
         className={
           isCompact
-            ? "w-full bg-gradient-to-r from-sky-500/75 to-teal-500/75 backdrop-blur-[2px]"
-            : "w-full bg-gradient-to-r from-sky-500/80 via-cyan-500/70 to-teal-500/70 backdrop-blur-[2px]"
+            ? "relative z-10 w-full bg-gradient-to-r from-sky-500/75 to-teal-500/75 backdrop-blur-[2px]"
+            : "relative z-10 w-full bg-gradient-to-r from-sky-500/80 via-cyan-500/70 to-teal-500/70 backdrop-blur-[2px]"
         }
       >
         <div className="mx-auto max-w-[1520px] px-6 py-12 lg:px-8 lg:py-16 2xl:px-0">
