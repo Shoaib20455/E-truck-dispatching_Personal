@@ -830,6 +830,23 @@ export interface Page {
             blockType: 'smallPractices';
           }
         | {
+            partners: {
+              name: string;
+              /**
+               * Wide logo works best. The existing component keeps logos at a consistent visual height.
+               */
+              logo: number | Media;
+              /**
+               * Falls back to the selected media alt text, then the partner name.
+               */
+              alt?: string | null;
+              id?: string | null;
+            }[];
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'softwarePartners';
+          }
+        | {
             heading: string;
             services: {
               title: string;
@@ -1679,6 +1696,20 @@ export interface PagesSelect<T extends boolean = true> {
               cardLinkHref?: T;
               image?: T;
               imageAlt?: T;
+              id?: T;
+              blockName?: T;
+            };
+        softwarePartners?:
+          | T
+          | {
+              partners?:
+                | T
+                | {
+                    name?: T;
+                    logo?: T;
+                    alt?: T;
+                    id?: T;
+                  };
               id?: T;
               blockName?: T;
             };
