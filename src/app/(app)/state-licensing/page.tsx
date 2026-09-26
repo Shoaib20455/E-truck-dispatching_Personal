@@ -1,3 +1,11 @@
+import { createPageMetadata } from "@/lib/seo";
+
+export const metadata = createPageMetadata({
+  title: "Medical State Licensing Services",
+  description: "State medical licensing support for providers expanding, renewing, and maintaining healthcare licenses across U.S. states.",
+  path: "/state-licensing",
+});
+
 import BillingChallenges from "../Components/BillingChallenges";
 import BillingProcess from "../Components/BillingProcess";
 import BillingSolutions from "../Components/BillingSolutions";
