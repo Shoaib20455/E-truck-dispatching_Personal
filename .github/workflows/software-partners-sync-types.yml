@@ -35,4 +35,4 @@ jobs:
           git commit -m "Regenerate Payload types for SoftwarePartners"
           git push origin HEAD:main
 
-# sync-v2
+# sync-v3
