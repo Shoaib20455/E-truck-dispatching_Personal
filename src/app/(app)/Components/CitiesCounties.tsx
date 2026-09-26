@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { AnimatedSection } from "./animation/MotionElements";
+import { AnimatedHeading, AnimatedSection, ImageReveal, StaggerGroup, StaggerItem } from "./animation/MotionElements";
 
 type LocationList = {
   title: string;
@@ -30,24 +30,25 @@ export default function CitiesCounties({
       <div className="mx-auto max-w-[1520px] px-6 lg:px-8 2xl:px-0">
         {/* HEADING */}
         <div className="mx-auto mb-12 max-w-3xl text-center">
-          <h2 className="font-inter text-3xl font-semibold leading-tight text-heading md:text-4xl lg:text-5xl">
-            {heading}
-          </h2>
+          <AnimatedHeading
+            text={heading}
+            className="font-inter text-3xl font-semibold leading-tight text-heading md:text-4xl lg:text-5xl"
+          />
         </div>
 
         {/* CONTENT */}
         <div className="grid grid-cols-1 items-stretch gap-8 lg:grid-cols-3">
           
           {/* LEFT LIST */}
-          <LocationCard {...leftList} />
+          <StaggerGroup stagger={0.07}><StaggerItem preset="slide-left" hover="soft"><LocationCard {...leftList} /></StaggerItem></StaggerGroup>
 
           {/* MAP */}
-          <div className="flex items-center justify-center overflow-hidden rounded-[20px] bg-teal-100">
+          <ImageReveal className="flex items-center justify-center overflow-hidden rounded-[20px] bg-teal-100">
             <Image src={mapImage} alt={mapAlt} width={800} height={700} sizes="(min-width: 1024px) 34vw, 100vw" className="h-auto w-full object-contain" />
-          </div>
+          </ImageReveal>
 
           {/* RIGHT LIST */}
-          <LocationCard {...rightList} bordered />
+          <StaggerGroup stagger={0.07}><StaggerItem preset="slide-right" hover="soft"><LocationCard {...rightList} bordered /></StaggerItem></StaggerGroup>
         </div>
       </div>
     </AnimatedSection>
