@@ -397,6 +397,46 @@ export function ParallaxDiv({
   );
 }
 
+
+type ScrollRotateDivProps = {
+  children: ReactNode;
+  className?: string;
+  degrees?: number;
+};
+
+export function ScrollRotateDiv({
+  children,
+  className,
+  degrees = 10,
+}: ScrollRotateDivProps) {
+  const ref = useRef<HTMLDivElement>(null);
+  const shouldReduceMotion = useReducedMotion();
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"],
+  });
+  const rawRotate = useTransform(
+    scrollYProgress,
+    [0, 0.5, 1],
+    [-degrees, 0, degrees],
+  );
+  const rotate = useSpring(rawRotate, {
+    stiffness: 110,
+    damping: 24,
+    mass: 0.5,
+  });
+
+  return (
+    <motion.div
+      ref={ref}
+      className={className}
+      style={shouldReduceMotion ? undefined : { rotate }}
+    >
+      {children}
+    </motion.div>
+  );
+}
+
 type HoverIconProps = {
   children: ReactNode;
   className?: string;
