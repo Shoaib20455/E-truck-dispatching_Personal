@@ -1,3 +1,5 @@
+import { AnimatedSection, StaggerGroup, StaggerItem } from "./animation/MotionElements";
+
 type ChallengeItem = {
   title: string;
   description: string;
@@ -15,7 +17,7 @@ export default function BillingChallenges({
   challenges,
 }: BillingChallengesProps) {
   return (
-    <section className="w-full bg-cyan-50 py-16 lg:py-24">
+    <AnimatedSection preset="fade-up" className="w-full bg-cyan-50 py-16 lg:py-24">
       <div className="mx-auto max-w-[1520px] px-6 lg:px-8 2xl:px-0">
         {/* HEADING */}
         <div className="mx-auto mb-12 max-w-4xl text-center lg:mb-16">
@@ -25,10 +27,12 @@ export default function BillingChallenges({
         </div>
 
         {/* CHALLENGES */}
-        <div className="grid grid-cols-1 overflow-hidden rounded-[20px] md:grid-cols-2 lg:grid-cols-3">
+        <StaggerGroup stagger={0.08} className="grid grid-cols-1 overflow-hidden rounded-[20px] md:grid-cols-2 lg:grid-cols-3">
           {challenges.map((challenge, index) => (
-            <div
+            <StaggerItem
               key={challenge.title}
+              preset="card"
+              hover="lift"
               className={`flex flex-col items-center px-8 py-10 text-center ${
                 index % 2 === 0 ? "bg-teal-500/10" : "bg-white"
               }`}
@@ -48,10 +52,10 @@ export default function BillingChallenges({
               <p className="font-manrope text-lg font-normal leading-8 text-neutral-500">
                 {challenge.description}
               </p>
-            </div>
+            </StaggerItem>
           ))}
-        </div>
+        </StaggerGroup>
       </div>
-    </section>
+    </AnimatedSection>
   );
 }

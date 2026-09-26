@@ -1,3 +1,5 @@
+import { AnimatedSection } from "./animation/MotionElements";
+
 import Image from "next/image";
 
 export type AuthorArticleItem = {
@@ -18,7 +20,7 @@ export default function AuthorArticlesSection({
   articles,
 }: AuthorArticlesSectionProps) {
   return (
-    <section className="w-full bg-cyan-50 pb-20 pt-16 lg:pb-24">
+    <AnimatedSection preset="fade-up" className="w-full bg-cyan-50 pb-20 pt-16 lg:pb-24">
       <div className="mx-auto w-full max-w-[1520px] px-6 lg:px-8 2xl:px-0">
         <h2 className="text-center font-inter text-4xl font-semibold leading-tight text-heading md:text-5xl">
           {heading}
@@ -72,6 +74,6 @@ export default function AuthorArticlesSection({
           ))}
         </div>
       </div>
-    </section>
+    </AnimatedSection>
   );
 }

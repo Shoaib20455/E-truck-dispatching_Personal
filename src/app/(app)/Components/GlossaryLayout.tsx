@@ -1,3 +1,4 @@
+import { AnimatedDiv, AnimatedSection, StaggerGroup, StaggerItem } from "./animation/MotionElements";
 import AuthorCard, { type AuthorCardProps } from "./AuthorCard";
 import ConsultationCard, { type ConsultationCardProps } from "./ConsultationCard";
 export type GlossarySectionData = {
@@ -24,17 +25,18 @@ export default function GlossaryLayout({
 }: GlossaryLayoutProps) {
   return (
     <>
-      <section className="w-full bg-gradient-to-r from-sky-500/75 to-teal-500/75">
+      <AnimatedSection preset="fade" trigger="mount" className="w-full bg-gradient-to-r from-sky-500/75 to-teal-500/75">
         <div className="mx-auto w-full max-w-[1520px] px-6 py-16 lg:px-8 lg:py-20 2xl:px-0">
           <h1 className="font-inter text-4xl font-semibold leading-tight text-white md:text-5xl lg:text-6xl">
             {title}
           </h1>
         </div>
-      </section>
+      </AnimatedSection>
 
-      <section className="w-full bg-cyan-50 py-14 lg:py-20">
+      <AnimatedSection preset="fade-up" className="w-full bg-cyan-50 py-14 lg:py-20">
         <div className="mx-auto grid w-full max-w-[1520px] grid-cols-1 gap-10 px-6 lg:px-8 xl:grid-cols-[minmax(0,1005px)_minmax(320px,504px)] xl:gap-[11px] 2xl:px-0">
           <div className="min-w-0">
+            <AnimatedDiv preset="fade-up">
             <nav
               aria-label={alphabetAriaLabel}
               className="grid grid-cols-7 overflow-hidden border-l border-t border-zinc-700 sm:grid-cols-13 xl:grid-cols-[repeat(26,minmax(0,1fr))]"
@@ -49,11 +51,12 @@ export default function GlossaryLayout({
                 </a>
               ))}
             </nav>
+            </AnimatedDiv>
 
-            <div className="mt-4">
+            <StaggerGroup stagger={0.04} className="mt-4">
               {sections.map((section) => (
+                <StaggerItem key={section.letter} preset="fade-up">
                 <section
-                  key={section.letter}
                   id={`glossary-${section.letter.toLowerCase()}`}
                   className="scroll-mt-28 pt-5"
                 >
@@ -74,11 +77,12 @@ export default function GlossaryLayout({
                     ))}
                   </div>
                 </section>
+                </StaggerItem>
               ))}
-            </div>
+            </StaggerGroup>
           </div>
 
-          <aside className="self-start xl:pl-0">
+          <AnimatedDiv preset="slide-right" className="self-start xl:pl-0">
             <a
               href="#glossary-a"
               className="flex min-h-12 w-full items-center justify-center rounded-[60px] bg-primary-light px-7 py-2.5 text-center font-manrope text-sm font-medium leading-8 text-white"
@@ -93,9 +97,9 @@ export default function GlossaryLayout({
             <div className="mt-8">
               <AuthorCard {...author} />
             </div>
-          </aside>
+          </AnimatedDiv>
         </div>
-      </section>
+      </AnimatedSection>
     </>
   );
 }

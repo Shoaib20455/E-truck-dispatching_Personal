@@ -1,3 +1,5 @@
+import { AnimatedSection } from "./animation/MotionElements";
+
 import SectionHeading from "./SectionHeading";
 
 type WhyWorkWithUsSectionProps = {
@@ -14,7 +16,7 @@ export default function WhyWorkWithUsSection({
   footerText,
 }: WhyWorkWithUsSectionProps) {
   return (
-    <section className="w-full bg-cyan-50 py-14 lg:py-16">
+    <AnimatedSection preset="fade-up" className="w-full bg-cyan-50 py-14 lg:py-16">
       <div className="mx-auto w-full max-w-[1520px] px-6 lg:px-8 2xl:px-0">
         <SectionHeading title={heading} subtitle={subtitle} />
 
@@ -35,6 +37,6 @@ export default function WhyWorkWithUsSection({
           </p>
         )}
       </div>
-    </section>
+    </AnimatedSection>
   );
 }

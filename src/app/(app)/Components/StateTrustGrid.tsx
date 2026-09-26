@@ -1,9 +1,11 @@
+import { AnimatedSection } from "./animation/MotionElements";
+
 type StateTrustItem = { title: string; description: string; highlighted?: boolean };
 type StateTrustGridProps = { heading: string; description: string; items: StateTrustItem[] };
 
 export default function StateTrustGrid({ heading, description, items }: StateTrustGridProps) {
   return (
-    <section className="w-full bg-cyan-50 py-14 lg:py-20">
+    <AnimatedSection preset="fade-up" className="w-full bg-cyan-50 py-14 lg:py-20">
       <div className="mx-auto max-w-[1520px] px-6 lg:px-8 2xl:px-0">
         <div className="mx-auto mb-12 max-w-5xl text-center">
           <h2 className="mb-5 font-inter text-3xl font-semibold leading-tight text-heading md:text-4xl lg:text-5xl">{heading}</h2>
@@ -18,6 +20,6 @@ export default function StateTrustGrid({ heading, description, items }: StateTru
           ))}
         </div>
       </div>
-    </section>
+    </AnimatedSection>
   );
 }

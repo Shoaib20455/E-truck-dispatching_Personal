@@ -1,3 +1,5 @@
+import { AnimatedSection } from "./animation/MotionElements";
+
 type CertificationCTAProps = {
   heading: string;
   description: string;
@@ -21,7 +23,7 @@ export default function CertificationCTA({
   buttonHref,
 }: CertificationCTAProps) {
   return (
-    <section className="w-full bg-cyan-50 py-14 lg:py-20">
+    <AnimatedSection preset="cta" className="w-full bg-cyan-50 py-14 lg:py-20">
       <div className="mx-auto max-w-[1520px] px-6 lg:px-8 2xl:px-0">
         <div
           className="w-full overflow-hidden rounded-[30px] bg-cover bg-center bg-no-repeat"
@@ -63,6 +65,6 @@ export default function CertificationCTA({
           </div>
         </div>
       </div>
-    </section>
+    </AnimatedSection>
   );
 }

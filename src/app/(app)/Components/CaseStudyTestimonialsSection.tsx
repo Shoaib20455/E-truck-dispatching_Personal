@@ -1,3 +1,5 @@
+import { AnimatedSection } from "./animation/MotionElements";
+
 export type CaseStudyTestimonial = {
   name: string;
   role: string;
@@ -15,7 +17,7 @@ export default function CaseStudyTestimonialsSection({
   testimonials,
 }: CaseStudyTestimonialsSectionProps) {
   return (
-    <section className="w-full bg-cyan-50 py-16 lg:py-20">
+    <AnimatedSection preset="fade-up" className="w-full bg-cyan-50 py-16 lg:py-20">
       <div className="mx-auto w-full max-w-[1920px]">
         <h2 className="mx-auto max-w-[760px] px-6 text-center font-inter text-4xl font-semibold leading-tight text-heading md:text-5xl">
           {heading}
@@ -40,6 +42,6 @@ export default function CaseStudyTestimonialsSection({
           <span className="size-3 rounded-full border border-black bg-white" />
         </div>
       </div>
-    </section>
+    </AnimatedSection>
   );
 }

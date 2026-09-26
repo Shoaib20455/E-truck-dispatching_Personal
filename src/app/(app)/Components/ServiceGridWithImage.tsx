@@ -1,3 +1,5 @@
+import { AnimatedSection } from "./animation/MotionElements";
+
 type ServiceCard = {
   title: string;
   description: string;
@@ -22,7 +24,7 @@ export default function ServiceGridWithImage({
   const isCompact = variant === "compact";
 
   return (
-    <section className="w-full bg-cyan-50 py-14 lg:py-20">
+    <AnimatedSection preset="fade-up" className="w-full bg-cyan-50 py-14 lg:py-20">
       <div className="mx-auto max-w-[1520px] px-6 lg:px-8 2xl:px-0">
         <div
           className={`grid grid-cols-1 items-start gap-10 ${
@@ -93,6 +95,6 @@ export default function ServiceGridWithImage({
           </div>
         </div>
       </div>
-    </section>
+    </AnimatedSection>
   );
 }

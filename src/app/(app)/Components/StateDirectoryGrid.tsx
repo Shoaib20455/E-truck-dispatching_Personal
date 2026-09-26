@@ -1,3 +1,5 @@
+import { AnimatedSection, StaggerGroup, StaggerArticle } from "./animation/MotionElements";
+
 type StateCard = {
   name: string;
   abbreviation: string;
@@ -17,7 +19,7 @@ export default function StateDirectoryGrid({
   pinIcon,
 }: StateDirectoryGridProps) {
   return (
-    <section className="w-full bg-cyan-50 py-14 lg:py-20">
+    <AnimatedSection preset="fade-up" className="w-full bg-cyan-50 py-14 lg:py-20">
       <div className="mx-auto max-w-[1520px] px-6 lg:px-8 2xl:px-0">
         <div className="mb-12 text-center">
           <h2 className="font-inter text-3xl font-semibold leading-tight text-heading md:text-4xl lg:text-5xl">
@@ -25,12 +27,9 @@ export default function StateDirectoryGrid({
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <StaggerGroup stagger={0.07} className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {states.map((state) => (
-            <article
-              key={state.name}
-              className="overflow-hidden rounded-[10px] bg-white p-3 shadow-[0px_10px_20px_rgba(0,0,0,0.10)]"
-            >
+            <StaggerArticle key={state.name} preset="card" hover="lift" className="overflow-hidden rounded-[10px] bg-white p-3 shadow-[0px_10px_20px_rgba(0,0,0,0.10)]">
               <img
                 src={state.image}
                 alt={state.imageAlt || state.name}
@@ -54,10 +53,10 @@ export default function StateDirectoryGrid({
                   </p>
                 </div>
               </div>
-            </article>
+            </StaggerArticle>
           ))}
-        </div>
+        </StaggerGroup>
       </div>
-    </section>
+    </AnimatedSection>
   );
 }

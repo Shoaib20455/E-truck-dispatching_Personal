@@ -1,3 +1,5 @@
+import { AnimatedSection } from "./animation/MotionElements";
+
 import SectionHeading from "./SectionHeading";
 
 type LeadershipExpertiseSectionProps = {
@@ -14,7 +16,7 @@ export default function LeadershipExpertiseSection({
   footerText,
 }: LeadershipExpertiseSectionProps) {
   return (
-    <section className="w-full bg-cyan-50 pb-10 pt-16 lg:pt-20">
+    <AnimatedSection preset="fade-up" className="w-full bg-cyan-50 pb-10 pt-16 lg:pt-20">
       <div className="mx-auto w-full max-w-[1520px] px-6 lg:px-8 2xl:px-0">
         <SectionHeading title={heading} subtitle={subtitle} />
 
@@ -47,6 +49,6 @@ export default function LeadershipExpertiseSection({
           </p>
         )}
       </div>
-    </section>
+    </AnimatedSection>
   );
 }

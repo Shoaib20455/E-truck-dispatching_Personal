@@ -1,3 +1,5 @@
+import { AnimatedSection } from "./animation/MotionElements";
+
 type SpecialtyDenialItem = {
   title: string;
   description: string;
@@ -17,7 +19,7 @@ export default function SpecialtyDenialSections({
   items,
 }: SpecialtyDenialSectionsProps) {
   return (
-    <section className="w-full bg-cyan-50 py-14 lg:py-20">
+    <AnimatedSection preset="fade-up" className="w-full bg-cyan-50 py-14 lg:py-20">
       <div className="mx-auto max-w-[1520px] space-y-14 px-6 lg:space-y-20 lg:px-8 2xl:px-0">
         {items.map((item, index) => {
           const imageFirst = index % 2 === 1;
@@ -63,6 +65,6 @@ export default function SpecialtyDenialSections({
           );
         })}
       </div>
-    </section>
+    </AnimatedSection>
   );
 }

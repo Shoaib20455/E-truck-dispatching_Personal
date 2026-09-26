@@ -1,3 +1,5 @@
+import { AnimatedSection } from "./animation/MotionElements";
+
 export type CareerDepartment = {
   label: string;
   value: string;
@@ -44,7 +46,7 @@ export default function CareerApplicationForm({
     "h-12 w-full border border-emerald-400 bg-transparent px-4 font-manrope text-sm text-heading outline-none transition-colors focus:border-sky-500";
 
   return (
-    <section className="w-full bg-cyan-50 py-16 md:py-20 lg:py-24">
+    <AnimatedSection preset="fade-up" className="w-full bg-cyan-50 py-16 md:py-20 lg:py-24">
       <div className="mx-auto w-full max-w-[1040px] px-6">
         <form className="w-full">
           <FieldLabel label={copy.nameLabel}>
@@ -190,7 +192,7 @@ export default function CareerApplicationForm({
           </button>
         </form>
       </div>
-    </section>
+    </AnimatedSection>
   );
 }
 

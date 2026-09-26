@@ -1,3 +1,5 @@
+import { AnimatedDiv, AnimatedSection, StaggerGroup, StaggerItem } from "./animation/MotionElements";
+
 type StatItem = {
   value: string;
   label: string;
@@ -30,7 +32,9 @@ export default function HomeHero({
   reviews,
 }: HomeHeroProps) {
   return (
-    <section
+    <AnimatedSection
+      preset="fade"
+      trigger="mount"
       className="w-full bg-cover bg-center bg-no-repeat"
       style={{
         backgroundImage: `url("${backgroundImage}")`,
@@ -40,7 +44,7 @@ export default function HomeHero({
         <div className="mx-auto w-full max-w-[1520px] px-6 py-12 lg:px-8 lg:py-14 2xl:px-0">
           <div className="grid grid-cols-1 items-start gap-12 xl:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] xl:gap-16">
             {/* LEFT */}
-            <div className="min-w-0">
+            <AnimatedDiv preset="hero-left" trigger="mount" className="min-w-0">
               <div className="font-inter text-base font-black uppercase leading-8 tracking-[3.2px] text-white">
                 {eyebrow}
               </div>
@@ -54,28 +58,22 @@ export default function HomeHero({
               </p>
 
               {/* REVIEWS */}
-              <div className="mt-8 grid max-w-[700px] grid-cols-2 gap-5 sm:grid-cols-4">
+              <StaggerGroup trigger="mount" stagger={0.08} delayChildren={0.2} className="mt-8 grid max-w-[700px] grid-cols-2 gap-5 sm:grid-cols-4">
                 {reviews.map((review) => (
-                  <div
-                    key={review.logo}
-                    className="flex min-h-[54px] items-center"
-                  >
+                  <StaggerItem key={review.logo} preset="logo" hover="soft" className="flex min-h-[54px] items-center">
                     <img
                       src={review.logo}
                       alt={review.alt}
                       className="max-h-[46px] w-auto max-w-full object-contain"
                     />
-                  </div>
+                  </StaggerItem>
                 ))}
-              </div>
+              </StaggerGroup>
 
               {/* STATS */}
-              <div className="mt-7 grid max-w-[820px] grid-cols-1 gap-3 sm:grid-cols-3">
+              <StaggerGroup trigger="mount" stagger={0.09} delayChildren={0.28} className="mt-7 grid max-w-[820px] grid-cols-1 gap-3 sm:grid-cols-3">
                 {stats.map((stat) => (
-                  <div
-                    key={stat.label}
-                    className="min-w-0 flex items-center gap-4 rounded-[10px] bg-[#EBF3FA]/90 px-5 py-4"
-                  >
+                  <StaggerItem key={stat.label} preset="stat" hover="lift" className="min-w-0 flex items-center gap-4 rounded-[10px] bg-[#EBF3FA]/90 px-5 py-4">
                     <img
                       src={stat.icon}
                       alt={stat.iconAlt}
@@ -91,13 +89,13 @@ export default function HomeHero({
                         {stat.label}
                       </div>
                     </div>
-                  </div>
+                  </StaggerItem>
                 ))}
-              </div>
-            </div>
+              </StaggerGroup>
+            </AnimatedDiv>
 
             {/* RIGHT FORM */}
-            <div className="w-full max-w-[654px] overflow-hidden rounded-[32px] bg-[#EBF3FA] px-7 pb-10 pt-8 shadow-[0px_25px_50px_-12px_rgba(0,96,168,0.10)] outline outline-1 outline-offset-[-1px] outline-[#419EFC]/20 backdrop-blur-lg sm:px-10 sm:pb-14 sm:pt-10 xl:ml-auto">
+            <AnimatedDiv preset="hero-right" delay={0.12} trigger="mount" className="w-full max-w-[654px] overflow-hidden rounded-[32px] bg-[#EBF3FA] px-7 pb-10 pt-8 shadow-[0px_25px_50px_-12px_rgba(0,96,168,0.10)] outline outline-1 outline-offset-[-1px] outline-[#419EFC]/20 backdrop-blur-lg sm:px-10 sm:pb-14 sm:pt-10 xl:ml-auto">
               <h2 className="text-center font-inter text-3xl font-semibold leading-9 text-heading">
                 Talk to an Expert
               </h2>
@@ -134,11 +132,11 @@ export default function HomeHero({
                   </span>
                 </button>
               </form>
-            </div>
+            </AnimatedDiv>
           </div>
         </div>
       </div>
-    </section>
+    </AnimatedSection>
   );
 }
 

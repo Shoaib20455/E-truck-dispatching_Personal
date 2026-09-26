@@ -1,3 +1,5 @@
+import { AnimatedDiv, AnimatedSection, StaggerGroup, StaggerItem } from "./animation/MotionElements";
+
 type StateItem = {
   name: string;
   image: string;
@@ -17,28 +19,30 @@ export default function NationwideBilling({
   states,
 }: NationwideBillingProps) {
   return (
-    <section className="w-full bg-cyan-50 py-14 lg:py-20">
+    <AnimatedSection preset="fade-up" className="w-full bg-cyan-50 py-14 lg:py-20">
       <div className="mx-auto max-w-[1520px] px-6 lg:px-8 2xl:px-0">
         {/* TOP CONTENT */}
         <div className="mb-12 grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-16">
-          <div>
+          <AnimatedDiv preset="slide-left">
             <h2 className="font-inter text-3xl font-semibold leading-tight text-heading md:text-4xl lg:text-5xl">
               {heading}
             </h2>
-          </div>
+          </AnimatedDiv>
 
-          <div>
+          <AnimatedDiv preset="slide-right">
             <p className="font-manrope text-lg font-normal leading-8 text-neutral-500">
               {description}
             </p>
-          </div>
+          </AnimatedDiv>
         </div>
 
         {/* STATES GRID */}
-        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <StaggerGroup stagger={0.07} className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {states.map((state) => (
-            <div
+            <StaggerItem
               key={state.name}
+              preset="card"
+              hover="lift"
               className={`flex flex-col items-center rounded-[10px] px-6 py-6 text-center ${
                 state.highlighted
                   ? "border border-teal-500 bg-teal-500/10 shadow-[0px_10px_20px_0px_rgba(0,0,0,0.10)]"
@@ -54,10 +58,10 @@ export default function NationwideBilling({
               <div className="font-inter text-xl font-semibold leading-9 text-heading">
                 {state.name}
               </div>
-            </div>
+            </StaggerItem>
           ))}
-        </div>
+        </StaggerGroup>
       </div>
-    </section>
+    </AnimatedSection>
   );
 }

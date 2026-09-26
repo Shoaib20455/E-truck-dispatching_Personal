@@ -1,3 +1,5 @@
+import { AnimatedSection } from "./animation/MotionElements";
+
 export type ConsultationFieldCopy = {
   practiceNameLabel: string;
   practiceNamePlaceholder: string;
@@ -31,7 +33,7 @@ export default function ConsultationCard({
   buttonText,
 }: ConsultationCardProps) {
   return (
-    <section id={id} className="rounded-[20px] bg-accent/10 px-7 py-8">
+    <AnimatedSection preset="fade-up" id={id} className="rounded-[20px] bg-accent/10 px-7 py-8">
       <h2 className="text-center font-inter text-2xl font-semibold leading-8 text-neutral-600 md:text-3xl">
         {heading}
       </h2>
@@ -104,7 +106,7 @@ export default function ConsultationCard({
           </button>
         </div>
       </form>
-    </section>
+    </AnimatedSection>
   );
 }
 

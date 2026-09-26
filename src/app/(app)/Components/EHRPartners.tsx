@@ -1,3 +1,5 @@
+import { AnimatedSection, StaggerGroup, StaggerItem } from "./animation/MotionElements";
+
 type EHRPartner = {
   logo: string;
   alt: string;
@@ -25,7 +27,7 @@ export default function EHRPartners({
   const isCompact = variant === "compact";
 
   return (
-    <section className="w-full bg-cyan-50 py-14 lg:py-20">
+    <AnimatedSection preset="fade-up" className="w-full bg-cyan-50 py-14 lg:py-20">
       <div className="mx-auto max-w-[1520px] px-6 lg:px-8 2xl:px-0">
         {/* TOP */}
         <div className="mx-auto mb-12 max-w-4xl text-center">
@@ -39,14 +41,17 @@ export default function EHRPartners({
         </div>
 
         {/* LOGOS */}
-        <div
+        <StaggerGroup
+          stagger={0.06}
           className={`grid grid-cols-2 gap-5 md:grid-cols-3 ${
             isCompact ? "lg:grid-cols-5" : "lg:grid-cols-6"
           } ${bottomText || buttonText ? "mb-10" : ""}`}
         >
           {partners.map((partner) => (
-            <div
+            <StaggerItem
               key={partner.alt}
+              preset="logo"
+              hover="soft"
               className={`flex items-center justify-center rounded-[10px] p-6 ${
                 isCompact ? "bg-white" : "bg-teal-500/10"
               }`}
@@ -58,9 +63,9 @@ export default function EHRPartners({
                   isCompact ? "max-h-24" : "max-h-12"
                 }`}
               />
-            </div>
+            </StaggerItem>
           ))}
-        </div>
+        </StaggerGroup>
 
         {(bottomText || buttonText) && (
           <div className="mx-auto max-w-4xl text-center">
@@ -81,6 +86,6 @@ export default function EHRPartners({
           </div>
         )}
       </div>
-    </section>
+    </AnimatedSection>
   );
 }

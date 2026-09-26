@@ -1,3 +1,5 @@
+import { AnimatedSection } from "./animation/MotionElements";
+
 type RevenueLossCard = {
   title: string;
   description: string;
@@ -26,7 +28,7 @@ export default function RevenueLossReasons({
   cards,
 }: RevenueLossReasonsProps) {
   return (
-    <section className="w-full bg-cyan-50 py-14 lg:py-20">
+    <AnimatedSection preset="fade-up" className="w-full bg-cyan-50 py-14 lg:py-20">
       <div className="mx-auto max-w-[1520px] px-6 lg:px-8 2xl:px-0">
         {/* TOP CONTENT */}
         <div className="mb-12 grid grid-cols-1 items-center gap-10 lg:grid-cols-[1.2fr_0.8fr] lg:gap-16">
@@ -83,6 +85,6 @@ export default function RevenueLossReasons({
           ))}
         </div>
       </div>
-    </section>
+    </AnimatedSection>
   );
 }

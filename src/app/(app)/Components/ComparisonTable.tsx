@@ -1,3 +1,5 @@
+import { AnimatedSection } from "./animation/MotionElements";
+
 type ComparisonRow = {
   feature: string;
   avenue: string;
@@ -22,7 +24,7 @@ export default function ComparisonTable({
   rows,
 }: ComparisonTableProps) {
   return (
-    <section className="w-full bg-cyan-50 py-14 lg:py-20">
+    <AnimatedSection preset="fade-up" className="w-full bg-cyan-50 py-14 lg:py-20">
       <div className="mx-auto max-w-[1520px] px-6 lg:px-8 2xl:px-0">
         {/* HEADING */}
         {heading && (
@@ -74,6 +76,6 @@ export default function ComparisonTable({
           </div>
         </div>
       </div>
-    </section>
+    </AnimatedSection>
   );
 }

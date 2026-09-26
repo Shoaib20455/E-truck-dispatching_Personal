@@ -1,3 +1,5 @@
+import { AnimatedDiv, AnimatedSection, StaggerGroup, StaggerItem } from "./animation/MotionElements";
+
 type ProcessStep = {
   number: string;
   title: string;
@@ -18,32 +20,29 @@ export default function BillingProcess({
   steps,
 }: BillingProcessProps) {
   return (
-    <section className="w-full bg-cyan-50 py-14 lg:py-20">
+    <AnimatedSection preset="fade-up" className="w-full bg-cyan-50 py-14 lg:py-20">
       <div className="mx-auto max-w-[1520px] px-6 lg:px-8 2xl:px-0">
         <div className="rounded-[20px] bg-teal-500/10 p-6 md:p-10 lg:p-12">
           <div className="grid grid-cols-1 items-stretch gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-12">
             
             {/* LEFT IMAGE */}
-            <div>
+            <AnimatedDiv preset="slide-left">
               <img
                 src={image}
                 alt={imageAlt}
                 className="h-full w-full object-cover"
               />
-            </div>
+            </AnimatedDiv>
 
             {/* RIGHT CONTENT */}
-            <div>
+            <AnimatedDiv preset="slide-right">
               <h2 className="mb-8 font-inter text-3xl font-bold leading-tight text-heading md:text-4xl lg:text-5xl">
                 {heading}
               </h2>
 
-              <div className="space-y-5">
+              <StaggerGroup stagger={0.08} className="space-y-5">
                 {steps.map((step) => (
-                  <div
-                    key={step.number}
-                    className="flex flex-col gap-5 bg-white p-5 sm:flex-row"
-                  >
+                  <StaggerItem key={step.number} preset="card" hover="lift" className="flex flex-col gap-5 bg-white p-5 sm:flex-row">
                     <div className="flex shrink-0 items-center justify-center bg-sky-500/10 px-7 py-4">
                       <span className="font-inter text-5xl font-bold text-sky-500 md:text-6xl">
                         {step.number}
@@ -59,14 +58,14 @@ export default function BillingProcess({
                         {step.description}
                       </p>
                     </div>
-                  </div>
+                  </StaggerItem>
                 ))}
-              </div>
-            </div>
+              </StaggerGroup>
+            </AnimatedDiv>
 
           </div>
         </div>
       </div>
-    </section>
+    </AnimatedSection>
   );
 }

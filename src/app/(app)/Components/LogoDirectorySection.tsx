@@ -1,3 +1,5 @@
+import { AnimatedSection } from "./animation/MotionElements";
+
 type LogoItem = {
   image: string;
   alt: string;
@@ -13,7 +15,7 @@ export default function LogoDirectorySection({
   logos,
 }: LogoDirectorySectionProps) {
   return (
-    <section className="w-full bg-cyan-50 py-10 lg:py-14">
+    <AnimatedSection preset="fade-up" className="w-full bg-cyan-50 py-10 lg:py-14">
       <div className="mx-auto max-w-[1520px] px-6 lg:px-8 2xl:px-0">
         <h2 className="mb-10 text-center font-inter text-3xl font-semibold leading-tight text-zinc-700 md:text-4xl lg:text-5xl">
           {heading}
@@ -34,6 +36,6 @@ export default function LogoDirectorySection({
           ))}
         </div>
       </div>
-    </section>
+    </AnimatedSection>
   );
 }

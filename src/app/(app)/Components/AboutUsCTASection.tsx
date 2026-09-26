@@ -1,3 +1,5 @@
+import { AnimatedSection } from "./animation/MotionElements";
+
 import Image from "next/image";
 
 type CTAButton = {
@@ -24,7 +26,7 @@ export default function AboutUsCTASection({
   buttons,
 }: AboutUsCTASectionProps) {
   return (
-    <section className="w-full bg-cyan-50 pb-10 pt-6 lg:pb-14 lg:pt-8">
+    <AnimatedSection preset="cta" className="w-full bg-cyan-50 pb-10 pt-6 lg:pb-14 lg:pt-8">
       <div className="mx-auto w-full max-w-[1520px] px-6 lg:px-8 2xl:px-0">
         <div className="relative pt-28 md:pt-32 lg:pt-36">
           <div className="relative min-h-[360px] overflow-hidden rounded-[20px] bg-teal-500">
@@ -72,6 +74,6 @@ export default function AboutUsCTASection({
           />
         </div>
       </div>
-    </section>
+    </AnimatedSection>
   );
 }

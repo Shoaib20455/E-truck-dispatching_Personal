@@ -1,3 +1,5 @@
+import { AnimatedDiv } from "./animation/MotionElements";
+
 export type ContactCard = {
   title: string;
   lines: string[];
@@ -24,7 +26,7 @@ export default function ContactInformationPanel({
   socialLinks,
 }: ContactInformationPanelProps) {
   return (
-    <div className="min-w-0">
+    <AnimatedDiv preset="fade-up" className="min-w-0">
       <h2 className="font-inter text-3xl font-semibold leading-10 text-heading md:text-4xl">
         {heading}
       </h2>
@@ -68,7 +70,7 @@ export default function ContactInformationPanel({
           </a>
         ))}
       </div>
-    </div>
+    </AnimatedDiv>
   );
 }
 

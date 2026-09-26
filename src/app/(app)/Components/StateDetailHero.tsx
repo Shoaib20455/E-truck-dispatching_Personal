@@ -1,3 +1,5 @@
+import { AnimatedSection } from "./animation/MotionElements";
+
 type HeroMetric = {
   value: string;
   label: string;
@@ -25,7 +27,7 @@ export default function StateDetailHero({
   metrics,
 }: StateDetailHeroProps) {
   return (
-    <section
+    <AnimatedSection preset="fade-up" trigger="mount"
       className="w-full bg-cover bg-center bg-no-repeat"
       style={{ backgroundImage: `url("${backgroundImage}")` }}
     >
@@ -107,6 +109,6 @@ export default function StateDetailHero({
           </div>
         </div>
       </div>
-    </section>
+    </AnimatedSection>
   );
 }

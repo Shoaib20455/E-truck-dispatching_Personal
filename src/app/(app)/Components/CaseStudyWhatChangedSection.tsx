@@ -1,3 +1,5 @@
+import { AnimatedSection } from "./animation/MotionElements";
+
 import Image from "next/image";
 
 type CaseStudyWhatChangedSectionProps = {
@@ -22,7 +24,7 @@ export default function CaseStudyWhatChangedSection({
   imageAlt,
 }: CaseStudyWhatChangedSectionProps) {
   return (
-    <section className="w-full bg-cyan-50 py-10 lg:py-16">
+    <AnimatedSection preset="fade-up" className="w-full bg-cyan-50 py-10 lg:py-16">
       <div className="mx-auto grid w-full max-w-[1520px] grid-cols-1 items-start gap-12 px-6 lg:grid-cols-2 lg:px-8 2xl:px-0">
         <div>
           <h2 className="font-inter text-4xl font-semibold leading-tight text-heading md:text-5xl">
@@ -56,6 +58,6 @@ export default function CaseStudyWhatChangedSection({
           />
         </div>
       </div>
-    </section>
+    </AnimatedSection>
   );
 }

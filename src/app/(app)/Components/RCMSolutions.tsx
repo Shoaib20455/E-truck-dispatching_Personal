@@ -1,3 +1,5 @@
+import { AnimatedSection, StaggerGroup, StaggerItem } from "./animation/MotionElements";
+
 type ServiceItem = {
   title: string;
   description?: string;
@@ -20,7 +22,7 @@ export default function RCMSolutions({
   const isProcedure = variant === "procedure";
 
   return (
-    <section className="w-full bg-cyan-50 py-16 lg:py-20">
+    <AnimatedSection preset="fade-up" className="w-full bg-cyan-50 py-16 lg:py-20">
       <div className="mx-auto max-w-[1520px] px-6 lg:px-8 2xl:px-0">
         <div className="mx-auto mb-12 max-w-4xl text-center">
           <h2 className="font-inter text-3xl font-semibold leading-tight text-heading md:text-4xl lg:text-5xl">
@@ -28,10 +30,12 @@ export default function RCMSolutions({
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <StaggerGroup stagger={0.07} className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {services.map((service) => (
-            <div
+            <StaggerItem
               key={service.title}
+              preset="card"
+              hover="lift"
               className={
                 isProcedure
                   ? "flex min-h-40 flex-col items-center justify-center rounded-[10px] bg-white px-5 py-6 text-center shadow-[0px_10px_20px_rgba(0,0,0,0.08)] " +
@@ -70,10 +74,10 @@ export default function RCMSolutions({
                   {service.description}
                 </p>
               )}
-            </div>
+            </StaggerItem>
           ))}
-        </div>
+        </StaggerGroup>
       </div>
-    </section>
+    </AnimatedSection>
   );
 }

@@ -1,3 +1,5 @@
+import { AnimatedSection } from "./animation/MotionElements";
+
 type RevenueCTAProps = {
   heading: string;
   description: string;
@@ -20,7 +22,7 @@ export default function RevenueCTA({
   secondaryButtonHref,
 }: RevenueCTAProps) {
   return (
-    <section className="w-full bg-cyan-50 py-10 lg:py-14">
+    <AnimatedSection preset="cta" className="w-full bg-cyan-50 py-10 lg:py-14">
       <div className="mx-auto max-w-[1520px] px-6 lg:px-8 2xl:px-0">
         <div
           className="w-full overflow-hidden rounded-[20px] bg-cover bg-center bg-no-repeat"
@@ -55,6 +57,6 @@ export default function RevenueCTA({
           </div>
         </div>
       </div>
-    </section>
+    </AnimatedSection>
   );
 }

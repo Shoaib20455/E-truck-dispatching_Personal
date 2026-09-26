@@ -1,3 +1,5 @@
+import { AnimatedSection } from "./animation/MotionElements";
+
 type SmallPracticesProps = {
   heading: string;
   description: string;
@@ -27,7 +29,7 @@ export default function SmallPractices({
   imageAlt,
 }: SmallPracticesProps) {
   return (
-    <section className="w-full bg-cyan-50 py-14 lg:py-16">
+    <AnimatedSection preset="fade-up" className="w-full bg-cyan-50 py-14 lg:py-16">
       <div className="mx-auto max-w-[1520px] px-6 lg:px-8 2xl:px-0">
         <div className="grid grid-cols-1 items-start gap-10 lg:grid-cols-[1fr_0.95fr] lg:gap-16">
           
@@ -89,6 +91,6 @@ export default function SmallPractices({
           </div>
         </div>
       </div>
-    </section>
+    </AnimatedSection>
   );
 }

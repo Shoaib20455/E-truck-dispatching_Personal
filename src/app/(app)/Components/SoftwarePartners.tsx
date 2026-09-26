@@ -1,3 +1,5 @@
+import { AnimatedSection, StaggerGroup, StaggerItem } from "./animation/MotionElements";
+
 import Image from "next/image";
 
 const softwarePartners = [
@@ -47,14 +49,11 @@ const softwarePartners = [
 
 export default function SoftwarePartners() {
   return (
-    <section className="w-full bg-cyan-50">
+    <AnimatedSection preset="fade" className="w-full bg-cyan-50">
       <div className="mx-auto max-w-[1520px] px-6 py-10 lg:px-0">
-        <div className="flex flex-wrap items-center justify-center gap-3">
+        <StaggerGroup stagger={0.05} className="flex flex-wrap items-center justify-center gap-3">
           {softwarePartners.map((partner) => (
-            <div
-              key={partner.name}
-              className="flex items-center justify-center rounded-[10px] bg-teal-500/10 px-7 py-4"
-            >
+            <StaggerItem key={partner.name} preset="logo" hover="soft" className="flex items-center justify-center rounded-[10px] bg-teal-500/10 px-7 py-4">
               <Image
                 src={partner.src}
                 alt={partner.name}
@@ -62,10 +61,10 @@ export default function SoftwarePartners() {
                 height={partner.height}
                 className="block h-[42px] w-auto object-contain"
               />
-            </div>
+            </StaggerItem>
           ))}
-        </div>
+        </StaggerGroup>
       </div>
-    </section>
+    </AnimatedSection>
   );
 }

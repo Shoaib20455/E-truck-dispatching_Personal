@@ -1,3 +1,5 @@
+import { AnimatedSection, StaggerGroup, StaggerItem } from "./animation/MotionElements";
+
 type StatItem = {
   label: string;
   value: string;
@@ -17,7 +19,7 @@ export default function SuccessNumbers({
   columns,
 }: SuccessNumbersProps) {
   return (
-    <section className="w-full bg-cyan-50 py-14 lg:py-16">
+    <AnimatedSection preset="fade-up" className="w-full bg-cyan-50 py-14 lg:py-16">
       <div className="mx-auto max-w-[1520px] px-6 lg:px-8 2xl:px-0">
         {/* HEADING */}
         <div className="mb-12 text-center">
@@ -27,10 +29,11 @@ export default function SuccessNumbers({
         </div>
 
         {/* STATS */}
-        <div className="grid grid-cols-1 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
+        <StaggerGroup stagger={0.09} className="grid grid-cols-1 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
           {columns.map((column, columnIndex) => (
-            <div
+            <StaggerItem
               key={columnIndex}
+              preset="stat"
               className={
                 columnIndex < columns.length - 1
                   ? "lg:border-r-2 lg:border-teal-500 lg:px-12 first:lg:pl-0"
@@ -50,10 +53,10 @@ export default function SuccessNumbers({
                   </div>
                 ))}
               </div>
-            </div>
+            </StaggerItem>
           ))}
-        </div>
+        </StaggerGroup>
       </div>
-    </section>
+    </AnimatedSection>
   );
 }
