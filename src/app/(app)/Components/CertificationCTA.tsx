@@ -1,6 +1,6 @@
 import Image from "next/image";
 import AppLink from "./navigation/AppLink";
-import { AnimatedDiv, AnimatedHeading, AnimatedSection, ImageReveal } from "./animation/MotionElements";
+import { AnimatedDiv, AnimatedHeading, AnimatedSection } from "./animation/MotionElements";
 
 type CertificationCTAProps = {
   heading: string;
