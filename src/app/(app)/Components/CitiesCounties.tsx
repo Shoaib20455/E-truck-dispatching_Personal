@@ -40,15 +40,15 @@ export default function CitiesCounties({
         <div className="grid grid-cols-1 items-stretch gap-8 lg:grid-cols-3">
           
           {/* LEFT LIST */}
-          <StaggerGroup stagger={0.07}><StaggerItem preset="slide-left" hover="soft"><LocationCard {...leftList} /></StaggerItem></StaggerGroup>
+          <StaggerGroup stagger={0.07}><StaggerItem preset="panel-left" hover="soft"><LocationCard {...leftList} /></StaggerItem></StaggerGroup>
 
           {/* MAP */}
-          <ImageReveal className="flex items-center justify-center overflow-hidden rounded-[20px] bg-teal-100">
+          <StaggerItem preset="map-pop" hover="soft" className="flex items-center justify-center overflow-hidden rounded-[20px] bg-teal-100">
             <Image src={mapImage} alt={mapAlt} width={800} height={700} sizes="(min-width: 1024px) 34vw, 100vw" className="h-auto w-full object-contain" />
-          </ImageReveal>
+          </StaggerItem>
 
           {/* RIGHT LIST */}
-          <StaggerGroup stagger={0.07}><StaggerItem preset="slide-right" hover="soft"><LocationCard {...rightList} bordered /></StaggerItem></StaggerGroup>
+          <StaggerGroup stagger={0.07}><StaggerItem preset="panel-right" hover="soft"><LocationCard {...rightList} bordered /></StaggerItem></StaggerGroup>
         </div>
       </div>
     </AnimatedSection>
