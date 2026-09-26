@@ -1,3 +1,4 @@
+import Image from "next/image";
 import AppLink from "./navigation/AppLink";
 import { AnimatedSection, StaggerGroup, StaggerArticle } from "./animation/MotionElements";
 
@@ -44,11 +45,7 @@ export default function ExpertGuides({
         <StaggerGroup stagger={0.08} className="grid grid-cols-1 gap-7 md:grid-cols-2 lg:grid-cols-3">
           {guides.map((guide) => (
             <StaggerArticle key={`${guide.title}-${guide.image}`} preset="card" hover="lift" className="overflow-hidden rounded-[30px] bg-white shadow-[0px_10px_20px_rgba(0,0,0,0.08)]">
-              <img
-                src={guide.image}
-                alt={guide.imageAlt}
-                className="aspect-[1.75/1] w-full object-cover"
-              />
+              <Image src={guide.image} alt={guide.imageAlt} width={800} height={457} sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" className="aspect-[1.75/1] w-full object-cover" />
 
               <div className="px-8 py-6">
                 <h3 className="mb-5 font-inter text-2xl font-semibold leading-tight text-heading md:text-3xl">
