@@ -1,3 +1,5 @@
+import { AnimatedSection } from "./animation/MotionElements";
+
 import Image from "next/image";
 
 type AboutOverviewSectionProps = {
@@ -18,7 +20,7 @@ export default function AboutOverviewSection({
   story,
 }: AboutOverviewSectionProps) {
   return (
-    <section className="w-full bg-cyan-50 py-16 lg:py-20">
+    <AnimatedSection preset="fade-up" className="w-full bg-cyan-50 py-16 lg:py-20">
       <div className="mx-auto w-full max-w-[1520px] px-6 lg:px-8 2xl:px-0">
         <div className="grid grid-cols-1 items-start gap-10 xl:grid-cols-[400px_minmax(0,1fr)] xl:gap-[60px]">
           <h2 className="whitespace-pre-line font-inter text-4xl font-semibold leading-tight text-heading md:text-5xl">
@@ -63,6 +65,6 @@ export default function AboutOverviewSection({
           </p>
         </div>
       </div>
-    </section>
+    </AnimatedSection>
   );
 }
