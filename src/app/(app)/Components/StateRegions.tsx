@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { AnimatedSection } from "./animation/MotionElements";
+import { AnimatedDiv, AnimatedHeading, AnimatedSection, ImageReveal, StaggerGroup, StaggerItem } from "./animation/MotionElements";
 
 type RegionItem = { title: string; description: string };
 type StateRegionsProps = {
@@ -15,19 +15,19 @@ export default function StateRegions({ heading, description, image, imageAlt, re
     <AnimatedSection preset="fade-up" className="w-full bg-cyan-50 py-14 lg:py-20">
       <div className="mx-auto max-w-[1520px] px-6 lg:px-8 2xl:px-0">
         <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:gap-14">
-          <Image src={image} alt={imageAlt} width={900} height={650} sizes="(min-width: 1024px) 42vw, 100vw" className="h-auto w-full rounded-[20px] object-cover shadow-[0px_10px_20px_rgba(0,0,0,0.08)]" />
-          <div>
-            <h2 className="mb-6 font-inter text-3xl font-semibold leading-tight text-heading md:text-4xl lg:text-5xl">{heading}</h2>
+          <ImageReveal className="rounded-[20px]"><Image src={image} alt={imageAlt} width={900} height={650} sizes="(min-width: 1024px) 42vw, 100vw" className="h-auto w-full rounded-[20px] object-cover shadow-[0px_10px_20px_rgba(0,0,0,0.08)]" /></ImageReveal>
+          <AnimatedDiv preset="slide-right">
+            <AnimatedHeading text={heading} className="mb-6 font-inter text-3xl font-semibold leading-tight text-heading md:text-4xl lg:text-5xl" />
             <p className="mb-7 font-manrope text-lg leading-8 text-neutral-500">{description}</p>
-            <div className="space-y-5">
+            <StaggerGroup stagger={0.07} className="space-y-5">
               {regions.map((region) => (
-                <div key={region.title}>
+                <StaggerItem key={region.title} preset="step-right">
                   <h3 className="font-inter text-xl font-semibold text-heading">{region.title}</h3>
                   <p className="font-manrope text-base leading-8 text-neutral-500">{region.description}</p>
-                </div>
+                </StaggerItem>
               ))}
-            </div>
-          </div>
+            </StaggerGroup>
+          </AnimatedDiv>
         </div>
       </div>
     </AnimatedSection>
