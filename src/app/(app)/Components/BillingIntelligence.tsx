@@ -31,7 +31,7 @@ export default function BillingIntelligence({
           {items.map((item, index) => (
             <StaggerItem
               key={item}
-              preset="card"
+              preset={index % 2 === 0 ? "tile-left" : "tile-right"}
               hover="lift"
               className={`flex flex-col items-center px-8 py-10 text-center ${
                 index % 2 === 0 ? "bg-teal-500/10" : "bg-white"
