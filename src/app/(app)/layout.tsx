@@ -21,29 +21,51 @@ const manrope = Manrope({
 
 export const metadata: Metadata = {
   metadataBase: new URL(
-    process.env.NEXT_PUBLIC_SITE_URL ??
-      (process.env.VERCEL_PROJECT_PRODUCTION_URL
-        ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
-        : "http://localhost:3000"),
+    process.env.NEXT_PUBLIC_SITE_URL ?? "https://avenuebillingservices.com",
   ),
   title: {
-    default: "E Truck Dispatching | Professional Truck Dispatch Services",
-    template: "%s | E Truck Dispatching",
+    default: "Avenue Billing Services | Medical Billing & RCM Services",
+    template: "%s | Avenue Billing Services",
   },
   description:
-    "Professional truck dispatching and back-office support for owner-operators and small fleets across the United States.",
-  applicationName: "E Truck Dispatching",
-  authors: [{ name: "E Truck Dispatching" }],
-  creator: "E Truck Dispatching",
-  publisher: "E Truck Dispatching",
+    "Medical billing, coding, denial management, A/R management, credentialing, state licensing, and revenue cycle management services for healthcare practices across the United States.",
+  applicationName: "Avenue Billing Services",
+  authors: [{ name: "Avenue Billing Services" }],
+  creator: "Avenue Billing Services",
+  publisher: "Avenue Billing Services",
   keywords: [
-    "truck dispatch services",
-    "freight dispatch services",
-    "dispatch services for owner operators",
-    "truck load booking",
-    "back office support for trucking",
-    "E Truck Dispatching",
+    "medical billing services",
+    "revenue cycle management",
+    "medical coding",
+    "denial management",
+    "accounts receivable management",
+    "provider credentialing",
+    "state licensing",
   ],
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    type: "website",
+    url: "/",
+    siteName: "Avenue Billing Services",
+    title: "Avenue Billing Services | Medical Billing & RCM Services",
+    description:
+      "Medical billing and revenue cycle management services for healthcare practices across the United States.",
+    images: [
+      {
+        url: "/Home/1_rectangle_40.png",
+        alt: "Avenue Billing Services",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Avenue Billing Services | Medical Billing & RCM Services",
+    description:
+      "Medical billing and revenue cycle management services for healthcare practices across the United States.",
+    images: ["/Home/1_rectangle_40.png"],
+  },
   robots: {
     index: true,
     follow: true,
