@@ -88,14 +88,14 @@ export default function MedicalBillingWorkflow({
           {/* LEFT STEPS */}
           <StaggerGroup stagger={0.07} className="space-y-8 lg:relative lg:z-20">
             {leftSteps.map((step, index) => (
-              <StaggerItem key={step.label} preset="step-left" hover="premium" className={`transition-transform ${leftOffsets[index] ?? ""}`}>
+              <StaggerItem key={step.label} preset="pill-left" hover="premium" className={`transition-transform ${leftOffsets[index] ?? ""}`}>
                 <StepCard step={step} />
               </StaggerItem>
             ))}
           </StaggerGroup>
 
           {/* CENTER IMAGE + RING */}
-          <ParallaxDiv distance={26} className="relative flex min-h-[520px] items-end justify-center lg:min-h-[620px]">
+          <ParallaxDiv distance={34} className="relative flex min-h-[520px] items-end justify-center lg:min-h-[620px]">
             <ImageReveal className="relative flex h-full w-full items-end justify-center">
             {ringImage && (
               <ScrollRotateDiv
@@ -121,7 +121,7 @@ export default function MedicalBillingWorkflow({
           {/* RIGHT STEPS */}
           <StaggerGroup stagger={0.07} className="space-y-8 lg:relative lg:z-20">
             {rightSteps.map((step, index) => (
-              <StaggerItem key={step.label} preset="step-right" hover="premium" className={`transition-transform ${rightOffsets[index] ?? ""}`}>
+              <StaggerItem key={step.label} preset="pill-right" hover="premium" className={`transition-transform ${rightOffsets[index] ?? ""}`}>
                 <StepCard step={step} />
               </StaggerItem>
             ))}
