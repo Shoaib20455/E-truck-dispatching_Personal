@@ -1,4 +1,4 @@
-import { AnimatedSection } from "./animation/MotionElements";
+import { AnimatedDiv, AnimatedHeading, AnimatedSection, ParallaxDiv, StaggerGroup, StaggerItem } from "./animation/MotionElements";
 
 type LogoItem = {
   image: string;
@@ -62,10 +62,12 @@ export default function ConsultationCTA({
           >
             <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:gap-16">
               {/* LEFT CONTENT */}
-              <div className={isPlain ? "text-black" : "text-white"}>
-                <h2 className="mb-6 font-inter text-3xl font-semibold leading-tight md:text-4xl lg:text-5xl">
-                  {heading}
-                </h2>
+              <AnimatedDiv preset="slide-left" className={isPlain ? "text-black" : "text-white"}>
+                <AnimatedHeading
+                  text={heading}
+                  className="mb-6 font-inter text-3xl font-semibold leading-tight md:text-4xl lg:text-5xl"
+                />
+                    </StaggerItem>
 
                 <p
                   className={
@@ -78,21 +80,24 @@ export default function ConsultationCTA({
                 </p>
 
                 {logos && logos.length > 0 && (
-                  <div className="flex flex-wrap justify-start gap-5">
+                  <StaggerGroup stagger={0.06} className="flex flex-wrap justify-start gap-5">
                     {logos.map((logo) => (
+                      <StaggerItem key={logo.image} preset="logo" hover="soft">
                       <img
-                        key={logo.image}
                         src={logo.image}
                         alt={logo.alt}
                         className="w-56 rounded-[10px] bg-white object-contain"
                       />
+                    </StaggerItem>
+                      </StaggerItem>
                     ))}
-                  </div>
+                  </StaggerGroup>
                 )}
-              </div>
+              </AnimatedDiv>
 
               {/* FORM */}
-              <div
+              <ParallaxDiv distance={14}>
+              <AnimatedDiv preset="slide-right"
                 className={
                   isPlain
                     ? "rounded-[20px] bg-teal-500/10 p-7 backdrop-blur-[2.5px] md:p-10"
@@ -104,44 +109,49 @@ export default function ConsultationCTA({
                 </h3>
 
                 <form>
-                  <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-                    <input
+                  <StaggerGroup stagger={0.06} className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                    <StaggerItem preset="fade-up"><input
                       type="text"
                       name="name"
                       placeholder={namePlaceholder}
                       className="w-full rounded-[10px] border border-neutral-600 bg-white px-5 py-3 font-manrope text-neutral-500 outline-none"
                     />
+                    </StaggerItem>
 
-                    <input
+                    <StaggerItem preset="fade-up"><input
                       type="tel"
                       name="phone"
                       placeholder={phonePlaceholder}
                       className="w-full rounded-[10px] border border-neutral-600 bg-white px-5 py-3 font-manrope text-neutral-500 outline-none"
                     />
+                    </StaggerItem>
 
-                    <input
+                    <StaggerItem preset="fade-up"><input
                       type="email"
                       name="email"
                       placeholder={emailPlaceholder}
                       className="w-full rounded-[10px] border border-neutral-600 bg-white px-5 py-3 font-manrope text-neutral-500 outline-none"
                     />
 
-                    <input
+                    <StaggerItem preset="fade-up"><input
                       type="text"
                       name="practice"
                       placeholder={practicePlaceholder}
                       className="w-full rounded-[10px] border border-neutral-600 bg-white px-5 py-3 font-manrope text-neutral-500 outline-none"
                     />
-                  </div>
+                  </StaggerGroup>
 
+                  <StaggerItem preset="fade-up" hover="soft">
                   <button
                     type="submit"
                     className={`${isPlain ? "mt-8" : "mt-5"} w-full rounded-[36px] bg-sky-500 px-7 py-3 font-manrope text-base font-normal text-white`}
                   >
                     {buttonText}
                   </button>
+                  </StaggerItem>
                 </form>
-              </div>
+              </AnimatedDiv>
+              </ParallaxDiv>
             </div>
           </div>
         </div>
