@@ -1,3 +1,4 @@
+import AppLink from "./navigation/AppLink";
 import { AnimatedSection, StaggerGroup, StaggerArticle } from "./animation/MotionElements";
 
 type GuideItem = {
@@ -52,7 +53,7 @@ export default function ExpertGuides({
               <div className="px-8 py-6">
                 <h3 className="mb-5 font-inter text-2xl font-semibold leading-tight text-heading md:text-3xl">
                   {guide.href ? (
-                    <a href={guide.href}>{guide.title}</a>
+                    <AppLink href={guide.href}>{guide.title}</AppLink>
                   ) : (
                     guide.title
                   )}
