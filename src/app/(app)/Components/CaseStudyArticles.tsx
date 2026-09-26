@@ -1,6 +1,6 @@
 import Image from "next/image";
 import AppLink from "./navigation/AppLink";
-import { AnimatedHeading, AnimatedSection, StaggerGroup, StaggerArticle } from "./animation/MotionElements";
+import { AnimatedArticle, AnimatedHeading, AnimatedSection, StaggerGroup, StaggerArticle } from "./animation/MotionElements";
 
 type ArticleItem = {
   date: string;
@@ -36,7 +36,7 @@ export default function CaseStudyArticles({
         {/* ARTICLES */}
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
           {/* FEATURED ARTICLE */}
-          <StaggerArticle preset="card" hover="premium" className="overflow-hidden rounded-[20px] bg-white shadow-[0px_10px_20px_rgba(0,0,0,0.08)]">
+          <AnimatedArticle preset="panel-left" className="overflow-hidden rounded-[20px] bg-white shadow-[0px_10px_20px_rgba(0,0,0,0.08)]">
             <Image src={featuredArticle.image} alt={featuredArticle.imageAlt} width={900} height={394} sizes="(min-width: 1024px) 50vw, 100vw" className="aspect-[16/7] w-full object-cover" />
 
             <div className="p-6 md:p-8">
@@ -56,12 +56,12 @@ export default function CaseStudyArticles({
                 {featuredArticle.description}
               </p>
             </div>
-          </StaggerArticle>
+          </AnimatedArticle>
 
           {/* SIDE ARTICLES */}
           <StaggerGroup stagger={0.08} className="space-y-8">
-            {sideArticles.map((article) => (
-              <StaggerArticle key={`${article.date}-${article.title}`} preset="card" hover="premium"
+            {sideArticles.map((article, index) => (
+              <StaggerArticle key={`${article.date}-${article.title}`} preset={index % 2 === 0 ? "tile-right" : "tile-left"} hover="premium"
                 className="grid grid-cols-1 overflow-hidden rounded-[20px] bg-white shadow-[0px_10px_20px_rgba(0,0,0,0.08)] sm:grid-cols-[0.7fr_1.3fr]"
               >
                 <Image src={article.image} alt={article.imageAlt} width={500} height={360} sizes="(min-width: 1024px) 25vw, (min-width: 640px) 35vw, 100vw" className="h-full min-h-52 w-full object-cover" />
