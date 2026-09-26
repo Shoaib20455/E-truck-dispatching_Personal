@@ -57,8 +57,8 @@ export default function ComparisonTable({
 
             {/* ROWS */}
             <StaggerGroup stagger={0.055} className="">
-            {rows.map((row) => (
-              <StaggerItem key={row.feature} preset="fade-up" className="grid grid-cols-3 border-t border-zinc-300">
+            {rows.map((row, index) => (
+              <StaggerItem key={row.feature} preset={index % 2 === 0 ? "tile-left" : "tile-right"} className="grid grid-cols-3 border-t border-zinc-300">
                 <div className="bg-teal-500/10 px-8 py-4 font-manrope text-lg font-semibold text-heading">
                   {row.feature}
                 </div>
