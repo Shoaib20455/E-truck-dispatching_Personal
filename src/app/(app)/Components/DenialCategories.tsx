@@ -63,7 +63,7 @@ export default function DenialCategories({
             </div>
           </div>
         </div>
-      </div>
+      </AnimatedDiv>
     );
   };
 
