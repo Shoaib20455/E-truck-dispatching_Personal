@@ -91,7 +91,10 @@ export default function ServiceHero({
                 {description}
               </p>
 
-              <div
+              <StaggerGroup
+                trigger="mount"
+                stagger={0.07}
+                delayChildren={0.18}
                 className={
                   isCompact
                     ? "grid grid-cols-1 gap-x-10 gap-y-4 font-manrope text-lg font-medium text-zinc-100 sm:grid-cols-2"
