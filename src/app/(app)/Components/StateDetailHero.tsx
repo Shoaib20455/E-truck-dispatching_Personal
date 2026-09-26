@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { AnimatedSection } from "./animation/MotionElements";
+import { AnimatedDiv, AnimatedHeading, AnimatedSection, ParallaxDiv, StaggerGroup, StaggerItem } from "./animation/MotionElements";
 
 type HeroMetric = {
   value: string;
@@ -46,14 +46,19 @@ export default function StateDetailHero({
       <div className="relative z-10 w-full bg-gradient-to-r from-sky-500/85 via-cyan-500/75 to-teal-500/75 backdrop-blur-[2px]">
         <div className="mx-auto max-w-[1520px] px-6 py-12 lg:px-8 lg:py-16 2xl:px-0">
           <div className="grid grid-cols-1 items-start gap-10 lg:grid-cols-[1.05fr_0.8fr] lg:gap-16">
-            <div className="text-white">
+            <AnimatedDiv preset="hero-left" trigger="mount" className="text-white">
               <p className="mb-3 font-inter text-sm font-black uppercase tracking-[0.2em] text-white/95 md:text-base">
                 {eyebrow}
               </p>
 
-              <h1 className="mb-6 max-w-3xl font-inter text-4xl font-semibold leading-tight md:text-5xl lg:text-6xl">
-                {heading}
-              </h1>
+              <AnimatedHeading
+                text={heading}
+                level={1}
+                trigger="mount"
+                delay={0.05}
+                stagger={0.035}
+                className="mb-6 max-w-3xl font-inter text-4xl font-semibold leading-tight md:text-5xl lg:text-6xl"
+              />
 
               <p className="mb-7 max-w-3xl font-manrope text-lg font-medium leading-8 md:text-xl">
                 {description}
@@ -63,12 +68,9 @@ export default function StateDetailHero({
                 {servedText}
               </p>
 
-              <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
+              <StaggerGroup trigger="mount" stagger={0.08} delayChildren={0.18} className="grid grid-cols-1 gap-4 sm:grid-cols-3">
                 {metrics.map((metric) => (
-                  <div
-                    key={metric.label}
-                    className="flex items-center gap-4 rounded-[10px] bg-blue-50/90 px-5 py-4 text-zinc-700 backdrop-blur-sm"
-                  >
+                  <StaggerItem key={metric.label} preset="stat" hover="premium" className="flex items-center gap-4 rounded-[10px] bg-blue-50/90 px-5 py-4 text-zinc-700 backdrop-blur-sm">
                     <img
                       src={metric.icon}
                       alt={metric.iconAlt}
@@ -82,12 +84,13 @@ export default function StateDetailHero({
                         {metric.label}
                       </div>
                     </div>
-                  </div>
+                  </StaggerItem>
                 ))}
-              </div>
-            </div>
+              </StaggerGroup>
+            </AnimatedDiv>
 
-            <div className="rounded-[32px] border border-sky-500/20 bg-blue-50/90 p-6 shadow-[0px_25px_50px_-12px_rgba(0,96,168,0.10)] backdrop-blur-lg md:p-8 lg:p-10">
+            <ParallaxDiv distance={16}>
+              <AnimatedDiv preset="hero-right" delay={0.12} trigger="mount" className="rounded-[32px] border border-sky-500/20 bg-blue-50/90 p-6 shadow-[0px_25px_50px_-12px_rgba(0,96,168,0.10)] backdrop-blur-lg md:p-8 lg:p-10">
               <h2 className="mb-7 text-center font-inter text-2xl font-semibold leading-tight text-heading md:text-3xl">
                 {formHeading}
               </h2>
@@ -117,7 +120,8 @@ export default function StateDetailHero({
                   Book a Free Consultation
                 </button>
               </form>
-            </div>
+              </AnimatedDiv>
+            </ParallaxDiv>
           </div>
         </div>
       </div>
