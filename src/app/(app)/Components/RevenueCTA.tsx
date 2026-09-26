@@ -1,3 +1,4 @@
+import AppLink from "./navigation/AppLink";
 import { AnimatedSection } from "./animation/MotionElements";
 
 type RevenueCTAProps = {
@@ -40,19 +41,19 @@ export default function RevenueCTA({
             </p>
 
             <div className="flex flex-col justify-center gap-4 sm:flex-row">
-              <a
+              <AppLink
                 href={primaryButtonHref}
                 className="rounded-[53px] bg-white px-7 py-2.5 font-manrope text-base font-normal leading-8 text-zinc-700"
               >
                 {primaryButtonText}
-              </a>
+              </AppLink>
 
-              <a
+              <AppLink
                 href={secondaryButtonHref}
                 className="rounded-[53px] bg-sky-500 px-7 py-2.5 font-manrope text-base font-normal leading-8 text-white"
               >
                 {secondaryButtonText}
-              </a>
+              </AppLink>
             </div>
           </div>
         </div>
