@@ -1,4 +1,4 @@
-import { AnimatedSection } from "./animation/MotionElements";
+import { AnimatedSection, StaggerGroup, StaggerArticle } from "./animation/MotionElements";
 
 import SectionHeading from "./SectionHeading";
 
@@ -22,10 +22,12 @@ export default function WhyChooseUsSection({
         <SectionHeading title={heading} />
 
         <div className="mt-12 overflow-hidden rounded-[20px]">
-          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
+          <StaggerGroup stagger={0.075} className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
             {items.map((item, index) => (
-              <article
+              <StaggerArticle
                 key={item.title}
+                preset="card"
+                hover="premium"
                 className={
                   "min-h-[240px] px-10 py-12 text-center " +
                   ([0, 2, 4].includes(index) ? "bg-accent/10" : "bg-white")
@@ -37,9 +39,9 @@ export default function WhyChooseUsSection({
                 <p className="mx-auto mt-6 max-w-sm font-manrope text-base leading-8 text-neutral-500 md:text-lg">
                   {item.description}
                 </p>
-              </article>
+              </StaggerArticle>
             ))}
-          </div>
+          </StaggerGroup>
         </div>
       </div>
     </AnimatedSection>
