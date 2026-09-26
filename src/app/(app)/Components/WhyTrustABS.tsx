@@ -1,4 +1,4 @@
-import { AnimatedSection } from "./animation/MotionElements";
+import { AnimatedHeading, AnimatedSection, StaggerGroup, StaggerItem } from "./animation/MotionElements";
 
 type TrustCard = {
   title: string;
@@ -23,9 +23,10 @@ export default function WhyTrustABS({
       <div className="mx-auto max-w-[1520px] px-6 lg:px-8 2xl:px-0">
         {/* HEADING */}
         <div className="mx-auto mb-12 max-w-5xl text-center">
-          <h2 className="mb-6 font-inter text-3xl font-semibold leading-tight text-heading md:text-4xl lg:text-5xl">
-            {heading}
-          </h2>
+          <AnimatedHeading
+            text={heading}
+            className="mb-6 font-inter text-3xl font-semibold leading-tight text-heading md:text-4xl lg:text-5xl"
+          />
 
           <p className="whitespace-pre-line font-manrope text-lg font-normal leading-8 text-neutral-500">
             {description}
@@ -33,20 +34,17 @@ export default function WhyTrustABS({
         </div>
 
         {/* CARDS */}
-        <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
+        <StaggerGroup stagger={0.08} className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
           {/* MAIN CARD */}
-          <div className="flex items-center rounded-[20px] bg-teal-500/10 p-8">
+          <StaggerItem preset="scale" hover="soft" className="flex items-center rounded-[20px] bg-teal-500/10 p-8">
             <h3 className="font-inter text-3xl font-semibold leading-tight text-heading md:text-4xl lg:text-5xl">
               {mainCardHeading}
             </h3>
-          </div>
+          </StaggerItem>
 
           {/* OTHER CARDS */}
           {cards.map((card) => (
-            <div
-              key={card.title}
-              className="rounded-[20px] bg-white p-8"
-            >
+            <StaggerItem key={card.title} preset="card" hover="premium" className="rounded-[20px] bg-white p-8">
               <h3 className="mb-5 font-inter text-2xl font-semibold leading-tight text-heading md:text-3xl">
                 {card.title}
               </h3>
@@ -54,9 +52,9 @@ export default function WhyTrustABS({
               <p className="font-manrope text-lg font-normal leading-8 text-neutral-500">
                 {card.description}
               </p>
-            </div>
+            </StaggerItem>
           ))}
-        </div>
+        </StaggerGroup>
       </div>
     </AnimatedSection>
   );
