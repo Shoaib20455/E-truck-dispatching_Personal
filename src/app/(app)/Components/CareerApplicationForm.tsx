@@ -1,4 +1,4 @@
-import { AnimatedSection } from "./animation/MotionElements";
+import { AnimatedSection, StaggerGroup, StaggerItem } from "./animation/MotionElements";
 
 export type CareerDepartment = {
   label: string;
@@ -48,8 +48,8 @@ export default function CareerApplicationForm({
   return (
     <AnimatedSection preset="fade-up" className="w-full bg-cyan-50 py-16 md:py-20 lg:py-24">
       <div className="mx-auto w-full max-w-[1040px] px-6">
-        <form className="w-full">
-          <FieldLabel label={copy.nameLabel}>
+        <form className="w-full"><StaggerGroup stagger={0.055} className="space-y-0">
+          <StaggerItem preset="fade-up"><FieldLabel label={copy.nameLabel}>
             <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
               <HelperInput
                 name="firstName"
@@ -62,17 +62,17 @@ export default function CareerApplicationForm({
                 helper={copy.lastNameHelper}
               />
             </div>
-          </FieldLabel>
+          </FieldLabel></StaggerItem>
 
-          <FieldLabel label={copy.emailLabel} className="mt-7">
+          <StaggerItem preset="fade-up"><FieldLabel label={copy.emailLabel} className="mt-7">
             <input
               type="email"
               name="email"
               className={inputClass}
             />
-          </FieldLabel>
+          </FieldLabel></StaggerItem>
 
-          <FieldLabel label={copy.addressLabel} className="mt-7">
+          <StaggerItem preset="fade-up"><FieldLabel label={copy.addressLabel} className="mt-7">
             <HelperInput
               name="addressLine1"
               className={inputClass}
@@ -127,18 +127,18 @@ export default function CareerApplicationForm({
                 </p>
               </div>
             </div>
-          </FieldLabel>
+          </FieldLabel></StaggerItem>
 
-          <FieldLabel label={copy.phoneLabel} className="mt-7">
+          <StaggerItem preset="fade-up"><FieldLabel label={copy.phoneLabel} className="mt-7">
             <input
               type="tel"
               name="phone"
               placeholder={copy.phonePlaceholder}
               className={inputClass}
             />
-          </FieldLabel>
+          </FieldLabel></StaggerItem>
 
-          <fieldset className="mt-12">
+          <StaggerItem preset="fade-up"><fieldset className="mt-12">
             <legend className="font-inter text-xl font-semibold leading-8 text-heading md:text-2xl">
               {copy.departmentsHeading}
             </legend>
@@ -159,9 +159,9 @@ export default function CareerApplicationForm({
                 </label>
               ))}
             </div>
-          </fieldset>
+          </fieldset></StaggerItem>
 
-          <div className="mt-14">
+          <StaggerItem preset="fade-up"><div className="mt-14">
             <label className="font-inter text-xl font-semibold leading-8 text-heading md:text-2xl">
               {copy.uploadHeading}
             </label>
@@ -182,15 +182,15 @@ export default function CareerApplicationForm({
                 {copy.uploadHint}
               </span>
             </label>
-          </div>
+          </div></StaggerItem>
 
-          <button
+          <StaggerItem preset="fade-up" hover="soft"><button
             type="submit"
             className="mt-6 rounded-full bg-sky-500 px-8 py-3 font-manrope text-base font-medium text-white transition-opacity hover:opacity-90"
           >
             {copy.submitLabel}
-          </button>
-        </form>
+          </button></StaggerItem>
+        </StaggerGroup></form>
       </div>
     </AnimatedSection>
   );
