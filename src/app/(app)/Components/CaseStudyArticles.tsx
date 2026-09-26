@@ -1,3 +1,4 @@
+import AppLink from "./navigation/AppLink";
 import { AnimatedSection } from "./animation/MotionElements";
 
 type ArticleItem = {
@@ -47,9 +48,7 @@ export default function CaseStudyArticles({
 
               <h3 className="mb-5 font-inter text-2xl font-semibold leading-tight text-heading md:text-3xl">
                 {featuredArticle.href ? (
-                  <a href={featuredArticle.href}>
-                    {featuredArticle.title}
-                  </a>
+                  <AppLink href={featuredArticle.href}>{featuredArticle.title}</AppLink>
                 ) : (
                   featuredArticle.title
                 )}
@@ -81,9 +80,7 @@ export default function CaseStudyArticles({
 
                   <h3 className="mb-4 font-inter text-xl font-semibold leading-tight text-heading md:text-2xl">
                     {article.href ? (
-                      <a href={article.href}>
-                        {article.title}
-                      </a>
+                      <AppLink href={article.href}>{article.title}</AppLink>
                     ) : (
                       article.title
                     )}
