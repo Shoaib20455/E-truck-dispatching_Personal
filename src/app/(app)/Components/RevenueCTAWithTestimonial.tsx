@@ -1,5 +1,5 @@
 import AppLink from "./navigation/AppLink";
-import { AnimatedSection } from "./animation/MotionElements";
+import { AnimatedDiv, AnimatedHeading, AnimatedSection, HoverIcon, StaggerGroup, StaggerItem } from "./animation/MotionElements";
 
 type TestimonialData = {
   image: string;
@@ -48,39 +48,40 @@ export default function RevenueCTAWithTestimonial({
           <div className="w-full bg-gradient-to-b from-teal-500/85 to-teal-950/90 px-8 py-10 md:px-12 lg:px-16 lg:py-12">
             <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:gap-16">
               {/* LEFT */}
-              <div className="text-white">
-                <h2 className="mb-6 max-w-xl font-inter text-3xl font-semibold leading-tight md:text-4xl">
-                  {heading}
-                </h2>
+              <AnimatedDiv preset="slide-left" className="text-white">
+                <AnimatedHeading
+                  text={heading}
+                  className="mb-6 max-w-xl font-inter text-3xl font-semibold leading-tight md:text-4xl"
+                />
 
                 <p className="mb-7 max-w-xl font-manrope text-lg font-normal leading-8">
                   {description}
                 </p>
 
-                <div className="flex flex-col gap-4 sm:flex-row">
-                  <AppLink
+                <StaggerGroup stagger={0.08} className="flex flex-col gap-4 sm:flex-row">
+                  <StaggerItem preset="fade-up" hover="soft"><AppLink
                     href={primaryButtonHref}
                     className="inline-flex rounded-[44px] bg-white px-7 py-2.5 font-manrope text-base font-normal leading-8 text-neutral-600"
                   >
                     {primaryButtonText}
-                  </AppLink>
+                  </AppLink></StaggerItem>
 
-                  <AppLink
+                  <StaggerItem preset="fade-up" hover="soft"><AppLink
                     href={secondaryButtonHref}
                     className="inline-flex rounded-[44px] bg-sky-500 px-7 py-2.5 font-manrope text-base font-normal leading-8 text-white"
                   >
                     {secondaryButtonText}
-                  </AppLink>
-                </div>
-              </div>
+                  </AppLink></StaggerItem>
+                </StaggerGroup>
+              </AnimatedDiv>
 
               {/* RIGHT TESTIMONIAL */}
-              <div className="rounded-[10px] bg-white p-6 text-center md:p-8">
-                <img
-                  className="mx-auto -mt-14 mb-4 size-28 rounded-full object-cover"
+              <AnimatedDiv preset="slide-right" className="rounded-[10px] bg-white p-6 text-center md:p-8">
+                <HoverIcon className="mx-auto -mt-14 mb-4 w-fit"><img
+                  className="size-28 rounded-full object-cover"
                   src={testimonial.image}
                   alt={testimonial.imageAlt}
-                />
+                /></HoverIcon>
 
                 <h3 className="mb-2 font-manrope text-xl font-semibold leading-6 text-heading">
                   {testimonial.name}
@@ -101,7 +102,7 @@ export default function RevenueCTAWithTestimonial({
                 <p className="font-manrope text-lg font-normal leading-6 text-neutral-500">
                   {testimonial.quote}
                 </p>
-              </div>
+              </AnimatedDiv>
             </div>
           </div>
         </div>
