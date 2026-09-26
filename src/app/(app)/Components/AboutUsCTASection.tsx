@@ -1,4 +1,4 @@
-import { AnimatedSection } from "./animation/MotionElements";
+import { AnimatedDiv, AnimatedHeading, AnimatedSection, ImageReveal, StaggerGroup, StaggerItem } from "./animation/MotionElements";
 
 import Image from "next/image";
 
@@ -39,18 +39,19 @@ export default function AboutUsCTASection({
               className="pointer-events-none select-none object-cover object-center opacity-80"
             />
 
-            <div className="relative z-10 max-w-[720px] px-8 py-14 text-white md:px-12 lg:px-16 lg:py-16">
-              <h2 className="max-w-[620px] font-inter text-3xl font-semibold leading-10 md:text-4xl">
-                {heading}
-              </h2>
+            <AnimatedDiv preset="slide-left" className="relative z-10 max-w-[720px] px-8 py-14 text-white md:px-12 lg:px-16 lg:py-16">
+              <AnimatedHeading
+                text={heading}
+                className="max-w-[620px] font-inter text-3xl font-semibold leading-10 md:text-4xl"
+              />
               <p className="mt-6 max-w-[560px] font-manrope text-base font-normal leading-8 md:text-lg">
                 {description}
               </p>
 
-              <div className="mt-8 flex flex-col gap-4 sm:flex-row">
+              <StaggerGroup stagger={0.08} className="mt-8 flex flex-col gap-4 sm:flex-row">
                 {buttons.map((button) => (
+                  <StaggerItem key={button.label} preset="fade-up" hover="soft">
                   <a
-                    key={button.label}
                     href={button.href}
                     className={
                       button.variant === "primary"
@@ -60,18 +61,19 @@ export default function AboutUsCTASection({
                   >
                     {button.label}
                   </a>
+                  </StaggerItem>
                 ))}
-              </div>
-            </div>
+              </StaggerGroup>
+            </AnimatedDiv>
           </div>
 
-          <Image
+          <ImageReveal className="pointer-events-none absolute bottom-0 right-4 z-20 hidden w-[330px] sm:block md:right-8 md:w-[390px] lg:right-16 lg:w-[466px]"><Image
             src={doctorImage}
             alt={doctorImageAlt}
             width={466}
             height={587}
             className="pointer-events-none absolute bottom-0 right-4 z-20 hidden h-auto w-[330px] object-contain sm:block md:right-8 md:w-[390px] lg:right-16 lg:w-[466px]"
-          />
+          /></ImageReveal>
         </div>
       </div>
     </AnimatedSection>
