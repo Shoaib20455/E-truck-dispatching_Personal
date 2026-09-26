@@ -1,3 +1,5 @@
+import { AnimatedDiv } from "./animation/MotionElements";
+
 export type ContactFormCopy = {
   practiceNameLabel: string;
   practiceNamePlaceholder: string;
@@ -43,7 +45,7 @@ export default function ContactConsultationForm({
   buttonText,
 }: ContactConsultationFormProps) {
   return (
-    <div className="bg-accent/10 px-7 py-8 md:px-10 md:py-10">
+    <AnimatedDiv preset="fade-up" className="bg-accent/10 px-7 py-8 md:px-10 md:py-10">
       <h2 className="text-center font-inter text-3xl font-semibold leading-9 text-heading md:text-4xl">
         {heading}
       </h2>
@@ -119,7 +121,7 @@ export default function ContactConsultationForm({
           </button>
         </div>
       </form>
-    </div>
+    </AnimatedDiv>
   );
 }
 
