@@ -1,4 +1,4 @@
-import { AnimatedSection } from "./animation/MotionElements";
+import { AnimatedHeading, AnimatedSection, StaggerGroup, StaggerArticle, StaggerItem } from "./animation/MotionElements";
 
 import Image from "next/image";
 
@@ -42,30 +42,28 @@ export default function BlogListingSection({
     <AnimatedSection preset="fade-up" className="w-full bg-cyan-50 py-16 lg:py-20">
       <div className="mx-auto w-full max-w-[1520px] px-6 lg:px-8 2xl:px-0">
         <div>
-          <h2 className="font-inter text-4xl font-semibold leading-tight text-heading md:text-5xl">
-            {heading}
-          </h2>
+          <AnimatedHeading
+            text={heading}
+            className="font-inter text-4xl font-semibold leading-tight text-heading md:text-5xl"
+          />
 
-          <nav
-            aria-label={categoriesAriaLabel}
-            className="mt-5 flex flex-wrap items-center gap-3"
-          >
+          <StaggerGroup stagger={0.05} className="mt-5 flex flex-wrap items-center gap-3">
             {categories.map((category) => (
+              <StaggerItem key={category.label} preset="fade-up" hover="soft">
               <a
-                key={category.label}
                 href={category.href ?? "#"}
                 className="inline-flex min-h-12 items-center justify-center rounded-[80px] bg-primary-light px-7 py-2.5 font-manrope text-base font-normal leading-8 text-white transition-opacity hover:opacity-90"
               >
                 {category.label}
               </a>
+              </StaggerItem>
             ))}
-          </nav>
+          </StaggerGroup>
         </div>
 
-        <div className="mt-14 grid grid-cols-1 gap-x-[30px] gap-y-[60px] md:grid-cols-2 lg:grid-cols-3">
+        <StaggerGroup stagger={0.08} className="mt-14 grid grid-cols-1 gap-x-[30px] gap-y-[60px] md:grid-cols-2 lg:grid-cols-3">
           {posts.map((post, index) => (
-            <article
-              key={post.title + "-" + index}
+            <StaggerArticle key={post.title + "-" + index} preset="card" hover="premium"
               className="overflow-hidden rounded-[30px] bg-white shadow-[0px_10px_20px_rgba(0,0,0,0.08)]"
             >
               {post.href ? (
@@ -106,9 +104,9 @@ export default function BlogListingSection({
                   {post.description}
                 </p>
               </div>
-            </article>
+            </StaggerArticle>
           ))}
-        </div>
+        </StaggerGroup>
 
         <nav
           aria-label={paginationAriaLabel}
