@@ -378,6 +378,6 @@ function StarRating({ rating }: { rating: string }) {
       <div className="mt-1 font-inter text-base font-medium leading-7 text-heading md:text-lg">
         {rating}
       </div>
-    </AnimatedDiv>
+    </div>
   );
 }
