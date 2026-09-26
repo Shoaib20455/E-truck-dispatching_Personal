@@ -1,3 +1,4 @@
+import Image from "next/image";
 import AppLink from "./navigation/AppLink";
 import { AnimatedSection } from "./animation/MotionElements";
 
@@ -59,11 +60,7 @@ export default function StateRevenueBanner({
             </div>
 
             <div className="flex justify-center lg:justify-end">
-              <img
-                src={doctorImage}
-                alt={doctorAlt}
-                className="w-full max-w-[330px] object-contain lg:-mt-20 lg:max-w-[390px]"
-              />
+              <Image src={doctorImage} alt={doctorAlt} width={520} height={700} sizes="(min-width: 1024px) 390px, 330px" className="h-auto w-full max-w-[330px] object-contain lg:-mt-20 lg:max-w-[390px]" />
             </div>
           </div>
         </div>
