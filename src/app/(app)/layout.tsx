@@ -42,12 +42,8 @@ export const metadata: Metadata = {
     "provider credentialing",
     "state licensing",
   ],
-  alternates: {
-    canonical: "/",
-  },
   openGraph: {
     type: "website",
-    url: "/",
     siteName: "Avenue Billing Services",
     title: "Avenue Billing Services | Medical Billing & RCM Services",
     description:
