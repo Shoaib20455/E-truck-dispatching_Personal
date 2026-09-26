@@ -25,6 +25,7 @@ import { ServiceGridWithImageBlock } from "./ServiceGridWithImage";
 import { ServiceHeroBlock } from "./ServiceHero";
 import { SimpleFeatureCardsBlock } from "./SimpleFeatureCards";
 import { SmallPracticesBlock } from "./SmallPractices";
+import { SoftwarePartnersBlock } from "./SoftwarePartners";
 import { StateConsultationCTABlock } from "./StateConsultationCTA";
 import { SuccessNumbersBlock } from "./SuccessNumbers";
 import { TestimonialsBlock } from "./Testimonials";
@@ -98,6 +99,7 @@ export {
   ServiceHeroBlock,
   SimpleFeatureCardsBlock,
   SmallPracticesBlock,
+  SoftwarePartnersBlock,
   StateConsultationCTABlock,
   SuccessNumbersBlock,
   TestimonialsBlock,
