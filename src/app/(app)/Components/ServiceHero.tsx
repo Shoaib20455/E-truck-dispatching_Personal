@@ -63,8 +63,7 @@ export default function ServiceHero({
         sizes="100vw"
         className="-z-10 object-cover"
         aria-hidden="true"
-      /
-    >
+      />
       <div
         className={
           isCompact
