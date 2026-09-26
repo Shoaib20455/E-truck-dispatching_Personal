@@ -1,3 +1,4 @@
+import AppLink from "./navigation/AppLink";
 import { AnimatedSection } from "./animation/MotionElements";
 
 type StateSupportGridProps = {
@@ -50,12 +51,12 @@ export default function StateSupportGrid({
                 ))}
               </div>
 
-              <a
+              <AppLink
                 href={buttonHref}
                 className="block w-full rounded-[54px] bg-sky-500 px-7 py-3 text-center font-manrope text-base font-medium text-white"
               >
                 {buttonText}
-              </a>
+              </AppLink>
             </div>
 
             <div className="flex justify-center">
@@ -92,12 +93,12 @@ export default function StateSupportGrid({
                 </div>
               ))}
 
-              <a
+              <AppLink
                 href={buttonHref}
                 className="rounded-[45px] bg-sky-500 px-6 py-3 text-center font-inter text-xl font-semibold text-white"
               >
                 {buttonText}
-              </a>
+              </AppLink>
             </div>
           </>
         )}
