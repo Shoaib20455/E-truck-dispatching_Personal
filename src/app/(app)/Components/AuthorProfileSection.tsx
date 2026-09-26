@@ -1,3 +1,5 @@
+import { AnimatedSection } from "./animation/MotionElements";
+
 import Image from "next/image";
 
 export type AuthorStat = {
@@ -35,7 +37,7 @@ export default function AuthorProfileSection({
   socialLinks,
 }: AuthorProfileSectionProps) {
   return (
-    <section className="w-full bg-cyan-50">
+    <AnimatedSection preset="fade-up" className="w-full bg-cyan-50">
       <div className="relative bg-gradient-to-r from-sky-500/70 to-teal-500/70">
         <div className="mx-auto min-h-[245px] w-full max-w-[1520px] px-6 lg:px-8 2xl:px-0">
           <div className="relative flex min-h-[245px] items-end pb-0">
@@ -110,6 +112,6 @@ export default function AuthorProfileSection({
           </p>
         </div>
       </div>
-    </section>
+    </AnimatedSection>
   );
 }
