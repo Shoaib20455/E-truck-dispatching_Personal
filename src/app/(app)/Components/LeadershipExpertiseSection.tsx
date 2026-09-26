@@ -21,8 +21,8 @@ export default function LeadershipExpertiseSection({
         <SectionHeading title={heading} subtitle={subtitle} />
 
         <StaggerGroup stagger={0.075} className="mt-12 grid grid-cols-1 gap-7 sm:grid-cols-2 xl:grid-cols-4">
-          {items.map((item) => (
-            <StaggerItem key={item} preset="scale" hover="premium" className="flex justify-center">
+          {items.map((item, index) => (
+            <StaggerItem key={item} preset={index % 2 === 0 ? "hex-left" : "hex-right"} hover="premium" className="flex justify-center">
               <div
                 className="aspect-square w-full max-w-[300px] bg-primary-light p-px drop-shadow-[0_10px_18px_rgba(0,0,0,0.10)]"
                 style={{ clipPath: "polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)" }}
