@@ -13,7 +13,7 @@ export default function LocationShowcase({ heading, items, buttonText, columns =
         </div>
         <StaggerGroup stagger={0.07} className={`grid grid-cols-1 gap-6 sm:grid-cols-2 ${columns === 4 ? "lg:grid-cols-4" : "lg:grid-cols-3"}`}>
           {items.map((item, index) => (
-            <StaggerItem key={item.title} preset="card" hover="premium" className={`overflow-hidden rounded-[10px] bg-white ${index === 0 ? "border border-teal-500 shadow-[0px_10px_20px_rgba(0,0,0,0.10)]" : ""}`}>
+            <StaggerItem key={item.title} preset={index % 2 === 0 ? "tile-left" : "tile-right"} hover="premium" className={`overflow-hidden rounded-[10px] bg-white ${index === 0 ? "border border-teal-500 shadow-[0px_10px_20px_rgba(0,0,0,0.10)]" : ""}`}>
               <Image src={item.image} alt={item.imageAlt} width={700} height={507} sizes={columns === 4 ? "(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw" : "(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"} className="aspect-[1.38/1] w-full object-cover" />
               <div className={`px-5 py-5 text-center font-inter text-2xl font-semibold ${index === 0 ? "text-teal-500" : "text-sky-500"}`}>{item.title}</div>
             </StaggerItem>
