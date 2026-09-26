@@ -1,3 +1,4 @@
+import AppLink from "./navigation/AppLink";
 import { AnimatedSection } from "./animation/MotionElements";
 
 type CertificationCTAProps = {
@@ -44,12 +45,12 @@ export default function CertificationCTA({
                   {description}
                 </p>
 
-                <a
+                <AppLink
                   href={buttonHref}
                   className="inline-flex rounded-[58px] bg-sky-500 px-7 py-2.5 font-manrope text-lg font-normal leading-8 text-white"
                 >
                   {buttonText}
-                </a>
+                </AppLink>
               </div>
 
               {/* RIGHT */}
