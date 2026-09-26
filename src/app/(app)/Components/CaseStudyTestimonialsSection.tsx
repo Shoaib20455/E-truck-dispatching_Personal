@@ -25,8 +25,8 @@ export default function CaseStudyTestimonialsSection({
         />
 
         <StaggerGroup stagger={0.075} className="mt-12 grid grid-cols-1 gap-5 px-6 md:grid-cols-2 xl:grid-cols-5 xl:px-0">
-          {testimonials.map((testimonial) => (
-            <StaggerArticle key={testimonial.name} preset="card" hover="lift" className="rounded-[10px] bg-white px-7 py-10 text-center">
+          {testimonials.map((testimonial, index) => (
+            <StaggerArticle key={testimonial.name} preset={index % 2 === 0 ? "tile-left" : "tile-right"} hover="lift" className="rounded-[10px] bg-white px-7 py-10 text-center">
               <h3 className="font-manrope text-xl font-semibold leading-6 text-heading">{testimonial.name}</h3>
               <p className="mt-2 font-manrope text-lg leading-6 text-neutral-500">{testimonial.role}</p>
               <div className="mt-4 text-xl tracking-[2px] text-amber-400">
