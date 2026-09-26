@@ -1,4 +1,4 @@
-import { AnimatedSection } from "./animation/MotionElements";
+import { AnimatedHeading, AnimatedSection, StaggerGroup, StaggerItem } from "./animation/MotionElements";
 
 type SpecialtyDirectoryItem = {
   title: string;
@@ -20,15 +20,18 @@ export default function SpecialtyDirectory({
     <AnimatedSection preset="fade-up" className="w-full bg-cyan-50 py-14 lg:py-20">
       <div className="mx-auto max-w-[1520px] px-6 lg:px-8 2xl:px-0">
         <div className="mx-auto mb-12 max-w-4xl text-center">
-          <h2 className="font-inter text-3xl font-semibold leading-tight text-heading md:text-4xl lg:text-5xl">
-            {heading}
-          </h2>
+          <AnimatedHeading
+            text={heading}
+            className="font-inter text-3xl font-semibold leading-tight text-heading md:text-4xl lg:text-5xl"
+          />
         </div>
 
-        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <StaggerGroup stagger={0.065} className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {specialties.map((specialty) => (
-            <div
+            <StaggerItem
               key={specialty.title}
+              preset="card"
+              hover="premium"
               className={`flex min-h-44 flex-col items-center justify-center rounded-[10px] px-5 py-6 text-center shadow-[0px_10px_20px_rgba(0,0,0,0.07)] ${
                 specialty.highlighted ? "bg-sky-500" : "bg-white"
               }`}
@@ -47,9 +50,9 @@ export default function SpecialtyDirectory({
               >
                 {specialty.title}
               </h3>
-            </div>
+            </StaggerItem>
           ))}
-        </div>
+        </StaggerGroup>
       </div>
     </AnimatedSection>
   );
