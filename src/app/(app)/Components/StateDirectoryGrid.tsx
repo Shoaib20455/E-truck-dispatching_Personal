@@ -1,3 +1,5 @@
+import { AnimatedSection } from "./animation/MotionElements";
+
 type StateCard = {
   name: string;
   abbreviation: string;
@@ -17,7 +19,7 @@ export default function StateDirectoryGrid({
   pinIcon,
 }: StateDirectoryGridProps) {
   return (
-    <section className="w-full bg-cyan-50 py-14 lg:py-20">
+    <AnimatedSection preset="fade-up" className="w-full bg-cyan-50 py-14 lg:py-20">
       <div className="mx-auto max-w-[1520px] px-6 lg:px-8 2xl:px-0">
         <div className="mb-12 text-center">
           <h2 className="font-inter text-3xl font-semibold leading-tight text-heading md:text-4xl lg:text-5xl">
@@ -58,6 +60,6 @@ export default function StateDirectoryGrid({
           ))}
         </div>
       </div>
-    </section>
+    </AnimatedSection>
   );
 }
