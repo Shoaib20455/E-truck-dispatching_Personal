@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { AnimatedSection } from "./animation/MotionElements";
 
 type LocationList = {
@@ -42,11 +43,7 @@ export default function CitiesCounties({
 
           {/* MAP */}
           <div className="flex items-center justify-center overflow-hidden rounded-[20px] bg-teal-100">
-            <img
-              src={mapImage}
-              alt={mapAlt}
-              className="w-full object-contain"
-            />
+            <Image src={mapImage} alt={mapAlt} width={800} height={700} sizes="(min-width: 1024px) 34vw, 100vw" className="h-auto w-full object-contain" />
           </div>
 
           {/* RIGHT LIST */}
