@@ -438,10 +438,14 @@ export function renderPageBlock(block: PageBlock): ReactNode {
           const src = mediaUrl(partner.logo);
           if (!src) return null;
 
+          const media = asMedia(partner.logo);
+
           return {
             name: partner.name,
             src,
             alt: partner.alt || mediaAlt(partner.logo, partner.name),
+            width: media?.width ?? undefined,
+            height: media?.height ?? undefined,
           };
         }),
       );
