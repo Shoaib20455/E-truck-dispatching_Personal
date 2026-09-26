@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { AnimatedSection } from "./animation/MotionElements";
 
 type ServiceCard = {
@@ -39,14 +40,13 @@ export default function ServiceGridWithImage({
               {heading}
             </h2>
 
-            <img
+            <Image
               src={image}
               alt={imageAlt}
-              className={`w-full rounded-[20px] object-cover ${
-                isCompact
-                  ? "shadow-[0px_10px_20px_rgba(0,0,0,0.10)]"
-                  : ""
-              }`}
+              width={900}
+              height={700}
+              sizes="(min-width: 1024px) 45vw, 100vw"
+              className={`h-auto w-full rounded-[20px] object-cover ${isCompact ? "shadow-[0px_10px_20px_rgba(0,0,0,0.10)]" : ""}`}
             />
           </div>
 
