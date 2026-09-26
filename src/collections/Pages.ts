@@ -33,7 +33,7 @@ export const Pages: CollectionConfig = {
       required: true,
       label: "Page Title",
       admin: {
-        description: "Internal label. Also used for the H1 when no hero block is placed first.",
+        description: "Internal page label and fallback SEO title.",
       },
     },
     {
@@ -51,7 +51,7 @@ export const Pages: CollectionConfig = {
         beforeValidate: [
           ({ data, operation }) => {
             // Only auto-generate slug on create, not on every keystroke during edit
-            if (operation === "create" && data?.title) {
+            if (operation === "create" && data?.title && !data?.slug) {
               return data.title
                 .toLowerCase()
                 .replace(/\s+/g, "-")
