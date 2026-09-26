@@ -42,7 +42,7 @@ export const FAQSectionBlock: Block = {
       name: "defaultOpenIndex",
       type: "number",
       defaultValue: 0,
-      min: 0,
+      min: -1,
       label: "Open Question By Default",
       admin: {
         description: "Zero-based index of the question shown expanded. Use -1 to keep all closed.",
