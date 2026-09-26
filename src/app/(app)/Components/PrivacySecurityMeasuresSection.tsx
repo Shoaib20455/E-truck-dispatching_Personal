@@ -1,3 +1,5 @@
+import { AnimatedDiv } from "./animation/MotionElements";
+
 export type SecurityGroup = {
   heading: string;
   items: string[];
@@ -13,7 +15,7 @@ export default function PrivacySecurityMeasuresSection({
   groups,
 }: PrivacySecurityMeasuresSectionProps) {
   return (
-    <div>
+    <AnimatedDiv preset="fade">
       <h2 className="font-inter text-4xl font-semibold leading-tight text-heading md:text-5xl">{heading}</h2>
       <div className="mt-5 font-manrope text-base font-normal leading-8 text-neutral-500 md:text-lg">
         {groups.map((group) => (
@@ -23,6 +25,6 @@ export default function PrivacySecurityMeasuresSection({
           </div>
         ))}
       </div>
-    </div>
+    </AnimatedDiv>
   );
 }
