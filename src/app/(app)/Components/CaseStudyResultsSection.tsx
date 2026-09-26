@@ -23,8 +23,8 @@ export default function CaseStudyResultsSection({
         />
 
         <StaggerGroup stagger={0.08} className="mt-12 grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">
-          {results.map((result) => (
-            <StaggerArticle key={result.title} preset="card" hover="lift" className="rounded-[10px] border border-primary-light bg-white px-7 py-8">
+          {results.map((result, index) => (
+            <StaggerArticle key={result.title} preset={index % 2 === 0 ? "tile-left" : "tile-right"} hover="lift" className="rounded-[10px] border border-primary-light bg-white px-7 py-8">
               <h3 className="font-inter text-xl font-semibold leading-8 text-heading">
                 {result.title}
               </h3>
