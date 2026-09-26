@@ -37,8 +37,8 @@ export default function CaseStudyPracticeSnapshot({
           </div>
 
           <StaggerGroup stagger={0.055} className="">
-          {rows.map((row) => (
-            <StaggerItem key={row.label} preset="fade-up" className="grid grid-cols-[minmax(180px,0.75fr)_minmax(0,2.25fr)] border-t border-neutral-400/50">
+          {rows.map((row, index) => (
+            <StaggerItem key={row.label} preset={index % 2 === 0 ? "tile-left" : "tile-right"} className="grid grid-cols-[minmax(180px,0.75fr)_minmax(0,2.25fr)] border-t border-neutral-400/50">
               <div className="bg-accent/10 px-6 py-5 font-inter text-base font-semibold leading-8 text-heading md:text-lg">
                 {row.label}
               </div>
