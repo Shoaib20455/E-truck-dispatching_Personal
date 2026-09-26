@@ -1,4 +1,4 @@
-import { AnimatedDiv } from "./animation/MotionElements";
+import { AnimatedArticle, AnimatedDiv, AnimatedHeading, AnimatedSection, ImageReveal, StaggerGroup, StaggerItem } from "./animation/MotionElements";
 
 import Image from "next/image";
 import AppLink from "./navigation/AppLink";
@@ -104,25 +104,29 @@ export default function CommercialBlogLayout({
 }: CommercialBlogLayoutProps) {
   return (
     <>
-      <section className="w-full bg-gradient-to-r from-sky-500/75 to-teal-500/75">
+      <AnimatedSection preset="fade" trigger="mount" className="w-full bg-gradient-to-r from-sky-500/75 to-teal-500/75">
         <div className="mx-auto w-full max-w-[1520px] px-6 py-16 lg:px-8 lg:py-20 2xl:px-0">
-          <h1 className="font-inter text-4xl font-semibold leading-tight text-white md:text-5xl lg:text-6xl">
-            {title}
-          </h1>
+          <AnimatedHeading
+            text={title}
+            level={1}
+            trigger="mount"
+            stagger={0.035}
+            className="font-inter text-4xl font-semibold leading-tight text-white md:text-5xl lg:text-6xl"
+          />
         </div>
-      </section>
+      </AnimatedSection>
 
-      <section className="w-full bg-cyan-50 py-14 lg:py-20">
+      <AnimatedSection preset="fade-up" className="w-full bg-cyan-50 py-14 lg:py-20">
         <div className="mx-auto grid w-full max-w-[1520px] grid-cols-1 gap-10 px-6 lg:px-8 xl:grid-cols-[minmax(0,986px)_minmax(320px,504px)] xl:gap-[30px] 2xl:px-0">
-          <article className="min-w-0">
-            <Image
+          <AnimatedArticle preset="fade-up" className="min-w-0">
+            <ImageReveal className="rounded-[20px]"><Image
               src={featuredImage}
               alt={featuredImageAlt}
               width={986}
               height={640}
               priority
               className="aspect-[986/640] w-full rounded-[20px] object-cover"
-            />
+            /></ImageReveal>
 
             <div className="mt-10 rounded-lg border-l-[5px] border-accent bg-accent/10 p-5">
               <p className="font-manrope text-base leading-7 text-neutral-500 md:text-lg">
@@ -261,9 +265,9 @@ export default function CommercialBlogLayout({
               </div>
             </section>
 
-            <div className="mt-14 space-y-10">
+            <StaggerGroup stagger={0.06} className="mt-14 space-y-10">
               {articleSections.map((section) => (
-                <section key={section.title} id={sectionId(section.title)}>
+                <StaggerItem key={section.title} preset="fade-up"><section id={sectionId(section.title)}>
                   <h2 className="font-inter text-2xl font-semibold leading-9 text-heading md:text-3xl">
                     {section.title}
                   </h2>
@@ -285,12 +289,12 @@ export default function CommercialBlogLayout({
                       {paragraph}
                     </p>
                   ))}
-                </section>
+                </section></StaggerItem>
               ))}
-            </div>
-          </article>
+            </StaggerGroup>
+          </AnimatedArticle>
 
-          <aside className="self-start">
+          <AnimatedDiv preset="slide-right" className="self-start">
             <section>
               <h2 className="font-inter text-2xl font-semibold leading-10 text-heading md:text-3xl">
                 {labels.specialtiesHeading}
@@ -340,9 +344,9 @@ export default function CommercialBlogLayout({
             <div className="mt-8">
               <ConsultationCard {...consultation} />
             </div>
-          </aside>
+          </AnimatedDiv>
         </div>
-      </section>
+      </AnimatedSection>
     </>
   );
 }
