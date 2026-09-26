@@ -48,7 +48,7 @@ export default function RevenueCTAWithTestimonial({
           <div className="w-full bg-gradient-to-b from-teal-500/85 to-teal-950/90 px-8 py-10 md:px-12 lg:px-16 lg:py-12">
             <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:gap-16">
               {/* LEFT */}
-              <AnimatedDiv preset="slide-left" className="text-white">
+              <AnimatedDiv preset="panel-left" className="text-white">
                 <AnimatedHeading
                   text={heading}
                   className="mb-6 max-w-xl font-inter text-3xl font-semibold leading-tight md:text-4xl"
@@ -76,7 +76,7 @@ export default function RevenueCTAWithTestimonial({
               </AnimatedDiv>
 
               {/* RIGHT TESTIMONIAL */}
-              <AnimatedDiv preset="slide-right" className="rounded-[10px] bg-white p-6 text-center md:p-8">
+              <AnimatedDiv preset="panel-right" className="rounded-[10px] bg-white p-6 text-center md:p-8">
                 <HoverIcon className="mx-auto -mt-14 mb-4 w-fit"><img
                   className="size-28 rounded-full object-cover"
                   src={testimonial.image}
