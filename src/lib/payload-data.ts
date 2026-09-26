@@ -187,3 +187,48 @@ export const getAllCategorySlugs = unstable_cache(fetchAllCategorySlugs, ["categ
   revalidate: 86400,
   tags: ["categories"],
 });
+
+async function fetchPageBySlug(slug: string) {
+  try {
+    const payload = await getPayload({ config: configPromise });
+    const result = await payload.find({
+      collection: "pages",
+      depth: 2,
+      limit: 1,
+      pagination: false,
+      where: { slug: { equals: slug } },
+    });
+
+    return result.docs[0] ?? null;
+  } catch {
+    return null;
+  }
+}
+
+export const getPageBySlug = unstable_cache(fetchPageBySlug, ["page"], {
+  revalidate: 60,
+  tags: ["pages"],
+});
+
+async function fetchAllPageSlugs() {
+  try {
+    const payload = await getPayload({ config: configPromise });
+    const result = await payload.find({
+      collection: "pages",
+      depth: 0,
+      limit: 1000,
+      pagination: false,
+      sort: "slug",
+      select: { slug: true },
+    });
+
+    return result.docs.map(({ slug }) => slug);
+  } catch {
+    return [];
+  }
+}
+
+export const getAllPageSlugs = unstable_cache(fetchAllPageSlugs, ["page-slugs"], {
+  revalidate: 3600,
+  tags: ["pages"],
+});

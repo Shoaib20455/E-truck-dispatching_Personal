@@ -8,7 +8,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "analyze": "next experimental-analyze --output"
+    "analyze": "next experimental-analyze --output",
+    "generate:types": "payload generate:types"
   },
   "dependencies": {
     "@payloadcms/db-postgres": "^3.86.0",

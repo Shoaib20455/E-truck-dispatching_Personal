@@ -71,6 +71,7 @@ export interface Config {
     media: Media;
     categories: Category;
     posts: Post;
+    pages: Page;
     leads: Lead;
     'payload-kv': PayloadKv;
     'payload-locked-documents': PayloadLockedDocument;
@@ -83,6 +84,7 @@ export interface Config {
     media: MediaSelect<false> | MediaSelect<true>;
     categories: CategoriesSelect<false> | CategoriesSelect<true>;
     posts: PostsSelect<false> | PostsSelect<true>;
+    pages: PagesSelect<false> | PagesSelect<true>;
     leads: LeadsSelect<false> | LeadsSelect<true>;
     'payload-kv': PayloadKvSelect<false> | PayloadKvSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
@@ -287,6 +289,148 @@ export interface Post {
   createdAt: string;
 }
 /**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "pages".
+ */
+export interface Page {
+  id: number;
+  /**
+   * Internal label. Also used for the H1 when no hero block is placed first.
+   */
+  title: string;
+  /**
+   * Path this page is served from, e.g. fleet-management.
+   */
+  slug: string;
+  /**
+   * Falls back to the page title.
+   */
+  metaTitle?: string | null;
+  metaDescription?: string | null;
+  /**
+   * Drag to reorder. The page renders these sections top to bottom.
+   */
+  blocks?:
+    | (
+        | {
+            heading: string;
+            description: string;
+            /**
+             * Full-bleed background behind the gradient overlay. Landscape works best.
+             */
+            backgroundImage: number | Media;
+            highlights: {
+              text: string;
+              id?: string | null;
+            }[];
+            /**
+             * Optional. Up to four fit in a single row.
+             */
+            reviews?:
+              | {
+                  /**
+                   * Optional. When empty, the text label is shown instead.
+                   */
+                  logo?: (number | null) | Media;
+                  alt?: string | null;
+                  /**
+                   * Fallback text rating, e.g. Trustpilot 4.8.
+                   */
+                  label?: string | null;
+                  /**
+                   * Optional. Any string, e.g. ★★★★★ or 4.8/5.
+                   */
+                  rating?: string | null;
+                  id?: string | null;
+                }[]
+              | null;
+            formHeading: string;
+            namePlaceholder: string;
+            phonePlaceholder: string;
+            emailPlaceholder: string;
+            organizationPlaceholder: string;
+            buttonText: string;
+            variant?: ('default' | 'compact') | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'serviceHero';
+          }
+        | {
+            heading: string;
+            /**
+             * Cards are laid out in a responsive grid that widens as the list grows.
+             */
+            items: {
+              title: string;
+              id?: string | null;
+            }[];
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'simpleFeatureCards';
+          }
+        | {
+            heading: string;
+            /**
+             * Shown beside the list. A portrait or square image works best.
+             */
+            image: number | Media;
+            /**
+             * Falls back to the alt text of the selected media file.
+             */
+            imageAlt?: string | null;
+            services: {
+              title: string;
+              description: string;
+              /**
+               * Highlights this item with an accent border and badge.
+               */
+              highlighted?: boolean | null;
+              id?: string | null;
+            }[];
+            variant?: ('default' | 'compact') | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'serviceGridWithImage';
+          }
+        | {
+            heading: string;
+            faqs: {
+              question: string;
+              /**
+               * Plain text. Line breaks are preserved.
+               */
+              answer: string;
+              id?: string | null;
+            }[];
+            /**
+             * Zero-based index of the question shown expanded. Use -1 to keep all closed.
+             */
+            defaultOpenIndex?: number | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'faqSection';
+          }
+        | {
+            heading: string;
+            description: string;
+            /**
+             * Sits behind the teal overlay. Landscape works best.
+             */
+            backgroundImage: number | Media;
+            primaryButtonText: string;
+            primaryButtonHref: string;
+            secondaryButtonText: string;
+            secondaryButtonHref: string;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'revenueCTA';
+          }
+      )[]
+    | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
  * Form submissions received from the website. Use Queries by Page to review submissions by their source page.
  *
  * This interface was referenced by `Config`'s JSON-Schema
@@ -352,6 +496,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'posts';
         value: number | Post;
+      } | null)
+    | ({
+        relationTo: 'pages';
+        value: number | Page;
       } | null)
     | ({
         relationTo: 'leads';
@@ -521,6 +669,112 @@ export interface PostsSelect<T extends boolean = true> {
   jsonSchema?: T;
   publishedDate?: T;
   status?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "pages_select".
+ */
+export interface PagesSelect<T extends boolean = true> {
+  title?: T;
+  slug?: T;
+  metaTitle?: T;
+  metaDescription?: T;
+  blocks?:
+    | T
+    | {
+        serviceHero?:
+          | T
+          | {
+              heading?: T;
+              description?: T;
+              backgroundImage?: T;
+              highlights?:
+                | T
+                | {
+                    text?: T;
+                    id?: T;
+                  };
+              reviews?:
+                | T
+                | {
+                    logo?: T;
+                    alt?: T;
+                    label?: T;
+                    rating?: T;
+                    id?: T;
+                  };
+              formHeading?: T;
+              namePlaceholder?: T;
+              phonePlaceholder?: T;
+              emailPlaceholder?: T;
+              organizationPlaceholder?: T;
+              buttonText?: T;
+              variant?: T;
+              id?: T;
+              blockName?: T;
+            };
+        simpleFeatureCards?:
+          | T
+          | {
+              heading?: T;
+              items?:
+                | T
+                | {
+                    title?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        serviceGridWithImage?:
+          | T
+          | {
+              heading?: T;
+              image?: T;
+              imageAlt?: T;
+              services?:
+                | T
+                | {
+                    title?: T;
+                    description?: T;
+                    highlighted?: T;
+                    id?: T;
+                  };
+              variant?: T;
+              id?: T;
+              blockName?: T;
+            };
+        faqSection?:
+          | T
+          | {
+              heading?: T;
+              faqs?:
+                | T
+                | {
+                    question?: T;
+                    answer?: T;
+                    id?: T;
+                  };
+              defaultOpenIndex?: T;
+              id?: T;
+              blockName?: T;
+            };
+        revenueCTA?:
+          | T
+          | {
+              heading?: T;
+              description?: T;
+              backgroundImage?: T;
+              primaryButtonText?: T;
+              primaryButtonHref?: T;
+              secondaryButtonText?: T;
+              secondaryButtonHref?: T;
+              id?: T;
+              blockName?: T;
+            };
+      };
   updatedAt?: T;
   createdAt?: T;
 }

@@ -13,6 +13,7 @@ import { Users } from "./collections/Users";
 import { Media } from "./collections/Media";
 import { Categories } from "./collections/Categories";
 import { Posts } from "./collections/Posts";
+import { Pages } from "./collections/Pages";
 import { Leads } from "./collections/Leads";
 
 const filename = fileURLToPath(import.meta.url);
@@ -43,7 +44,7 @@ export default buildConfig({
       },
     },
   },
-  collections: [Users, Media, Categories, Posts, Leads],
+  collections: [Users, Media, Categories, Posts, Pages, Leads],
   editor: lexicalEditor({
   features: ({ defaultFeatures }) => [
     ...defaultFeatures,

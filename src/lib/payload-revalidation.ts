@@ -27,3 +27,18 @@ export const revalidateDeletedCategory: CollectionAfterDeleteHook = ({ doc }) =>
   revalidateTag("posts", "max");
   return doc;
 };
+
+export const revalidatePage: CollectionAfterChangeHook = ({ doc, previousDoc }) => {
+  revalidateTag("pages", "max");
+  if (doc.slug) revalidateTag(`page:${doc.slug}`, "max");
+  if (previousDoc?.slug && previousDoc.slug !== doc.slug) {
+    revalidateTag(`page:${previousDoc.slug}`, "max");
+  }
+  return doc;
+};
+
+export const revalidateDeletedPage: CollectionAfterDeleteHook = ({ doc }) => {
+  revalidateTag("pages", "max");
+  if (doc?.slug) revalidateTag(`page:${doc.slug}`, "max");
+  return doc;
+};
