@@ -1,3 +1,4 @@
+import Image from "next/image";
 import AppLink from "./navigation/AppLink";
 import { AnimatedSection } from "./animation/MotionElements";
 
@@ -84,11 +85,7 @@ export default function SmallPractices({
             </div>
 
             {/* IMAGE */}
-            <img
-              src={image}
-              alt={imageAlt}
-              className="w-full rounded-[20px] object-cover"
-            />
+            <Image src={image} alt={imageAlt} width={900} height={600} sizes="(min-width: 1024px) 48vw, 100vw" className="h-auto w-full rounded-[20px] object-cover" />
           </div>
         </div>
       </div>
