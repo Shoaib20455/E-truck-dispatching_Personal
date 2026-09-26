@@ -1,6 +1,7 @@
 import { AnimatedDiv } from "./animation/MotionElements";
 
 import Image from "next/image";
+import AppLink from "./navigation/AppLink";
 import AuthorCard, { type AuthorCardProps } from "./AuthorCard";
 import ConsultationCard, { type ConsultationCardProps } from "./ConsultationCard";
 
@@ -211,12 +212,12 @@ export default function CommercialBlogLayout({
                 <h3 className="font-inter text-2xl font-semibold leading-tight text-white md:text-3xl">
                   {labels.featuredCtaTitle}
                 </h3>
-                <a
+                <AppLink
                   href={labels.featuredCtaHref}
                   className="mt-4 inline-flex rounded-3xl bg-primary-light px-6 py-2 font-inter text-sm font-semibold leading-8 text-white"
                 >
                   {labels.featuredCtaButtonLabel}
-                </a>
+                </AppLink>
               </div>
 
               <p className="mt-6 font-manrope text-base leading-7 text-neutral-500 md:text-lg">
@@ -296,13 +297,13 @@ export default function CommercialBlogLayout({
               </h2>
               <div className="mt-5 flex flex-wrap gap-2.5">
                 {specialties.map((specialty) => (
-                  <a
+                  <AppLink
                     key={specialty.label}
                     href={specialty.href}
                     className="rounded-3xl bg-accent/10 px-3 py-1.5 font-inter text-sm font-medium leading-6 text-primary-light outline outline-[3px] outline-offset-[-3px] outline-accent/10"
                   >
                     {specialty.label}
-                  </a>
+                  </AppLink>
                 ))}
               </div>
             </section>
@@ -320,14 +321,14 @@ export default function CommercialBlogLayout({
               </h2>
               <div className="mt-5 space-y-5">
                 {recentPosts.map((post) => (
-                  <a
+                  <AppLink
                     key={post.title}
                     href={post.href}
                     className="flex items-start gap-3 font-inter text-base font-medium leading-6 text-neutral-600 md:text-lg"
                   >
                     <span className="text-xl font-black text-primary-light">›</span>
                     <span>{post.title}</span>
-                  </a>
+                  </AppLink>
                 ))}
               </div>
             </section>
