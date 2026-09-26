@@ -1,6 +1,6 @@
 import Image from "next/image";
 import AppLink from "./navigation/AppLink";
-import { AnimatedSection } from "./animation/MotionElements";
+import { AnimatedDiv, AnimatedHeading, AnimatedSection, ImageReveal, StaggerGroup, StaggerItem } from "./animation/MotionElements";
 
 type SmallPracticesProps = {
   heading: string;
@@ -36,10 +36,10 @@ export default function SmallPractices({
         <div className="grid grid-cols-1 items-start gap-10 lg:grid-cols-[1fr_0.95fr] lg:gap-16">
           
           {/* LEFT SIDE */}
-          <div>
-            <h2 className="mb-5 font-inter text-3xl font-semibold leading-tight text-heading md:text-4xl lg:text-5xl">
-              {heading}
-            </h2>
+          <AnimatedDiv preset="slide-left">
+            <AnimatedHeading text={heading}
+              className="mb-5 font-inter text-3xl font-semibold leading-tight text-heading md:text-4xl lg:text-5xl"
+            />
 
             <p className="mb-5 font-manrope text-base font-normal leading-7 text-neutral-500 lg:text-lg lg:leading-8">
               {description}
@@ -49,21 +49,18 @@ export default function SmallPractices({
               {supportHeading}
             </h3>
 
-            <div className="space-y-2 font-manrope text-base font-normal leading-5 text-neutral-500">
+            <StaggerGroup stagger={0.06} className="space-y-2 font-manrope text-base font-normal leading-5 text-neutral-500">
               {supportItems.map((item) => (
-                <div
-                  key={item}
-                  className="flex items-start gap-3"
-                >
+                <StaggerItem key={item} preset="step-left" className="flex items-start gap-3">
                   <span className="font-bold text-sky-500">•</span>
                   <span>{item}</span>
-                </div>
+                </StaggerItem>
               ))}
-            </div>
-          </div>
+            </StaggerGroup>
+          </AnimatedDiv>
 
           {/* RIGHT SIDE */}
-          <div className="flex flex-col gap-5">
+          <AnimatedDiv preset="slide-right" className="flex flex-col gap-5">
             
             {/* TOP CARD */}
             <div className="w-full rounded-[20px] border border-sky-700/30 bg-teal-500/10 p-7 lg:p-8">
@@ -85,8 +82,8 @@ export default function SmallPractices({
             </div>
 
             {/* IMAGE */}
-            <Image src={image} alt={imageAlt} width={900} height={600} sizes="(min-width: 1024px) 48vw, 100vw" className="h-auto w-full rounded-[20px] object-cover" />
-          </div>
+            <ImageReveal className="rounded-[20px]"><Image src={image} alt={imageAlt} width={900} height={600} sizes="(min-width: 1024px) 48vw, 100vw" className="h-auto w-full rounded-[20px] object-cover" /></ImageReveal>
+          </AnimatedDiv>
         </div>
       </div>
     </AnimatedSection>
