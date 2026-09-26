@@ -1,3 +1,5 @@
+import { AnimatedDiv, AnimatedSection, StaggerGroup, StaggerItem } from "./animation/MotionElements";
+
 type HighlightItem = {
   text: string;
   strongParts?: string[];
@@ -46,7 +48,9 @@ export default function ServiceHero({
   const isCompact = variant === "compact";
 
   return (
-    <section
+    <AnimatedSection
+      preset="fade"
+      trigger="mount"
       className="w-full bg-cover bg-center bg-no-repeat"
       style={{
         backgroundImage: `url("${backgroundImage}")`,
@@ -68,7 +72,7 @@ export default function ServiceHero({
             }`}
           >
             {/* LEFT CONTENT */}
-            <div className="text-white">
+            <AnimatedDiv preset="hero-left" trigger="mount" className="text-white">
               <h1
                 className={`mb-6 font-inter font-semibold leading-tight ${
                   isCompact
@@ -95,12 +99,12 @@ export default function ServiceHero({
                 }
               >
                 {highlights.map((item, index) => (
-                  <div key={index} className="flex items-start gap-3">
+                  <StaggerItem key={index} preset="step-left" className="flex items-start gap-3">
                     <span>{isCompact ? "✓" : "•"}</span>
                     <span>{item.text}</span>
-                  </div>
+                  </StaggerItem>
                 ))}
-              </div>
+              </StaggerGroup>
 
               {reviews.length > 0 && (
                 <div className="mt-8 grid grid-cols-2 items-end gap-6 sm:grid-cols-4">
@@ -130,10 +134,10 @@ export default function ServiceHero({
                   ))}
                 </div>
               )}
-            </div>
+            </AnimatedDiv>
 
             {/* RIGHT FORM */}
-            <div className="rounded-[14px] border border-sky-500 bg-indigo-50/50 p-7 backdrop-blur-[2.5px] md:p-8">
+            <AnimatedDiv preset="hero-right" delay={0.12} trigger="mount" className="rounded-[14px] border border-sky-500 bg-indigo-50/50 p-7 backdrop-blur-[2.5px] md:p-8">
               <h2
                 className={`mb-7 font-inter text-2xl font-semibold leading-tight text-heading md:text-3xl ${
                   isCompact ? "text-center" : ""
@@ -186,10 +190,10 @@ export default function ServiceHero({
                   {buttonText}
                 </button>
               </form>
-            </div>
+            </AnimatedDiv>
           </div>
         </div>
       </div>
-    </section>
+    </AnimatedSection>
   );
 }
