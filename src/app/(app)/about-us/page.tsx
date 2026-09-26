@@ -1,3 +1,11 @@
+import { createPageMetadata } from "@/lib/seo";
+
+export const metadata = createPageMetadata({
+  title: "About Avenue Billing Services",
+  description: "Learn about Avenue Billing Services, our medical billing expertise, revenue-cycle approach, and support for healthcare practices across the United States.",
+  path: "/about-us",
+});
+
 import AboutOverviewSection from "../Components/AboutOverviewSection";
 import AboutUsCTASection from "../Components/AboutUsCTASection";
 import ComplianceCommitmentSection from "../Components/ComplianceCommitmentSection";
