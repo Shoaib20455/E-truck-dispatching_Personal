@@ -27,6 +27,7 @@ import ServiceGridWithImage from "@/app/(app)/Components/ServiceGridWithImage";
 import ServiceHero from "@/app/(app)/Components/ServiceHero";
 import SimpleFeatureCards from "@/app/(app)/Components/SimpleFeatureCards";
 import SmallPractices from "@/app/(app)/Components/SmallPractices";
+import SoftwarePartners from "@/app/(app)/Components/SoftwarePartners";
 import StateConsultationCTA from "@/app/(app)/Components/StateConsultationCTA";
 import SuccessNumbers from "@/app/(app)/Components/SuccessNumbers";
 import Testimonials from "@/app/(app)/Components/Testimonials";
@@ -429,6 +430,24 @@ export function renderPageBlock(block: PageBlock): ReactNode {
           variant={block.variant ?? undefined}
         />
       );
+    }
+
+    case "softwarePartners": {
+      const partners = compact(
+        block.partners.map((partner) => {
+          const src = mediaUrl(partner.logo);
+          if (!src) return null;
+
+          return {
+            name: partner.name,
+            src,
+            alt: partner.alt || mediaAlt(partner.logo, partner.name),
+          };
+        }),
+      );
+      if (partners.length === 0) return null;
+
+      return <SoftwarePartners partners={partners} />;
     }
 
     case "stateConsultationCTA": {
