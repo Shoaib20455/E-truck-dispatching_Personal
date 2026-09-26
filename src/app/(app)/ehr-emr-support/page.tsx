@@ -1,3 +1,11 @@
+import { createPageMetadata } from "@/lib/seo";
+
+export const metadata = createPageMetadata({
+  title: "EHR & EMR Billing Support",
+  description: "Billing workflow support across EHR and EMR platforms to improve claim handling, data accuracy, and revenue-cycle operations.",
+  path: "/ehr-emr-support",
+});
+
 import BillingChallenges from "../Components/BillingChallenges";
 import BillingSolutions from "../Components/BillingSolutions";
 import ComparisonTable from "../Components/ComparisonTable";
