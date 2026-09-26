@@ -150,48 +150,61 @@ export default function ServiceHero({
               </h2>
 
               <form>
-                <div
+                <StaggerGroup
+                  trigger="mount"
+                  stagger={0.07}
+                  delayChildren={0.24}
                   className={
                     isCompact
                       ? "grid grid-cols-1 gap-4 sm:grid-cols-2"
                       : "space-y-5"
                   }
                 >
-                  <input
-                    type="text"
-                    name="name"
-                    placeholder={namePlaceholder}
-                    className="w-full rounded-[10px] border border-sky-500 bg-white px-5 py-3 font-manrope text-base text-neutral-500 outline-none"
-                  />
+                  <StaggerItem preset="fade-up">
+                    <input
+                      type="text"
+                      name="name"
+                      placeholder={namePlaceholder}
+                      className="w-full rounded-[10px] border border-sky-500 bg-white px-5 py-3 font-manrope text-base text-neutral-500 outline-none"
+                    />
+                  </StaggerItem>
 
-                  <input
-                    type="tel"
-                    name="phone"
-                    placeholder={phonePlaceholder}
-                    className="w-full rounded-[10px] border border-sky-500 bg-white px-5 py-3 font-manrope text-base text-neutral-500 outline-none"
-                  />
+                  <StaggerItem preset="fade-up">
+                    <input
+                      type="tel"
+                      name="phone"
+                      placeholder={phonePlaceholder}
+                      className="w-full rounded-[10px] border border-sky-500 bg-white px-5 py-3 font-manrope text-base text-neutral-500 outline-none"
+                    />
+                  </StaggerItem>
 
-                  <input
-                    type="email"
-                    name="email"
-                    placeholder={emailPlaceholder}
-                    className="w-full rounded-[10px] border border-sky-500 bg-white px-5 py-3 font-manrope text-base text-neutral-500 outline-none"
-                  />
+                  <StaggerItem preset="fade-up">
+                    <input
+                      type="email"
+                      name="email"
+                      placeholder={emailPlaceholder}
+                      className="w-full rounded-[10px] border border-sky-500 bg-white px-5 py-3 font-manrope text-base text-neutral-500 outline-none"
+                    />
+                  </StaggerItem>
 
-                  <input
-                    type="text"
-                    name="organization"
-                    placeholder={organizationPlaceholder}
-                    className="w-full rounded-[10px] border border-sky-500 bg-white px-5 py-3 font-manrope text-base text-neutral-500 outline-none"
-                  />
-                </div>
+                  <StaggerItem preset="fade-up">
+                    <input
+                      type="text"
+                      name="organization"
+                      placeholder={organizationPlaceholder}
+                      className="w-full rounded-[10px] border border-sky-500 bg-white px-5 py-3 font-manrope text-base text-neutral-500 outline-none"
+                    />
+                  </StaggerItem>
+                </StaggerGroup>
 
+                <StaggerItem preset="fade-up" hover="soft" className="w-full">
                 <button
                   type="submit"
                   className={`${isCompact ? "mt-5" : "mt-5"} w-full rounded-[58px] bg-sky-500 px-7 py-3 font-manrope text-lg font-normal text-white`}
                 >
                   {buttonText}
                 </button>
+                </StaggerItem>
               </form>
             </AnimatedDiv>
             </ParallaxDiv>
