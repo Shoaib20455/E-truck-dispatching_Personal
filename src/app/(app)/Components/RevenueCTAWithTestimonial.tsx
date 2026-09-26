@@ -1,3 +1,4 @@
+import AppLink from "./navigation/AppLink";
 import { AnimatedSection } from "./animation/MotionElements";
 
 type TestimonialData = {
@@ -57,19 +58,19 @@ export default function RevenueCTAWithTestimonial({
                 </p>
 
                 <div className="flex flex-col gap-4 sm:flex-row">
-                  <a
+                  <AppLink
                     href={primaryButtonHref}
                     className="inline-flex rounded-[44px] bg-white px-7 py-2.5 font-manrope text-base font-normal leading-8 text-neutral-600"
                   >
                     {primaryButtonText}
-                  </a>
+                  </AppLink>
 
-                  <a
+                  <AppLink
                     href={secondaryButtonHref}
                     className="inline-flex rounded-[44px] bg-sky-500 px-7 py-2.5 font-manrope text-base font-normal leading-8 text-white"
                   >
                     {secondaryButtonText}
-                  </a>
+                  </AppLink>
                 </div>
               </div>
 
