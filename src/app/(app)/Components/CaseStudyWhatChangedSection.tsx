@@ -1,4 +1,4 @@
-import { AnimatedSection } from "./animation/MotionElements";
+import { AnimatedDiv, AnimatedHeading, AnimatedSection, ImageReveal } from "./animation/MotionElements";
 
 import Image from "next/image";
 
@@ -26,17 +26,17 @@ export default function CaseStudyWhatChangedSection({
   return (
     <AnimatedSection preset="fade-up" className="w-full bg-cyan-50 py-10 lg:py-16">
       <div className="mx-auto grid w-full max-w-[1520px] grid-cols-1 items-start gap-12 px-6 lg:grid-cols-2 lg:px-8 2xl:px-0">
-        <div>
-          <h2 className="font-inter text-4xl font-semibold leading-tight text-heading md:text-5xl">
-            {heading}
-          </h2>
+        <AnimatedDiv preset="slide-left">
+          <AnimatedHeading text={heading}
+            className="font-inter text-4xl font-semibold leading-tight text-heading md:text-5xl"
+          />
 
           <div className="mt-6 space-y-4 font-manrope text-base leading-8 text-neutral-500 md:text-lg">
             {paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
           </div>
-        </div>
+        </AnimatedDiv>
 
-        <div className="space-y-6">
+        <AnimatedDiv preset="slide-right" className="space-y-6">
           <div className="rounded-[20px] border border-sky-700/30 bg-accent/10 p-8">
             <h3 className="font-inter text-2xl font-semibold leading-8 text-stone-900">
               {cardTitle}
@@ -49,14 +49,14 @@ export default function CaseStudyWhatChangedSection({
             </a>
           </div>
 
-          <Image
+          <ImageReveal className="rounded-[20px]"><Image
             src={image}
             alt={imageAlt}
             width={744}
             height={308}
             className="h-auto w-full rounded-[20px] object-cover"
-          />
-        </div>
+          /></ImageReveal>
+        </AnimatedDiv>
       </div>
     </AnimatedSection>
   );
