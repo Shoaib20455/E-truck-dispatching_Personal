@@ -31,7 +31,7 @@ export default function SpecialtyIntro({
 
             <StaggerGroup stagger={0.08} className="grid max-w-2xl grid-cols-1 gap-4 sm:grid-cols-3">
               {points.map((point, index) => (
-                <StaggerItem key={point} preset="card" hover="lift" className={`rounded-[20px] px-5 py-6 text-center font-manrope text-base leading-7 shadow-[0px_10px_20px_rgba(0,0,0,0.10)] ${
+                <StaggerItem key={point} preset={index % 2 === 0 ? "tile-left" : "tile-right"} hover="lift" className={`rounded-[20px] px-5 py-6 text-center font-manrope text-base leading-7 shadow-[0px_10px_20px_rgba(0,0,0,0.10)] ${
                     index === 1 ? "bg-sky-500 text-white" : "bg-white text-neutral-500"
                   }`}
                 >
