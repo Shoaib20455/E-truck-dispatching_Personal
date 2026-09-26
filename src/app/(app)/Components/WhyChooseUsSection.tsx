@@ -26,7 +26,7 @@ export default function WhyChooseUsSection({
             {items.map((item, index) => (
               <StaggerArticle
                 key={item.title}
-                preset="card"
+                preset={index % 2 === 0 ? "tile-left" : "tile-right"}
                 hover="premium"
                 className={
                   "min-h-[240px] px-10 py-12 text-center " +
