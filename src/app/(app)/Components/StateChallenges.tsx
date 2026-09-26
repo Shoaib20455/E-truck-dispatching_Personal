@@ -1,4 +1,4 @@
-import { AnimatedSection } from "./animation/MotionElements";
+import { AnimatedHeading, AnimatedSection, ImageReveal, StaggerGroup, StaggerArticle } from "./animation/MotionElements";
 
 type StateChallenge = {
   title: string;
@@ -24,22 +24,28 @@ export default function StateChallenges({
       <div className="mx-auto max-w-[1520px] px-6 lg:px-8 2xl:px-0">
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
           <div className="lg:row-span-2">
-            <img
-              src={image}
-              alt={imageAlt}
-              className="h-full min-h-[420px] w-full rounded-[20px] object-cover"
-            />
+            <ImageReveal className="h-full min-h-[420px] rounded-[20px]">
+              <img
+                src={image}
+                alt={imageAlt}
+                className="h-full min-h-[420px] w-full rounded-[20px] object-cover"
+              />
+            </ImageReveal>
           </div>
 
           <div className="lg:col-span-2">
-            <h2 className="font-inter text-3xl font-semibold leading-tight text-heading md:text-4xl lg:text-5xl">
-              {heading}
-            </h2>
+            <AnimatedHeading
+              text={heading}
+              className="font-inter text-3xl font-semibold leading-tight text-heading md:text-4xl lg:text-5xl"
+            />
           </div>
 
+          <StaggerGroup stagger={0.08} className="contents">
           {challenges.map((challenge) => (
-            <article
+            <StaggerArticle
               key={challenge.title}
+              preset="card"
+              hover="premium"
               className={
                 challenge.highlighted
                   ? "rounded-[20px] border border-teal-500 bg-teal-500/10 p-7"
@@ -52,8 +58,9 @@ export default function StateChallenges({
               <p className="font-manrope text-lg leading-8 text-neutral-500">
                 {challenge.description}
               </p>
-            </article>
+            </StaggerArticle>
           ))}
+          </StaggerGroup>
         </div>
       </div>
     </AnimatedSection>
