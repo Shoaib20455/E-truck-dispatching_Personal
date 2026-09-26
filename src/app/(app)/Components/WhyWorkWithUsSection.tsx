@@ -21,8 +21,8 @@ export default function WhyWorkWithUsSection({
         <SectionHeading title={heading} subtitle={subtitle} />
 
         <StaggerGroup stagger={0.07} className="mt-12 grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-3">
-          {items.map((item) => (
-            <StaggerItem key={item} preset="card" hover="lift" className="rounded-[74px] border border-dashed border-primary-light bg-white px-8 py-6 text-center font-manrope text-base font-normal leading-8 text-neutral-500 shadow-[0px_10px_20px_rgba(0,0,0,0.05)] md:text-lg">
+          {items.map((item, index) => (
+            <StaggerItem key={item} preset={index % 2 === 0 ? "pill-left" : "pill-right"} hover="lift" className="rounded-[74px] border border-dashed border-primary-light bg-white px-8 py-6 text-center font-manrope text-base font-normal leading-8 text-neutral-500 shadow-[0px_10px_20px_rgba(0,0,0,0.05)] md:text-lg">
               {item}
             </StaggerItem>
           ))}
