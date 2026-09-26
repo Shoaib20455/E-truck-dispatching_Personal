@@ -70,7 +70,59 @@ export default function Page() {
         ]}
       />
 
-      <SoftwarePartners />
+      <SoftwarePartners
+        partners={[
+          {
+            name: "Kareo",
+            src: "/Home/32_rectangle_859.png",
+            alt: "Kareo",
+            width: 98,
+            height: 42,
+          },
+          {
+            name: "Claim.MD",
+            src: "/Home/33_rectangle_850.png",
+            alt: "Claim.MD",
+            width: 156,
+            height: 42,
+          },
+          {
+            name: "Apex EDI",
+            src: "/Home/34_rectangle_849.png",
+            alt: "Apex EDI",
+            width: 140,
+            height: 42,
+          },
+          {
+            name: "Osmind",
+            src: "/Home/35_rectangle_853.png",
+            alt: "Osmind",
+            width: 170,
+            height: 42,
+          },
+          {
+            name: "IntakeQ",
+            src: "/Home/36_rectangle_854.png",
+            alt: "IntakeQ",
+            width: 170,
+            height: 42,
+          },
+          {
+            name: "PracticeEHR",
+            src: "/Home/37_rectangle_1922.png",
+            alt: "PracticeEHR",
+            width: 205,
+            height: 42,
+          },
+          {
+            name: "Office Ally",
+            src: "/Home/38_rectangle_1923.png",
+            alt: "Office Ally",
+            width: 80,
+            height: 42,
+          },
+        ]}
+      />
       <BillingChallenges
   heading="Biggest Medical Billing Challenges for Healthcare Providers"
   challenges={[
