@@ -31,7 +31,7 @@ export default function AuthorArticlesSection({
           {articles.map((article, index) => (
             <StaggerArticle
               key={article.title + index}
-              preset="card"
+              preset={index % 2 === 0 ? "tile-left" : "tile-right"}
               hover="premium"
               className="overflow-hidden rounded-[30px] bg-white shadow-[0px_10px_20px_rgba(0,0,0,0.08)]"
             >
