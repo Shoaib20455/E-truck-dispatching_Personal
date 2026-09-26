@@ -1,3 +1,11 @@
+import { createPageMetadata } from "@/lib/seo";
+
+export const metadata = createPageMetadata({
+  title: "Privacy Policy",
+  description: "Read the Avenue Billing Services privacy policy and information about how website and contact information is handled.",
+  path: "/privacy-policy",
+});
+
 import PrivacyBreachNotificationSection from "../Components/PrivacyBreachNotificationSection";
 import PrivacyChildrenSection from "../Components/PrivacyChildrenSection";
 import PrivacyDataRetentionSection from "../Components/PrivacyDataRetentionSection";
