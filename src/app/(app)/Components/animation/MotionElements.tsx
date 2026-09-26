@@ -462,6 +462,7 @@ export function StaggerGroup({
 type StaggerItemProps = {
   children: ReactNode;
   className?: string;
+  style?: CSSProperties;
   preset?: RevealPreset;
   hover?: "lift" | "soft" | "premium" | "none";
   layout?: boolean;
@@ -512,6 +513,7 @@ function hoverTarget(
 export function StaggerItem({
   children,
   className,
+  style,
   preset = "card",
   hover = "none",
   layout = false,
@@ -520,6 +522,7 @@ export function StaggerItem({
     <motion.div
       layout={layout}
       className={className}
+      style={style}
       variants={variantsFor(preset)}
       whileHover={hoverTarget(hover)}
       transition={
@@ -542,6 +545,7 @@ export function StaggerItem({
 export function StaggerArticle({
   children,
   className,
+  style,
   preset = "card",
   hover = "none",
   layout = false,
@@ -550,6 +554,7 @@ export function StaggerArticle({
     <motion.article
       layout={layout}
       className={className}
+      style={style}
       variants={variantsFor(preset)}
       whileHover={hoverTarget(hover)}
       transition={
