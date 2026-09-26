@@ -29,8 +29,8 @@ export default function ExpertiseCardGrid({
 
         {/* CARDS */}
         <StaggerGroup stagger={0.08} className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
-          {cards.map((card) => (
-            <StaggerItem key={card.title} preset="card" hover="premium" className={`rounded-[20px] p-7 ${
+          {cards.map((card, index) => (
+            <StaggerItem key={card.title} preset={index % 2 === 0 ? "tile-left" : "tile-right"} hover="premium" className={`rounded-[20px] p-7 ${
                 card.highlighted
                   ? "border border-teal-500 bg-teal-500/10 shadow-[0px_10px_20px_rgba(0,0,0,0.07)]"
                   : "bg-white"
