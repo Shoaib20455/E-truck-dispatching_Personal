@@ -1,4 +1,4 @@
-import { AnimatedSection } from "./animation/MotionElements";
+import { AnimatedHeading, AnimatedSection, StaggerGroup, StaggerItem } from "./animation/MotionElements";
 
 type LogoItem = {
   image: string;
@@ -17,14 +17,17 @@ export default function LogoDirectorySection({
   return (
     <AnimatedSection preset="fade-up" className="w-full bg-cyan-50 py-10 lg:py-14">
       <div className="mx-auto max-w-[1520px] px-6 lg:px-8 2xl:px-0">
-        <h2 className="mb-10 text-center font-inter text-3xl font-semibold leading-tight text-zinc-700 md:text-4xl lg:text-5xl">
-          {heading}
-        </h2>
+        <AnimatedHeading
+          text={heading}
+          className="mb-10 text-center font-inter text-3xl font-semibold leading-tight text-zinc-700 md:text-4xl lg:text-5xl"
+        />
 
-        <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8">
+        <StaggerGroup stagger={0.045} className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8">
           {logos.map((logo, index) => (
-            <div
+            <StaggerItem
               key={`${logo.image}-${index}`}
+              preset="logo"
+              hover="soft"
               className="flex min-h-20 items-center justify-center rounded-[10px] border border-sky-500 bg-white px-4 py-3 shadow-[0px_10px_20px_rgba(0,0,0,0.08)]"
             >
               <img
@@ -32,9 +35,9 @@ export default function LogoDirectorySection({
                 alt={logo.alt}
                 className="max-h-14 max-w-full object-contain"
               />
-            </div>
+            </StaggerItem>
           ))}
-        </div>
+        </StaggerGroup>
       </div>
     </AnimatedSection>
   );
