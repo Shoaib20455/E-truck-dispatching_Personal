@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { AnimatedSection } from "./animation/MotionElements";
 
 type StateConsultationCTAProps = {
@@ -29,15 +30,13 @@ export default function StateConsultationCTA({
               : "relative overflow-hidden rounded-[30px] bg-gradient-to-b from-teal-500 to-teal-950"
           }
         >
-          <img
+          <Image
             src={backgroundImage}
             alt=""
+            fill
+            sizes="100vw"
             aria-hidden="true"
-            className={
-              hasPhones
-                ? "absolute inset-0 h-full w-full object-cover"
-                : "absolute inset-0 h-full w-full object-cover opacity-20"
-            }
+            className={hasPhones ? "object-cover" : "object-cover opacity-20"}
           />
 
           {hasPhones && (
