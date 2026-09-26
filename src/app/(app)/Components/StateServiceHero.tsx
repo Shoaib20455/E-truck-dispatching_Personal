@@ -55,18 +55,24 @@ export default function StateServiceHero({
             <ParallaxDiv distance={16}>
               <AnimatedDiv preset="hero-right" delay={0.12} trigger="mount" className="rounded-[32px] border border-sky-500/20 bg-blue-50/90 p-6 shadow-[0px_25px_50px_-12px_rgba(0,96,168,0.10)] backdrop-blur-lg md:p-8">
               <h2 className="mb-7 text-center font-inter text-2xl font-semibold leading-tight text-heading md:text-3xl">{formHeading}</h2>
-              <form className="space-y-4">
+              <form>
+                <StaggerGroup trigger="mount" stagger={0.07} delayChildren={0.22} className="space-y-4">
                 {[
                   ["FULL NAME", "John Doe", "text"],
                   ["EMAIL ADDRESS", "john@clinic.com", "email"],
                   ["PHONE NUMBER", "(555) 000-0000", "tel"],
                 ].map(([label, placeholder, type]) => (
-                  <label key={label} className="block">
+                  <StaggerItem key={label} preset="fade-up">
+                    <label className="block">
                     <span className="mb-2 block font-inter text-xs font-semibold uppercase tracking-wider text-gray-500">{label}</span>
                     <input type={type} placeholder={placeholder} className="w-full rounded-2xl border border-black/30 bg-white px-5 py-4 font-inter text-base text-gray-500 outline-none" />
-                  </label>
+                    </label>
+                  </StaggerItem>
                 ))}
-                <button type="submit" className="w-full rounded-2xl bg-teal-500 px-6 py-4 font-inter text-lg font-bold text-white">Book a Free Consultation</button>
+                                  <StaggerItem preset="fade-up" hover="soft">
+                    <button type="submit" className="w-full rounded-2xl bg-teal-500 px-6 py-4 font-inter text-lg font-bold text-white">Book a Free Consultation</button>
+                  </StaggerItem>
+                </StaggerGroup>
               </form>
               </AnimatedDiv>
             </ParallaxDiv>
