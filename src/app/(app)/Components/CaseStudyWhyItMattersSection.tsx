@@ -1,3 +1,5 @@
+import { AnimatedSection } from "./animation/MotionElements";
+
 import Image from "next/image";
 
 type CaseStudyWhyItMattersSectionProps = {
@@ -18,7 +20,7 @@ export default function CaseStudyWhyItMattersSection({
   imageAlt,
 }: CaseStudyWhyItMattersSectionProps) {
   return (
-    <section className="w-full bg-cyan-50 pb-20 pt-12 lg:pb-28 lg:pt-16">
+    <AnimatedSection preset="fade-up" className="w-full bg-cyan-50 pb-20 pt-12 lg:pb-28 lg:pt-16">
       <div className="mx-auto grid w-full max-w-[1520px] grid-cols-1 items-center gap-12 px-6 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:px-8 2xl:px-0">
         <Image
           src={image}
@@ -47,6 +49,6 @@ export default function CaseStudyWhyItMattersSection({
           </p>
         </div>
       </div>
-    </section>
+    </AnimatedSection>
   );
 }
