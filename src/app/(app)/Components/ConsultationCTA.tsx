@@ -72,7 +72,7 @@ export default function ConsultationCTA({
           >
             <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:gap-16">
               <AnimatedDiv
-                preset="slide-left"
+                preset="panel-left"
                 className={isPlain ? "text-black" : "text-white"}
               >
                 <AnimatedHeading
@@ -114,7 +114,7 @@ export default function ConsultationCTA({
 
               <ParallaxDiv distance={14}>
                 <AnimatedDiv
-                  preset="slide-right"
+                  preset="panel-right"
                   className={
                     isPlain
                       ? "rounded-[20px] bg-teal-500/10 p-7 backdrop-blur-[2.5px] md:p-10"
