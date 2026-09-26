@@ -1,4 +1,4 @@
-import { AnimatedDiv, AnimatedHeading, AnimatedSection, ImageReveal, StaggerGroup, StaggerItem } from "./animation/MotionElements";
+import { AnimatedDiv, AnimatedHeading, AnimatedSection, StaggerGroup, StaggerItem } from "./animation/MotionElements";
 
 import Image from "next/image";
 
@@ -67,13 +67,18 @@ export default function AboutUsCTASection({
             </AnimatedDiv>
           </div>
 
-          <ImageReveal className="pointer-events-none absolute bottom-0 right-4 z-20 hidden w-[330px] sm:block md:right-8 md:w-[390px] lg:right-16 lg:w-[466px]"><Image
-            src={doctorImage}
-            alt={doctorImageAlt}
-            width={466}
-            height={587}
-            className="pointer-events-none absolute bottom-0 right-4 z-20 hidden h-auto w-[330px] object-contain sm:block md:right-8 md:w-[390px] lg:right-16 lg:w-[466px]"
-          /></ImageReveal>
+          <AnimatedDiv
+            preset="hero-right"
+            className="pointer-events-none absolute bottom-0 right-4 z-20 hidden w-[330px] sm:block md:right-8 md:w-[390px] lg:right-16 lg:w-[466px]"
+          >
+            <Image
+              src={doctorImage}
+              alt={doctorImageAlt}
+              width={466}
+              height={587}
+              className="h-auto w-full object-contain"
+            />
+          </AnimatedDiv>
         </div>
       </div>
     </AnimatedSection>
