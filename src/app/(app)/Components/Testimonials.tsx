@@ -1,4 +1,4 @@
-import { AnimatedSection, StaggerGroup, StaggerItem } from "./animation/MotionElements";
+import { AnimatedHeading, AnimatedSection, HoverIcon, StaggerGroup, StaggerItem } from "./animation/MotionElements";
 
 type TestimonialItem = {
   name: string;
@@ -24,20 +24,23 @@ export default function Testimonials({
       <div className="mx-auto max-w-[1520px] px-6 lg:px-8 2xl:px-0">
         {/* HEADING */}
         <div className="mx-auto mb-12 max-w-4xl text-center">
-          <h2 className="font-inter text-3xl font-semibold leading-tight text-heading md:text-4xl lg:text-5xl">
-            {heading}
-          </h2>
+          <AnimatedHeading
+            text={heading}
+            className="font-inter text-3xl font-semibold leading-tight text-heading md:text-4xl lg:text-5xl"
+          />
         </div>
 
         {/* TESTIMONIALS GRID */}
         <StaggerGroup stagger={0.1} className="grid grid-cols-1 gap-7 md:grid-cols-2 lg:grid-cols-3">
           {testimonials.map((testimonial) => (
-            <StaggerItem key={testimonial.name} preset="card" hover="lift" className="flex flex-col items-center rounded-[10px] bg-white px-7 py-8 text-center">
-              <img
-                src={testimonial.image}
-                alt={testimonial.imageAlt}
-                className="mb-5 size-16 rounded-full object-cover"
-              />
+            <StaggerItem key={testimonial.name} preset="card" hover="premium" className="flex flex-col items-center rounded-[10px] bg-white px-7 py-8 text-center">
+              <HoverIcon className="mb-5">
+                <img
+                  src={testimonial.image}
+                  alt={testimonial.imageAlt}
+                  className="size-16 rounded-full object-cover"
+                />
+              </HoverIcon>
 
               <h3 className="mb-2 font-manrope text-xl font-semibold leading-6 text-heading">
                 {testimonial.name}
