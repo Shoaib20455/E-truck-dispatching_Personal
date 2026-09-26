@@ -1,4 +1,4 @@
-import { AnimatedDiv } from "./animation/MotionElements";
+import { AnimatedHeading, AnimatedSection, StaggerGroup, StaggerItem } from "./animation/MotionElements";
 
 type DenialCategoryItem = {
   title: string;
@@ -27,7 +27,7 @@ export default function DenialCategories({
     const borderColor = item.highlighted ? "bg-teal-500" : "bg-sky-300";
 
     return (
-      <AnimatedDiv preset="fade-up" className="drop-shadow-[0_10px_20px_rgba(0,0,0,0.08)]">
+      <StaggerItem preset="card" hover="premium" className="drop-shadow-[0_10px_20px_rgba(0,0,0,0.08)]">
         <div
           className={`aspect-square p-px ${borderColor}`}
           style={{
@@ -63,18 +63,19 @@ export default function DenialCategories({
             </div>
           </div>
         </div>
-      </AnimatedDiv>
+      </StaggerItem>
     );
   };
 
   return (
-    <section className="w-full bg-cyan-50 py-14 lg:py-20">
+    <AnimatedSection preset="fade-up" className="w-full bg-cyan-50 py-14 lg:py-20">
       <div className="mx-auto max-w-[1520px] px-6 lg:px-8 2xl:px-0">
         {/* Heading */}
         <div className="mx-auto mb-12 max-w-3xl text-center">
-          <h2 className="mb-5 font-inter text-3xl font-semibold leading-tight text-heading md:text-4xl lg:text-5xl">
-            {heading}
-          </h2>
+          <AnimatedHeading
+            text={heading}
+            className="mb-5 font-inter text-3xl font-semibold leading-tight text-heading md:text-4xl lg:text-5xl"
+          />
 
           {description && (
             <p className="font-manrope text-base font-normal leading-7 text-neutral-500 md:text-lg">
@@ -84,19 +85,19 @@ export default function DenialCategories({
         </div>
 
         {/* First Row */}
-        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <StaggerGroup stagger={0.08} className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {firstRow.map((item) => (
             <HexCard key={item.title} item={item} />
           ))}
-        </div>
+        </StaggerGroup>
 
         {/* Second Row */}
-        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:-mt-8 lg:grid-cols-3 lg:px-[12.5%]">
+        <StaggerGroup stagger={0.08} delayChildren={0.15} className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:-mt-8 lg:grid-cols-3 lg:px-[12.5%]">
           {secondRow.map((item) => (
             <HexCard key={item.title} item={item} />
           ))}
-        </div>
+        </StaggerGroup>
       </div>
-    </section>
+    </AnimatedSection>
   );
 }
