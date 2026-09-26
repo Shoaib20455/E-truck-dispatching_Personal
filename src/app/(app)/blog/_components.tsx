@@ -1,19 +1,31 @@
 import Image from "next/image";
-import Link from "next/link";
 
-export type BlogCategory = { name: string; slug: string };
+import {
+  StaggerArticle,
+  StaggerGroup,
+  StaggerItem,
+} from "../Components/animation/MotionElements";
+import AppLink from "../Components/navigation/AppLink";
+
+export type BlogCategory = {
+  name: string;
+  slug: string;
+};
 
 export type BlogPostCardData = {
   title: string;
   description: string;
   date: string;
   image: string;
+  imageAlt?: string;
   href: string;
 };
 
 const chipClasses = (active: boolean) =>
-  `inline-flex min-h-10 items-center justify-center px-5 py-2.5 font-[family-name:var(--font-outfit)] text-sm font-semibold transition-colors sm:text-base ${
-    active ? "bg-[#cf5a13] text-white" : "bg-[#b34b0c] text-white hover:bg-[#cf5a13]"
+  `inline-flex min-h-12 items-center justify-center rounded-[80px] px-7 py-2.5 font-manrope text-base font-normal leading-8 text-white transition-[background-color,transform,opacity] duration-200 ${
+    active
+      ? "bg-accent"
+      : "bg-primary-light hover:bg-sky-500"
   }`;
 
 export function CategoryChips({
@@ -26,61 +38,84 @@ export function CategoryChips({
   const allActive = !activeSlug;
 
   return (
-    <div className="mt-10 flex flex-wrap items-center justify-center gap-3 sm:mt-12">
-      <Link
-        href="/blog"
-        scroll={false}
-        aria-current={allActive ? "page" : undefined}
-        className={chipClasses(allActive)}
-      >
-        All Posts
-      </Link>
-      {categories.map((category) => {
+    <StaggerGroup
+      stagger={0.05}
+      className="mt-6 flex flex-wrap items-center gap-3"
+    >
+      <StaggerItem preset="pill-left" hover="soft">
+        <AppLink
+          href="/blog"
+          aria-current={allActive ? "page" : undefined}
+          className={chipClasses(allActive)}
+        >
+          All Posts
+        </AppLink>
+      </StaggerItem>
+
+      {categories.map((category, index) => {
         const active = category.slug === activeSlug;
+
         return (
-          <Link
+          <StaggerItem
             key={category.slug}
-            href={`/blog/category/${category.slug}`}
-            scroll={false}
-            aria-current={active ? "page" : undefined}
-            className={chipClasses(active)}
+            preset={index % 2 === 0 ? "pill-left" : "pill-right"}
+            hover="soft"
           >
-            {category.name}
-          </Link>
+            <AppLink
+              href={`/blog/category/${category.slug}`}
+              aria-current={active ? "page" : undefined}
+              className={chipClasses(active)}
+            >
+              {category.name}
+            </AppLink>
+          </StaggerItem>
         );
       })}
-    </div>
+    </StaggerGroup>
   );
 }
 
-export function BlogPostCard({ post }: { post: BlogPostCardData }) {
+export function BlogPostCard({
+  post,
+  index = 0,
+}: {
+  post: BlogPostCardData;
+  index?: number;
+}) {
   return (
-    <article className="group min-w-0">
-      <Link href={post.href} className="block no-underline">
-        <div className="relative aspect-[500/330] w-full overflow-hidden bg-[#171717]">
-          <Image
-            src={post.image}
-            alt={post.title}
-            fill
-            sizes="(min-width: 1280px) 500px, (min-width: 768px) 50vw, 100vw"
-            className="object-cover transition-transform duration-300 group-hover:scale-[1.025]"
-          />
-        </div>
+    <StaggerArticle
+      preset={index % 2 === 0 ? "tile-left" : "tile-right"}
+      hover="premium"
+      className="group overflow-hidden rounded-[30px] bg-white shadow-[0px_10px_20px_rgba(0,0,0,0.08)]"
+    >
+      <AppLink href={post.href} className="block overflow-hidden">
+        <Image
+          src={post.image}
+          alt={post.imageAlt || post.title}
+          width={486}
+          height={278}
+          sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+          className="aspect-[486/278] w-full object-cover transition-transform duration-500 group-hover:scale-[1.035]"
+        />
+      </AppLink>
 
-        <div className="mt-5 flex items-center gap-2 font-[family-name:var(--font-dm-sans)] text-sm leading-4 text-white/80">
-          <span aria-hidden="true" className="size-2 shrink-0 rounded-full bg-[#b34b0c]" />
-          <time>{post.date}</time>
-        </div>
+      <div className="px-6 py-6 sm:px-8 lg:px-10">
+        {post.date && <PostDate date={post.date} />}
 
-        <h3 className="mt-3 max-w-[24rem] font-[family-name:var(--font-outfit)] text-xl font-semibold leading-8 text-white transition-colors group-hover:text-[#cf5a13]">
-          {post.title}
+        <h3 className="mt-3 font-inter text-2xl font-semibold leading-9 text-heading md:text-[30px]">
+          <AppLink
+            href={post.href}
+            className="transition-colors duration-200 hover:text-primary-light"
+          >
+            {post.title}
+          </AppLink>
         </h3>
 
-        <p className="mt-3 max-w-[30rem] font-[family-name:var(--font-dm-sans)] text-base leading-6 text-white/80">
+        <p className="mt-4 font-manrope text-base font-normal leading-8 text-neutral-500 md:text-lg">
           {post.description}
         </p>
-      </Link>
-    </article>
+      </div>
+    </StaggerArticle>
   );
 }
 
@@ -94,56 +129,60 @@ export function BlogPagination({
   totalPages: number;
 }) {
   const pageNumbers = getPageNumbers(currentPage, totalPages);
-  const pageHref = (page: number) => (page === 1 ? basePath : `${basePath}?page=${page}`);
+  const pageHref = (page: number) =>
+    page === 1 ? basePath : `${basePath}?page=${page}`;
 
   return (
     <nav
-      className="mt-16 flex flex-wrap items-center justify-center gap-4 font-[family-name:var(--font-outfit)] text-[24px] font-semibold text-[#012F42]"
+      className="mt-14 flex flex-wrap items-center justify-center gap-x-4 gap-y-3 font-inter text-2xl font-semibold leading-9 text-heading md:text-3xl"
       aria-label="Blog pagination"
     >
       {currentPage > 1 && (
-        <Link
+        <AppLink
           href={pageHref(currentPage - 1)}
-          className="inline-flex items-center gap-2 text-[#012F42] no-underline transition-colors hover:text-[#FE8F02]"
+          className="inline-flex items-center gap-2 transition-colors hover:text-primary-light"
           aria-label="Previous page"
         >
           <ArrowLeftIcon />
-          Prev
-        </Link>
+          <span>Prev</span>
+        </AppLink>
       )}
+
       {pageNumbers.map((item) =>
         typeof item === "number" ? (
           item === currentPage ? (
             <span
               key={item}
-              className="flex h-10 w-10 items-center justify-center rounded-full bg-[#FE8F02] text-[30px] leading-none text-white"
               aria-current="page"
+              className="inline-flex size-10 items-center justify-center rounded-full bg-accent text-white"
             >
               {item}
             </span>
           ) : (
-            <Link
+            <AppLink
               key={item}
               href={pageHref(item)}
-              className="text-[#012F42] no-underline transition-colors hover:text-[#FE8F02]"
+              className="inline-flex min-w-5 items-center justify-center transition-colors hover:text-primary-light"
             >
               {item}
-            </Link>
+            </AppLink>
           )
         ) : (
-          <span key={item} className="text-[#012F42]" aria-hidden="true">
+          <span key={item} aria-hidden="true">
             &hellip;
           </span>
         ),
       )}
+
       {currentPage < totalPages && (
-        <Link
+        <AppLink
           href={pageHref(currentPage + 1)}
-          className="inline-flex items-center gap-2 text-[#012F42] no-underline transition-colors hover:text-[#FE8F02]"
+          className="ml-1 inline-flex items-center gap-2 transition-colors hover:text-primary-light"
+          aria-label="Next page"
         >
-          Next
+          <span>Next</span>
           <ArrowRightIcon />
-        </Link>
+        </AppLink>
       )}
     </nav>
   );
@@ -151,9 +190,12 @@ export function BlogPagination({
 
 export function PostDate({ date }: { date: string }) {
   return (
-    <div className="mt-7 flex items-center gap-2 font-[family-name:var(--font-dm-sans)] text-[14px] leading-4 text-[#FE8F02]">
-      <span className="h-2.5 w-2.5 rounded-full bg-[#FE8F02]" />
-      {date}
+    <div className="flex items-center gap-2 font-manrope text-sm font-semibold leading-5 text-neutral-500">
+      <span
+        aria-hidden="true"
+        className="size-2 shrink-0 rounded-full bg-accent"
+      />
+      <time>{date}</time>
     </div>
   );
 }
@@ -163,7 +205,7 @@ function getPageNumbers(
   totalPages: number,
 ): Array<number | "ellipsis-start" | "ellipsis-end"> {
   if (totalPages <= 7) {
-    return Array.from({ length: totalPages }, (_, i) => i + 1);
+    return Array.from({ length: totalPages }, (_, index) => index + 1);
   }
 
   const pages: Array<number | "ellipsis-start" | "ellipsis-end"> = [1];
@@ -174,8 +216,9 @@ function getPageNumbers(
 
   const start = Math.max(2, currentPage - 1);
   const end = Math.min(totalPages - 1, currentPage + 1);
-  for (let i = start; i <= end; i += 1) {
-    pages.push(i);
+
+  for (let page = start; page <= end; page += 1) {
+    pages.push(page);
   }
 
   if (currentPage < totalPages - 2) {
@@ -189,11 +232,11 @@ function getPageNumbers(
 function ArrowLeftIcon() {
   return (
     <svg
-      className="h-6 w-6"
+      className="size-5"
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
-      strokeWidth="2"
+      strokeWidth="1.8"
       strokeLinecap="round"
       strokeLinejoin="round"
       aria-hidden="true"
@@ -206,11 +249,11 @@ function ArrowLeftIcon() {
 function ArrowRightIcon() {
   return (
     <svg
-      className="h-6 w-6"
+      className="size-5"
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
-      strokeWidth="2"
+      strokeWidth="1.8"
       strokeLinecap="round"
       strokeLinejoin="round"
       aria-hidden="true"
