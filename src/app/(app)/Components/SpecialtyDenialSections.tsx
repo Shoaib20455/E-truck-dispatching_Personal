@@ -1,3 +1,4 @@
+import AppLink from "./navigation/AppLink";
 import { AnimatedSection } from "./animation/MotionElements";
 
 type SpecialtyDenialItem = {
@@ -46,12 +47,12 @@ export default function SpecialtyDenialSections({
                   {item.details}
                 </p>
 
-                <a
+                <AppLink
                   href={item.buttonHref}
                   className="inline-flex rounded-[44px] bg-sky-500 px-7 py-2.5 font-manrope text-base font-normal leading-8 text-white"
                 >
                   {item.buttonText}
-                </a>
+                </AppLink>
               </div>
 
               <div className={imageFirst ? "lg:order-1" : "lg:order-2"}>
