@@ -1,3 +1,5 @@
+import { AnimatedDiv } from "./animation/MotionElements";
+
 import Image from "next/image";
 import AuthorCard, { type AuthorCardProps } from "./AuthorCard";
 import ConsultationCard, { type ConsultationCardProps } from "./ConsultationCard";
@@ -346,7 +348,7 @@ export default function CommercialBlogLayout({
 
 function DetailLabel({ children }: { children: React.ReactNode }) {
   return (
-    <div className="border-t border-slate-300 bg-white px-4 py-3 font-inter text-lg font-bold text-primary-light md:text-xl">
+    <AnimatedDiv preset="fade-up" className="border-t border-slate-300 bg-white px-4 py-3 font-inter text-lg font-bold text-primary-light md:text-xl">
       {children}
     </div>
   );
@@ -376,6 +378,6 @@ function StarRating({ rating }: { rating: string }) {
       <div className="mt-1 font-inter text-base font-medium leading-7 text-heading md:text-lg">
         {rating}
       </div>
-    </div>
+    </AnimatedDiv>
   );
 }
