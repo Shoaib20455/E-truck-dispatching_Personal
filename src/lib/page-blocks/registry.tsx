@@ -6,21 +6,34 @@ import AboutOverviewSection from "@/app/(app)/Components/AboutOverviewSection";
 import AboutUsCTASection from "@/app/(app)/Components/AboutUsCTASection";
 import AlternatingServiceSections from "@/app/(app)/Components/AlternatingServiceSections";
 import BillingChallenges from "@/app/(app)/Components/BillingChallenges";
+import BillingIntelligence from "@/app/(app)/Components/BillingIntelligence";
 import BillingProcess from "@/app/(app)/Components/BillingProcess";
+import BillingSolutions from "@/app/(app)/Components/BillingSolutions";
 import ComparisonTable from "@/app/(app)/Components/ComparisonTable";
 import ComplianceCommitmentSection from "@/app/(app)/Components/ComplianceCommitmentSection";
+import ConsultationCTA from "@/app/(app)/Components/ConsultationCTA";
 import CoreValuesSection from "@/app/(app)/Components/CoreValuesSection";
 import DenialCategories from "@/app/(app)/Components/DenialCategories";
 import EHRPartners from "@/app/(app)/Components/EHRPartners";
 import ExpertiseCardGrid from "@/app/(app)/Components/ExpertiseCardGrid";
 import FAQSection from "@/app/(app)/Components/FAQSection";
+import NationwideBilling from "@/app/(app)/Components/NationwideBilling";
+import OurApproachSection from "@/app/(app)/Components/OurApproachSection";
+import RCMSolutions from "@/app/(app)/Components/RCMSolutions";
 import RevenueCTA from "@/app/(app)/Components/RevenueCTA";
+import RevenueCTAWithTestimonial from "@/app/(app)/Components/RevenueCTAWithTestimonial";
+import RevenueLossReasons from "@/app/(app)/Components/RevenueLossReasons";
 import ServiceGridWithImage from "@/app/(app)/Components/ServiceGridWithImage";
 import ServiceHero from "@/app/(app)/Components/ServiceHero";
 import SimpleFeatureCards from "@/app/(app)/Components/SimpleFeatureCards";
+import SmallPractices from "@/app/(app)/Components/SmallPractices";
+import StateConsultationCTA from "@/app/(app)/Components/StateConsultationCTA";
 import SuccessNumbers from "@/app/(app)/Components/SuccessNumbers";
 import Testimonials from "@/app/(app)/Components/Testimonials";
 import TextFeatureGrid from "@/app/(app)/Components/TextFeatureGrid";
+import WhyChooseUsSection from "@/app/(app)/Components/WhyChooseUsSection";
+import WhyTrustABS from "@/app/(app)/Components/WhyTrustABS";
+import WhyWorkWithUsSection from "@/app/(app)/Components/WhyWorkWithUsSection";
 
 export type PageBlock = NonNullable<Page["blocks"]>[number];
 
@@ -386,6 +399,266 @@ export function renderPageBlock(block: PageBlock): ReactNode {
             description,
             highlighted: Boolean(highlighted),
           }))}
+        />
+      );
+    }
+
+    case "consultationCTA": {
+      const logos = compact(
+        (block.logos ?? []).map((logo) => {
+          // Logos are shown with object-contain, so the original file is used here.
+          const image = mediaUrl(logo.image);
+          if (!image) return null;
+
+          return { image, alt: logo.alt || mediaAlt(logo.image, "") };
+        }),
+      );
+
+      return (
+        <ConsultationCTA
+          heading={block.heading}
+          description={block.description}
+          backgroundImage={mediaUrl(block.backgroundImage, ["hero", "article"]) || undefined}
+          formHeading={block.formHeading}
+          namePlaceholder={block.namePlaceholder}
+          phonePlaceholder={block.phonePlaceholder}
+          emailPlaceholder={block.emailPlaceholder}
+          practicePlaceholder={block.practicePlaceholder}
+          buttonText={block.buttonText}
+          logos={logos.length > 0 ? logos : undefined}
+          variant={block.variant ?? undefined}
+        />
+      );
+    }
+
+    case "stateConsultationCTA": {
+      // The image fills the whole panel, so a wide crop is preferred.
+      const backgroundImage = mediaUrl(block.backgroundImage, ["hero", "article"]);
+      if (!backgroundImage) return null;
+
+      return (
+        <StateConsultationCTA
+          heading={block.heading}
+          description={block.description}
+          backgroundImage={backgroundImage}
+          formHeading={block.formHeading}
+          buttonText={block.buttonText}
+          phones={toTextList(block.phones)}
+        />
+      );
+    }
+
+    case "revenueCTAWithTestimonial": {
+      const backgroundImage = mediaUrl(block.backgroundImage, ["hero", "article"]);
+      const testimonialImage = mediaUrl(block.testimonial.image);
+      if (!backgroundImage || !testimonialImage) return null;
+
+      const ratingImage = mediaUrl(block.testimonial.ratingImage);
+
+      return (
+        <RevenueCTAWithTestimonial
+          heading={block.heading}
+          description={block.description}
+          backgroundImage={backgroundImage}
+          primaryButtonText={block.primaryButtonText}
+          primaryButtonHref={block.primaryButtonHref}
+          secondaryButtonText={block.secondaryButtonText}
+          secondaryButtonHref={block.secondaryButtonHref}
+          testimonial={{
+            image: testimonialImage,
+            imageAlt: block.testimonial.imageAlt || mediaAlt(block.testimonial.image, block.testimonial.name),
+            name: block.testimonial.name,
+            role: block.testimonial.role,
+            quote: block.testimonial.quote,
+            // The rating graphic is object-contain, so the original file is used here.
+            ratingImage: ratingImage || undefined,
+            ratingAlt: block.testimonial.ratingAlt || undefined,
+          }}
+        />
+      );
+    }
+
+    case "smallPractices": {
+      // Sized from its intrinsic ratio, so the original file is used here.
+      const image = mediaUrl(block.image);
+      if (!image) return null;
+
+      return (
+        <SmallPractices
+          heading={block.heading}
+          description={block.description}
+          supportHeading={block.supportHeading}
+          supportItems={toTextList(block.supportItems)}
+          cardHeading={block.cardHeading}
+          cardDescription={block.cardDescription}
+          cardLinkText={block.cardLinkText}
+          cardLinkHref={block.cardLinkHref}
+          image={image}
+          imageAlt={block.imageAlt || mediaAlt(block.image, block.heading)}
+        />
+      );
+    }
+
+    case "rcmSolutions": {
+      const services = compact(
+        block.services.map((service) => {
+          // Icons are shown with object-contain, so the original file is used here.
+          const icon = mediaUrl(service.icon);
+          if (!icon) return null;
+
+          return {
+            title: service.title,
+            description: service.description ?? undefined,
+            icon,
+            iconAlt: service.iconAlt || mediaAlt(service.icon, service.title),
+            highlighted: Boolean(service.highlighted),
+          };
+        }),
+      );
+      if (services.length === 0) return null;
+
+      return (
+        <RCMSolutions
+          heading={block.heading}
+          services={services}
+          variant={block.variant ?? undefined}
+        />
+      );
+    }
+
+    case "revenueLossReasons": {
+      // Constrained by a max width and not cropped, so the original file is used here.
+      const image = mediaUrl(block.image);
+      if (!image) return null;
+
+      const cards = compact(
+        block.cards.map((card) => {
+          // Icons are shown with object-contain, so the original file is used here.
+          const icon = mediaUrl(card.icon);
+          if (!icon) return null;
+
+          return {
+            title: card.title,
+            description: card.description,
+            icon,
+            iconAlt: card.iconAlt || mediaAlt(card.icon, card.title),
+            highlighted: Boolean(card.highlighted),
+          };
+        }),
+      );
+      if (cards.length === 0) return null;
+
+      return (
+        <RevenueLossReasons
+          heading={block.heading}
+          descriptionOne={block.descriptionOne}
+          descriptionTwo={block.descriptionTwo}
+          image={image}
+          imageAlt={block.imageAlt || mediaAlt(block.image, block.heading)}
+          cards={cards}
+        />
+      );
+    }
+
+    case "billingSolutions": {
+      const solutions = compact(
+        block.solutions.map((solution) => {
+          // Icons are shown with object-contain, so the original file is used here.
+          const icon = mediaUrl(solution.icon);
+          if (!icon) return null;
+
+          return {
+            title: solution.title,
+            description: solution.description,
+            icon,
+            iconAlt: solution.iconAlt || mediaAlt(solution.icon, solution.title),
+            highlighted: Boolean(solution.highlighted),
+          };
+        }),
+      );
+      if (solutions.length === 0) return null;
+
+      return (
+        <BillingSolutions
+          heading={block.heading}
+          solutions={solutions}
+          variant={block.variant ?? undefined}
+        />
+      );
+    }
+
+    case "billingIntelligence": {
+      return (
+        <BillingIntelligence
+          heading={block.heading}
+          description={block.description}
+          items={toTextList(block.items)}
+        />
+      );
+    }
+
+    case "whyChooseUs": {
+      return (
+        <WhyChooseUsSection
+          heading={block.heading}
+          items={block.items.map(({ title, description }) => ({ title, description }))}
+        />
+      );
+    }
+
+    case "whyTrustABS": {
+      return (
+        <WhyTrustABS
+          heading={block.heading}
+          description={block.description}
+          mainCardHeading={block.mainCardHeading}
+          cards={block.cards.map(({ title, description }) => ({ title, description }))}
+        />
+      );
+    }
+
+    case "whyWorkWithUs": {
+      return (
+        <WhyWorkWithUsSection
+          heading={block.heading}
+          subtitle={block.subtitle ?? undefined}
+          items={toTextList(block.items)}
+          footerText={block.footerText ?? undefined}
+        />
+      );
+    }
+
+    case "ourApproach": {
+      return (
+        <OurApproachSection
+          heading={block.heading}
+          items={block.items.map(({ title, description }) => ({ title, description }))}
+        />
+      );
+    }
+
+    case "nationwideBilling": {
+      const states = compact(
+        block.states.map((state) => {
+          // State graphics are shown with object-contain, so the original file is used here.
+          const image = mediaUrl(state.image);
+          if (!image) return null;
+
+          return {
+            name: state.name,
+            image,
+            imageAlt: state.imageAlt || mediaAlt(state.image, state.name),
+            highlighted: Boolean(state.highlighted),
+          };
+        }),
+      );
+      if (states.length === 0) return null;
+
+      return (
+        <NationwideBilling
+          heading={block.heading}
+          description={block.description}
+          states={states}
         />
       );
     }

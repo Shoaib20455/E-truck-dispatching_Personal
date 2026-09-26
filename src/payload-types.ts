@@ -722,6 +722,287 @@ export interface Page {
             blockName?: string | null;
             blockType: 'textFeatureGrid';
           }
+        | {
+            heading: string;
+            description: string;
+            /**
+             * Sits behind the teal overlay. Only used by the Background variant.
+             */
+            backgroundImage?: (number | null) | Media;
+            logos?:
+              | {
+                  /**
+                   * Wide logo, ideally on a white or transparent background.
+                   */
+                  image: number | Media;
+                  alt?: string | null;
+                  id?: string | null;
+                }[]
+              | null;
+            variant?: ('background' | 'plain') | null;
+            formHeading: string;
+            namePlaceholder: string;
+            phonePlaceholder: string;
+            emailPlaceholder: string;
+            practicePlaceholder: string;
+            buttonText: string;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'consultationCTA';
+          }
+        | {
+            heading: string;
+            description: string;
+            /**
+             * Full-bleed background. Shown at full strength when phone numbers are added.
+             */
+            backgroundImage: number | Media;
+            /**
+             * Optional. Each number becomes a tap-to-call button. Leave empty to hide them.
+             */
+            phones?:
+              | {
+                  /**
+                   * Displayed as written, e.g. (800) 555-0123.
+                   */
+                  text: string;
+                  id?: string | null;
+                }[]
+              | null;
+            formHeading: string;
+            buttonText: string;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'stateConsultationCTA';
+          }
+        | {
+            heading: string;
+            description: string;
+            /**
+             * Sits behind the teal gradient. Landscape works best.
+             */
+            backgroundImage: number | Media;
+            primaryButtonText: string;
+            primaryButtonHref: string;
+            secondaryButtonText: string;
+            secondaryButtonHref: string;
+            testimonial: {
+              image: number | Media;
+              /**
+               * Falls back to the alt text of the selected media file.
+               */
+              imageAlt?: string | null;
+              name: string;
+              /**
+               * Shown under the name, e.g. Practice Manager.
+               */
+              role: string;
+              quote: string;
+              /**
+               * Optional. Wide star rating graphic, shown small under the role.
+               */
+              ratingImage?: (number | null) | Media;
+              ratingAlt?: string | null;
+            };
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'revenueCTAWithTestimonial';
+          }
+        | {
+            heading: string;
+            description: string;
+            supportHeading: string;
+            supportItems: {
+              text: string;
+              id?: string | null;
+            }[];
+            cardHeading: string;
+            cardDescription: string;
+            cardLinkText: string;
+            cardLinkHref: string;
+            image: number | Media;
+            /**
+             * Falls back to the alt text of the selected media file.
+             */
+            imageAlt?: string | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'smallPractices';
+          }
+        | {
+            heading: string;
+            services: {
+              title: string;
+              /**
+               * Not shown by the Procedure variant.
+               */
+              description?: string | null;
+              /**
+               * Square icon, shown small and centered.
+               */
+              icon: number | Media;
+              /**
+               * Falls back to the alt text of the selected media file.
+               */
+              iconAlt?: string | null;
+              /**
+               * Only used by the Procedure variant.
+               */
+              highlighted?: boolean | null;
+              id?: string | null;
+            }[];
+            variant?: ('default' | 'procedure') | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'rcmSolutions';
+          }
+        | {
+            heading: string;
+            descriptionOne: string;
+            descriptionTwo: string;
+            image: number | Media;
+            /**
+             * Falls back to the alt text of the selected media file.
+             */
+            imageAlt?: string | null;
+            cards: {
+              title: string;
+              description: string;
+              /**
+               * Square icon, shown small and centered inside the blue circle.
+               */
+              icon: number | Media;
+              /**
+               * Falls back to the alt text of the selected media file.
+               */
+              iconAlt?: string | null;
+              highlighted?: boolean | null;
+              id?: string | null;
+            }[];
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'revenueLossReasons';
+          }
+        | {
+            heading: string;
+            solutions: {
+              title: string;
+              description: string;
+              /**
+               * Square icon, shown small and centered.
+               */
+              icon: number | Media;
+              /**
+               * Falls back to the alt text of the selected media file.
+               */
+              iconAlt?: string | null;
+              /**
+               * Only used by the Default variant.
+               */
+              highlighted?: boolean | null;
+              id?: string | null;
+            }[];
+            variant?: ('default' | 'outsource') | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'billingSolutions';
+          }
+        | {
+            heading: string;
+            description: string;
+            /**
+             * Each item is rendered in a tile with a checkmark.
+             */
+            items: {
+              text: string;
+              id?: string | null;
+            }[];
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'billingIntelligence';
+          }
+        | {
+            heading: string;
+            items: {
+              title: string;
+              description: string;
+              id?: string | null;
+            }[];
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'whyChooseUs';
+          }
+        | {
+            heading: string;
+            /**
+             * Line breaks are preserved.
+             */
+            description: string;
+            /**
+             * Rendered as the first, larger teal card.
+             */
+            mainCardHeading: string;
+            cards: {
+              title: string;
+              description: string;
+              id?: string | null;
+            }[];
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'whyTrustABS';
+          }
+        | {
+            heading: string;
+            /**
+             * Optional. Shown under the heading.
+             */
+            subtitle?: string | null;
+            /**
+             * Each item is rendered as a pill-shaped card.
+             */
+            items: {
+              text: string;
+              id?: string | null;
+            }[];
+            /**
+             * Optional. Shown centered under the items.
+             */
+            footerText?: string | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'whyWorkWithUs';
+          }
+        | {
+            heading: string;
+            items: {
+              title: string;
+              description: string;
+              id?: string | null;
+            }[];
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'ourApproach';
+          }
+        | {
+            heading: string;
+            description: string;
+            states: {
+              name: string;
+              /**
+               * Square state icon or badge, shown small and centered.
+               */
+              image: number | Media;
+              /**
+               * Falls back to the alt text of the selected media file.
+               */
+              imageAlt?: string | null;
+              highlighted?: boolean | null;
+              id?: string | null;
+            }[];
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'nationwideBilling';
+          }
       )[]
     | null;
   updatedAt: string;
@@ -1310,6 +1591,238 @@ export interface PagesSelect<T extends boolean = true> {
                 | {
                     title?: T;
                     description?: T;
+                    highlighted?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        consultationCTA?:
+          | T
+          | {
+              heading?: T;
+              description?: T;
+              backgroundImage?: T;
+              logos?:
+                | T
+                | {
+                    image?: T;
+                    alt?: T;
+                    id?: T;
+                  };
+              variant?: T;
+              formHeading?: T;
+              namePlaceholder?: T;
+              phonePlaceholder?: T;
+              emailPlaceholder?: T;
+              practicePlaceholder?: T;
+              buttonText?: T;
+              id?: T;
+              blockName?: T;
+            };
+        stateConsultationCTA?:
+          | T
+          | {
+              heading?: T;
+              description?: T;
+              backgroundImage?: T;
+              phones?:
+                | T
+                | {
+                    text?: T;
+                    id?: T;
+                  };
+              formHeading?: T;
+              buttonText?: T;
+              id?: T;
+              blockName?: T;
+            };
+        revenueCTAWithTestimonial?:
+          | T
+          | {
+              heading?: T;
+              description?: T;
+              backgroundImage?: T;
+              primaryButtonText?: T;
+              primaryButtonHref?: T;
+              secondaryButtonText?: T;
+              secondaryButtonHref?: T;
+              testimonial?:
+                | T
+                | {
+                    image?: T;
+                    imageAlt?: T;
+                    name?: T;
+                    role?: T;
+                    quote?: T;
+                    ratingImage?: T;
+                    ratingAlt?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        smallPractices?:
+          | T
+          | {
+              heading?: T;
+              description?: T;
+              supportHeading?: T;
+              supportItems?:
+                | T
+                | {
+                    text?: T;
+                    id?: T;
+                  };
+              cardHeading?: T;
+              cardDescription?: T;
+              cardLinkText?: T;
+              cardLinkHref?: T;
+              image?: T;
+              imageAlt?: T;
+              id?: T;
+              blockName?: T;
+            };
+        rcmSolutions?:
+          | T
+          | {
+              heading?: T;
+              services?:
+                | T
+                | {
+                    title?: T;
+                    description?: T;
+                    icon?: T;
+                    iconAlt?: T;
+                    highlighted?: T;
+                    id?: T;
+                  };
+              variant?: T;
+              id?: T;
+              blockName?: T;
+            };
+        revenueLossReasons?:
+          | T
+          | {
+              heading?: T;
+              descriptionOne?: T;
+              descriptionTwo?: T;
+              image?: T;
+              imageAlt?: T;
+              cards?:
+                | T
+                | {
+                    title?: T;
+                    description?: T;
+                    icon?: T;
+                    iconAlt?: T;
+                    highlighted?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        billingSolutions?:
+          | T
+          | {
+              heading?: T;
+              solutions?:
+                | T
+                | {
+                    title?: T;
+                    description?: T;
+                    icon?: T;
+                    iconAlt?: T;
+                    highlighted?: T;
+                    id?: T;
+                  };
+              variant?: T;
+              id?: T;
+              blockName?: T;
+            };
+        billingIntelligence?:
+          | T
+          | {
+              heading?: T;
+              description?: T;
+              items?:
+                | T
+                | {
+                    text?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        whyChooseUs?:
+          | T
+          | {
+              heading?: T;
+              items?:
+                | T
+                | {
+                    title?: T;
+                    description?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        whyTrustABS?:
+          | T
+          | {
+              heading?: T;
+              description?: T;
+              mainCardHeading?: T;
+              cards?:
+                | T
+                | {
+                    title?: T;
+                    description?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        whyWorkWithUs?:
+          | T
+          | {
+              heading?: T;
+              subtitle?: T;
+              items?:
+                | T
+                | {
+                    text?: T;
+                    id?: T;
+                  };
+              footerText?: T;
+              id?: T;
+              blockName?: T;
+            };
+        ourApproach?:
+          | T
+          | {
+              heading?: T;
+              items?:
+                | T
+                | {
+                    title?: T;
+                    description?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        nationwideBilling?:
+          | T
+          | {
+              heading?: T;
+              description?: T;
+              states?:
+                | T
+                | {
+                    name?: T;
+                    image?: T;
+                    imageAlt?: T;
                     highlighted?: T;
                     id?: T;
                   };
