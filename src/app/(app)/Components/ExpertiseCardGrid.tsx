@@ -1,4 +1,4 @@
-import { AnimatedSection } from "./animation/MotionElements";
+import { AnimatedHeading, AnimatedSection, StaggerGroup, StaggerItem } from "./animation/MotionElements";
 
 type ExpertiseCard = {
   title: string;
@@ -21,17 +21,16 @@ export default function ExpertiseCardGrid({
       <div className="mx-auto max-w-[1520px] px-6 lg:px-8 2xl:px-0">
         {/* HEADING */}
         <div className="mx-auto mb-12 max-w-5xl text-center">
-          <h2 className="font-inter text-3xl font-semibold leading-tight text-heading md:text-4xl lg:text-5xl">
-            {heading}
-          </h2>
+          <AnimatedHeading
+            text={heading}
+            className="font-inter text-3xl font-semibold leading-tight text-heading md:text-4xl lg:text-5xl"
+          />
         </div>
 
         {/* CARDS */}
-        <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
+        <StaggerGroup stagger={0.08} className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
           {cards.map((card) => (
-            <div
-              key={card.title}
-              className={`rounded-[20px] p-7 ${
+            <StaggerItem key={card.title} preset="card" hover="premium" className={`rounded-[20px] p-7 ${
                 card.highlighted
                   ? "border border-teal-500 bg-teal-500/10 shadow-[0px_10px_20px_rgba(0,0,0,0.07)]"
                   : "bg-white"
@@ -48,9 +47,9 @@ export default function ExpertiseCardGrid({
               <p className="font-manrope text-base font-normal leading-7 text-neutral-500">
                 {card.description}
               </p>
-            </div>
+            </StaggerItem>
           ))}
-        </div>
+        </StaggerGroup>
       </div>
     </AnimatedSection>
   );
