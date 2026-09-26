@@ -1,4 +1,4 @@
-import { AnimatedDiv, AnimatedSection, StaggerGroup, StaggerItem } from "./animation/MotionElements";
+import { AnimatedDiv, AnimatedHeading, AnimatedSection, ImageReveal, ParallaxDiv, StaggerGroup, StaggerItem } from "./animation/MotionElements";
 
 type WorkflowStep = {
   label: string;
@@ -77,9 +77,10 @@ export default function MedicalBillingWorkflow({
     <AnimatedSection preset="fade-up" className="w-full bg-cyan-50 py-14 lg:py-20">
       <div className="mx-auto max-w-[1520px] px-6 lg:px-8 2xl:px-0">
         <div className="mb-10 text-center">
-          <h2 className="font-inter text-3xl font-semibold leading-tight text-heading md:text-4xl lg:text-5xl">
-            {heading}
-          </h2>
+          <AnimatedHeading
+            text={heading}
+            className="font-inter text-3xl font-semibold leading-tight text-heading md:text-4xl lg:text-5xl"
+          />
         </div>
 
         {/* WORKFLOW */}
@@ -87,14 +88,15 @@ export default function MedicalBillingWorkflow({
           {/* LEFT STEPS */}
           <StaggerGroup stagger={0.07} className="space-y-8 lg:relative lg:z-20">
             {leftSteps.map((step, index) => (
-              <StaggerItem key={step.label} preset="step-left" hover="soft" className={`transition-transform ${leftOffsets[index] ?? ""}`}>
+              <StaggerItem key={step.label} preset="step-left" hover="premium" className={`transition-transform ${leftOffsets[index] ?? ""}`}>
                 <StepCard step={step} />
               </StaggerItem>
             ))}
           </StaggerGroup>
 
           {/* CENTER IMAGE + RING */}
-          <AnimatedDiv preset="scale" className="relative flex min-h-[520px] items-end justify-center lg:min-h-[620px]">
+          <ParallaxDiv distance={26} className="relative flex min-h-[520px] items-end justify-center lg:min-h-[620px]">
+            <ImageReveal className="relative flex h-full w-full items-end justify-center">
             {ringImage && (
               <img
                 src={ringImage}
@@ -108,7 +110,8 @@ export default function MedicalBillingWorkflow({
               alt={centerImageAlt}
               className="relative z-10 w-full max-w-[560px] object-contain"
             />
-          </AnimatedDiv>
+            </ImageReveal>
+          </ParallaxDiv>
 
           {/* RIGHT STEPS */}
           <StaggerGroup stagger={0.07} className="space-y-8 lg:relative lg:z-20">
