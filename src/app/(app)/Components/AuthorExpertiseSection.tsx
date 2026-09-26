@@ -1,3 +1,5 @@
+import { AnimatedSection } from "./animation/MotionElements";
+
 import Image from "next/image";
 
 export type AuthorExpertiseItem = {
@@ -16,7 +18,7 @@ export default function AuthorExpertiseSection({
   items,
 }: AuthorExpertiseSectionProps) {
   return (
-    <section className="w-full bg-cyan-50 py-8 lg:py-12">
+    <AnimatedSection preset="fade-up" className="w-full bg-cyan-50 py-8 lg:py-12">
       <div className="mx-auto w-full max-w-[1520px] px-6 lg:px-8 2xl:px-0">
         <h2 className="text-center font-inter text-4xl font-semibold leading-tight text-black md:text-5xl">
           {heading}
@@ -45,6 +47,6 @@ export default function AuthorExpertiseSection({
           ))}
         </div>
       </div>
-    </section>
+    </AnimatedSection>
   );
 }
