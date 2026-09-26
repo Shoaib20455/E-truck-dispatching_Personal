@@ -140,7 +140,7 @@ export default function ServiceHero({
 
             {/* RIGHT FORM */}
             <ParallaxDiv distance={16}>
-            <AnimatedDiv preset="hero-right" delay={0.16} trigger="mount" className="rounded-[14px] border border-sky-500 bg-indigo-50/50 p-7 backdrop-blur-[2.5px] md:p-8">
+              <AnimatedDiv preset="hero-right" delay={0.16} trigger="mount" className="rounded-[14px] border border-sky-500 bg-indigo-50/50 p-7 backdrop-blur-[2.5px] md:p-8">
               <h2
                 className={`mb-7 font-inter text-2xl font-semibold leading-tight text-heading md:text-3xl ${
                   isCompact ? "text-center" : ""
@@ -197,16 +197,23 @@ export default function ServiceHero({
                   </StaggerItem>
                 </StaggerGroup>
 
-                <StaggerItem preset="fade-up" hover="soft" className="w-full">
-                <button
-                  type="submit"
-                  className={`${isCompact ? "mt-5" : "mt-5"} w-full rounded-[58px] bg-sky-500 px-7 py-3 font-manrope text-lg font-normal text-white`}
+                <StaggerGroup
+                  trigger="mount"
+                  delayChildren={0.52}
+                  stagger={0}
+                  className="w-full"
                 >
-                  {buttonText}
-                </button>
-                </StaggerItem>
+                  <StaggerItem preset="fade-up" hover="soft" className="w-full">
+                    <button
+                      type="submit"
+                      className="mt-5 w-full rounded-[58px] bg-sky-500 px-7 py-3 font-manrope text-lg font-normal text-white"
+                    >
+                      {buttonText}
+                    </button>
+                  </StaggerItem>
+                </StaggerGroup>
               </form>
-            </AnimatedDiv>
+              </AnimatedDiv>
             </ParallaxDiv>
           </div>
         </div>
