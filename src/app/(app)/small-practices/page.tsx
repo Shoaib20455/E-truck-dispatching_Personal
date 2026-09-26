@@ -1,3 +1,11 @@
+import { createPageMetadata } from "@/lib/seo";
+
+export const metadata = createPageMetadata({
+  title: "Medical Billing for Small Practices",
+  description: "Medical billing and credentialing support designed for independent clinics, small practices, and lean healthcare teams.",
+  path: "/small-practices",
+});
+
 import BillingProcess from "../Components/BillingProcess";
 import BillingSolutions from "../Components/BillingSolutions";
 import CertificationCTA from "../Components/CertificationCTA";
