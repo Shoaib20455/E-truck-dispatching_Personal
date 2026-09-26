@@ -1,6 +1,8 @@
 "use client";
 
 import { useState } from "react";
+import { AnimatePresence, motion } from "motion/react";
+import { AnimatedSection, StaggerGroup, StaggerItem } from "./animation/MotionElements";
 
 type FAQItem = {
   question: string;
@@ -27,7 +29,7 @@ export default function FAQSection({
   };
 
   return (
-    <section className="w-full bg-cyan-50 py-14 lg:py-20">
+    <AnimatedSection preset="fade-up" className="w-full bg-cyan-50 py-14 lg:py-20">
       <div className="mx-auto max-w-[1520px] px-6 lg:px-8 2xl:px-0">
         {/* HEADING */}
         <div className="mx-auto mb-12 max-w-5xl text-center">
@@ -37,13 +39,14 @@ export default function FAQSection({
         </div>
 
         {/* FAQ LIST */}
-        <div className="space-y-5">
+        <StaggerGroup stagger={0.07} className="space-y-5">
           {faqs.map((faq, index) => {
             const isOpen = openIndex === index;
 
             return (
-              <div
+              <StaggerItem
                 key={faq.question}
+                preset="card"
                 className={`bg-white px-7 md:px-10 ${
                   isOpen ? "rounded-[30px] py-7" : "rounded-[20px] py-5"
                 }`}
@@ -69,11 +72,24 @@ export default function FAQSection({
                       </h3>
                     </button>
 
-                    {isOpen && (
-                      <p className="font-inter text-lg font-normal leading-6 text-neutral-500">
-                        {faq.answer}
-                      </p>
-                    )}
+                    <AnimatePresence initial={false}>
+                      {isOpen && (
+                        <motion.div
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{ height: "auto", opacity: 1 }}
+                          exit={{ height: 0, opacity: 0 }}
+                          transition={{
+                            height: { duration: 0.32, ease: [0.22, 1, 0.36, 1] },
+                            opacity: { duration: 0.22 },
+                          }}
+                          className="overflow-hidden"
+                        >
+                          <p className="font-inter text-lg font-normal leading-6 text-neutral-500">
+                            {faq.answer}
+                          </p>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
                   </div>
 
                   <button
@@ -83,14 +99,20 @@ export default function FAQSection({
                     aria-label={isOpen ? "Close answer" : "Open answer"}
                     aria-expanded={isOpen}
                   >
-                    {isOpen ? "−" : "+"}
+                    <motion.span
+                      animate={{ rotate: isOpen ? 180 : 0 }}
+                      transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
+                      className="inline-block"
+                    >
+                      {isOpen ? "−" : "+"}
+                    </motion.span>
                   </button>
                 </div>
-              </div>
+              </StaggerItem>
             );
           })}
-        </div>
+        </StaggerGroup>
       </div>
-    </section>
+    </AnimatedSection>
   );
 }
