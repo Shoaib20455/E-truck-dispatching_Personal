@@ -1,3 +1,4 @@
+import AppLink from "./navigation/AppLink";
 import { AnimatedDiv, AnimatedHeading, AnimatedSection, StaggerGroup, StaggerItem } from "./animation/MotionElements";
 
 type SpecialtyItem = {
@@ -51,20 +52,20 @@ export default function SpecialtyBilling({
             </p>
 
             <div className="flex flex-col gap-4 sm:flex-row">
-              <a
+              <AppLink
                 href={buttonHref}
                 className="inline-flex justify-center rounded-[58px] bg-sky-500 px-7 py-2.5 font-manrope text-lg font-normal text-white"
               >
                 {buttonText}
-              </a>
+              </AppLink>
 
               {secondaryButtonText && secondaryButtonHref && (
-                <a
+                <AppLink
                   href={secondaryButtonHref}
                   className="inline-flex justify-center rounded-[34px] bg-white px-7 py-2.5 font-manrope text-lg font-normal text-neutral-600"
                 >
                   {secondaryButtonText}
-                </a>
+                </AppLink>
               )}
             </div>
           </AnimatedDiv>
