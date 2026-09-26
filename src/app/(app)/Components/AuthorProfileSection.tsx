@@ -71,7 +71,7 @@ export default function AuthorProfileSection({
               </StaggerGroup>
             </div>
           </div>
-        </AnimatedDiv>
+        </div>
       </div>
 
       <div className="mx-auto grid w-full max-w-[1520px] grid-cols-1 gap-12 px-6 pb-16 pt-32 lg:grid-cols-[minmax(0,0.72fr)_minmax(0,1.28fr)] lg:gap-24 lg:px-8 lg:pt-40 2xl:px-0">
@@ -113,7 +113,7 @@ export default function AuthorProfileSection({
           <p className="mt-6 font-manrope text-base font-normal leading-8 text-neutral-500 md:text-lg">
             {aboutText}
           </p>
-        </div>
+        </AnimatedDiv>
       </div>
     </AnimatedSection>
   );
