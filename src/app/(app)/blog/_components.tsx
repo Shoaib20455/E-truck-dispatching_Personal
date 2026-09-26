@@ -16,10 +16,93 @@ export type BlogPostCardData = {
   title: string;
   description: string;
   date: string;
+  dateTime?: string;
   image: string;
   imageAlt?: string;
   href: string;
 };
+
+export const FALLBACK_POST_IMAGE = "/Home/49_rectangle_79.png";
+
+export const FALLBACK_POST_DESCRIPTION =
+  "Read medical billing, coding, payer, denial-management, and revenue-cycle insights from Avenue Billing Services.";
+
+type PostCardSource = {
+  title: string;
+  slug: string;
+  metaDescription?: string | null;
+  publishedDate?: string | null;
+  featureImage?: unknown;
+};
+
+type PostImageSource = {
+  url?: string | null;
+  alt?: string | null;
+  sizes?: {
+    article?: { url?: string | null } | null;
+    card?: { url?: string | null } | null;
+  } | null;
+};
+
+type CategorySource = {
+  name?: string | null;
+  slug?: string | null;
+};
+
+const postDateFormatter = new Intl.DateTimeFormat("en-US", {
+  dateStyle: "medium",
+});
+
+export function formatPostDate(value?: string | null) {
+  if (!value) return "";
+
+  const parsed = new Date(value);
+
+  if (Number.isNaN(parsed.getTime())) return "";
+
+  return postDateFormatter.format(parsed);
+}
+
+function resolvePostImage(value: unknown): PostImageSource | null {
+  return value && typeof value === "object"
+    ? (value as PostImageSource)
+    : null;
+}
+
+export function toBlogPostCardData(post: PostCardSource): BlogPostCardData {
+  const media = resolvePostImage(post.featureImage);
+
+  return {
+    title: post.title,
+    description: post.metaDescription || FALLBACK_POST_DESCRIPTION,
+    date: formatPostDate(post.publishedDate),
+    dateTime: post.publishedDate || undefined,
+    image:
+      media?.sizes?.article?.url ||
+      media?.sizes?.card?.url ||
+      media?.url ||
+      FALLBACK_POST_IMAGE,
+    imageAlt: media?.alt || post.title,
+    href: `/blog/${post.slug}`,
+  };
+}
+
+export function toBlogPostCardDataList(
+  posts: PostCardSource[],
+): BlogPostCardData[] {
+  return posts.map(toBlogPostCardData);
+}
+
+export function toBlogCategories(
+  docs: CategorySource[],
+): BlogCategory[] {
+  return docs
+    .filter(
+      (item): item is { name: string; slug: string } =>
+        Boolean(item.name && item.slug),
+    )
+    .map(({ name, slug }) => ({ name, slug }));
+}
 
 const chipClasses = (active: boolean) =>
   `inline-flex min-h-12 items-center justify-center rounded-[80px] px-7 py-2.5 font-manrope text-base font-normal leading-8 text-white transition-[background-color,transform,opacity] duration-200 ${
@@ -27,6 +110,25 @@ const chipClasses = (active: boolean) =>
       ? "bg-accent"
       : "bg-primary-light hover:bg-sky-500"
   }`;
+
+export function BlogEmptyState({
+  heading,
+  message,
+}: {
+  heading: string;
+  message: string;
+}) {
+  return (
+    <div className="mt-14 rounded-[30px] bg-white px-8 py-14 text-center shadow-[0px_10px_20px_rgba(0,0,0,0.06)]">
+      <h2 className="font-inter text-2xl font-semibold text-heading md:text-3xl">
+        {heading}
+      </h2>
+      <p className="mx-auto mt-4 max-w-2xl font-manrope text-base leading-8 text-neutral-500 md:text-lg">
+        {message}
+      </p>
+    </div>
+  );
+}
 
 export function CategoryChips({
   categories,
@@ -100,7 +202,7 @@ export function BlogPostCard({
       </AppLink>
 
       <div className="px-6 py-6 sm:px-8 lg:px-10">
-        {post.date && <PostDate date={post.date} />}
+        {post.date && <PostDate date={post.date} dateTime={post.dateTime} />}
 
         <h3 className="mt-3 font-inter text-2xl font-semibold leading-9 text-heading md:text-[30px]">
           <AppLink
@@ -188,14 +290,14 @@ export function BlogPagination({
   );
 }
 
-export function PostDate({ date }: { date: string }) {
+export function PostDate({ date, dateTime }: { date: string; dateTime?: string }) {
   return (
     <div className="flex items-center gap-2 font-manrope text-sm font-semibold leading-5 text-neutral-500">
       <span
         aria-hidden="true"
         className="size-2 shrink-0 rounded-full bg-accent"
       />
-      <time>{date}</time>
+      <time dateTime={dateTime}>{date}</time>
     </div>
   );
 }
@@ -260,5 +362,41 @@ function ArrowRightIcon() {
     >
       <path d="m9 18 6-6-6-6" />
     </svg>
+  );
+}
+
+export function BlogListingSkeleton() {
+  return (
+    <section className="w-full bg-cyan-50 py-16 lg:py-20">
+      <div className="mx-auto w-full max-w-[1520px] px-6 lg:px-8 2xl:px-0">
+        <div className="h-12 w-72 animate-pulse rounded-[10px] bg-sky-100" />
+
+        <div className="mt-6 flex flex-wrap gap-3">
+          {[1, 2, 3, 4].map((item) => (
+            <div
+              key={item}
+              className="h-12 w-32 animate-pulse rounded-[80px] bg-sky-100"
+            />
+          ))}
+        </div>
+
+        <div className="mt-14 grid grid-cols-1 gap-x-[30px] gap-y-[60px] md:grid-cols-2 lg:grid-cols-3">
+          {[1, 2, 3, 4, 5, 6].map((item) => (
+            <div
+              key={item}
+              className="overflow-hidden rounded-[30px] bg-white shadow-[0px_10px_20px_rgba(0,0,0,0.06)]"
+            >
+              <div className="aspect-[486/278] animate-pulse bg-sky-100" />
+              <div className="space-y-4 px-8 py-6">
+                <div className="h-4 w-24 animate-pulse rounded bg-sky-100" />
+                <div className="h-8 w-4/5 animate-pulse rounded bg-sky-100" />
+                <div className="h-4 w-full animate-pulse rounded bg-sky-100" />
+                <div className="h-4 w-3/4 animate-pulse rounded bg-sky-100" />
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
   );
 }

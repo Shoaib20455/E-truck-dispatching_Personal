@@ -1,5 +1,6 @@
 import { AnimatedDiv, AnimatedSection, StaggerGroup, StaggerItem } from "./animation/MotionElements";
 import Image from "next/image";
+import type { ReactNode } from "react";
 import AuthorCard, { type AuthorCardProps } from "./AuthorCard";
 import ConsultationCard, { type ConsultationCardProps } from "./ConsultationCard";
 
@@ -14,7 +15,8 @@ type BlogDetailLayoutProps = {
   title: string;
   featuredImage: string;
   featuredImageAlt: string;
-  sections: BlogArticleSection[];
+  sections?: BlogArticleSection[];
+  content?: ReactNode;
   tableOfContentsLabel: string;
   consultation: ConsultationCardProps;
   author: AuthorCardProps;
@@ -32,10 +34,13 @@ export default function BlogDetailLayout({
   featuredImage,
   featuredImageAlt,
   sections,
+  content,
   tableOfContentsLabel,
   consultation,
   author,
 }: BlogDetailLayoutProps) {
+  const hasBody = Boolean(sections?.length || content);
+
   return (
     <>
       <AnimatedSection preset="fade" trigger="mount" className="w-full bg-gradient-to-r from-sky-500/75 to-teal-500/75">
@@ -60,39 +65,43 @@ export default function BlogDetailLayout({
             />
             </AnimatedDiv>
 
-            <StaggerGroup stagger={0.06} className="mt-12 space-y-10">
-              {sections.map((section) => (
-                <StaggerItem key={section.title} preset="fade-up"><section id={sectionId(section.title)}>
-                  <h2 className="font-inter text-2xl font-semibold leading-9 text-heading md:text-3xl">
-                    {section.title}
-                  </h2>
+            {hasBody && (
+              <StaggerGroup stagger={0.06} className="mt-12 space-y-10">
+                {sections?.map((section) => (
+                  <StaggerItem key={section.title} preset="fade-up"><section id={sectionId(section.title)}>
+                    <h2 className="font-inter text-2xl font-semibold leading-9 text-heading md:text-3xl">
+                      {section.title}
+                    </h2>
 
-                  {section.paragraphs?.map((paragraph) => (
-                    <p
-                      key={paragraph}
-                      className="mt-4 whitespace-pre-line font-manrope text-base font-normal leading-8 text-neutral-500 md:text-lg"
-                    >
-                      {paragraph}
-                    </p>
-                  ))}
+                    {section.paragraphs?.map((paragraph) => (
+                      <p
+                        key={paragraph}
+                        className="mt-4 whitespace-pre-line font-manrope text-base font-normal leading-8 text-neutral-500 md:text-lg"
+                      >
+                        {paragraph}
+                      </p>
+                    ))}
 
-                  {section.bullets && section.bullets.length > 0 && (
-                    <ul className="mt-3 list-disc space-y-1 pl-6 font-manrope text-base font-normal leading-8 text-neutral-500 md:text-lg">
-                      {section.bullets.map((item) => <li key={item}>{item}</li>)}
-                    </ul>
-                  )}
+                    {section.bullets && section.bullets.length > 0 && (
+                      <ul className="mt-3 list-disc space-y-1 pl-6 font-manrope text-base font-normal leading-8 text-neutral-500 md:text-lg">
+                        {section.bullets.map((item) => <li key={item}>{item}</li>)}
+                      </ul>
+                    )}
 
-                  {section.closingParagraphs?.map((paragraph) => (
-                    <p
-                      key={paragraph}
-                      className="mt-4 whitespace-pre-line font-manrope text-base font-normal leading-8 text-neutral-500 md:text-lg"
-                    >
-                      {paragraph}
-                    </p>
-                  ))}
-                </section></StaggerItem>
-              ))}
-            </StaggerGroup>
+                    {section.closingParagraphs?.map((paragraph) => (
+                      <p
+                        key={paragraph}
+                        className="mt-4 whitespace-pre-line font-manrope text-base font-normal leading-8 text-neutral-500 md:text-lg"
+                      >
+                        {paragraph}
+                      </p>
+                    ))}
+                  </section></StaggerItem>
+                ))}
+
+                {content && <StaggerItem preset="fade-up">{content}</StaggerItem>}
+              </StaggerGroup>
+            )}
           </article>
 
           <AnimatedDiv preset="slide-right" className="self-start">

@@ -16,11 +16,13 @@ import {
   StaggerGroup,
 } from "../../../Components/animation/MotionElements";
 import {
+  BlogEmptyState,
+  BlogListingSkeleton,
   BlogPagination,
   BlogPostCard,
   CategoryChips,
-  type BlogCategory,
-  type BlogPostCardData,
+  toBlogCategories,
+  toBlogPostCardDataList,
 } from "../../_components";
 
 const siteUrl =
@@ -116,7 +118,7 @@ export default async function CategoryPage({
         buttonText="Submit"
       />
 
-      <Suspense fallback={<CategorySkeleton />}>
+      <Suspense fallback={<BlogListingSkeleton />}>
         <CategoryContent
           categorySlug={categorySlug}
           page={page}
@@ -147,44 +149,11 @@ async function CategoryContent({
     getCategories(),
   ]);
 
-  const categories: BlogCategory[] = categoryResult.docs
-    .filter(
-      (item): item is typeof item & { name: string; slug: string } =>
-        Boolean(item.name && item.slug),
-    )
-    .map(({ name, slug }) => ({
-      name,
-      slug,
-    }));
+  const categories = toBlogCategories(categoryResult.docs);
+  const posts = toBlogPostCardDataList(postResult.docs);
 
   const totalPages = Math.max(1, postResult.totalPages || 1);
   const currentPage = Math.min(page, totalPages);
-
-  const posts: BlogPostCardData[] = postResult.docs.map((post) => {
-    const media =
-      post.featureImage && typeof post.featureImage === "object"
-        ? post.featureImage
-        : null;
-
-    return {
-      title: post.title,
-      description:
-        post.metaDescription ||
-        "Read medical billing, coding, payer, denial-management, and revenue-cycle insights from Avenue Billing Services.",
-      date: post.publishedDate
-        ? new Intl.DateTimeFormat("en-US", {
-            dateStyle: "medium",
-          }).format(new Date(post.publishedDate))
-        : "",
-      image:
-        media?.sizes?.article?.url ||
-        media?.sizes?.card?.url ||
-        media?.url ||
-        "/Home/49_rectangle_79.png",
-      imageAlt: media?.alt || post.title,
-      href: `/blog/${post.slug}`,
-    };
-  });
 
   return (
     <AnimatedSection
@@ -218,15 +187,10 @@ async function CategoryContent({
             ))}
           </StaggerGroup>
         ) : (
-          <div className="mt-14 rounded-[30px] bg-white px-8 py-14 text-center shadow-[0px_10px_20px_rgba(0,0,0,0.06)]">
-            <h2 className="font-inter text-2xl font-semibold text-heading md:text-3xl">
-              No articles published yet
-            </h2>
-            <p className="mx-auto mt-4 max-w-2xl font-manrope text-base leading-8 text-neutral-500 md:text-lg">
-              New articles in this category will appear here once they are
-              published.
-            </p>
-          </div>
+          <BlogEmptyState
+            heading="No articles published yet"
+            message="New articles in this category will appear here once they are published."
+          />
         )}
 
         {totalPages > 1 && (
@@ -238,41 +202,5 @@ async function CategoryContent({
         )}
       </div>
     </AnimatedSection>
-  );
-}
-
-function CategorySkeleton() {
-  return (
-    <section className="w-full bg-cyan-50 py-16 lg:py-20">
-      <div className="mx-auto w-full max-w-[1520px] px-6 lg:px-8 2xl:px-0">
-        <div className="h-12 w-72 animate-pulse rounded-[10px] bg-sky-100" />
-
-        <div className="mt-6 flex flex-wrap gap-3">
-          {[1, 2, 3, 4].map((item) => (
-            <div
-              key={item}
-              className="h-12 w-32 animate-pulse rounded-[80px] bg-sky-100"
-            />
-          ))}
-        </div>
-
-        <div className="mt-14 grid grid-cols-1 gap-x-[30px] gap-y-[60px] md:grid-cols-2 lg:grid-cols-3">
-          {[1, 2, 3, 4, 5, 6].map((item) => (
-            <div
-              key={item}
-              className="overflow-hidden rounded-[30px] bg-white shadow-[0px_10px_20px_rgba(0,0,0,0.06)]"
-            >
-              <div className="aspect-[486/278] animate-pulse bg-sky-100" />
-              <div className="space-y-4 px-8 py-6">
-                <div className="h-4 w-24 animate-pulse rounded bg-sky-100" />
-                <div className="h-8 w-4/5 animate-pulse rounded bg-sky-100" />
-                <div className="h-4 w-full animate-pulse rounded bg-sky-100" />
-                <div className="h-4 w-3/4 animate-pulse rounded bg-sky-100" />
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
   );
 }

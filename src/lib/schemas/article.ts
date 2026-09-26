@@ -1,6 +1,6 @@
 import { extractAllText } from "@/lib/extract-headings";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://boxtruckdispatchservices.us";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://avenuebillingservices.com";
 
 type PostAuthor = { name?: string; email?: string };
 type PostCategory = { name?: string; slug?: string };
@@ -26,7 +26,8 @@ export function getArticleSchema(post: Record<string, unknown>) {
 
   const articleImage =
     featureImage?.sizes?.article?.url || featureImage?.url || undefined;
-  const authorName = author?.name || author?.email || "Box Truck Dispatching";
+  const authorName =
+    author?.name || author?.email || "Avenue Billing Services";
   const categoryName = category?.name || undefined;
 
   const description =
@@ -45,7 +46,7 @@ export function getArticleSchema(post: Record<string, unknown>) {
     },
     publisher: {
       "@type": "Organization",
-      name: "Box Truck Dispatching",
+      name: "Avenue Billing Services",
       url: siteUrl || undefined,
     },
     mainEntityOfPage: {

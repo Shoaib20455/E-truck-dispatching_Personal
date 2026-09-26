@@ -17,7 +17,7 @@ export type AuthorCardProps = {
   updated: string;
   publishedLabel: string;
   updatedLabel: string;
-  socialLinks: AuthorSocialLink[];
+  socialLinks?: AuthorSocialLink[];
 };
 
 export default function AuthorCard({
@@ -29,7 +29,7 @@ export default function AuthorCard({
   updated,
   publishedLabel,
   updatedLabel,
-  socialLinks,
+  socialLinks = [],
 }: AuthorCardProps) {
   return (
     <AnimatedSection preset="fade-up" className="rounded-[20px] bg-accent/10 p-7">
@@ -57,13 +57,15 @@ export default function AuthorCard({
         <p>{updatedLabel}: {updated}</p>
       </AnimatedDiv>
 
-      <StaggerGroup stagger={0.06} className="mt-5 flex min-h-9 max-w-72 items-center justify-center gap-5 rounded-[10px] bg-primary-light px-4 text-white">
-        {socialLinks.map((item) => (
-          <StaggerItem key={item.label} preset="logo" hover="soft"><a href={item.href} aria-label={item.label} className="text-xs font-bold">
-            {item.mark}
-          </a></StaggerItem>
-        ))}
-      </StaggerGroup>
+      {socialLinks.length > 0 && (
+        <StaggerGroup stagger={0.06} className="mt-5 flex min-h-9 max-w-72 items-center justify-center gap-5 rounded-[10px] bg-primary-light px-4 text-white">
+          {socialLinks.map((item) => (
+            <StaggerItem key={item.label} preset="logo" hover="soft"><a href={item.href} aria-label={item.label} className="text-xs font-bold">
+              {item.mark}
+            </a></StaggerItem>
+          ))}
+        </StaggerGroup>
+      )}
     </AnimatedSection>
   );
 }

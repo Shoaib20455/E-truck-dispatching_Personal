@@ -81,6 +81,7 @@ async function fetchPostBySlug(slug: string) {
         metaDescription: true,
         jsonSchema: true,
         publishedDate: true,
+        updatedAt: true,
       },
     });
 
