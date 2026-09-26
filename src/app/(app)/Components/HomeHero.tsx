@@ -106,37 +106,52 @@ export default function HomeHero({
                 Talk to an Expert
               </h2>
 
-              <form className="mt-8 flex flex-col gap-6">
-                <FormField
-                  label="FULL NAME"
-                  name="name"
-                  type="text"
-                  placeholder="John Doe"
-                />
-
-                <FormField
-                  label="EMAIL ADDRESS"
-                  name="email"
-                  type="email"
-                  placeholder="john@clinic.com"
-                />
-
-                <FormField
-                  label="PHONE NUMBER"
-                  name="phone"
-                  type="tel"
-                  placeholder="(555) 000-0000"
-                />
-
-                <button
-                  type="submit"
-                  className="flex w-full items-center justify-center gap-2 rounded-2xl bg-accent py-5 font-inter text-lg font-bold leading-7 text-white transition-opacity hover:opacity-90"
+              <form>
+                <StaggerGroup
+                  trigger="mount"
+                  stagger={0.075}
+                  delayChildren={0.28}
+                  className="mt-8 flex flex-col gap-6"
                 >
-                  Book a Free Consultation
-                  <span aria-hidden="true" className="text-xl leading-none">
-                    →
-                  </span>
-                </button>
+                  <StaggerItem preset="fade-up">
+                    <FormField
+                      label="FULL NAME"
+                      name="name"
+                      type="text"
+                      placeholder="John Doe"
+                    />
+                  </StaggerItem>
+
+                  <StaggerItem preset="fade-up">
+                    <FormField
+                      label="EMAIL ADDRESS"
+                      name="email"
+                      type="email"
+                      placeholder="john@clinic.com"
+                    />
+                  </StaggerItem>
+
+                  <StaggerItem preset="fade-up">
+                    <FormField
+                      label="PHONE NUMBER"
+                      name="phone"
+                      type="tel"
+                      placeholder="(555) 000-0000"
+                    />
+                  </StaggerItem>
+
+                  <StaggerItem preset="fade-up" hover="soft">
+                    <button
+                      type="submit"
+                      className="flex w-full items-center justify-center gap-2 rounded-2xl bg-accent py-5 font-inter text-lg font-bold leading-7 text-white transition-opacity hover:opacity-90"
+                    >
+                      Book a Free Consultation
+                      <span aria-hidden="true" className="text-xl leading-none">
+                        →
+                      </span>
+                    </button>
+                  </StaggerItem>
+                </StaggerGroup>
               </form>
             </AnimatedDiv>
             </ParallaxDiv>
