@@ -32,8 +32,8 @@ export default function Testimonials({
 
         {/* TESTIMONIALS GRID */}
         <StaggerGroup stagger={0.1} className="grid grid-cols-1 gap-7 md:grid-cols-2 lg:grid-cols-3">
-          {testimonials.map((testimonial) => (
-            <StaggerItem key={testimonial.name} preset="card" hover="premium" className="flex flex-col items-center rounded-[10px] bg-white px-7 py-8 text-center">
+          {testimonials.map((testimonial, index) => (
+            <StaggerItem key={testimonial.name} preset={index % 2 === 0 ? "tile-left" : "tile-right"} hover="premium" className="flex flex-col items-center rounded-[10px] bg-white px-7 py-8 text-center">
               <HoverIcon className="mb-5">
                 <img
                   src={testimonial.image}
