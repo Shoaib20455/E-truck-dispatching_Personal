@@ -1,3 +1,11 @@
+import { createPageMetadata } from "@/lib/seo";
+
+export const metadata = createPageMetadata({
+  title: "Medical Billing Blog & Insights",
+  description: "Medical billing, coding, denial, payer, compliance, and revenue-cycle guides from Avenue Billing Services.",
+  path: "/blog",
+});
+
 import BlogListingSection from "../Components/BlogListingSection";
 import ServiceHero from "../Components/ServiceHero";
 
