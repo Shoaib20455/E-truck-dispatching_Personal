@@ -1,4 +1,4 @@
-import { AnimatedSection } from "./animation/MotionElements";
+import { AnimatedSection, StaggerGroup, StaggerItem } from "./animation/MotionElements";
 
 import SectionHeading from "./SectionHeading";
 
@@ -20,9 +20,9 @@ export default function LeadershipExpertiseSection({
       <div className="mx-auto w-full max-w-[1520px] px-6 lg:px-8 2xl:px-0">
         <SectionHeading title={heading} subtitle={subtitle} />
 
-        <div className="mt-12 grid grid-cols-1 gap-7 sm:grid-cols-2 xl:grid-cols-4">
+        <StaggerGroup stagger={0.075} className="mt-12 grid grid-cols-1 gap-7 sm:grid-cols-2 xl:grid-cols-4">
           {items.map((item) => (
-            <div key={item} className="flex justify-center">
+            <StaggerItem key={item} preset="scale" hover="premium" className="flex justify-center">
               <div
                 className="aspect-square w-full max-w-[300px] bg-primary-light p-px drop-shadow-[0_10px_18px_rgba(0,0,0,0.10)]"
                 style={{ clipPath: "polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)" }}
@@ -39,9 +39,9 @@ export default function LeadershipExpertiseSection({
                   </p>
                 </div>
               </div>
-            </div>
+            </StaggerItem>
           ))}
-        </div>
+        </StaggerGroup>
 
         {footerText && (
           <p className="mt-10 text-center font-manrope text-base font-bold leading-8 text-heading md:text-lg">
