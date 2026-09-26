@@ -1,3 +1,5 @@
+import { AnimatedSection } from "./animation/MotionElements";
+
 export type CaseStudyApproachItem = {
   title: string;
   description: string;
@@ -15,7 +17,7 @@ export default function CaseStudyApproachSection({
   items,
 }: CaseStudyApproachSectionProps) {
   return (
-    <section className="w-full bg-cyan-50 py-16 lg:py-20">
+    <AnimatedSection preset="fade-up" className="w-full bg-cyan-50 py-16 lg:py-20">
       <div className="mx-auto w-full max-w-[1520px] px-6 lg:px-8 2xl:px-0">
         <h2 className="text-center font-inter text-4xl font-semibold leading-tight text-heading md:text-5xl">
           {heading}
@@ -41,6 +43,6 @@ export default function CaseStudyApproachSection({
           ))}
         </div>
       </div>
-    </section>
+    </AnimatedSection>
   );
 }
