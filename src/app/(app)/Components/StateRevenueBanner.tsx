@@ -1,6 +1,6 @@
 import Image from "next/image";
 import AppLink from "./navigation/AppLink";
-import { AnimatedDiv, AnimatedHeading, AnimatedSection, ImageReveal, StaggerGroup, StaggerItem } from "./animation/MotionElements";
+import { AnimatedDiv, AnimatedHeading, AnimatedSection , StaggerGroup, StaggerItem } from "./animation/MotionElements";
 
 type StateRevenueBannerProps = {
   heading: string;
