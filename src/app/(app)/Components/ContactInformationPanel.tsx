@@ -1,3 +1,4 @@
+import AppLink from "./navigation/AppLink";
 import { AnimatedDiv } from "./animation/MotionElements";
 
 export type ContactCard = {
@@ -67,7 +68,7 @@ export default function ContactInformationPanel({
             className="flex size-11 items-center justify-center rounded-sm bg-white font-inter text-xl font-bold text-primary-light"
           >
             {item.mark}
-          </a>
+          </AppLink>
         ))}
       </div>
     </AnimatedDiv>
