@@ -4,10 +4,11 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "dev": "next dev --webpack",
-    "build": "next build --webpack",
+    "dev": "next dev",
+    "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "analyze": "next experimental-analyze --output"
   },
   "dependencies": {
     "@payloadcms/db-postgres": "^3.86.0",
