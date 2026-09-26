@@ -1,4 +1,4 @@
-import { AnimatedDiv, AnimatedSection, StaggerGroup, StaggerItem } from "./animation/MotionElements";
+import { AnimatedDiv, AnimatedHeading, AnimatedSection, ImageReveal, ParallaxDiv, StaggerGroup, StaggerItem } from "./animation/MotionElements";
 
 type ProcessStep = {
   number: string;
@@ -26,23 +26,26 @@ export default function BillingProcess({
           <div className="grid grid-cols-1 items-stretch gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-12">
             
             {/* LEFT IMAGE */}
-            <AnimatedDiv preset="slide-left">
-              <img
-                src={image}
-                alt={imageAlt}
-                className="h-full w-full object-cover"
-              />
-            </AnimatedDiv>
+            <ParallaxDiv distance={20}>
+              <ImageReveal className="h-full">
+                <img
+                  src={image}
+                  alt={imageAlt}
+                  className="h-full w-full object-cover"
+                />
+              </ImageReveal>
+            </ParallaxDiv>
 
             {/* RIGHT CONTENT */}
             <AnimatedDiv preset="slide-right">
-              <h2 className="mb-8 font-inter text-3xl font-bold leading-tight text-heading md:text-4xl lg:text-5xl">
-                {heading}
-              </h2>
+              <AnimatedHeading
+                text={heading}
+                className="mb-8 font-inter text-3xl font-bold leading-tight text-heading md:text-4xl lg:text-5xl"
+              />
 
               <StaggerGroup stagger={0.08} className="space-y-5">
                 {steps.map((step) => (
-                  <StaggerItem key={step.number} preset="card" hover="lift" className="flex flex-col gap-5 bg-white p-5 sm:flex-row">
+                  <StaggerItem key={step.number} preset="card" hover="premium" className="flex flex-col gap-5 bg-white p-5 sm:flex-row">
                     <div className="flex shrink-0 items-center justify-center bg-sky-500/10 px-7 py-4">
                       <span className="font-inter text-5xl font-bold text-sky-500 md:text-6xl">
                         {step.number}
