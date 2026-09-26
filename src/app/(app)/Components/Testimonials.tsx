@@ -1,3 +1,5 @@
+import { AnimatedSection, StaggerGroup, StaggerItem } from "./animation/MotionElements";
+
 type TestimonialItem = {
   name: string;
   role: string;
@@ -18,7 +20,7 @@ export default function Testimonials({
   testimonials,
 }: TestimonialsProps) {
   return (
-    <section className="w-full bg-cyan-50 py-14 lg:py-20">
+    <AnimatedSection preset="fade-up" className="w-full bg-cyan-50 py-14 lg:py-20">
       <div className="mx-auto max-w-[1520px] px-6 lg:px-8 2xl:px-0">
         {/* HEADING */}
         <div className="mx-auto mb-12 max-w-4xl text-center">
@@ -28,12 +30,9 @@ export default function Testimonials({
         </div>
 
         {/* TESTIMONIALS GRID */}
-        <div className="grid grid-cols-1 gap-7 md:grid-cols-2 lg:grid-cols-3">
+        <StaggerGroup stagger={0.1} className="grid grid-cols-1 gap-7 md:grid-cols-2 lg:grid-cols-3">
           {testimonials.map((testimonial) => (
-            <div
-              key={testimonial.name}
-              className="flex flex-col items-center rounded-[10px] bg-white px-7 py-8 text-center"
-            >
+            <StaggerItem key={testimonial.name} preset="card" hover="lift" className="flex flex-col items-center rounded-[10px] bg-white px-7 py-8 text-center">
               <img
                 src={testimonial.image}
                 alt={testimonial.imageAlt}
@@ -57,10 +56,10 @@ export default function Testimonials({
               <p className="font-manrope text-lg font-normal leading-6 text-neutral-500">
                 “{testimonial.quote}”
               </p>
-            </div>
+            </StaggerItem>
           ))}
-        </div>
+        </StaggerGroup>
       </div>
-    </section>
+    </AnimatedSection>
   );
 }
