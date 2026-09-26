@@ -1,4 +1,4 @@
-import { AnimatedSection } from "./animation/MotionElements";
+import { AnimatedHeading, AnimatedSection, StaggerGroup, StaggerItem } from "./animation/MotionElements";
 
 type BillingIntelligenceProps = {
   heading: string;
@@ -16,9 +16,10 @@ export default function BillingIntelligence({
       <div className="mx-auto max-w-[1520px] px-6 lg:px-8 2xl:px-0">
         {/* HEADING */}
         <div className="mx-auto mb-12 max-w-4xl text-center">
-          <h2 className="mb-5 font-inter text-3xl font-semibold leading-tight text-heading md:text-4xl lg:text-5xl">
-            {heading}
-          </h2>
+          <AnimatedHeading
+            text={heading}
+            className="mb-5 font-inter text-3xl font-semibold leading-tight text-heading md:text-4xl lg:text-5xl"
+          />
 
           <p className="font-manrope text-base font-normal leading-8 text-neutral-500 md:text-lg">
             {description}
@@ -26,10 +27,12 @@ export default function BillingIntelligence({
         </div>
 
         {/* GRID */}
-        <div className="grid grid-cols-1 overflow-hidden rounded-[20px] md:grid-cols-2 lg:grid-cols-3">
+        <StaggerGroup stagger={0.08} className="grid grid-cols-1 overflow-hidden rounded-[20px] md:grid-cols-2 lg:grid-cols-3">
           {items.map((item, index) => (
-            <div
+            <StaggerItem
               key={item}
+              preset="card"
+              hover="lift"
               className={`flex flex-col items-center px-8 py-10 text-center ${
                 index % 2 === 0 ? "bg-teal-500/10" : "bg-white"
               }`}
@@ -41,9 +44,9 @@ export default function BillingIntelligence({
               <p className="font-manrope text-lg font-normal leading-8 text-heading">
                 {item}
               </p>
-            </div>
+            </StaggerItem>
           ))}
-        </div>
+        </StaggerGroup>
       </div>
     </AnimatedSection>
   );
