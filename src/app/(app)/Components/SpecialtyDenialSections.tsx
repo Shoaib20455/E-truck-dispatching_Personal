@@ -1,3 +1,4 @@
+import Image from "next/image";
 import AppLink from "./navigation/AppLink";
 import { AnimatedSection } from "./animation/MotionElements";
 
@@ -56,11 +57,7 @@ export default function SpecialtyDenialSections({
               </div>
 
               <div className={imageFirst ? "lg:order-1" : "lg:order-2"}>
-                <img
-                  src={item.image}
-                  alt={item.imageAlt}
-                  className="w-full rounded-[20px] object-cover"
-                />
+                <Image src={item.image} alt={item.imageAlt} width={900} height={650} sizes="(min-width: 1024px) 50vw, 100vw" className="h-auto w-full rounded-[20px] object-cover" />
               </div>
             </div>
           );
