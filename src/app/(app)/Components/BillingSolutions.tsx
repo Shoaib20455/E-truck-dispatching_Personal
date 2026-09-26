@@ -41,10 +41,10 @@ export default function BillingSolutions({
             isOutsource ? "md:grid-cols-3" : "lg:grid-cols-2"
           }`}
         >
-          {solutions.map((solution) => (
+          {solutions.map((solution, index) => (
             <StaggerItem
               key={solution.title}
-              preset="card"
+              preset={index % 2 === 0 ? "tile-left" : "tile-right"}
               hover="premium"
               className={
                 isOutsource
