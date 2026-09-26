@@ -1,4 +1,4 @@
-import { AnimatedSection, StaggerGroup, StaggerItem } from "./animation/MotionElements";
+import { AnimatedHeading, AnimatedSection, StaggerGroup, StaggerItem } from "./animation/MotionElements";
 
 type StatItem = {
   label: string;
@@ -23,9 +23,10 @@ export default function SuccessNumbers({
       <div className="mx-auto max-w-[1520px] px-6 lg:px-8 2xl:px-0">
         {/* HEADING */}
         <div className="mb-12 text-center">
-          <h2 className="font-inter text-3xl font-semibold leading-tight text-heading md:text-4xl lg:text-5xl">
-            {heading}
-          </h2>
+          <AnimatedHeading
+            text={heading}
+            className="font-inter text-3xl font-semibold leading-tight text-heading md:text-4xl lg:text-5xl"
+          />
         </div>
 
         {/* STATS */}
