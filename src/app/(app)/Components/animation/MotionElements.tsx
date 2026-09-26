@@ -17,8 +17,8 @@ const softEase = [0.22, 1, 0.36, 1] as [number, number, number, number];
 
 const defaultViewport = {
   once: true,
-  amount: 0.18,
-  margin: "0px 0px -8% 0px",
+  amount: 0.1,
+  margin: "0px 0px -18% 0px",
 } as const;
 
 export type RevealPreset =
@@ -50,9 +50,9 @@ const presets: Record<RevealPreset, PresetDefinition> = {
     duration: 0.55,
   },
   "fade-up": {
-    hidden: { opacity: 0, y: 30, filter: "blur(8px)" },
+    hidden: { opacity: 0, y: 38, filter: "blur(9px)" },
     visible: { opacity: 1, y: 0, filter: "blur(0px)" },
-    duration: 0.72,
+    duration: 0.78,
   },
   "slide-left": {
     hidden: { opacity: 0, x: -48, y: 10, filter: "blur(7px)" },
