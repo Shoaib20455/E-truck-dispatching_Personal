@@ -23,11 +23,11 @@ export default function DenialCategories({
   const secondRow = categories.slice(4, 7);
   const isStats = variant === "stats";
 
-  const HexCard = ({ item }: { item: DenialCategoryItem }) => {
+  const HexCard = ({ item, side }: { item: DenialCategoryItem; side: "left" | "right" }) => {
     const borderColor = item.highlighted ? "bg-teal-500" : "bg-sky-300";
 
     return (
-      <StaggerItem preset="card" hover="premium" className="drop-shadow-[0_10px_20px_rgba(0,0,0,0.08)]">
+      <StaggerItem preset={side === "left" ? "hex-left" : "hex-right"} hover="premium" className="drop-shadow-[0_10px_20px_rgba(0,0,0,0.08)]">
         <div
           className={`aspect-square p-px ${borderColor}`}
           style={{
@@ -87,14 +87,14 @@ export default function DenialCategories({
         {/* First Row */}
         <StaggerGroup stagger={0.08} className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {firstRow.map((item) => (
-            <HexCard key={item.title} item={item} />
+            <HexCard key={item.title} item={item} side="left" />
           ))}
         </StaggerGroup>
 
         {/* Second Row */}
         <StaggerGroup stagger={0.08} delayChildren={0.15} className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:-mt-8 lg:grid-cols-3 lg:px-[12.5%]">
           {secondRow.map((item) => (
-            <HexCard key={item.title} item={item} />
+            <HexCard key={item.title} item={item} side="right" />
           ))}
         </StaggerGroup>
       </div>
