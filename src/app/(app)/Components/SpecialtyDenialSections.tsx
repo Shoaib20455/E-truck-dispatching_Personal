@@ -1,6 +1,6 @@
 import Image from "next/image";
 import AppLink from "./navigation/AppLink";
-import { AnimatedSection } from "./animation/MotionElements";
+import { AnimatedDiv, AnimatedHeading, AnimatedSection, ImageReveal } from "./animation/MotionElements";
 
 type SpecialtyDenialItem = {
   title: string;
@@ -31,10 +31,11 @@ export default function SpecialtyDenialSections({
               key={index}
               className="grid grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-16"
             >
-              <div className={imageFirst ? "lg:order-2" : "lg:order-1"}>
-                <h2 className="mb-5 font-inter text-3xl font-semibold leading-tight text-neutral-600 md:text-4xl lg:text-5xl">
-                  {item.title}
-                </h2>
+              <AnimatedDiv preset={imageFirst ? "slide-right" : "slide-left"} className={imageFirst ? "lg:order-2" : "lg:order-1"}>
+                <AnimatedHeading
+                  text={item.title}
+                  className="mb-5 font-inter text-3xl font-semibold leading-tight text-neutral-600 md:text-4xl lg:text-5xl"
+                />
 
                 <p className="mb-6 whitespace-pre-line font-manrope text-lg font-normal leading-8 text-neutral-500">
                   {item.description}
@@ -54,11 +55,11 @@ export default function SpecialtyDenialSections({
                 >
                   {item.buttonText}
                 </AppLink>
-              </div>
+              </AnimatedDiv>
 
-              <div className={imageFirst ? "lg:order-1" : "lg:order-2"}>
+              <ImageReveal className={imageFirst ? "lg:order-1 rounded-[20px]" : "lg:order-2 rounded-[20px]"}>
                 <Image src={item.image} alt={item.imageAlt} width={900} height={650} sizes="(min-width: 1024px) 50vw, 100vw" className="h-auto w-full rounded-[20px] object-cover" />
-              </div>
+              </ImageReveal>
             </div>
           );
         })}
